@@ -6,10 +6,15 @@
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
+            {# bootstrap #}
+                <link rel="stylesheet" type="text/css" href="/bootstrap-5.0.1-dist/css/bootstrap.css">
+
             {#{{ encore_entry_link_tags('app') }}#}
         {% endblock %}
 
         {% block javascripts %}
+            {# bootstrap #}
+                <script src="/bootstrap-5.0.1-dist/js/bootstrap.bundle.js"></script>
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
