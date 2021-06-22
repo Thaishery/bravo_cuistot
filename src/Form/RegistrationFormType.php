@@ -91,6 +91,8 @@ class RegistrationFormType extends AbstractType
                  'first_options'  => ['label' => 'email','label_attr' => ['class' => 'form-label']],
                  'second_options' => ['label' => 'Veuillez répéter votre email','label_attr' => ['class' => 'form-label']],
             ])
+            ->add('email')
+            ->add('avatar')
         ;
     }
 
