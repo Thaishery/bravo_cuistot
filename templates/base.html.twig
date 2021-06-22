@@ -18,7 +18,9 @@
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
+    {% include 'partials/header.html.twig' %}
     <body>
         {% block body %}{% endblock %}
     </body>
+    {% include 'partials/footer.html.twig' %}
 </html>
