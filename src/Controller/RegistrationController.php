@@ -29,8 +29,16 @@ class RegistrationController extends AbstractController {
                  )
              );
 
+         $avatar = $form->get('avatar')->getData();
 
+         if ($avatar) {
+              $coverName = $avatarFileUploader->upload($avatar);
+              $user->setAvatar($coverName);
+         }
 
+          else {
+              $user->setAvatar('placeholder.jpg');
+          }
 
              $entityManager = $this->getDoctrine()->getManager();
              $entityManager->persist($user);

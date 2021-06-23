@@ -47,7 +47,7 @@
                          <h4 class="mb-3"> Votre profil </h4>
 
                      <div class="row g-3">
- 
+                        
                              {# **************************************************************** #}
                              {# **************************** LOGIN ***************************** #}
                              {# **************************************************************** #}
@@ -64,9 +64,10 @@
                                          {# *** INPUT *** #}
                                          {{form_widget
                                              (registrationForm.login,
-                                                 {
-                                                     'attr': {'placeholder':'Entrez votre pseudo',
-                                                     'class':'form-control',
+                                                 { 'attr': 
+                                                     {
+                                                         'placeholder':'Entrez votre pseudo',
+                                                         'class':'form-control',
                                                      }
                                                  }
                                              ) 
@@ -85,6 +86,23 @@
                                              
                                  </div>          
                              
+                             
+                             {# **************************************************************** #}
+                             {# **************************** AVATAR **************************** #}
+                             {# **************************************************************** #}
+     
+                                 {{form_label(registrationForm.avatar, ' Photo de profil')}}
+
+                                     {{form_widget
+                                         (registrationForm.avatar,
+                                             {
+                                                 'attr': { 'class':'form-control', }
+                                             }
+                                         ) 
+                                     }}
+                                     
+                                  {# <hr class="my-4"> #}
+                       
                              {# **************************************************************** #}
                              {# **************************** EMAIL ***************************** #}
                              {# **************************************************************** #}
@@ -152,24 +170,26 @@
                              {# **************************** PASSWORD ************************** #}
                              {# **************************************************************** #}
 
-                                 {# <div class="col-sm-6"> #}
+                                 <div class="col-sm-6">
                                     
                                      {# *** LABEL *** #}
-                                     {# {{ form_label (registrationForm.plainPassword.first, { label: 'Password' }) }} #}
+                                     {{form_label (registrationForm.plainPassword.first, 'Password' ) }}
+                                     {# {{ form_label (registrationForm.plainPassword.first, { label: 'Password' } )}} #}
                                 
                                      {# *** INPUT *** #}
-                                     {# {{form_widget
+                                     {{form_widget
                                          (registrationForm.plainPassword.first,
-                                             {
-                                                 'attr': {'placeholder':'Entrez votre mot de passe',
-                                                 'class':'form-control',
+                                             {'attr':
+                                                 {
+                                                     'placeholder':'Entrez votre mot de passe',
+                                                     'class':'form-control',
                                                  }
                                              }
                                          ) 
-                                     }} #}
+                                     }}
 
                                      {# *** IF ERROR *** #}
-                                     {# <div class="invalid-feedback">
+                                     <div class="invalid-feedback">
                                        Le champ mot de passe est requis.
                                        {{form_errors(registrationForm.plainPassword.first)}}
                                      </div>
@@ -178,19 +198,20 @@
                                          {{ form_errors (registrationForm.plainPassword.first) }} 
                                      </span>
                                                          
-                                 </div> #}
-
+                                 </div>
+                                     
                              {# **************************************************************** #}
                              {# ******************* PASSWORD CONFIRMATION ********************** #}
                              {# **************************************************************** #}
                                
-                                 {# <div class="col-sm-6"> #}
+                                 <div class="col-sm-6">
                                     
                                      {# *** LABEL *** #}
+                                     {{form_label (registrationForm.plainPassword.second, 'Confirmer votre mot de pass' ) }}
                                      {# {{form_label (registrationForm.plainPassword.second, 'Confirmer votre mot de passe' ) }} #}
 
                                      {# *** INPUT *** #}
-                                     {# {{form_widget
+                                     {{form_widget
                                          (registrationForm.plainPassword.second,
                                              {
                                                  'attr': {'placeholder':'Confirmer votre mot de passe',
@@ -198,10 +219,10 @@
                                                  }
                                              }
                                          ) 
-                                     }} #}
+                                     }}
 
                                      {# *** IF ERROR *** #}
-                                     {# <div class="invalid-feedback">
+                                     <div class="invalid-feedback">
                                          Le champ confirmer votre mot de passe est requis.
                                          {{form_errors(registrationForm.plainPassword.second)}}
                                      </div>
@@ -210,23 +231,7 @@
                                          {{ form_errors (registrationForm.plainPassword.second) }} 
                                      </span>
                                                        
-                                 </div> #}
-
-                             {# **************************************************************** #}
-                             {# **************************** AVATAR **************************** #}
-                             {# **************************************************************** #}
-     
-                                 {{form_label(registrationForm.avatar, ' Photo de profil')}}
-
-                                     {{form_widget
-                                         (registrationForm.avatar,
-                                             {
-                                                 'attr': { 'class':'form-control', }
-                                             }
-                                         ) 
-                                     }}
-                                     
-                                  <hr class="my-4">
+                                 </div>
     
                              {# **************************************************************** #}
                              {# **************************** C.G.U. **************************** #}
@@ -261,12 +266,43 @@
                                                  
                                  </div>
 
-                             {# *** Bouton: Se Connecter *** #}
-                             <button type="submit" class="btn"> 
-                                 S'inscrire 
-                             </button>
-        
+                             <hr class="my-4">
+
+                                 {# *** Bouton: S'inscrire *** #}
+                                 <button type="submit" class="btn btn-success">                                
+                                     S'inscrire 
+                                 </button>
+         
+                             {# ! to do: link le bouton se connecter #}
+                       
+                                 {# *** Bouton: Se Connecter *** #}
+                                 <button type="submit" class="btn btn-success">                                
+                                     Se Connecter
+                                 </button>  
+
+                              <hr class="my-4">
+                                           
                          {{ form_end(registrationForm) }}
+
+                     {# **************************************************************** #}
+                     {# **************************** CREDITS ****************************** #}
+                     {# **************************************************************** #}       
+
+	                     <div class="">
+
+	                   	 	 <p> 
+                                 © 2021 Signup Form. All rights reserved
+                                 | Design by <br/>
+                                 <a href="#" target="">                     
+                                         Jordan Carmont, 
+                                         Guillaume Debucquet, 
+                                         Christophe Laborde.                 
+                                 </a>
+                             </p>
+		               
+                         </div>
+
+
 
                      </div> 
 
@@ -274,6 +310,20 @@
 
              </div>           
     
-         </div>           
-    
+         </div>               
+
+         
+         {# **************************************************************** #}
+         {# **************************** TEST ****************************** #}
+         {# **************************************************************** #}
+
+
+     
+
+
+
+
+
+
+
      {% endblock %}
