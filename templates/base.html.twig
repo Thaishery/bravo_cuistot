@@ -8,6 +8,8 @@
         {% block stylesheets %}
             {# bootstrap #}
                 <link rel="stylesheet" type="text/css" href="/bootstrap-5.0.1-dist/css/bootstrap.css">
+            {# custom #}
+                <link rel="stylesheet" type="text/css" href="/css/style.css">
 
             {#{{ encore_entry_link_tags('app') }}#}
         {% endblock %}
@@ -18,13 +20,13 @@
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
-    <header>
+
     {% include 'partials/header.html.twig' %}
-    </header>
+ 
     <body>
         {% block body %}{% endblock %}
     </body>
-    <footer>
+
     {% include 'partials/footer.html.twig' %}
-    </footer>
+
 </html>
