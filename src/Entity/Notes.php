@@ -23,7 +23,7 @@ class Notes
     private $note;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="notes")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="notes")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user_id;
