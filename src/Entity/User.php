@@ -64,11 +64,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $recettes_id;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Recette::class, mappedBy="users_fav_id")
+     */
+    private $recettes_fav_id;
+
     public function __construct()
     {
         $this->notes = new ArrayCollection();
         $this->commentaires = new ArrayCollection();
         $this->recettes_id = new ArrayCollection();
+        $this->recettes_fav_id = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -269,6 +275,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             if ($recettesId->getAuthorId() === $this) {
                 $recettesId->setAuthorId(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Recette[]
+     */
+    public function getRecettesFavId(): Collection
+    {
+        return $this->recettes_fav_id;
+    }
+
+    public function addRecettesFavId(Recette $recettesFavId): self
+    {
+        if (!$this->recettes_fav_id->contains($recettesFavId)) {
+            $this->recettes_fav_id[] = $recettesFavId;
+            $recettesFavId->addUsersFavId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecettesFavId(Recette $recettesFavId): self
+    {
+        if ($this->recettes_fav_id->removeElement($recettesFavId)) {
+            $recettesFavId->removeUsersFavId($this);
         }
 
         return $this;

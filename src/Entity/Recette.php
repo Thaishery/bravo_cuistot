@@ -93,12 +93,18 @@ class Recette
      */
     private $plats_id;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=user::class, inversedBy="recettes_fav_id")
+     */
+    private $users_fav_id;
+
     public function __construct()
     {
         $this->ingredientsRecette_id = new ArrayCollection();
         $this->etapes_id = new ArrayCollection();
         $this->commentaires_id = new ArrayCollection();
         $this->notes_id = new ArrayCollection();
+        $this->users_fav_id = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -342,6 +348,30 @@ class Recette
     public function setPlatsId(?Plats $plats_id): self
     {
         $this->plats_id = $plats_id;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|user[]
+     */
+    public function getUsersFavId(): Collection
+    {
+        return $this->users_fav_id;
+    }
+
+    public function addUsersFavId(user $usersFavId): self
+    {
+        if (!$this->users_fav_id->contains($usersFavId)) {
+            $this->users_fav_id[] = $usersFavId;
+        }
+
+        return $this;
+    }
+
+    public function removeUsersFavId(user $usersFavId): self
+    {
+        $this->users_fav_id->removeElement($usersFavId);
 
         return $this;
     }
