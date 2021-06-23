@@ -19,6 +19,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\File;
 
 
+
  class RegistrationFormType extends AbstractType {
 
      public function buildForm (FormBuilderInterface $builder, array $options) {
