@@ -34,6 +34,12 @@ class IngredientsRecette
      */
     private $unitemesure_id;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Recette::class, inversedBy="ingredientsRecette_id")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $recette_id;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -71,6 +77,18 @@ class IngredientsRecette
     public function setUnitemesureId(?UniteMesure $unitemesure_id): self
     {
         $this->unitemesure_id = $unitemesure_id;
+
+        return $this;
+    }
+
+    public function getRecetteId(): ?Recette
+    {
+        return $this->recette_id;
+    }
+
+    public function setRecetteId(?Recette $recette_id): self
+    {
+        $this->recette_id = $recette_id;
 
         return $this;
     }

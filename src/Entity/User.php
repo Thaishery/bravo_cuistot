@@ -59,10 +59,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $commentaires;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Recette::class, mappedBy="author_id")
+     */
+    private $recettes_id;
+
     public function __construct()
     {
         $this->notes = new ArrayCollection();
         $this->commentaires = new ArrayCollection();
+        $this->recettes_id = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -232,6 +238,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($commentaire->getUserId() === $this) {
                 $commentaire->setUserId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Recette[]
+     */
+    public function getRecettesId(): Collection
+    {
+        return $this->recettes_id;
+    }
+
+    public function addRecettesId(Recette $recettesId): self
+    {
+        if (!$this->recettes_id->contains($recettesId)) {
+            $this->recettes_id[] = $recettesId;
+            $recettesId->setAuthorId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecettesId(Recette $recettesId): self
+    {
+        if ($this->recettes_id->removeElement($recettesId)) {
+            // set the owning side to null (unless already changed)
+            if ($recettesId->getAuthorId() === $this) {
+                $recettesId->setAuthorId(null);
             }
         }
 

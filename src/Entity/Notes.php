@@ -28,6 +28,12 @@ class Notes
      */
     private $user_id;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Recette::class, inversedBy="notes_id")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $recette_id;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -53,6 +59,18 @@ class Notes
     public function setUserId(?user $user_id): self
     {
         $this->user_id = $user_id;
+
+        return $this;
+    }
+
+    public function getRecetteId(): ?Recette
+    {
+        return $this->recette_id;
+    }
+
+    public function setRecetteId(?Recette $recette_id): self
+    {
+        $this->recette_id = $recette_id;
 
         return $this;
     }

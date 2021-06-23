@@ -37,6 +37,12 @@ class Etapes
      */
     private $description;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Recette::class, inversedBy="etapes_id")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $recette_id;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +92,18 @@ class Etapes
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getRecetteId(): ?Recette
+    {
+        return $this->recette_id;
+    }
+
+    public function setRecetteId(?Recette $recette_id): self
+    {
+        $this->recette_id = $recette_id;
 
         return $this;
     }
