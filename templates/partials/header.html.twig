@@ -1,6 +1,28 @@
-<div class="row">
+ {# ? Partie: Header #}
+ 
+   <div id="mySidebar" class="sidebar">
+     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+     <a href="#">About</a>
+     <a href="#">Services</a>
+     <a href="#">Clients</a>
+     <a href="#">Contact</a>
+   </div>
+
+   <div id="main">
+
+     <button class="openbtn" onclick="openNav()">
+       &#9776; Open Sidebar
+     </button>
+
+     <h2>Collapsed Sidebar</h2>
+     <p>Content...</p>
+
+   </div>
+
+
+{# <div class="row">
     <div class="col-4 col-xl-5 cadre_connexion">
-        {% if app.user %}
+        {% if app.user %} #}
             {# {% if user.avatar %}
                 <p> 
                     avatar de l'utilisateur
@@ -10,13 +32,13 @@
                     placeholder
                 </p>
             {% endif %} #}
-        {% else %}
-        <!-- si pas utilisateur => modal de connection -->
+        {# {% else %}
+        si pas utilisateur => modal de connection 
           {% include 'partials/loginModal.html.twig' %}
         {% endif %}
 
-    </div>
-
+    </div> #}
+{# 
 
     <div class="col-4 col-xl-2 logo">
         <img class="img-thumbnail" src="/Images/logo.png"/>
@@ -51,4 +73,4 @@
           </ul>
         </div>
       </div>
-</div>
+</div> #}
