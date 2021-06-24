@@ -1,52 +1,84 @@
-<!-- *** MODAL CONNEXION *** -->
-<button type="button" class=" btn btn-success login-position" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    <i id="house1" class="bi bi-house">
-    </i>
-    <span class="mobileHide">Connection</span>
-</button>
-{# ***** MODAL ***** #}
-<div class="login-box modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog ">
-        <div class="modal-content ">
-        {# ? div pour second modal #}
-        {# <div class="login-box">  #}
-            <div class="modal-header ">
-                <h5 class="modal-title" id="exampleModalLabel">
-                    <i class="bi bi-house-door">
-                    </i> Menu de connection 
-                </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div id="loginStyle" class="text-center">
-                    <main class="form-signin">
-                        <form method="post" action="{{ path ("app_login") }}">
-                            {# *** SI L'UTILISATEUR EST AUTHENTIFIÉ *** #}
-                            {% if app.user %}
-                            <div class="mb-3">
-                                Vous etes connecter en tant que {{ app.user.username }},
-                                <a href="{{ path('app_logout') }}"> Se déconnecter </a>
-                            </div>
-                            {% endif %}
-                                {# *** IMAGE: LOGO DU SITE *** #}
-                                <img class="mb-4" src="/Images/logo.png" alt="" width="72" height="57">
-                                <h1 class="h3 mb-3 font-weight-normal"> Se connecter </h1>
-                                <label for="inputLogin" class="visually-hidden"> Pseudo </label>
-                                <input  type="text"  name="login" id="inputLogin" class="form-control"  placeholder="Login" required autofocus>                           
-                                <label for="inputPassword" class="visually-hidden"> Mot de passe </label>
-                                <input  type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required=""> 
-                                <br/>     
-                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                                <button class="btn btn-primary btn-lg btn-block " type="submit"> 
-                                Se connecter 
-                                </button>
-                                <p>
-                                    <a class="btn btn-primary btn-lg btn-block" href="{{ path ('app_register') }}"> Créer un compte </a> 
-                                </p>
-                        </form>
-                    </main>
-                </div>          
-            </div>
-        </div>
-    </div>
-</div>
+ <!-- *** MODAL CONNEXION *** -->
+
+     <button type="button" class=" btn btn-success login-position" data-bs-toggle="modal" data-bs-target="#exampleModal">
+         <i id="house1" class="bi bi-house"> </i>
+         <span class="mobileHide"> Connection </span>
+     </button>
+
+     {# ***** MODAL ***** #}
+
+     <div class="login-box modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+         <div class="modal-dialog ">
+
+             <div class="modal-content ">
+             {# ? div pour second modal #}
+             {# <div class="login-box">  #}
+
+                 <div class="modal-header ">
+
+                     <h5 class="modal-title" id="exampleModalLabel">
+                         <i class="bi bi-house-door">
+                         </i> Menu de connection 
+                     </h5>
+
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                 </div>
+
+                 <div class="modal-body">
+
+                     <div id="loginStyle" class="text-center">
+
+                         <main class="form-signin">
+
+                             <form method="post" action="{{ path ("app_login") }}">
+
+                                 {# *** SI L'UTILISATEUR EST AUTHENTIFIÉ *** #}
+
+                                 {% if app.user %}
+
+                                     <div class="mb-3">
+                                         Vous etes connecter en tant que {{ app.user.username }},
+                                         <a href="{{ path('app_logout') }}"> Se déconnecter </a>
+                                     </div>
+
+                                 {% endif %}
+
+                                 {# *** IMAGE: LOGO DU SITE *** #}
+
+                                 <img class="mb-4" src="/Images/logo.png" alt="" width="72" height="57">
+
+                                 <h1 class="h3 mb-3 font-weight-normal"> Se connecter </h1>
+
+                                     <label for="inputLogin" class="visually-hidden"> Pseudo </label>
+                                     <input  type="text"  name="login" id="inputLogin" class="form-control"  placeholder="Login" required autofocus>                           
+                                     <label for="inputPassword" class="visually-hidden"> Mot de passe </label>
+                                     <input  type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required=""> 
+
+                                     <br/>  
+
+                                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                                     <button class="btn btn-primary btn-lg btn-block " type="submit"> 
+                                         Se connecter 
+                                     </button>
+
+                                     <p>
+                                         <a class="btn btn-primary btn-lg btn-block" href="{{ path ('app_register') }}"> Créer un compte </a> 
+                                     </p>
+
+                             </form>
+
+                         </main>
+
+                     </div>  
+
+                 </div>
+
+             </div>
+
+         </div>
+
+     </div>
+     
