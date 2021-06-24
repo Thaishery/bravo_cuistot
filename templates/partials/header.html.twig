@@ -6,16 +6,20 @@
        <div class="row">
 
            <div class="col-4 col-xl-5 cadre_connexion">
+
                {% if app.user %}
                    {% if user.avatar %}
                        <p> 
                            avatar de l'utilisateur
                        </p>
                    {% else %}
+
                        <p>
-                           placeholder
+                           place
+                           holder
                        </p>
                    {% endif %}
+
                {% else %}
                {# si pas utilisateur => modal de connection  #}
                  {% include 'partials/loginModal.html.twig' %}
@@ -23,14 +27,10 @@
        
            </div>
        
-       
            <div class="col-4 col-xl-2 logo">
-           
-               {# <img class="img-thumbnail" src="logo.png"/> #}
-               <img class="d-block mx-auto mb-4" src="/logo.png" alt="Logo du site" width="72" height="57">
+               <img class="d-block mx-auto mb-4" src="/logo.png" alt="Logo du site" width="72" height="78">
            </div>
-       
-       
+           
            <div class="col-4 col-xl-5 menuNav">
              
 

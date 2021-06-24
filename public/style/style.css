@@ -9,9 +9,36 @@
          /* background-color: #fbfbfd;
      } */
 
-     
+     header {
+          background-color: rgb(0 0 0);
+     }
+
+     header div.row {
+         /* margin: auto; */
+         padding: 1%;
+     }
+
+     .menuNav {
+        text-align: right;
+        /* border: 0px; */
+    }
+
+     h1 {
+         /* margin: 6%;
+         padding: 16px; */
+         margin: 55px;
+         border-radius: 3px;
+         /* background-color: rgba(25,135,84,0.9);  */
+         /* ? Black w/opacity */ 
+         
+     }
 
  /* ***Style du formulaire d'inscription *** */
+
+     #inscriptionForm{
+        margin: 2%;
+        padding: 3%;
+     }
 
      /* #body { */
          /* display: flex;

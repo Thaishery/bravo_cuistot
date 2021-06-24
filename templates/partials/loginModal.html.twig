@@ -1,6 +1,6 @@
  <!-- *** MODAL CONNEXION *** -->
 
-     <button type="button" class=" btn btn-success login-position" data-bs-toggle="modal" data-bs-target="#exampleModal">
+     <button type="button" class=" btn btn-success btn-lg login-position" data-bs-toggle="modal" data-bs-target="#exampleModal">
          <i id="house1" class="bi bi-house"> </i>
          <span class="mobileHide"> Connection </span>
      </button>
@@ -47,7 +47,7 @@
 
                                  {# *** IMAGE: LOGO DU SITE *** #}
 
-                                 <img class="mb-4" src="/Images/logo.png" alt="" width="72" height="57">
+                                 <img class="mb-4" src="/Images/logo.png" alt="Logo du site BravoCuistot" width="72" height="57">
 
                                  <h1 class="h3 mb-3 font-weight-normal"> Se connecter </h1>
 
@@ -60,13 +60,13 @@
 
                                      <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-                                     <button class="btn btn-primary btn-lg btn-block " type="submit"> 
-                                         Se connecter 
+                                     <button class="btn btn-success btn-lg btn-block " type="submit"> 
+                                         Login
                                      </button>
 
-                                     <p>
-                                         <a class="btn btn-primary btn-lg btn-block" href="{{ path ('app_register') }}"> Créer un compte </a> 
-                                     </p>
+                                     <button href="{{ path ('app_register') }}" class="btn btn-success btn-lg btn-block " type="submit">
+                                         Sign In
+                                     </button>
 
                              </form>
 

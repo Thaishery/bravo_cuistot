@@ -23,7 +23,9 @@
                      })
                  }}   
 
-                     <form>                       
+                     <form>     
+
+                         <div id="inscriptionForm">                 
                             
                              {# *** Conteneur du titre du formulaire *** #}
                              <div class="py-5 text-center">
@@ -40,6 +42,8 @@
                              </div>   
 
                              {# **************************************************************** #}
+
+                             <div id="inscriptionForm">
 
                                  <div class="row">
                                  
@@ -114,7 +118,7 @@
                                          <div class="col-sm-6">
                                                 
                                              {# *** LABEL *** #}
-                                             {{form_label (registrationForm.email.first, 'Adresse électronique' ) }}
+                                             {{form_label (registrationForm.email.first, 'Adresse email' ) }}
 
                                              <div class="input-group has-validation">
 
@@ -124,7 +128,7 @@
                                                  {{form_widget
                                                      (registrationForm.email.first,
                                                          {
-                                                             'attr': {'placeholder':'Entrez votre adresse électronique',
+                                                             'attr': {'placeholder':'Entrez votre adresse email',
                                                              'class':'form-control',
                                                              }
                                                          }
@@ -165,7 +169,7 @@
                                                  {# *** INPUT *** #}
                                                  {{form_widget (registrationForm.email.second,
                                                          {
-                                                             'attr': {'placeholder':'Confirmer votre adresse électronique',
+                                                             'attr': {'placeholder':'Confirmer votre adresse email',
                                                              'class':'form-control',
                                                              }
                                                          }
@@ -322,6 +326,8 @@
                                          Se Connecter
                                      </button>  
  
+                         </div> 
+
                  {{ form_end(registrationForm) }}
                     
                      </form>
