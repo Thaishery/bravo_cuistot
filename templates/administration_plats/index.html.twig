@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Plats index{% endblock %}
+
+{% block body %}
+    <h1>Plats index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for plat in plats %}
+            <tr>
+                <td>{{ plat.id }}</td>
+                <td>{{ plat.name }}</td>
+                <td>
+                    <a href="{{ path('administration_plats_show', {'id': plat.id}) }}">show</a>
+                    <a href="{{ path('administration_plats_edit', {'id': plat.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('administration_plats_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoriesController!{% endblock %}
+
+{% block body %}
+<div class="container">
+        <div class="row">
+            <div class="col-6">
+                <p>
+                    <a href="{{path("administration_plats_index")}}">Gérer les types de plats </a>
+                </p>
+            </div>
+            <div class="col-6">
+                <p>
+                    <a href="{{path("administration_alimentation_index")}}">Gérer les type d'alimentation</a>
+                </p>
+            </div>
+            <div class="col-6">
+                <p>
+                    Gérer les type de cuisson
+                </p>
+            </div>
+        </div>
+</div>
+{% endblock %}
