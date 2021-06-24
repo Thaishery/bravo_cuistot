@@ -33,7 +33,7 @@
                              <div class="py-5 text-center">
 
                                  {# *** Image du formulaire *** #}
-                                 <img class="d-block mx-auto mb-4" src="/logo.png" alt="Logo du site" width="72" height="57">
+                                 {# <img class="d-block mx-auto mb-4" src="/logo.png" alt="Logo du site" width="72" height="57"> #}
 
                                  {# *** Titre du formulaire *** #}
                                  <h1 class="h3 mb-3 fw-normal"> Formulaire d'inscription </h1>
@@ -53,7 +53,7 @@
                                      {# **************************** LOGIN ***************************** #}
                                      {# **************************************************************** #}
 
-                                         <div class="col-6">   
+                                         <div class="col-12 col-xl-6">   
                                                
                                              {# *** LABEL *** #}
                                              {{form_label (registrationForm.login, 'Pseudo' ) }}
@@ -91,7 +91,7 @@
                                      {# **************************** AVATAR **************************** #}
                                      {# **************************************************************** #}
 
-                                         <div class="col-6">  
+                                         <div class="col-12 col-xl-6">  
 
                                              {{form_label(registrationForm.avatar, ' Photo de profil')}}
 
@@ -329,21 +329,7 @@
                                      </button>  
  
                  {{ form_end(registrationForm) }}
-
-                     {# **************************************************************** #}
-                     {# **************************** CREDITS *************************** #}
-                     {# **************************************************************** #}
-
-                         {# <p class="mt-5 mb-3 text-muted"> 
-
-                             © 2021 Signup Form. <br/>
-                             All rights reserved | Design by <br/>
-                             <a href="#" target="">                     
-                                 Jordan Carmont, Guillaume Debucquet, Christophe Laborde.                 
-                             </a>
-
-                         </p> #}
-
+                    
                      </form>
 
              </main>

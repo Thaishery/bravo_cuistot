@@ -1,76 +1,56 @@
  {# ? Partie: Header #}
  
-   <div id="mySidebar" class="sidebar">
-     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-     <a href="#">About</a>
-     <a href="#">Services</a>
-     <a href="#">Clients</a>
-     <a href="#">Contact</a>
-   </div>
+   
+   {# ***** Partie: SideBar ***** #}
+  
+       <div class="row">
 
-   <div id="main">
+           <div class="col-4 col-xl-5 cadre_connexion">
+               {% if app.user %}
+                   {% if user.avatar %}
+                       <p> 
+                           avatar de l'utilisateur
+                       </p>
+                   {% else %}
+                       <p>
+                           placeholder
+                       </p>
+                   {% endif %}
+               {% else %}
+               {# si pas utilisateur => modal de connection  #}
+                 {% include 'partials/loginModal.html.twig' %}
+               {% endif %}
+       
+           </div>
+       
+       
+           <div class="col-4 col-xl-2 logo">
+           
+               {# <img class="img-thumbnail" src="logo.png"/> #}
+               <img class="d-block mx-auto mb-4" src="/logo.png" alt="Logo du site" width="72" height="57">
+           </div>
+       
+       
+           <div class="col-4 col-xl-5 menuNav">
+             
 
-     <button class="openbtn" onclick="openNav()">
-       &#9776; Open Sidebar
-     </button>
+              <div id="myNav" class="overlay">
 
-     <h2>Collapsed Sidebar</h2>
-     <p>Content...</p>
+                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times; </a>
 
-   </div>
+                   <div class="overlay-content">
+                     <a href="#"> Accueil </a>
+                     <a href="#"> Actualités </a>
+                     <a href="#"> Recettes </a>
+                     <a href="#"> Astuces </a>
+                     <a href="#"> Contact </a>
+                   </div>
 
-
-{# <div class="row">
-    <div class="col-4 col-xl-5 cadre_connexion">
-        {% if app.user %} #}
-            {# {% if user.avatar %}
-                <p> 
-                    avatar de l'utilisateur
-                </p>
-            {% else %}
-                <p>
-                    placeholder
-                </p>
-            {% endif %} #}
-        {# {% else %}
-        si pas utilisateur => modal de connection 
-          {% include 'partials/loginModal.html.twig' %}
-        {% endif %}
-
-    </div> #}
-{# 
-
-    <div class="col-4 col-xl-2 logo">
-        <img class="img-thumbnail" src="/Images/logo.png"/>
-    </div>
+               </div>
+       
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776; Menu </span> 
 
 
-    <div class="col-4 col-xl-5 menuNav">
-      <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-          <button class="navbar-toggler navmenubutton" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-      </nav>
-    </div>
-    <div class="collapse" id="menuNav">
-        <div class="bg-dark p-4">
-          <h5 class="text-white h4">Menu de navigation : </h5>
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Active</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-</div> #}
+           </div>
+
+       </div>     
