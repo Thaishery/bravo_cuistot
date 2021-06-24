@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-4 col-xl-5 cadre_connexion">
         {% if app.user %}
-            {% if user.avatar %}
+            {# {% if user.avatar %}
                 <p> 
                     avatar de l'utilisateur
                 </p>
@@ -9,7 +9,7 @@
                 <p>
                     placeholder
                 </p>
-            {% endif %}
+            {% endif %} #}
         {% else %}
         <!-- si pas utilisateur => modal de connection -->
           {% include 'partials/loginModal.html.twig' %}
