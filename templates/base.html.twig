@@ -1,32 +1,57 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {# bootstrap #}
-                <link rel="stylesheet" type="text/css" href="/bootstrap-5.0.1-dist/css/bootstrap.css">
-            {# custom #}
-                <link rel="stylesheet" type="text/css" href="/css/style.css">
+ <!DOCTYPE html>
 
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+     {# 
+             CREDITS: 
+             NOM DU DOCUMENT : PROJET BRAVO CUISTOT
+             REALISATION INFORMATIQUE : Guillaume Debucquet (_GD), Jordan Carmont (_JD), Christophe Laborde
+             DATE DE CREATION : 13/01/2021
+             DATE DE DERNIERE MODIFICATION : 18/04/2021 
+     #}
 
-        {% block javascripts %}
-            {# bootstrap #}
-                <script src="/bootstrap-5.0.1-dist/js/bootstrap.bundle.js"></script>
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
+     <html>
+     
+        <head>
 
-    {% include 'partials/header.html.twig' %}
- 
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+             <meta charset="UTF-8">
+             <meta name="viewport" content="width=device-width, initial-scale=1">
+             <meta name="author" content="Guillaume Debucquet, Jordan Carmont, Christophe Laborde">       
+             <meta name="description" content="Ceci est notre projet 'Bravo Cuistot' .">
+             <meta name=" Studio" content=
+                 {% block metaTitle %} " PROJET BRAVO CUISTOT" {% endblock %}> </meta>
+             <meta name="robots" content="none" />
 
-    {% include 'partials/footer.html.twig' %}
+             <title>
+                 {% block title %} PROJET BRAVO CUISTOT {% endblock %}
+            </title>
+  
+             {% block stylesheets %}
 
-</html>
+                 {# ***** Script Bootstrap ***** #}
+                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+                
+                 {# ***** Script Css ***** #}
+                 <link href="{{asset ('style/style.css')}}" rel="stylesheet">
+
+                 {#{{ encore_entry_link_tags('app') }}#}
+
+             {% endblock %}
+     
+             {% block javascripts %}
+                {#{{ encore_entry_script_tags('app') }}#}
+             {% endblock %}
+
+        </head>
+
+{% include 'partials/header.html.twig' %}
+
+         <body>
+
+            {% block body %}{% endblock %}
+
+         </body>
+    
+{% include 'partials/footer.html.twig' %}
+    
+    </html>
+
