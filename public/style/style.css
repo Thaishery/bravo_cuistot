@@ -1,43 +1,64 @@
     
- /* ***Style de tout le document *** */
-   
-    /* * { */
-        /* padding: 0;
-         margin: 0;
-         box-sizing: content-box;
-         margin: auto; */
-         /* background-color: #fbfbfd;
-     } */
 
+
+ /* *** Style de l'entete *** */
+     
      header {
-          background-color: rgb(0 0 0);
+         background-color: rgb(0 0 0);
+         /* background-image: url("../Images/background1.png") ; */
+         /* background-attachment: fixed;     */
+     font-size: 1.0em;
      }
 
      header div.row {
-         /* margin: auto; */
          padding: 1%;
      }
 
      .menuNav {
-        text-align: right;
-        /* border: 0px; */
+         text-align: right;
     }
 
-     h1 {
-         /* margin: 6%;
-         padding: 16px; */
-         margin: 55px;
-         border-radius: 3px;
-         /* background-color: rgba(25,135,84,0.9);  */
-         /* ? Black w/opacity */ 
-         
-     }
+ /* *** Style des titres *** */  
+    
+     /* Titre de premier niveau */
 
- /* ***Style du formulaire d'inscription *** */
+         h1 {     
+             margin: 20%S;
+             padding: 5px;
+             border-radius: 3px;
+             background-color: rgba(25,135,84,0.9); 
+             /* ? Black w/opacity */       
+             /* color:blanchedalmond; */
+             /* padding: 1%; */
+             background-image: url("../Images/background1.png") ;
+             background-blend-mode:screen;
+         }
+
+ /* *** Style du formulaire d'inscription *** */
 
      #inscriptionForm{
         margin: 2%;
         padding: 3%;
+     }
+
+     #plantFont {
+         padding: 1%;
+         background-image: url("../Images/background1.png") ;
+         background-blend-mode:screen;
+         /* background-color: rgb(0 0 0); */
+     }
+
+ /* *** Style du formulaire de connection (normal) *** */ 
+
+     #bloc_page {
+         width: 80%;
+         margin: auto;
+     }
+
+ /* ***Style du menu de navigation *** */  
+    
+     #titreNav {
+
      }
 
      /* #body { */
@@ -50,3 +71,4 @@
          margin: auto;  */
     
      /* } */
+
