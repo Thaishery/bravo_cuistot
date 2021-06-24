@@ -10,7 +10,7 @@
     
      {% block body %}
 
-         <body class="px-4 py-5 my-5 text-center">
+         {# <body class="px-4 py-5 my-5 text-center"> #}
     
              <main class="form-signin">
 
@@ -280,10 +280,10 @@
 
                              <hr class="my-4">
 
-                                 <div class="col-12">
+                                 <div class="col-12 mx-auto">
 
                                      {# *** LABEL *** #}
-                                     {{form_label(registrationForm.agreeTerms, 'Veuillez accepter nos conditions :')}}
+                                     <div class="offset-md-5 CGU_center">{{form_label(registrationForm.agreeTerms, 'Veuillez accepter nos conditions :')}}
 
                                      {# *** INPUT *** #}
                                      {{form_widget
@@ -296,6 +296,7 @@
                                              }
                                          ) 
                                      }}
+                                     </div>
 
                                      {# *** If Errors *** #}
                                      <div class="invalid-feedback">
