@@ -28,11 +28,11 @@
                          <div id="inscriptionForm">                 
                             
                              {# *** Conteneur du titre du formulaire *** #}
-                             <div class="py-5 text-center">
+                             <div id="bloc_page1" class="text-center">
 
 
                                  {# *** Titre du formulaire *** #}
-                                 <h1 id="plantFont" class="h3 mb-3 fw-normal"> Formulaire d'inscription </h1>
+                                 <h1 id="plantFont" class="h1 mb-3 font-weight-normal"> Formulaire d'inscription </h1>
 
                                  {# *** Phrase d'accroche du formulaire *** #}
                                  <p class="lead"> 
@@ -311,8 +311,10 @@
                              <hr class="my-4">
 
                              {# **************************************************************** #}
-                             {# **************************** LOGIN ***************************** #}
+                             {# **************************** ACTION ***************************** #}
                              {# **************************************************************** #}
+
+                                 <div class="btn-group-vertical">
 
                                      {# *** Bouton: S'inscrire *** #}
                                      <button type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
@@ -323,9 +325,11 @@
                        
                                      {# *** Bouton: Se Connecter *** #}
                                      <button type="submit" class="btn btn-dark btn-lg px-4">                                
-                                         Se Connecter
+                                         <a href="{{ path('app_login') }}"> Se connecter </a> 
                                      </button>  
- 
+
+                                 </div>
+
                          </div> 
 
                  {{ form_end(registrationForm) }}
@@ -336,12 +340,7 @@
 
          </body>
 
-         {# **************************************************************** #}
-         {# **************************** TEST ****************************** #}
-         {# **************************************************************** #}
-
-        
-
+       
 
 
 
