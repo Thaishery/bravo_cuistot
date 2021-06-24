@@ -35,7 +35,7 @@ class Recette
     private $image;
 
     /**
-     * @ORM\OneToMany(targetEntity=etapes::class, mappedBy="recette_id")
+     * @ORM\OneToMany(targetEntity=Etapes::class, mappedBy="recette_id")
      */
     private $etapes_id;
 
@@ -70,13 +70,13 @@ class Recette
     private $difficulte;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="recettes_id")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="recettes_id")
      * @ORM\JoinColumn(nullable=false)
      */
     private $author_id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=cuisson::class, inversedBy="recettes_id")
+     * @ORM\ManyToOne(targetEntity=Cuisson::class, inversedBy="recettes_id")
      * @ORM\JoinColumn(nullable=false)
      */
     private $cuisson_id;
@@ -94,7 +94,7 @@ class Recette
     private $plats_id;
 
     /**
-     * @ORM\ManyToMany(targetEntity=user::class, inversedBy="recettes_fav_id")
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="recettes_fav_id")
      */
     private $users_fav_id;
 

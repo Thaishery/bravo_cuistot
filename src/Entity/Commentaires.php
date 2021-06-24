@@ -33,7 +33,7 @@ class Commentaires
     private $edited_at;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="commentaires")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="commentaires")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user_id;
