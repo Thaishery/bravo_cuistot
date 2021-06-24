@@ -2,18 +2,23 @@
  /* ***Style de tout le document *** */
    
     * {
-        padding: 0;
-        margin: 0;
-        background-color: #fbfbfd;
+        /* padding: 0;
+         margin: 0;
+         box-sizing: content-box;
+         margin: auto; */
+         background-color: #fbfbfd;
      }
 
  /* ***Style du formulaire d'inscription *** */
 
      #body {
-         
+         /* display: flex;
+         align-items: center;
+         padding-top: 40px; */
+         /* padding-bottom: 40px; 
          height: 50vh;
          width: 50vw;
-         margin: auto;
+         margin: auto;  */
     
      }
 
