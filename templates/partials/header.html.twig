@@ -1,54 +1,126 @@
-<div class="row col-12">
-    <div class="col-4 col-xl-5 cadre_connexion">
-        {% if app.user %}
-            {# {% if user.avatar %}
-                <p> 
-                    avatar de l'utilisateur
-                </p>
-            {% else %}
-                <p>
-                    placeholder
-                </p>
-            {% endif %} #}
-        {% else %}
-        <!-- si pas utilisateur => modal de connection -->
-          {% include 'partials/loginModal.html.twig' %}
-        {% endif %}
+ {# ? Partie: Header #}
+ 
+         <div class="container">
 
-    </div>
+             <header class="d-flex flex-wrap align-items-center justify-content-md-between mb-4">
+
+                 <div >
+
+                     {% if app.user %}
+
+                         {% if user.avatar %}
+
+                             <p> avatar de l'utilisateur </p>
+
+                         {% else %}
+
+                             <p> placeholder </p>
+
+                         {% endif %}
+
+                     {% else %}
+                         
+                         {# * Si pas utilisateur => modal de connection * #}
+                         {% include 'partials/loginModal.html.twig' %}
+
+                     {% endif %}
+       
+                 </div>
+
+                 <div class=" "> 
+                     <img src="/logo.png" alt="Logo du site" >
+                 </div>
+
+                 {# ********** Partie: SideBar ********** #}
+
+                 <div class="col-md-3 text-end ">
+
+                     <div id="myNav" class="overlay">
+
+                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times; </a>
+
+                         {# <div class="overlay-content">
+                             <a href="#"> Accueil </a>
+                             <a href="#"> Actualités </a>
+                             <a href="#"> Recettes </a>
+                             <a href="#"> Astuces </a>
+                             <a href="#"> Contact </a>
+                         </div> #}
 
 
-    <div class="col-4 col-xl-2 logo">
-        <img class="img-thumbnail" src="/Images/logo.png"/>
-    </div>
+                         {# <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;"> #}
+                         <div class="overlay-content">
+                             
+                             {# *** Titre *** #}
+                             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                                 <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+                                 <span class="h1 fs-4"> Menu de navigation </span>
+                             </a>
+            
+                             <hr>
 
+                             <ul class="nav nav-pills flex-column mb-auto">
 
-    <div class="col-4 col-xl-5 menuNav">
-      <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-          <button class="navbar-toggler navmenubutton" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-      </nav>
-    </div>
-    <div class="collapse" id="menuNav">
-        <div class="bg-dark p-4">
-          <h5 class="text-white h4">Menu de navigation : </h5>
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Active</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-</div>
+                                 {# *** Lien n° 1 *** #}
+
+                                 <li class="nav-item">
+                                     <a href="#" class="nav-link" aria-current="page">
+                                         <svg class="bi me-2" width="16" height="16">
+                                         <use xlink:href="#home"></use></svg>
+                                         <i class='fas fa-house-user'></i> &nbsp; Accueil
+                                     </a>
+                                 </li>
+
+                                 {# *** Lien n° 2 *** #}
+
+                                 <li>
+                                     <a href="#" class="nav-link">
+                                         <svg class="bi me-2" width="16" height="16">
+                                         <use xlink:href="#speedometer2"></use></svg>
+                                         <i class='fas fa-pepper-hot'></i> &nbsp; Actualités
+                                     </a>
+                                 </li>
+
+                                 {# *** Lien n° 3 *** #}
+
+                                 <li>
+                                     <a href="#" class="nav-link">
+                                         <svg class="bi me-2" width="16" height="16">
+                                         <use xlink:href="#table"></use></svg>
+                                         <i class='fas fa-utensils'></i> &nbsp; Recettes
+                                     </a>
+                                 </li>
+
+                                 {# *** Lien n° 4 *** #}
+
+                                 <li>
+                                     <a href="#" class="nav-link">
+                                         <svg class="bi me-2" width="16" height="16">
+                                         <use xlink:href="#grid"></use></svg>
+                                          <i class='fas fa-hand-sparkles'></i> &nbsp; Astuces
+                                     </a>
+                                 </li>
+
+                                 {# *** Lien n° 5 *** #}
+
+                                 <li>
+                                     <a href="#" class="nav-link">
+                                         <svg class="bi me-2" width="16" height="16">
+                                         <use xlink:href="#people-circle"></use></svg>
+                                         <i class='fas fa-address-card'></i> &nbsp;  Contact
+                                     </a>
+                                 </li>
+
+                             </ul>
+
+                         </div>   
+
+                     </div>
+             
+                     <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776; </span> 
+
+                 </div>
+
+             </header>
+
+         </div>
