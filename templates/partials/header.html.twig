@@ -1,56 +1,127 @@
  {# ? Partie: Header #}
  
-   
-   {# ***** Partie: SideBar ***** #}
-  
-       <div class="row">
+         <div class="container">
 
-           <div class="col-4 col-xl-5 cadre_connexion">
+             <header class="d-flex flex-wrap align-items-center justify-content-md-between mb-4">
 
-               {% if app.user %}
-                   {% if user.avatar %}
-                       <p> 
-                           avatar de l'utilisateur
-                       </p>
-                   {% else %}
+                 <div >
 
-                       <p>
-                           place
-                           holder
-                       </p>
-                   {% endif %}
+                     {% if app.user %}
 
-               {% else %}
-               {# si pas utilisateur => modal de connection  #}
-                 {% include 'partials/loginModal.html.twig' %}
-               {% endif %}
+                         {% if user.avatar %}
+
+                             <p> avatar de l'utilisateur </p>
+
+                         {% else %}
+
+                             <p> placeholder </p>
+
+                         {% endif %}
+
+                     {% else %}
+                         
+                         {# * Si pas utilisateur => modal de connection * #}
+                         {% include 'partials/loginModal.html.twig' %}
+
+                     {% endif %}
        
-           </div>
-       
-           <div class="col-4 col-xl-2 logo">
-               <img class="d-block mx-auto mb-4" src="/logo.png" alt="Logo du site" width="72" height="78">
-           </div>
-           
-           <div class="col-4 col-xl-5 menuNav">
+                 </div>
+
+                 <div class=" "> 
+                     <img src="/logo.png" alt="Logo du site" >
+                 </div>
+
+                 {# ********** Partie: SideBar ********** #}
+
+                 <div class="col-md-3 text-end ">
+
+                     <div id="myNav" class="overlay">
+
+                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times; </a>
+
+                         {# <div class="overlay-content">
+                             <a href="#"> Accueil </a>
+                             <a href="#"> Actualités </a>
+                             <a href="#"> Recettes </a>
+                             <a href="#"> Astuces </a>
+                             <a href="#"> Contact </a>
+                         </div> #}
+
+
+                         {# <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;"> #}
+                         <div class="overlay-content">
+                             
+                             {# *** Titre *** #}
+                             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                                 <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+                                 <span class="h1 fs-4"> Menu de navigation </span>
+                             </a>
+            
+                             <hr>
+
+                             <ul class="nav nav-pills flex-column mb-auto">
+
+                                 {# *** Lien n° 1 *** #}
+
+                                 <li class="nav-item">
+                                     <a href="#" class="nav-link" aria-current="page">
+                                         <svg class="bi me-2" width="16" height="16">
+                                         <use xlink:href="#home"></use></svg>
+                                         <i class='fas fa-house-user'></i> &nbsp; Accueil
+                                     </a>
+                                 </li>
+
+                                 {# *** Lien n° 2 *** #}
+
+                                 <li>
+                                     <a href="#" class="nav-link">
+                                         <svg class="bi me-2" width="16" height="16">
+                                         <use xlink:href="#speedometer2"></use></svg>
+                                         <i class='fas fa-pepper-hot'></i> &nbsp; Actualités
+                                     </a>
+                                 </li>
+
+                                 {# *** Lien n° 3 *** #}
+
+                                 <li>
+                                     <a href="#" class="nav-link">
+                                         <svg class="bi me-2" width="16" height="16">
+                                         <use xlink:href="#table"></use></svg>
+                                         <i class='fas fa-utensils'></i> &nbsp; Recettes
+                                     </a>
+                                 </li>
+
+                                 {# *** Lien n° 4 *** #}
+
+                                 <li>
+                                     <a href="#" class="nav-link">
+                                         <svg class="bi me-2" width="16" height="16">
+                                         <use xlink:href="#grid"></use></svg>
+                                          <i class='fas fa-hand-sparkles'></i> &nbsp; Astuces
+                                     </a>
+                                 </li>
+
+                                 {# *** Lien n° 5 *** #}
+
+                                 <li>
+                                     <a href="#" class="nav-link">
+                                         <svg class="bi me-2" width="16" height="16">
+                                         <use xlink:href="#people-circle"></use></svg>
+                                         <i class='fas fa-address-card'></i> &nbsp;  Contact
+                                     </a>
+                                 </li>
+
+                             </ul>
+
+                         </div>   
+
+                     </div>
              
+                     <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776; </span> 
 
-              <div id="myNav" class="overlay">
+                 </div>
 
-                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times; </a>
+             </header>
 
-                   <div class="overlay-content">
-                     <a href="#"> Accueil </a>
-                     <a href="#"> Actualités </a>
-                     <a href="#"> Recettes </a>
-                     <a href="#"> Astuces </a>
-                     <a href="#"> Contact </a>
-                   </div>
-
-               </div>
-       
-                <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776; Menu </span> 
-
-
-           </div>
-
-       </div>     
+         </div>
+   
