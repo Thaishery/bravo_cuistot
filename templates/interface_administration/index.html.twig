@@ -7,29 +7,33 @@
         <div class="row">
             <div class="col-6">
                 <p>
-                    Gérer les utilisateurs 
+                    <a href="{{path("user_index")}}">Gérer les utilisateurs </a>
                 </p>
             </div>
             <div class="col-6">
                 <p>
-                    Gérer les recettes
+                    <a href="{{path("administration_recette_index")}}">Gérer les recettes</a>
                 </p>
             </div>
             <div class="col-6">
                 <p>
-                    Gérer les commentaires
+                    <a href="{{path("administration_comentaires_index")}}">Gérer les commentaires</a>
                 </p>
             </div>
             <div class="col-6">
                 <p>
-                    Gérer les catégories
+                    <a href="{{path("categories")}}">Gérer les catégories</a>
                 </p>
             </div>
             <div class="col-6">
                 <p>
-                    Gérer les ingédients
+                    <a href="{{path("administration_ingredients_index")}}">Gérer les ingédients </a>
                 </p>
             </div>
+            <div class="col-6">
+                <p>
+                    <a href="{{path("unite_mesure_index")}}">Gérer les unitées de messures </a>
+                </p>
         </div>
     </div>
 {% endblock %}

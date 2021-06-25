@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Cuisson{% endblock %}
+
+{% block body %}
+    <h1>Edit Cuisson</h1>
+
+    {{ include('administration_cuisson/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('administration_cuisson_index') }}">back to list</a>
+
+    {{ include('administration_cuisson/_delete_form.html.twig') }}
+{% endblock %}

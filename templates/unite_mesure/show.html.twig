@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UniteMesure{% endblock %}
+
+{% block body %}
+    <h1>UniteMesure</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ unite_mesure.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ unite_mesure.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('unite_mesure_index') }}">back to list</a>
+
+    <a href="{{ path('unite_mesure_edit', {'id': unite_mesure.id}) }}">edit</a>
+
+    {{ include('unite_mesure/_delete_form.html.twig') }}
+{% endblock %}

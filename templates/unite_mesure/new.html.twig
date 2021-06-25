@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New UniteMesure{% endblock %}
+
+{% block body %}
+    <h1>Create new UniteMesure</h1>
+
+    {{ include('unite_mesure/_form.html.twig') }}
+
+    <a href="{{ path('unite_mesure_index') }}">back to list</a>
+{% endblock %}
