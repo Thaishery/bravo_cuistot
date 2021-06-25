@@ -19,10 +19,11 @@
              <meta name=" Studio" content=
                  {% block metaTitle %} " PROJET BRAVO CUISTOT" {% endblock %}> </meta>
              <meta name="robots" content="none" />
+             <link rel="icon" src="Images/logo.ico" type="image/x-icon" alt="Logo du site">
 
              <title>
                  {% block title %} PROJET BRAVO CUISTOT {% endblock %}
-            </title>
+             </title>
   
              {% block stylesheets %}
              
@@ -62,8 +63,8 @@
 
          <body>
          
-             {% block body %}{% endblock %}
              {# {% include 'partials/body.html.twig' %} #}
+             {% block body %}{% endblock %}
          
          </body>
 
