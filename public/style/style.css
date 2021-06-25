@@ -34,7 +34,7 @@
              background-blend-mode:screen;
 
              border:  rgba(25,135,84,0.9) groove 1px;
-             box-shadow: 3px 3px 3px #f0626f;
+             /* box-shadow: 3px 3px 3px #f0626f; */
          }
 
  /* *** Style du formulaire d'inscription *** */
