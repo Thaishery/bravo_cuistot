@@ -23,29 +23,27 @@
                      })
                  }}   
 
-                     <form>
-        
-                         {# <img class="d-block mx-auto mb-4" src="/logo.png" alt="Logo du site" width="72" height="57">     #}
+                     <form>     
 
-                             {# <h1 class="h3 mb-3 fw-normal"> Please sign in </h1> #}
+                         <div id="inscriptionForm">                 
                             
                              {# *** Conteneur du titre du formulaire *** #}
-                             <div class="py-5 text-center">
+                             <div id="bloc_page1" class="text-center">
 
-                                 {# *** Image du formulaire *** #}
-                                 <img class="d-block mx-auto mb-4" src="/logo.png" alt="Logo du site" width="72" height="57">
 
                                  {# *** Titre du formulaire *** #}
-                                 <h1 class="h3 mb-3 fw-normal"> Formulaire d'inscription </h1>
+                                 <h1 id="plantFont" class="h1 mb-3 font-weight-normal"> Formulaire d'inscription </h1>
 
                                  {# *** Phrase d'accroche du formulaire *** #}
-                                 {# <p class="lead"> 
+                                 <p class="lead"> 
                                    Inscrivez-vous gratuitement pour créer un compte et accéder au contenu du site. 
-                                 </p> #}
+                                 </p>
                                
                              </div>   
 
                              {# **************************************************************** #}
+
+                             <div id="inscriptionForm">
 
                                  <div class="row">
                                  
@@ -53,7 +51,7 @@
                                      {# **************************** LOGIN ***************************** #}
                                      {# **************************************************************** #}
 
-                                         <div class="col-6">   
+                                         <div class="col-12 col-xl-6">   
                                                
                                              {# *** LABEL *** #}
                                              {{form_label (registrationForm.login, 'Pseudo' ) }}
@@ -91,7 +89,7 @@
                                      {# **************************** AVATAR **************************** #}
                                      {# **************************************************************** #}
 
-                                         <div class="col-6">  
+                                         <div class="col-12 col-xl-6">  
 
                                              {{form_label(registrationForm.avatar, ' Photo de profil')}}
 
@@ -120,7 +118,7 @@
                                          <div class="col-sm-6">
                                                 
                                              {# *** LABEL *** #}
-                                             {{form_label (registrationForm.email.first, 'Adresse électronique' ) }}
+                                             {{form_label (registrationForm.email.first, 'Adresse email' ) }}
 
                                              <div class="input-group has-validation">
 
@@ -130,7 +128,7 @@
                                                  {{form_widget
                                                      (registrationForm.email.first,
                                                          {
-                                                             'attr': {'placeholder':'Entrez votre adresse électronique',
+                                                             'attr': {'placeholder':'Entrez votre adresse email',
                                                              'class':'form-control',
                                                              }
                                                          }
@@ -171,7 +169,7 @@
                                                  {# *** INPUT *** #}
                                                  {{form_widget (registrationForm.email.second,
                                                          {
-                                                             'attr': {'placeholder':'Confirmer votre adresse électronique',
+                                                             'attr': {'placeholder':'Confirmer votre adresse email',
                                                              'class':'form-control',
                                                              }
                                                          }
@@ -313,8 +311,10 @@
                              <hr class="my-4">
 
                              {# **************************************************************** #}
-                             {# **************************** LOGIN ***************************** #}
+                             {# **************************** ACTION ***************************** #}
                              {# **************************************************************** #}
+
+                                 <div class="btn-group-vertical">
 
                                      {# *** Bouton: S'inscrire *** #}
                                      <button type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
@@ -325,37 +325,22 @@
                        
                                      {# *** Bouton: Se Connecter *** #}
                                      <button type="submit" class="btn btn-dark btn-lg px-4">                                
-                                         Se Connecter
+                                         <a href="{{ path('app_login') }}"> Se connecter </a> 
                                      </button>  
- 
+
+                                 </div>
+
+                         </div> 
+
                  {{ form_end(registrationForm) }}
-
-                     {# **************************************************************** #}
-                     {# **************************** CREDITS *************************** #}
-                     {# **************************************************************** #}
-
-                         {# <p class="mt-5 mb-3 text-muted"> 
-
-                             © 2021 Signup Form. <br/>
-                             All rights reserved | Design by <br/>
-                             <a href="#" target="">                     
-                                 Jordan Carmont, Guillaume Debucquet, Christophe Laborde.                 
-                             </a>
-
-                         </p> #}
-
+                    
                      </form>
 
              </main>
 
          </body>
 
-         {# **************************************************************** #}
-         {# **************************** TEST ****************************** #}
-         {# **************************************************************** #}
-
-        
-
+       
 
 
 
