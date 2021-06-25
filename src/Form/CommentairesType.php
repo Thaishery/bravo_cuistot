@@ -21,7 +21,7 @@ class CommentairesType extends AbstractType
                         'message' => 'Votre commentaire ne peut pas être vide.'
                     ]),
                     new Assert\Regex([
-                        //this field may be exposed to the user, so we may want to secure it.
+                        //this field will be exposed to the user, so we may want to secure it.
                         //sql injection prevention: this should work (using # # to escape the regex as \ would throw error. )
                         'pattern' => '#^(?:[\(\'\{"\$\\\/\[\]\}]){2}#', 
                         'match' => false,
