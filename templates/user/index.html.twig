@@ -5,13 +5,13 @@
 {% block body %}
     <h1>User index</h1>
 
-    <table class="table">
-        <thead>
+    <table class="table table-success table-striped">
+        <thead class="table-dark">
             <tr>
-                <th>Id</th>
-                <th>Login</th>
+                <th class="col-1">Id</th>
+                <th class="col-1">Login</th>
                 <th>Roles</th>
-                <th>Password</th>
+                <th class="col-2">Password</th>
                 <th>Avatar</th>
                 <th>Email</th>
                 <th>actions</th>
@@ -27,8 +27,8 @@
                 <td>{{ user.avatar }}</td>
                 <td>{{ user.email }}</td>
                 <td>
-                    <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                    <a class="btn btn-success" href="{{ path('user_show', {'id': user.id}) }}">show</a>
+                    <a class="btn btn-success" href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
