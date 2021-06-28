@@ -20,7 +20,7 @@ class CuissonType extends AbstractType
                         'message' => 'Veuillez entrer un type de cuisson.'
                     ]),
                     new Assert\Regex([
-                        'pattern' => '/^[a-zA-ZàâäêéèëîïôöùûüÀÂÄÊËÎÏÔÖÙÛÜŒœÇç]/',
+                        'pattern' => '/^[a-zA-ZàâäêéèëîïôöùûüÀÂÄÊËÎÏÔÖÙÛÜŒœÇç ]+/',
                         'message' => 'Ce champ ne peut contenir que des caractéres alphabétiques, accentuation incluse.'
                     ])
                 ],

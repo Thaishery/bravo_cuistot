@@ -20,7 +20,7 @@ class IngredientsType extends AbstractType
                         'message' => 'Veuillez entrer un nom.'
                     ]),
                     new Assert\Regex([
-                        'pattern' => '/^[a-zA-ZàâäêéèëîïôöùûüÀÂÄÊËÎÏÔÖÙÛÜŒœÇç]/',
+                        'pattern' => '/^[a-zA-ZàâäêéèëîïôöùûüÀÂÄÊËÎÏÔÖÙÛÜŒœÇç ]+/',
                         'message' => 'Ce champ ne peut contenir que des caractéres alphabétiques, accentuation incluse.'
                     ])
                 ],

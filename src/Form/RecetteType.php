@@ -24,7 +24,7 @@ class RecetteType extends AbstractType
                         'message' => 'Veuillez entrer un nom de recette.',
                     ]),
                     new Assert\Regex([
-                        'pattern' => '/[^a-zA-ZàâäêéèëîïôöùûüÀÂÄÊËÎÏÔÖÙÛÜŒœÇç0-9 ]/',
+                        'pattern' => '/[^a-zA-ZàâäêéèëîïôöùûüÀÂÄÊËÎÏÔÖÙÛÜŒœÇç0-9 ]+/',
                         'match' => false,
                         'message' => 'Ce champ ne peut contenir que des caractéres alphabétiques, accentuation incluse.',
                     ])
