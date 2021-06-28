@@ -3,7 +3,7 @@ security:
         ROLE_MODERATEUR: ROLE_USER
         ROLE_ADMIN:      ROLE_MODERATEUR
         
-    encoders:
+    password_hashers:
         App\Entity\User:
             algorithm: auto
 

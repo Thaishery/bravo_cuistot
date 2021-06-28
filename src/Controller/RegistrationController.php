@@ -4,26 +4,30 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\RegistrationFormType;
+use App\Service\AvatarFileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+//symfony 5.3 , doc : 
+//https://symfony.com/blog/new-in-symfony-5-3-passwordhasher-component
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class RegistrationController extends AbstractController {
     /**
      * @Route("/register", name="app_register")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
+    public function register(AvatarFileUploader $avatarFileUploader,Request $request, UserPasswordHasherInterface $PasswordHasher): Response
     {
          $user = new User();
          $form = $this->createForm(RegistrationFormType::class, $user);
          $form->handleRequest($request);
 
+
          if ($form->isSubmitted() && $form->isValid()) {
              // encode the plain password
              $user->setPassword(
-                 $passwordEncoder->encodePassword(
+                 $PasswordHasher->hashPassword(
                      $user,
                      $form->get('plainPassword')->getData()
                  )
