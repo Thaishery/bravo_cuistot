@@ -1,4 +1,7 @@
-    
+/* *** Style Commun *** */
+.textPink{
+    color: #f0626f;
+}    
 
 
  /* *** Style de l'entete *** */
@@ -61,9 +64,9 @@
 
  /* ***Style du menu de navigation *** */  
     
-     #titreNav {
+     /* #titreNav {
 
-     }
+     } */
 
      /* #body { */
          /* display: flex;

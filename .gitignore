@@ -19,3 +19,6 @@
 .phpunit.result.cache
 ###< phpunit/phpunit ###
 .env
+###> dossier d'avatar ###
+/public/uploads/avatar
+###< dossier d'avatar ###
