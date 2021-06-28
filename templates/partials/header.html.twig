@@ -4,21 +4,86 @@
 
              <header class="d-flex flex-wrap align-items-center justify-content-md-between mb-4">
 
-                 <div >
+                 <div class="" >
+                 {# <div class="pb-3 mb-0 small lh-sm border-bottom w-100" > #}
 
                      {% if app.user %}
 
-                         {# ************************************ #}
-                         {# ************************************ #}
+                         {# <div class="" style="display:flex; justify-content:space-around;"> #}
+
+                         {# *********************************** #}
+                         {# * Gestion de l'utilisateur actuel * #}
+                         {# *********************************** #}
+
+                         {# <div class="dropdown"> #}
                          {# {% if user.avatar %} #}
 
-                             <p> avatar de l'utilisateur </p>
+                             {# <div class="d-flex justify-content-between"> #}
+                                                    
+                                 {# <strong class="text-gray-dark">
+                                     Full Name                                                
+                                     {% if app.user.login %}
+                                     @ {{app.user.username}} 
+                                     {% else %}
+                                     Bienvenue
+                                         <i class="bi bi-caret-down"></i>
+                                     {% endif %}
+                                 </strong> #}
 
-                         {# {% else %} #}
+                             {# </div> #}
+                 
+                             {# <div class="mb-3">
+                                 <p> Vous etes connecté en tant que {{ app.user.username }}, </p>
+                                 <a href="{{ path('app_logout') }}"> Se déconnecter </a>
+                             </div> #}
 
-                             <p> placeholder </p>
+                             {# ? Possiblité de rajouter un pseudo en plus éventuellement en dessous du nom classique #}
+                             {# <span class="d-block">
+                                 @{{app.user.login}}                                         
+                             </span> #}
 
-                         {# {% endif %} #}
+                         {# </div>  #}
+
+                         <div class="dropdown">
+                         {# {% if user.avatar %} #}
+
+                             {# <div class="d-flex justify-content-between"> #}
+
+                                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+
+                                     {# <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2"> #}
+                                     <img src="{{app.user.avatar}} " alt="" width="32" height="32" class="rounded-circle me-2">  
+
+                                     <strong> 
+                                         {# Full Name #}                                                
+                                         {% if app.user.login %}
+                                         @ {{app.user.username}} 
+                                         {% else %}
+                                         Bienvenue
+                                             <i class="bi bi-caret-down"></i>
+                                         {% endif %}
+                                     </strong>
+
+                                 </a>
+
+                                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                                     <li> <a class="dropdown-item" href="#"> Créer une nouvelle recette </a> </li>
+                                     <li> <a class="dropdown-item" href="#"> Gérer mes recettes </a> </li>
+                                     {# <li> <a class="dropdown-item" href="#"> Noter des recettes </a> </li> #}
+                                     {# <li> <a class="dropdown-item" href="#"> Créer un ingrédients </a> </li> #}
+                                     <li> <hr class="dropdown-divider">   </li>
+                                         <li> <a class="dropdown-item" href="#"> Gérer mon profil </a></li>
+                                         <li> <a class="dropdown-item" href="#"> Gérer mes commentaires </a></li>
+                                         <li> <a class="dropdown-item" href="#"> Paramètres </a></li>
+                                     <li> <hr class="dropdown-divider">   </li>
+                                     <li> <a class="dropdown-item" href="{{ path ('app_logout') }}"> Se déconnecter </a></li>
+                                 </ul>
+ 
+                             {# </div>  #}
+
+                         </div>  
+
+                     </div>
 
                      {% else %}
                          
@@ -28,6 +93,8 @@
                      {% endif %}
        
                  </div>
+
+                 {# ********** Partie: Logo ********** #}
 
                  <div class=" "> 
                      <img src="/logo.png" alt="Logo du site" >
@@ -40,16 +107,7 @@
                      <div id="myNav" class="overlay">
 
                          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times; </a>
-
-                         {# <div class="overlay-content">
-                             <a href="#"> Accueil </a>
-                             <a href="#"> Actualités </a>
-                             <a href="#"> Recettes </a>
-                             <a href="#"> Astuces </a>
-                             <a href="#"> Contact </a>
-                         </div> #}
-
-
+                    
                          {# <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;"> #}
                          <div class="overlay-content">
                              
