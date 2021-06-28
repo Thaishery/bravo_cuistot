@@ -4,19 +4,20 @@
 
              <header class="d-flex flex-wrap align-items-center justify-content-md-between mb-4">
 
-                 <div >
+                 <div>
 
                      {% if app.user %}
+                        <p class="textPink"> vous etes connecter en tant que : 
+                            {{app.user.login}}
+                         {% if app.user.avatar %}
 
-                         {# {% if user.avatar %} #}
+                             <img src="/uploads/avatar/{{app.user.avatar}}">
 
-                             <p> avatar de l'utilisateur </p>
+                         {% else %}
 
-                         {# {% else %} #}
+                             <p class="textPink"> placeholder </p>
 
-                             <p> placeholder </p>
-
-                         {# {% endif %} #}
+                         {% endif %}
 
                      {% else %}
                          
