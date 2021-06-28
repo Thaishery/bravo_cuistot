@@ -24,7 +24,8 @@ class RecetteType extends AbstractType
                         'message' => 'Veuillez entrer un nom de recette.',
                     ]),
                     new Assert\Regex([
-                        'pattern' => '/^[a-zA-ZàâäêéèëîïôöùûüÀÂÄÊËÎÏÔÖÙÛÜŒœÇç]/',
+                        'pattern' => '/[^a-zA-ZàâäêéèëîïôöùûüÀÂÄÊËÎÏÔÖÙÛÜŒœÇç0-9 ]/',
+                        'match' => false,
                         'message' => 'Ce champ ne peut contenir que des caractéres alphabétiques, accentuation incluse.',
                     ])
                 ]
@@ -53,29 +54,43 @@ class RecetteType extends AbstractType
                     new NotBlank([
                         'message' => 'Veuillez entrer un temps de préparation',
                     ]),
+                    //1er caractére est dif de 0 (marche aussi avec 00 car symfony considére 00 comme 0) : 
                     new Assert\Regex([
-                        'pattern' => '/[0-9]/',
-                        'message' => 'Ce champ ne peut contenir que des caractéres numériques maximum 4 et est exprimé en minutes max 999 minutes',
-                    ])
-                ]
+                        'pattern' => '/^0{1}/',
+                        'match' => false,
+                        'message' => 'ce champ ne peut être vide'
+                    ]),
+                    //au maximum 2 caractéres
+                    new Assert\Regex([
+                        'pattern' => '/^.{4,}/',
+                        'match' => false,
+                        'message' => 'Ce champ peut contenir au maximum 3 charactéres'
+                    ]),
+                    //uniquement des chiffre (le NumberType s'en charge deja): 
+                ],
+                'invalid_message'=>'Ce champ peut contenir uniquement un nombre, comprit entre 1 et 999'
             ])
             ->add('temps_cuisson', NumberType::class,[
                 'constraints' =>[
                     new NotBlank([
                         'message' => 'Veuillez entrer un temps de cuisson, mettez 0 si votre recette ne necessite pas de cuisson.',
                     ]),
+                    //au maximum 2 caractéres
                     new Assert\Regex([
-                        'pattern' => '/[0-9]/',
-                        'message' => 'Ce champ ne peut contenir que des caractéres numériques maximum 3 et est exprimé en minutes max 9999 minutes',
-                    ])
-                ]
+                        'pattern' => '/^.{4,}/',
+                        'match' => false,
+                        'message' => 'Ce champ peut contenir au maximum 3 charactéres'
+                    ]),
+                    //uniquement des chiffre (le NumberType s'en charge deja): 
+                ],
+                'invalid_message'=>'Ce champ peut contenir uniquement un nombre, comprit entre 1 et 999'
             ])
             ->add('nb_personnes', NumberType::class,[
                 'constraints' =>[
                     new NotBlank([
                         'message' => 'Veuillez entrer le nombre de pars pers.',
                     ]),
-                    //1er caractére est de 0 (marche aussi avec 00 car symfony considére 00 comme 0) : 
+                    //1er caractére est dif de 0 (marche aussi avec 00 car symfony considére 00 comme 0) : 
                     new Assert\Regex([
                         'pattern' => '/^0{1}/',
                         'match' => false,
@@ -89,18 +104,32 @@ class RecetteType extends AbstractType
                     ]),
                     //uniquement des chiffre (le NumberType s'en charge deja): 
                 ],
-                'invalid_message'=>'Ce champ peut contenir uniquement des chiffres, comprit entre 1 et 99'
+                'invalid_message'=>'Ce champ peut contenir uniquement un nombre, comprit entre 1 et 99'
             ])
             ->add('difficulte', NumberType::class,[
                 'constraints' =>[
                     new NotBlank([
                         'message' => 'Veuillez entrer une difficulté.',
                     ]),
+                    // 1er caractére comprit entre 1 et 3 
                     new Assert\Regex([
-                        'pattern' => '/[1-3]{1}/',
+                        'pattern' => '/^[1-3]{1}/',
                         'message' => 'Ce champ ne peut varier que de 1 a 3.',
-                    ])
-                ]
+                    ]),
+                    // 1er caractére ne peut etre 0 
+                    new Assert\Regex([
+                        'pattern' => '/^0{1}/',
+                        'match' => false,
+                        'message' => 'ce champ ne peut être vide'
+                    ]),
+                    //au maximum 1 caractéres
+                    new Assert\Regex([
+                        'pattern' => '/^.{2,}/',
+                        'match' => false,
+                        'message' => 'Ce champ peut contenir au maximum 1 charactéres'
+                    ]),
+                ],
+                'invalid_message'=>'Ce champ peut contenir uniquement un nombre, comprit entre 1 et 99'
             ])
             // commentaire temporaire pour tester les regex,
             // sera récupérer du controller et ajouter, donc pas de sécurisation (champ non exposer)
