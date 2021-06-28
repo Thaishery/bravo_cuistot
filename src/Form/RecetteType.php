@@ -21,7 +21,7 @@ class RecetteType extends AbstractType
             ->add('name', TextType::class,[
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Veuillez entrer un nom de recette.'
+                        'message' => 'Veuillez entrer un nom de recette.',
                     ]),
                     new Assert\Regex([
                         'pattern' => '/^[a-zA-ZàâäêéèëîïôöùûüÀÂÄÊËÎÏÔÖÙÛÜŒœÇç]/',
@@ -47,48 +47,58 @@ class RecetteType extends AbstractType
                             ],
                             'required'   => false,
                     'mapped' => false,
-                ])
+            ])
             ->add('temps_preparation', NumberType::class,[
                 'constraints' =>[
                     new NotBlank([
-                        'message' => 'Veuillez entrer un temps de préparation'
+                        'message' => 'Veuillez entrer un temps de préparation',
                     ]),
                     new Assert\Regex([
-                        'pattern' => '/^[0-9]{0,3}/',
-                        'message' => 'Ce champ ne peut contenir que des caractéres numériques (maximum 4) et est exprimé en minutes. max 999 minutes'
+                        'pattern' => '/[0-9]/',
+                        'message' => 'Ce champ ne peut contenir que des caractéres numériques maximum 4 et est exprimé en minutes max 999 minutes',
                     ])
                 ]
             ])
             ->add('temps_cuisson', NumberType::class,[
                 'constraints' =>[
                     new NotBlank([
-                        'message' => 'Veuillez entrer un temps de cuisson, mettez 0 si votre recette ne necessite pas de cuisson.'
+                        'message' => 'Veuillez entrer un temps de cuisson, mettez 0 si votre recette ne necessite pas de cuisson.',
                     ]),
                     new Assert\Regex([
-                        'pattern' => '/^[0-9]{0,4}/',
-                        'message' => 'Ce champ ne peut contenir que des caractéres numériques (maximum 3) et est exprimé en minutes. max 9999 minutes'
+                        'pattern' => '/[0-9]/',
+                        'message' => 'Ce champ ne peut contenir que des caractéres numériques maximum 3 et est exprimé en minutes max 9999 minutes',
                     ])
                 ]
             ])
             ->add('nb_personnes', NumberType::class,[
                 'constraints' =>[
                     new NotBlank([
-                        'message' => 'Veuillez entrer le nombre de pars (pers.).'
+                        'message' => 'Veuillez entrer le nombre de pars pers.',
                     ]),
+                    //1er caractére est de 0 (marche aussi avec 00 car symfony considére 00 comme 0) : 
                     new Assert\Regex([
-                        'pattern' => '/^[0-9]{0,2}/',
-                        'message' => 'Ce champ ne peut contenir que des caractéres numériques (maximum 2). max 99 personnes'
-                    ])
-                ]
+                        'pattern' => '/^0{1}/',
+                        'match' => false,
+                        'message' => 'ce champ ne peut être vide'
+                    ]),
+                    //au maximum 2 caractéres
+                    new Assert\Regex([
+                        'pattern' => '/^.{3,}/',
+                        'match' => false,
+                        'message' => 'Ce champ peut contenir au maximum 2 charactéres'
+                    ]),
+                    //uniquement des chiffre (le NumberType s'en charge deja): 
+                ],
+                'invalid_message'=>'Ce champ peut contenir uniquement des chiffres, comprit entre 1 et 99'
             ])
             ->add('difficulte', NumberType::class,[
                 'constraints' =>[
                     new NotBlank([
-                        'message' => 'Veuillez entrer une difficulté.'
+                        'message' => 'Veuillez entrer une difficulté.',
                     ]),
                     new Assert\Regex([
                         'pattern' => '/[1-3]{1}/',
-                        'message' => 'Ce champ ne peut varier que de 1 a 3.'
+                        'message' => 'Ce champ ne peut varier que de 1 a 3.',
                     ])
                 ]
             ])
