@@ -1,4 +1,10 @@
     
+  /* *** Style de la racine *** */    
+      :root {
+          --ecriture: #333;
+          --fond: #f1f1f1;
+      }
+
 
 
  /* *** Style de l'entete *** */
@@ -18,11 +24,48 @@
          text-align: right;
     }
 
+ /* *** Gestion des couleurs (Préferences) *** */  
+
+     body {
+         background-color: white;
+         background-color: var(--fond);
+     }
+
+     /* ? Light Mode */
+         /* @media (prefers-color-scheme: light) {
+
+             body {
+                 background-color: #fff;
+                 color: #333;
+             }
+         } */
+
+     /* ? Dark Mode */
+     /* @media (prefers-color-scheme: light) {
+
+        body {
+            background-color: #333;
+            color: #fff;
+        }
+    } */
+
+ /* *** Style du bouton DarkMode/LightMode *** */     
+      body.dark {
+         color: #fff!important;
+         background: #333!important;
+     }
+
+     body.dark .btn-toggle {
+         background: #f1f1f1;
+         color: #333;
+     }
+
  /* *** Style des titres *** */  
     
      /* Titre de premier niveau */
 
          h1 {     
+             text-align: center;
              margin: 20%S;
              padding: 5px;
              border-radius: 3px;
@@ -35,6 +78,9 @@
 
              border:  rgba(25,135,84,0.9) groove 1px;
              /* box-shadow: 3px 3px 3px #f0626f; */
+
+                 
+                 color: var(--ecriture);
          }
 
  /* *** Style du formulaire d'inscription *** */
@@ -59,6 +105,15 @@
          margin: auto;
      }
 
+ 
+ /* *** Style du contenu des formulaires  *** */ 
+
+     .contenu {
+         padding: 50px 10%;
+         text-align: justify;
+         color: var(--ecriture);
+        }
+
  /* ***Style du menu de navigation *** */  
     
      #titreNav {
@@ -79,3 +134,12 @@
      button a {
          color: #f0626f;
      }
+
+ /* ***Style de l'image (Avatar) de l'utilisateur *** */  
+
+     #avatarUser {
+
+        padding: left 13px;
+     }
+
+    

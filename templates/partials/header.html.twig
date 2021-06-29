@@ -1,89 +1,128 @@
  {# ? Partie: Header #}
- 
+
+         {# ! Bouton LightMode/ DarkMode: Mache pas Ca m'as fait craqué je dois revenir dessus JC_ #}
+         {# <div class="btn btn-outline-dark btn-toggle btn-sm" >Go Nuit</div> #}
+
          <div class="container">
 
-             <header class="d-flex flex-wrap align-items-center justify-content-md-between mb-4">
+             <header class="row align-items-center justify-content-md-between mb-4">
 
-                 <div class="" >
-                 {# <div class="pb-3 mb-0 small lh-sm border-bottom w-100" > #}
+                 <div class="col-4 mb-0 small lh-1 text-start">
+                 {# <div class="col-4 pb-3 mb-0 small lh-sm border-bottom w-10" > #}
+                 {# <div class="col-4 text-start" > #}
+                       {# <div class="col-md-3 text-start "> #}
 
                      {% if app.user %}
 
-                         {# <div class="" style="display:flex; justify-content:space-around;"> #}
+                         <div class="" style="display:flex; justify-content:space-around;">
 
-                         {# *********************************** #}
-                         {# * Gestion de l'utilisateur actuel * #}
-                         {# *********************************** #}
+                             {# *********************************** #}
+                             {# * Gestion de l'utilisateur actuel * #}
+                             {# *********************************** #}
 
-                         {# <div class="dropdown"> #}
-                         {# {% if user.avatar %} #}
+                             <div class="dropdown">
+                             {# {% if user.avatar %} #}
+    
+                                 <div class="d-flex justify-content-between">
+    
+                                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                         <img src="{{app.user.avatar}} " alt="" width="32" height="32" class="rounded-circle me-2">
 
-                             {# <div class="d-flex justify-content-between"> #}
-                                                    
-                                 {# <strong class="text-gray-dark">
-                                     Full Name                                                
-                                     {% if app.user.login %}
-                                     @ {{app.user.username}} 
-                                     {% else %}
-                                     Bienvenue
-                                         <i class="bi bi-caret-down"></i>
-                                     {% endif %}
-                                 </strong> #}
+                                         <div class="d-flex justify-content-between">
+                                                        
+                                             <strong class="text-gray-dark">
 
-                             {# </div> #}
-                 
-                             {# <div class="mb-3">
-                                 <p> Vous etes connecté en tant que {{ app.user.username }}, </p>
-                                 <a href="{{ path('app_logout') }}"> Se déconnecter </a>
-                             </div> #}
+                                                 {# Full Name #}                                                
+                                                 {% if app.user.login %} 
 
-                             {# ? Possiblité de rajouter un pseudo en plus éventuellement en dessous du nom classique #}
-                             {# <span class="d-block">
-                                 @{{app.user.login}}                                         
-                             </span> #}
+                                                     @ {{app.user.username}} 
 
-                         {# </div>  #}
+                                                 {% else %}
 
-                         <div class="dropdown">
-                         {# {% if user.avatar %} #}
+                                                     Bienvenue
+                                                     <i class="bi bi-caret-down"></i>
 
-                             {# <div class="d-flex justify-content-between"> #}
+                                                 {% endif %}
 
-                                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                             </strong>
+    
+                                         </div>
+                                         
+                                     </a>
+    
+                                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
 
-                                     {# <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2"> #}
-                                     <img src="{{app.user.avatar}} " alt="" width="32" height="32" class="rounded-circle me-2">  
+                                        
+                                         {# <li> <hr class="dropdown-divider">   </li>   #}
 
-                                     <strong> 
-                                         {# Full Name #}                                                
-                                         {% if app.user.login %}
-                                         @ {{app.user.username}} 
-                                         {% else %}
-                                         Bienvenue
-                                             <i class="bi bi-caret-down"></i>
-                                         {% endif %}
-                                     </strong>
+                                         {# ***** Gestion du site ***** #}
+                                         {# <h6> <kbd> Gestion du site </kbd> </h6>
+                                             <li> <hr class="dropdown-divider">   </li> #}
 
-                                 </a>
+                                        
+                                         
+                                         {# <li> <hr class="dropdown-divider">   </li>   #}
 
-                                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                                     <li> <a class="dropdown-item" href="#"> Créer une nouvelle recette </a> </li>
-                                     <li> <a class="dropdown-item" href="#"> Gérer mes recettes </a> </li>
-                                     {# <li> <a class="dropdown-item" href="#"> Noter des recettes </a> </li> #}
-                                     {# <li> <a class="dropdown-item" href="#"> Créer un ingrédients </a> </li> #}
-                                     <li> <hr class="dropdown-divider">   </li>
-                                         <li> <a class="dropdown-item" href="#"> Gérer mon profil </a></li>
-                                         <li> <a class="dropdown-item" href="#"> Gérer mes commentaires </a></li>
-                                         <li> <a class="dropdown-item" href="#"> Paramètres </a></li>
-                                     <li> <hr class="dropdown-divider">   </li>
-                                     <li> <a class="dropdown-item" href="{{ path ('app_logout') }}"> Se déconnecter </a></li>
-                                 </ul>
- 
-                             {# </div>  #}
+                                         {# ***** Gestion des recettes ***** #}
+                                         <h6> <kbd> Gestion des recettes </kbd> </h6> 
 
-                         </div>  
+                                             <li> <a class="dropdown-item" href="#"> Créer une nouvelle recette </a> </li>
+                                             <li> <a class="dropdown-item" href="#"> Gérer mes recettes </a> </li>
+                                             <li> <a class="dropdown-item" href="#"> Noter des recettes </a> </li>
+                                          
+               
 
-                     </div>
+
+                                              <li> <hr class="dropdown-divider">   </li>                                                                                                        
+
+                                         {# ***** Gestion des recettes ***** #}
+                                         <h6> <kbd> Gestion de la cuisine </kbd> </h6> 
+
+                                             <li> <a class="dropdown-item" href="#"> Gérer le livre de recettes </a> </li>
+                                             <li> <a class="dropdown-item" href="#"> Gérer les ingrédients </a> </li>
+                                             <li> <a class="dropdown-item" href="#"> Gérer les catégories </a> </li>
+                                             <li> <a class="dropdown-item" href="#"> Gérer les cuissons </a> </li>
+                                             <li> <a class="dropdown-item" href="#"> Gérer les régimes alimentaires </a> </li>
+                                             <li> <a class="dropdown-item" href="#"> Gérer les type de plats </a> </li>
+
+                                             <li> <hr class="dropdown-divider"> </li>
+
+                                         {# ***** Gestion du site ***** #}
+                                         <h6> <kbd> Gestion du site </kbd> </h6>
+
+                                             <li> <a class="dropdown-item" href="#"> Gérer les utilisateurs </a> </li>
+                                             <li> <a class="dropdown-item" href="#"> Gérer les roles </a> </li>
+                                             <li> <a class="dropdown-item" href="#"> Gérer les commentaires </a> </li>
+                                             <li> <a class="dropdown-item" href="#"> Gérer les notes </a> </li>
+                                            
+                                             <li> <hr class="dropdown-divider"> </li>
+
+
+                                         {# ***** Gestion du site ***** #}
+                                         <h6> <kbd> Gestion du profil </kbd> </h6>
+
+                                             <li> <a class="dropdown-item" href="#"> Gérer mon compte </a></li>
+                                             <li> <a class="dropdown-item" href="#"> Gérer mes commentaires </a></li>
+                                             <li> <a class="dropdown-item" href="#"> Paramètres </a></li>
+
+                                             <li> <hr class="dropdown-divider">   </li> 
+
+                                             <li> <a class="dropdown-item" href="{{ path ('app_logout') }}"> Se déconnecter </a></li>
+
+
+                                     </ul>
+     
+                                 </div> 
+    
+                             </div>  
+
+                         </div>
+
+                     {# <p> avatar de l'utilisateur  </p> #}
+
+                     {# {% else %} #}
+
+                     {# {% endif %} #}
 
                      {% else %}
                          
@@ -96,13 +135,13 @@
 
                  {# ********** Partie: Logo ********** #}
 
-                 <div class=" "> 
-                     <img src="/logo.png" alt="Logo du site" >
+                 <div class="col-4 text-center "> 
+                     <img id="avatarUser"src="/logo.png" alt="Logo du site" >
                  </div>
 
                  {# ********** Partie: SideBar ********** #}
 
-                 <div class="col-md-3 text-end ">
+                 <div class="col-4 text-end ">
 
                      <div id="myNav" class="overlay">
 
