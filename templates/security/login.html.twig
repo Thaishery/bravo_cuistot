@@ -57,14 +57,17 @@
 
                          {# *** Bouton: Se Connecter *** #}
                          <button type="submit" class="btn btn-dark btn-lg px-4 gap-3"> 
-                             <a href="{{ path('app_login') }}"> Se connecter </a> 
+                            Se connecter 
                          </button>
     
                          {# *** Bouton: S'inscrire *** #}
-                         <button type="submit" class="btn btn-success btn-lg px-4">                                
-                             <a href="{{ path('app_register') }}"> S'inscrire </a> 
+                         <div class="col-12">
+                         <a class="col-12" href="{{ path('app_register') }}">
+                         <button type="submit" class="btn col-12 btn-success btn-lg px-4">                                
+                             S'inscrire 
                          </button>
-
+                        </a> 
+                        </div>
                      </div>
 
              </form>
