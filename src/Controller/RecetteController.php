@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\IngredientsRecette;
 use App\Entity\Recette;
 use App\Entity\User;
+use App\Form\IngredientsRecetteType;
 use App\Form\RecetteType;
+use App\Repository\IngredientsRecetteRepository;
 use App\Repository\RecetteRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -50,7 +52,7 @@ class RecetteController extends AbstractController
             $entityManager->flush();
 
             return $this->redirectToRoute('recette_new_ingredients',[
-                'id' => $this->$recette->getId(),
+                'id' => $recette->getId(),
             ]);
         }
 
@@ -62,37 +64,61 @@ class RecetteController extends AbstractController
     //ajout des ingrédients : 
     /**
      * @IsGranted("ROLE_USER", message="Veuillez vous connecter ou créer un compte pour pouvoir créer une recette!")
-     * @Route("/new/{id}/ingredients", name"recette_new_ingredients", methods={"GET","POST"})
+     * @Route("/new/{id}/ingredient", name="recette_new_ingredients", methods={"GET","POST"})
      */
-    public function newIngredient(Request $request, $id): Response
+    public function newIngredients(Request $request, $id, IngredientsRecetteRepository $ingredientsRecetteRepository, RecetteRepository $recetteRepository, Recette $recette): Response
     {
         //récupére l'utilisateur: 
         $user = $this->getUser();
-        // initialise l'objet ingrédients
+        // initialise l'objet Ingrédients
         $ingredients = new IngredientsRecette();
-        // initialise l'objet recette $id (passer en paramétre d'url depuis "recette_new")
-        $recette = new Recette($id);
+        // initialise l'objet Recette $id (passer en paramétre d'url depuis "recette_new") /!\ may be broken !
         // initialise le formulaire depuis le modéle IngredientsREcetteType (A CRéER)
         $form = $this->createForm(IngredientsRecetteType::class, $ingredients);
         $form->handleRequest($request);
         // ajoute l'id de la recette a la class IngredientsRecette. (peut etre que $id n'est pas bon, tester $recette dans ce cas pour envoyer un objet et non une string)
-        $ingredients->setRecetteId($id);
+        $ingredients->setRecetteId($recette);
+        // on récupére la liste des ingrédients de la recette pour vérifier si elle est vide ou non
+        $listeIngredient = $ingredientsRecetteRepository->findByRecetteId($id);
 
         //si la recette a modifier a un auteur différent de l'utilisateur actuel, ne pas permetre la modification de la liste d'ingrédients:
-        if ($recette->getAuthorId() != $user->getId()){
+        if ($recette->getAuthorId()->getId() !== $user->getId()){
             // forbiden.html.twig => a modifier (placeholder atm)
-            return $this->render('forbiden.html.twig');
+            return $this->render('errors/forbiden.html.twig',[
+                'authorid' => $recette,
+                'userid' => $user->getId(),
+            ]);
         }
-        else {        
+        // si il y a deja des ingrédients de recette
+        else if($listeIngredient != null){
+            //traitement formulaire 
             if ($form->isSubmitted() && $form->isValid()) {
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($ingredients);
                 $entityManager->flush();
-                //prévoir dans le template une conditions si +d'1 ingrédients alors passer a la suite. ou un deuxieme template avec le bouton étape suivante.
+                
                 return $this->redirectToRoute('recette_new_ingredients',[
                     'id' => $id,
                 ]);
             }
+            //on affiche le deuxieme template avec le bouton étape suivante.
+            return $this->render('recette/new_ingredients_suite.html.twig', [
+                'listeIngredients' => $listeIngredient,
+                'ingredients' => $ingredients,
+                'form' => $form->createView(),
+            ]);
+        }
+        else {
+            //traitement formulaire
+            if ($form->isSubmitted() && $form->isValid()) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($ingredients);
+                $entityManager->flush();
+                return $this->redirectToRoute('recette_new_ingredients',[
+                    'id' => $id,
+                ]);
+            }
+            //il n'y as pas encore d'ingrédients a la recette, on affiche donc le template initiale. 
             return $this->render('recette/new_ingredients.html.twig', [
                 'ingredients' => $ingredients,
                 'form' => $form->createView(),
