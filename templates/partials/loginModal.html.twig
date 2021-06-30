@@ -18,8 +18,8 @@
                  <div class="modal-header ">
 
                      <h5 class="modal-title" id="exampleModalLabel">
-                         <i class="bi bi-house-door">
-                         </i> Menu de connection 
+                         <i class="bi bi-house-door"> </i>
+                         <span> Menu de connection </span>
                      </h5>
 
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -47,7 +47,7 @@
 
                                  {# *** IMAGE: LOGO DU SITE *** #}
 
-                                 <img class="mb-4" src="/Images/logo.png" alt="Logo du site BravoCuistot" width="72" height="57">
+                                 {# <img class="mb-4" src="/Images/logo.png" alt="Logo du site BravoCuistot" width="72" height="57"> #}
 
                                  <h1 class="h1 mb-3 font-weight-normal"> Se connecter </h1>
 
@@ -61,18 +61,21 @@
 
                                      <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-                                      <div class="row">    
+                                     {# ***** ***** ***** ***** ***** #}
+
+                                      <div class="row btn-group col-12">    
 
                                          <button class="btn btn-dark btn-lg btn-block col-6 " type="submit"> 
                                              Valider
                                          </button>
  
-
-                                         <button class="btn btn-success btn-lg btn-block col-6">
-                                             <a href="{{ path ('app_register') }}"> S'inscrire </a>
+                                         <button href="{{ path ('app_register') }}" class="btn btn-success btn-lg btn-block col-6 ">
+                                            S'inscrire 
                                          </button>
 
                                      <div>   
+
+                                     {# ***** ***** ***** ***** ***** #}
                                   
                              </form>
 

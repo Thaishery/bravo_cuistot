@@ -12,6 +12,12 @@
 
          {# <body class="px-4 py-5 my-5 text-center"> #}
     
+             {# ******************************************** #}
+ 
+             <hr style="color:white;"/>
+
+             {# ******************************************** #}
+
              <main class="form-signin">
 
                  {{ form_start (registrationForm, 
@@ -23,7 +29,9 @@
                      })
                  }}   
 
-                     <form>     
+                 <form>   
+
+                     <fieldset>  
 
                          <div id="inscriptionForm">                 
                             
@@ -332,9 +340,11 @@
 
                          </div> 
 
+                     </fieldset>
+
                  {{ form_end(registrationForm) }}
-                    
-                     </form>
+ 
+                 </form>
 
              </main>
 

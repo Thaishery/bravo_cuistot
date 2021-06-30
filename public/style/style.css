@@ -1,145 +1,113 @@
-    
-  /* *** Style de la racine *** */    
-      :root {
-          --ecriture: #333;
-          --fond: #f1f1f1;
-      }
-
-
-
- /* *** Style de l'entete *** */
+ /* **************************************************************************** */ 
+ /* *  Feuille de style principale de notre document Fil-Rouge - BravoCuistot * */
+ /* **************************************************************************** */ 
+ 
+     /* ? Style de tout le document */
      
-     header {
-         background-color: rgb(0 0 0);
-         /* background-image: url("../Images/background1.png") ; */
-         /* background-attachment: fixed;     */
-         /* font-size: 1.0em; */
-     }
-
-     header div.row {
-         padding: 1%;
-     }
-
-     .menuNav {
-         text-align: right;
-    }
-
- /* *** Gestion des couleurs (Préferences) *** */  
-
-     body {
-         background-color: white;
-         background-color: var(--fond);
-     }
-
-     /* ? Light Mode */
-         /* @media (prefers-color-scheme: light) {
-
-             body {
-                 background-color: #fff;
-                 color: #333;
-             }
-         } */
-
-     /* ? Dark Mode */
-     /* @media (prefers-color-scheme: light) {
-
-        body {
-            background-color: #333;
-            color: #fff;
-        }
-    } */
-
- /* *** Style du bouton DarkMode/LightMode *** */     
-      body.dark {
-         color: #fff!important;
-         background: #333!important;
-     }
-
-     body.dark .btn-toggle {
-         background: #f1f1f1;
-         color: #333;
-     }
-
- /* *** Style des titres *** */  
-    
-     /* Titre de premier niveau */
-
-         h1 {     
-             text-align: center;
-             margin: 20%S;
-             padding: 5px;
-             border-radius: 3px;
-             background-color: rgba(25,135,84,0.9); 
-             /* ? Black w/opacity */       
-             /* color:blanchedalmond; */
-             /* padding: 1%; */
-             background-image: url("../Images/background1.png") ;
-             background-blend-mode:screen;
-
-             border:  rgba(25,135,84,0.9) groove 1px;
-             /* box-shadow: 3px 3px 3px #f0626f; */
-
-                 
-                 color: var(--ecriture);
+         * {
+             font-family: 'Jura', sans-serif;
          }
 
- /* *** Style du formulaire d'inscription *** */
+ /* ***** ***** ***** ***** ***** */ 
 
-     #inscriptionForm{
-        margin: 2%;
-        padding: 3%;
-     }
-
-     #plantFont {
-         /* padding: 1%; */
-         background-image: url("../Images/background1.png") ;
-         background-blend-mode:screen;
-         /* background-color: rgb(0 0 0); */
-     }
-
- /* *** Style du formulaire de connection (normal) *** */ 
-
-     #bloc_page,
-     #bloc_page1 {
-         width: 80%;
-         margin: auto;
-     }
-
- 
- /* *** Style du contenu des formulaires  *** */ 
-
-     .contenu {
-         padding: 50px 10%;
-         text-align: justify;
-         color: var(--ecriture);
+     /* ? Style de l'entete */
+         
+         header {
+             background-color: rgb(0 0 0);
+         }
+     
+         header div.row {
+             padding: 1%;
+         }
+     
+         .menuNav {
+             text-align: right;
         }
+     
+ /* ***** ***** ***** ***** ***** */ 
 
- /* ***Style du menu de navigation *** */  
-    
-     #titreNav {
+     /* ? Style des titres */  
+        
+         /* ! Titre de premier niveau */
+     
+             h1 {     
+                 text-align: center;
+                 margin: 20%S;
+                 padding: 5px;
+                 border-radius: 3px;
+                 background-color: rgba(25,135,84,0.9); /* ? Black w/opacity */                    
+                 background-image: url("../Images/background1.png") ;
+                 background-blend-mode:screen;    
+                 border:  rgba(25,135,84,0.9) groove 1px;              
+                     color: var(--ecriture);
+             }
+         
+ /* ***** ***** ***** ***** ***** */                  
 
-     }
+     /* ? Style du formulaire d'inscription */
+     
+         #plantFont {           
+             background-image: url("../Images/background1.png") ;
+             background-blend-mode:screen;
+         }
+  
+ /* ***** ***** ***** ***** ***** */       
 
-     /* #body { */
-         /* display: flex;
-         align-items: center;
-         padding-top: 40px; */
-         /* padding-bottom: 40px; 
-         height: 50vh;
-         width: 50vw;
-         margin: auto;  */
-    
-     /* } */
+     /* ? Style du formulaire de connection (normal) */ 
+     
+         #bloc_page,
+         #bloc_page1 {
+             width: 80%;
+             margin: auto;
+         }
+     
+ /* ***** ***** ***** ***** ***** */ 
+         
+     /* ? Style du contenu des formulaires */ 
+     
+         .contenu {
+             padding: 50px 10%;
+             text-align: justify;
+             color: var(--ecriture);
+            }
+  
+ /* ***** ***** ***** ***** ***** */             
 
-     button a {
-         color: #f0626f;
-     }
+     /* ? Style du menu de navigation */  
+        
+         #myNav {
+             background-image: url("../Images/Confetti-Doodles.svg") ;
+          }
 
- /* ***Style de l'image (Avatar) de l'utilisateur *** */  
+ /* ***** ***** ***** ***** ***** */
 
-     /* #avatarUser {
+     /* ? Style des cartes */  
 
-        padding: left 13px;
-     } */
+     .carteBg1 {
+             background-image: url("../Images/carteBg8.jpg") ;    
+             font-size: 1.0em;           
+         }
 
-    
+     .carteBg2 {
+             background-image: url("../Images/carteBg9.jpg") ;             
+         }
+     
+     .carteBg3 {
+             background-image: url("../Images/carteBg4.png") ;
+             font-size: 1.0em; 
+         }
+     
+     .carteBg4 {
+             background-image: url("../Images/carteBg10.jpg") ;
+         }
+
+ /* ***** ***** ***** ***** ***** */    
+      
+     /* ? Style des boutons *** */ 
+
+         button a {
+             color: #f0626f;
+         }
+     
+ /* ***** ***** ***** ***** ***** */ 
+        
