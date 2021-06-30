@@ -2,11 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Etapes;
 use App\Entity\IngredientsRecette;
 use App\Entity\Recette;
 use App\Entity\User;
+use App\Form\EtapesType;
 use App\Form\IngredientsRecetteType;
 use App\Form\RecetteType;
+use App\Repository\EtapesRepository;
 use App\Repository\IngredientsRecetteRepository;
 use App\Repository\RecetteRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,7 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-
+use Symfony\Component\Validator\Constraints\Length;
 
 /**
  * @Route("/recette")
@@ -61,6 +64,8 @@ class RecetteController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+
     //ajout des ingrédients : 
     /**
      * @IsGranted("ROLE_USER", message="Veuillez vous connecter ou créer un compte pour pouvoir créer une recette!")
@@ -102,6 +107,7 @@ class RecetteController extends AbstractController
             }
             //on affiche le deuxieme template avec le bouton étape suivante.
             return $this->render('recette/new_ingredients_suite.html.twig', [
+                'id'=> $id,
                 'listeIngredients' => $listeIngredient,
                 'ingredients' => $ingredients,
                 'form' => $form->createView(),
@@ -119,7 +125,82 @@ class RecetteController extends AbstractController
             }
             //il n'y as pas encore d'ingrédients a la recette, on affiche donc le template initiale. 
             return $this->render('recette/new_ingredients.html.twig', [
+                'id'=> $id,
                 'ingredients' => $ingredients,
+                'form' => $form->createView(),
+            ]);
+        }
+    }
+
+
+    //ajout des étapes : 
+    /**
+     * @IsGranted("ROLE_USER", message="Veuillez vous connecter ou créer un compte pour pouvoir créer une recette!")
+     * @Route("/new/{id}/etapes", name="recette_new_etapes", methods={"GET","POST"})
+     */
+    public function newEtapes(Request $request, $id,EtapesRepository $etapesRepository, IngredientsRecetteRepository $ingredientsRecetteRepository, RecetteRepository $recetteRepository, Recette $recette): Response
+    {
+        //récupére l'utilisateur: 
+        $user = $this->getUser();
+        // initialise l'objet Etapes
+        $etape = new Etapes();
+        // initialise le formulaire depuis le modéle EtapesType.
+        $form = $this->createForm(EtapesType::class, $etape);
+        $form->handleRequest($request);
+        // on récupére la liste des étapes de la recette pour vérifier si elle est vide ou non
+        $listeEtapes = $etapesRepository->findByRecetteId($id);
+        // ajout de l'id de la recette a la class Etapes. (via l'injection de dépendances)
+        $etape->setRecetteId($recette);
+        // TODO : trouver un moyen d'incrémenter de 1 le numéro de l'étape automatiquement pour chaque nouvelle étape.
+        // TODO : a faire dans les conditions qui suivent => si $listeEtapes != null et else. 
+        
+
+        //si la recette a modifier a un auteur différent de l'utilisateur actuel, ne pas permetre la modification de la liste d'étape:
+        if ($recette->getAuthorId()->getId() !== $user->getId()){
+            // forbiden.html.twig => a modifier (placeholder atm) les paramétres pouront être suprimer par la suite. 
+            return $this->render('errors/forbiden.html.twig',[
+                'authorid' => $recette,
+                'userid' => $user->getId(),
+            ]);
+        }
+        // si il y a deja des ingrédients de recette
+        else if($listeEtapes != null){
+            //todo : on utilise la fonction count sur notre tableau listeEtapes et on ajoute 1 a celui ci. 
+
+            $etape->setIsNumber(count($listeEtapes)+1);
+            //traitement formulaire 
+            if ($form->isSubmitted() && $form->isValid()) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($etape);
+                $entityManager->flush();
+                
+                return $this->redirectToRoute('recette_new_etapes',[
+                    'id' => $id,
+                ]);
+            }
+            //on affiche le deuxieme template avec le bouton étape suivante.
+            return $this->render('recette/new_etapes_suite.html.twig', [
+                'listeEtapes' => $listeEtapes,
+                'etape' => $etape,
+                'form' => $form->createView(),
+            ]);
+        }
+        //listeEtape est null => il n'y a donc pas encore d'étape! 
+        else {
+            // todo: listeEtape est vide, on peut donc passer is_number a 1 .
+            $etape->setIsNumber(1);
+            //traitement formulaire
+            if ($form->isSubmitted() && $form->isValid()) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($etape);
+                $entityManager->flush();
+                return $this->redirectToRoute('recette_new_etapes',[
+                    'id' => $id,
+                ]);
+            }
+            //il n'y as pas encore d'étapes a la recette, on affiche donc le template initiale. 
+            return $this->render('recette/new_etapes.html.twig', [
+                'etape' => $etape,
                 'form' => $form->createView(),
             ]);
         }

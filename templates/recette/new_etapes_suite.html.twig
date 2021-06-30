@@ -4,10 +4,11 @@
 
 {% block body %}
     <h1>suite ingrédients</h1>
-    {{dump(listeIngredients)}}
+    {{dump(listeEtapes)}}
 
     {{ include('recette/_form.html.twig') }}
-    <a href="{{ path('recette_new_etapes',{'id': app.request.get('id')})}}"> passer a l'ajout des étapes</a><br/>
+    {# todo : prévoir une vue de validation :  #}
+    {# <a href="{{ path('recette_new_etapes',{'id': app.request.get('id')})}}"> passer a l'ajout des étapes</a><br/> #}
 
     <a href="{{ path('recette_index') }}">back to list</a>
 {% endblock %}
