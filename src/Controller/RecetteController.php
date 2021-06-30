@@ -72,11 +72,10 @@ class RecetteController extends AbstractController
         $user = $this->getUser();
         // initialise l'objet Ingrédients
         $ingredients = new IngredientsRecette();
-        // initialise l'objet Recette $id (passer en paramétre d'url depuis "recette_new") /!\ may be broken !
-        // initialise le formulaire depuis le modéle IngredientsREcetteType (A CRéER)
+        // initialise le formulaire depuis le modéle IngredientsRecetteType.
         $form = $this->createForm(IngredientsRecetteType::class, $ingredients);
         $form->handleRequest($request);
-        // ajoute l'id de la recette a la class IngredientsRecette. (peut etre que $id n'est pas bon, tester $recette dans ce cas pour envoyer un objet et non une string)
+        // ajoute l'id de la recette a la class IngredientsRecette. (via l'injection de dépendances)
         $ingredients->setRecetteId($recette);
         // on récupére la liste des ingrédients de la recette pour vérifier si elle est vide ou non
         $listeIngredient = $ingredientsRecetteRepository->findByRecetteId($id);
