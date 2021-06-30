@@ -59,7 +59,7 @@
          #bloc_page1 {
              width: 80%;
              margin: auto;
-         }
+         }.0
      
  /* ***** ***** ***** ***** ***** */ 
          
@@ -67,9 +67,8 @@
      
          .contenu {
              padding: 50px 10%;
-             text-align: justify;
-             color: var(--ecriture);
-            }
+             text-align: justify;     
+         }
   
  /* ***** ***** ***** ***** ***** */             
 
@@ -77,6 +76,7 @@
         
          #myNav {
              background-image: url("../Images/Confetti-Doodles.svg") ;
+             opacity: 0.9;
           }
 
  /* ***** ***** ***** ***** ***** */

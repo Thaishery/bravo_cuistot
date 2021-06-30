@@ -1,93 +1,96 @@
-{# ? MODAL CONNEXION #}
+ {# ? MODAL CONNEXION #}
 
      <button type="button" class=" btn btn-success btn-lg login-position" data-bs-toggle="modal" data-bs-target="#exampleModal">
          <i id="house1" class="bi bi-house "> </i>
-         {# <span class="mobileHide"> Connection </span> #}
      </button>
 
-     {# ***** MODAL ***** #}
+         {# ***** MODAL ***** #}
 
-     <div class="login-box modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="login-box modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-         <div class="modal-dialog modal-dialog-centered">
+             <div class="modal-dialog modal-dialog-centered">
 
-             <div class="modal-content ">
-             {# ? div pour second modal #}
-             {# <div class="login-box">  #}
+                 <div class="modal-content ">
+                 {# ? div pour second modal #}
+                 {# <div class="login-box">  #}
 
-                 <div class="modal-header ">
+                     {# ****** Partie: Titre du Modal ***** #}
 
-                     <h5 class="modal-title" id="exampleModalLabel">
-                         <i class="bi bi-house-door"> </i>
-                         <span> Menu de connection </span>
-                     </h5>
+                     <div class="modal-header ">
 
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                         <h5 class="modal-title" id="exampleModalLabel">
+                             <i class="bi bi-house-door"> </i>
+                             <span> Menu de connection </span>
+                         </h5>
 
-                 </div>
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
-                 <div class="modal-body">
+                     </div>
 
-                     <div id="loginStyle" class="text-center">
+                     {# ***** Partie: Contenu du modal ***** #}
 
-                         <main class="form-signin">
+                     <div class="modal-body">
 
-                             <form method="post" action="{{ path ("app_login") }}">
+                         <div id="loginStyle" class="text-center">
 
-                                 {# *** SI L'UTILISATEUR EST AUTHENTIFIÉ *** #}
+                             <main class="form-signin">
 
-                                 {% if app.user %}
+                                 <form method="post" action="{{ path ("app_login") }}">
 
-                                     <div class="mb-3">
-                                         <p> Vous etes connecter en tant que {{ app.user.username }}, </p>
-                                         <a href="{{ path('app_logout') }}"> Se déconnecter </a>
-                                     </div>
+                                     {# *** SI L'UTILISATEUR EST AUTHENTIFIÉ *** #}
 
-                                 {% endif %}
+                                     {% if app.user %}
 
-                                 {# *** IMAGE: LOGO DU SITE *** #}
+                                         <div class="mb-3">
+                                             <p> Vous etes connecter en tant que {{ app.user.username }}, </p>
+                                             <a href="{{ path('app_logout') }}"> Se déconnecter </a>
+                                         </div>
 
-                                 {# <img class="mb-4" src="/Images/logo.png" alt="Logo du site BravoCuistot" width="72" height="57"> #}
+                                     {% endif %}
 
-                                 <h1 class="h1 mb-3 font-weight-normal"> Se connecter </h1>
+                                     {# *** IMAGE: LOGO DU SITE *** #}
 
-                                     <label for="inputLogin" class="visually-hidden"> Pseudo </label>
-                                     <input  type="text"  name="login" id="inputLogin" class="form-control"  placeholder="Login" required autofocus>      
-                                                          
-                                     <label for="inputPassword" class="visually-hidden"> Mot de passe </label>
-                                     <input  type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required=""> 
+                                     <h1 class="h3 mb-3 font-weight-normal"> Se connecter </h1>
 
-                                     <br/>  
+                                         <label for="inputLogin" class="visually-hidden"> Pseudo </label>
+                                         <input  type="text"  name="login" id="inputLogin" class="form-control"  placeholder="Login" required autofocus>      
+                                                              
+                                         <label for="inputPassword" class="visually-hidden"> Mot de passe </label>
+                                         <input  type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required=""> 
 
-                                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                                         <br/>  
 
-                                     {# ***** ***** ***** ***** ***** #}
+                                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-                                      <div class="row btn-group col-12">    
+                                         {# ***** Partie: Bouton / Actions ***** #}
 
-                                         <button class="btn btn-dark btn-lg btn-block col-6 " type="submit"> 
-                                             Valider
-                                         </button>
+                                          <div class="row btn-group col-12">    
+
+                                             <button class="btn btn-dark btn-lg btn-block col-6" type="submit"> 
+                                                 Valider
+                                             </button>
  
-                                         <button href="{{ path ('app_register') }}" class="btn btn-success btn-lg btn-block col-6 ">
-                                            S'inscrire 
-                                         </button>
+                                             <button href="{{ path ('app_register') }}" class="btn btn-success btn-lg btn-block col-6">
+                                                S'inscrire 
+                                             </button>
 
-                                     <div>   
+                                         <div>   
 
-                                     {# ***** ***** ***** ***** ***** #}
-                                  
-                             </form>
+                                         {# ************************* #}
+                                      
+                                 </form>
 
-                         </main>
+                             </main>
+
+                         </div>  
 
                      </div>  
 
-                 </div>              
+                     {# ************************* #}            
+
+                 </div>
 
              </div>
-
-         </div>
 
      </div>
      
