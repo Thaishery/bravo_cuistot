@@ -5,7 +5,9 @@
 
          <div class="container">
 
-             <header class="row align-items-center justify-content-md-between mb-4">
+             <header class="row align-items-center justify-content-md-between ">
+
+                 <hr class="dropdown-divider" style="color: black;"> 
 
                  <div class="col-4 mb-0 small lh-1 text-start">
                  {# <div class="col-4 pb-3 mb-0 small lh-sm border-bottom w-10" > #}
@@ -68,15 +70,13 @@
 
                                              <li> <a class="dropdown-item" href="#"> Créer une nouvelle recette </a> </li>
                                              <li> <a class="dropdown-item" href="#"> Gérer mes recettes </a> </li>
-                                             <li> <a class="dropdown-item" href="#"> Noter des recettes </a> </li>
-                                          
-               
-
-
+                                             {# <li> <a class="dropdown-item" href="#"> Noter des recettes </a> </li> #}
+                                             {# <button class="dropdown-btn">Dropdown #}
+            
                                               <li> <hr class="dropdown-divider">   </li>                                                                                                        
 
                                          {# ***** Gestion des recettes ***** #}
-                                         <h6> <kbd> Gestion de la cuisine </kbd> </h6> 
+                                         {# <h6> <kbd> Gestion de la cuisine </kbd> </h6> 
 
                                              <li> <a class="dropdown-item" href="#"> Gérer le livre de recettes </a> </li>
                                              <li> <a class="dropdown-item" href="#"> Gérer les ingrédients </a> </li>
@@ -85,7 +85,7 @@
                                              <li> <a class="dropdown-item" href="#"> Gérer les régimes alimentaires </a> </li>
                                              <li> <a class="dropdown-item" href="#"> Gérer les type de plats </a> </li>
 
-                                             <li> <hr class="dropdown-divider"> </li>
+                                             <li> <hr class="dropdown-divider"> </li> #}
 
                                          {# ***** Gestion du site ***** #}
                                          <h6> <kbd> Gestion du site </kbd> </h6>
@@ -138,7 +138,7 @@
                  <div class="col-4 text-center "> 
                      <img id="avatarUser"src="/logo.png" alt="Logo du site" >
                  </div>
-
+             
                  {# ********** Partie: SideBar ********** #}
 
                  <div class="col-4 text-end ">
@@ -216,9 +216,54 @@
 
                      </div>
              
-                     <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776; </span> 
+                     {# ********** Partie: SearchBar ********** #} 
 
+                     {# <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                         <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+                     </form> #}
+
+                     <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776; </span> 
+     
                  </div>
+
+                  {# <div class="container-fluid">
+                     <a class="navbar-brand" href="#">Never expand</a>
+                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="true" aria-label="Toggle navigation">
+                       <span class="navbar-toggler-icon"></span>
+                     </button>
+
+                     <div class="navbar-collapse collapse show" id="navbarsExample01" style="">
+                       <ul class="navbar-nav me-auto mb-2">
+                         <li class="nav-item">
+                           <a class="nav-link active" aria-current="page" href="#">Home</a>
+                         </li>
+                         <li class="nav-item">
+                           <a class="nav-link" href="#">Link</a>
+                         </li>
+                         <li class="nav-item">
+                           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                         </li>
+                         <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                           <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                             <li><a class="dropdown-item" href="#">Action</a></li>
+                             <li><a class="dropdown-item" href="#">Another action</a></li>
+                             <li><a class="dropdown-item" href="#">Something else here</a></li>
+                           </ul>
+                         </li>
+                       </ul> #}
+{#                  
+                 <hr class="dropdown-divider" style="color: black;"> 
+
+                       <form>
+                         <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                       </form> #}
+
+                     {# </div>
+
+                   </div> #}
+ 
+                 <hr class="dropdown-divider" style="color: black; "> 
 
              </header>
 
