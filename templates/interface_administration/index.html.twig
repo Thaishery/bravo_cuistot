@@ -3,43 +3,68 @@
 {% block title %}Interface administration{% endblock %}
 
 {% block body %}
+<h1 class="h1Title">Interface D'Administration</h1>
     <div class="container">
         <div class="row">
             <div class="col-6 administrationCard">
-                <img class="administrationLogo col-6" src="{{asset ('Images/avatar.png')}}" alt="image d'une persone type emoji">
-                <p class="administrationTitle">
-                    <a href="{{path("user_index")}}">Gérer les utilisateurs </a>
-                </p>
+                <a href="{{path("user_index")}}">
+                    <div class="cardImage">
+                        <img class="administrationLogo col-6" src="{{asset ('Images/avatar.png')}}" alt="image d'une persone type emoji">
+                    </div>
+                    <p class="administrationTitle">
+                        Gérer les utilisateurs 
+                    </p>
+                </a>
             </div>
             <div class="col-6 administrationCard">
-                <img class="administrationLogo col-6" src="{{asset ('Images/cuisineBg1.jpg')}}" alt="image d'une persone type emoji">
-                <p class="administrationTitle">
-                    <a href="{{path("administration_recette_index")}}">Gérer les recettes</a>
-                </p>
+                <a href="{{path("administration_recette_index")}}">
+                    <div class="cardImage">
+                        <img class="administrationLogo col-6" src="{{asset ('Images/cuisineBg1.jpg')}}" alt="image d'une persone type emoji">
+                    </div>
+                    <p class="administrationTitle">
+                        Gérer les recettes
+                    </p>
+                </a>
             </div>
             <div class="col-6 administrationCard">
-                <img class="administrationLogo col-6" src="{{asset ('Images/bulleText.png')}}" alt="image d'une persone type emoji">
-                <p class="administrationTitle">
-                    <a href="{{path("administration_comentaires_index")}}">Gérer les commentaires</a>
-                </p>
+                <a href="{{path("administration_comentaires_index")}}">
+                    <div class="cardImage">
+                        <img class="administrationLogo col-6" src="{{asset ('Images/bulleText.png')}}" alt="image d'une persone type emoji">
+                    </div>
+                    <p class="administrationTitle">
+                        Gérer les commentaires
+                    </p>
+                </a>
             </div>
             <div class="col-6 administrationCard">
-                <img class="administrationLogo col-6" src="{{asset ('Images/dossier.jpg')}}" alt="image d'une persone type emoji">
-                <p class="administrationTitle">
-                    <a href="{{path("categories")}}">Gérer les catégories</a>
-                </p>
+                <a href="{{path("categories")}}">
+                    <div class="cardImage">
+                        <img class="administrationLogo col-6" src="{{asset ('Images/dossier.jpg')}}" alt="image d'une persone type emoji">
+                    </div>
+                    <p class="administrationTitle">
+                        Gérer les catégories
+                    </p>
+                </a>
             </div>
             <div class="col-6 administrationCard">
-                <img class="administrationLogo col-6" src="{{asset ('Images/ingrédients.jpg')}}" alt="image d'une persone type emoji">
-                <p class="administrationTitle">
-                    <a href="{{path("administration_ingredients_index")}}">Gérer les ingédients </a>
-                </p>
+                <a href="{{path("administration_ingredients_index")}}">
+                    <div class="cardImage">
+                        <img class="administrationLogo col-6" src="{{asset ('Images/ingrédients.jpg')}}" alt="image d'une persone type emoji">
+                    </div>
+                    <p class="administrationTitle">
+                        Gérer les ingédients 
+                    </p>
+                </a>
             </div>
             <div class="col-6 administrationCard">
-                <img class="administrationLogo col-6" src="{{asset ('Images/mesures.jpg')}}" alt="image d'une persone type emoji">
-                <p class="administrationTitle">
-                    <a href="{{path("unite_mesure_index")}}">Gérer les unitées de messures </a>
-                </p>
+                <a href="{{path("unite_mesure_index")}}">
+                    <div class="cardImage">
+                        <img class="administrationLogo col-6" src="{{asset ('Images/mesures.jpg')}}" alt="image d'une persone type emoji">
+                    </div>
+                    <p class="administrationTitle">
+                        Gérer les unitées de messures 
+                    </p>
+                </a>
         </div>
     </div>
 {% endblock %}

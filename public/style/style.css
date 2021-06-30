@@ -2,7 +2,9 @@
 .textPink{
     color: #f0626f;
 }    
-
+.h1Title{
+    text-align: center;
+}
 
  /* *** Style de l'entete *** */
      
@@ -82,3 +84,12 @@
      button a {
          color: #f0626f;
      }
+/* *** Style de l'interface d'administration *** */
+.administrationCard{
+    justify-content: center;
+    margin: auto;
+}
+.administrationCard>*{
+    text-align: center;
+    justify-content: center;
+}
