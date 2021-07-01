@@ -8,7 +8,7 @@
 
     {{ include('recette/_form.html.twig') }}
     {# todo : prévoir une vue de validation :  #}
-    {# <a href="{{ path('recette_new_etapes',{'id': app.request.get('id')})}}"> passer a l'ajout des étapes</a><br/> #}
+    <a href="{{ path('recette_new_preview',{'id': app.request.get('id')})}}">Valider et passer a la prévisualisation de la recette.</a><br/>
 
     <a href="{{ path('recette_index') }}">back to list</a>
 {% endblock %}

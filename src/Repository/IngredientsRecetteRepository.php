@@ -29,7 +29,6 @@ class IngredientsRecetteRepository extends ServiceEntityRepository
             ->andWhere('i.recette_id = :val')
             ->setParameter('val', $value)
             ->orderBy('i.id', 'ASC')
-            // ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;

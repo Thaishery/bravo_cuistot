@@ -88,10 +88,7 @@ class RecetteController extends AbstractController
         //si la recette a modifier a un auteur différent de l'utilisateur actuel, ne pas permetre la modification de la liste d'ingrédients:
         if ($recette->getAuthorId()->getId() !== $user->getId()){
             // forbiden.html.twig => a modifier (placeholder atm)
-            return $this->render('errors/forbiden.html.twig',[
-                'authorid' => $recette,
-                'userid' => $user->getId(),
-            ]);
+            return $this->render('errors/forbiden.html.twig');
         }
         // si il y a deja des ingrédients de recette
         else if($listeIngredient != null){
@@ -158,10 +155,7 @@ class RecetteController extends AbstractController
         //si la recette a modifier a un auteur différent de l'utilisateur actuel, ne pas permetre la modification de la liste d'étape:
         if ($recette->getAuthorId()->getId() !== $user->getId()){
             // forbiden.html.twig => a modifier (placeholder atm) les paramétres pouront être suprimer par la suite. 
-            return $this->render('errors/forbiden.html.twig',[
-                'authorid' => $recette,
-                'userid' => $user->getId(),
-            ]);
+            return $this->render('errors/forbiden.html.twig');
         }
         // si il y a deja des ingrédients de recette
         else if($listeEtapes != null){
@@ -205,6 +199,29 @@ class RecetteController extends AbstractController
             ]);
         }
     }
+    //preview recette : 
+    /**
+     * @IsGranted("ROLE_USER", message="Veuillez vous connecter ou créer un compte pour pouvoir créer une recette!")
+     * @Route("/new/{id}/preview", name="recette_new_preview", methods={"GET","POST"})
+     */
+    public function preview(Recette $recette, $id, EtapesRepository $etapesRepository, IngredientsRecetteRepository $ingredientsRecetteRepository): Response{
+        $listeEtapes = $etapesRepository->findByRecetteId($id);
+        $listeIngredient = $ingredientsRecetteRepository->findByRecetteId($id);
+        $user = $this->getUser();
+        //si la recette a modifier a un auteur différent de l'utilisateur actuel, ne pas permetre la modification de la liste d'étape:
+            if ($recette->getAuthorId()->getId() !== $user->getId()){
+                // forbiden.html.twig => a modifier (placeholder atm) les paramétres pouront être suprimer par la suite. 
+                return $this->render('errors/forbiden.html.twig');
+            }
+
+        
+        return $this->render('recette/preview.html.twig',[
+            'recette' => $recette,
+            'listeIngredient' => $listeIngredient,
+            'listeEtapes' => $listeEtapes,
+        ]);
+    }
+
 
     /**
      * @Route("/{id}", name="recette_show", methods={"GET"})

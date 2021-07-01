@@ -29,7 +29,6 @@ class EtapesRepository extends ServiceEntityRepository
             ->andWhere('e.recette_id = :val')
             ->setParameter('val', $value)
             ->orderBy('e.id', 'ASC')
-            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
