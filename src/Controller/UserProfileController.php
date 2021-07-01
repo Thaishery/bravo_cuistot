@@ -18,22 +18,9 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class UserProfileController extends AbstractController
 {
 
+    
     /**
-     * @Route("/{id}", name="profile_show", methods={"GET","POST"})
-     */
-    public function show(Request $request, UserRepository $userRepository, $id){
-        $user = $userRepository->findById($id);
-        if($user){
-        return $this->render('user/profile_show.html.twig', [
-            'user' => $user,
-        ]);
-        }
-        else{
-            return $this->render('home/index.html.twig');
-        }
-    }
-    /**
-     * @Route("/edit", name="profile", methods={"GET","POST"})
+     * @Route("/edit", name="profile_edit", methods={"GET","POST"})
      */
 //fonction récupérée à partir de UserController
 // On a enlevé les paramètres $user puisque seul le user connecté nous intéresse
@@ -88,16 +75,31 @@ $avatar = $form->get('avatar')->getData();
     }
 
     /**
-     * @Route("/{id}", name="user_delete", methods={"POST"})
+     * @Route("/{id}", name="profile_show", methods={"GET","POST"})
      */
-    public function delete(Request $request, User $user): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($user);
-            $entityManager->flush();
+    public function show(Request $request, UserRepository $userRepository, $id){
+        $user = $userRepository->findById($id);
+        if($user){
+        return $this->render('user/profile_show.html.twig', [
+            'user' => $user,
+        ]);
         }
-
-        return $this->redirectToRoute('user_index');
+        else{
+            return $this->render('home/index.html.twig');
+        }
     }
+
+    // /**
+    //  * @Route("/{id}", name="user_delete", methods={"POST"})
+    //  */
+    // public function delete(Request $request, User $user): Response
+    // {
+    //     if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+    //         $entityManager = $this->getDoctrine()->getManager();
+    //         $entityManager->remove($user);
+    //         $entityManager->flush();
+    //     }
+
+    //     return $this->redirectToRoute('user_index');
+    // }
 }
