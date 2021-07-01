@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block body %}{{ form_start(form) }}
+<div>
+    {{ form_label(form.email) }}
+    {{ form_widget(form.email) }}
+</div>
+<div>
+    {{ form_label(form.avatar) }}
+    {{ form_widget(form.avatar) }}
+</div>
+<button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+{% endblock %}
