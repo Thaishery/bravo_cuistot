@@ -7,6 +7,7 @@
 
              <header class="row align-items-center justify-content-md-between ">
 
+
                  <hr class="dropdown-divider" style="color: black;"> 
 
                  <div class="col-4 mb-0 small lh-1 text-start">
@@ -15,6 +16,10 @@
                        {# <div class="col-md-3 text-start "> #}
 
                      {% if app.user %}
+                        <p class="textPink"> vous etes connecter en tant que : 
+                            {{app.user.login}}
+                         {% if app.user.avatar %}
+
 
                          <div class="" style="display:flex; justify-content:space-around;">
 
@@ -108,6 +113,7 @@
                      {# {% else %} #}
 
                      {# {% endif %} #}
+
 
                      {% else %}
                          

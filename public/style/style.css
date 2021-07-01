@@ -1,8 +1,18 @@
+
  /* **************************************************************************** */ 
  /* *  Feuille de style principale de notre document Fil-Rouge - BravoCuistot * */
  /* **************************************************************************** */ 
  
      /* ? Style de tout le document */
+
+/* *** Style Commun *** */
+.textPink{
+    color: #f0626f;
+}    
+
+
+ /* *** Style de l'entete *** */
+
      
          * {
              font-family: 'Jura', sans-serif;
@@ -83,6 +93,7 @@
 
      /* ? Style des cartes */  
 
+
      .carteBg1 {
              background-image: url("../Images/carteBg8.jpg") ;    
              font-size: 1.0em;           
@@ -100,6 +111,13 @@
      .carteBg4 {
              background-image: url("../Images/carteBg10.jpg") ;
          }
+
+ /* ***Style du menu de navigation *** */  
+    
+     /* #titreNav {
+
+     } */
+
 
  /* ***** ***** ***** ***** ***** */    
       
