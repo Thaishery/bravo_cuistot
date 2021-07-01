@@ -117,10 +117,10 @@
              
          /* ? Lien focalisation) */
 
-             .liens li a:focus
+             /* .liens li a:focus
              {	 
-             /* color: #6666FF; */
-             }
+             color: #6666FF; 
+             } */
 
          /* ? Lien au  survol) */    
 
