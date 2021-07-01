@@ -1,24 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CategoriesController!{% endblock %}
+{% block title %}Gestion des catégories{% endblock %}
 
 {% block body %}
+<h1 class="h1Title">Gestion des catégories</h1>
 <div class="container">
         <div class="row">
-            <div class="col-6">
-                <p>
-                    <a href="{{path("administration_plats_index")}}">Gérer les types de plats </a>
-                </p>
+            <div class="col-6 administrationCard">
+                <a href="{{path("administration_plats_index")}}">
+                    <div class="cardImage">
+                        <img class="administrationLogo col-6" src="{{asset ('Images/plats.jpg')}}" alt="image d'une persone type emoji">
+                    </div>
+                    <p class="administrationTitle">
+                        Gérer les types de plats
+                    </p>
+                </a>
+            </div>
+            <div class="col-6 administrationCard">
+                <a href="{{path("administration_alimentation_index")}}">
+                    <div class="cardImage">
+                        <img class="administrationLogo col-6" src="{{asset ('Images/steak.png')}}" alt="image d'une persone type emoji">
+                    </div>
+                    <p class="administrationTitle">
+                       Gérer les type d'alimentation
+                    </p>
+                </a>
+            </div>
+            <div class="col-6 administrationCard">
+                <a href="{{path("administration_cuisson_index")}}">
+                    <div class="cardImage">
+                        <img class="administrationLogo col-6" src="{{asset ('Images/barbecue.jpg')}}" alt="image d'une persone type emoji">
+                    </div>
+                    <p class="administrationTitle">
+                       Gérer les type de cuisson
+                    </p>
+                </a>
             </div>
             <div class="col-6">
-                <p>
-                    <a href="{{path("administration_alimentation_index")}}">Gérer les type d'alimentation</a>
-                </p>
-            </div>
-            <div class="col-6">
-                <p>
-                    <a href="{{path("administration_cuisson_index")}}">Gérer les type de cuisson</a>
-                </p>
             </div>
         </div>
 </div>

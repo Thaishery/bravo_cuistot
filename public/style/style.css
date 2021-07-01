@@ -3,11 +3,15 @@
  /* *  Feuille de style principale de notre document Fil-Rouge - BravoCuistot * */
  /* **************************************************************************** */ 
 
-     /* ? Style Commun */
 
-     .textPink{
-        color: #f0626f;
-     }    
+/* *** Style Commun *** */
+.textPink{
+    color: #f0626f;
+}    
+.h1Title{
+    text-align: center;
+}
+
 
      /* ***** ***** ***** ***** ***** */ 
 
@@ -58,9 +62,15 @@
              #plantFont {           
              background-image: url("../Images/background1.png") ;
              background-blend-mode:screen;
-             }
-      
-     /* ***** ***** ***** ***** ***** */       
+
+         }
+         #inscriptionForm{
+             margin:auto;
+         }
+  
+ /* ***** ***** ***** ***** ***** */       
+
+     /* ? Style du formulaire de connection (normal) */ 
      
          /* ? Style du formulaire de connection (normal) */ 
          
@@ -68,7 +78,10 @@
              #bloc_page1 {
              width: 80%;
              margin: auto;
-             }.0
+         }
+     
+ /* ***** ***** ***** ***** ***** */ 
+
          
      /* ***** ***** ***** ***** ***** */ 
              
@@ -150,15 +163,26 @@
          /* #titreNav {
 
      } */
-     
-     
-     /* ***** ***** ***** ***** ***** */    
-          
-         /* ? Style des boutons *** */ 
-     
-             button a {
+
+
+
+
+/* *** Style de l'interface d'administration *** */
+.administrationCard{
+    justify-content: center;
+    margin: auto;
+}
+.administrationCard>*{
+    text-align: center;
+    justify-content: center;
+}
+
+ /* ***** ***** ***** ***** ***** */    
+      
+     /* ? Style des boutons *** */ 
+
+         button a {
              color: #f0626f;
-             }
-         
-     /* ***** ***** ***** ***** ***** */ 
-            
+         }
+     
+ /* ***** ***** ***** ***** ***** */ 
