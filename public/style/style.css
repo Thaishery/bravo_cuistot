@@ -60,6 +60,9 @@
              background-image: url("../Images/background1.png") ;
              background-blend-mode:screen;
          }
+         #inscriptionForm{
+             margin:auto;
+         }
   
  /* ***** ***** ***** ***** ***** */       
 
@@ -69,7 +72,7 @@
          #bloc_page1 {
              width: 80%;
              margin: auto;
-         }.0
+         }
      
  /* ***** ***** ***** ***** ***** */ 
          
