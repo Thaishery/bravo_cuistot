@@ -1,13 +1,41 @@
 {% extends 'base.html.twig' %}
+ 
+     {% block metaTitle %}
+         " Modifier une recette "
+     {% endblock %}
 
-{% block title %}Edit Recette{% endblock %}
+     {% block title %}
+         Modifier une recette
+     {% endblock %}
+     
+     {% block body %}
+     
+         <main class="Form">  
 
-{% block body %}
-    <h1>Edit Recette</h1>
+             <section class="text-center">
+   
+                 <h1 class="h1 mb-3 font-weight-normal"> Modifier une recette </h1>
 
-    {{ include('recette/_form.html.twig', {'button_label': 'Update'}) }}
+             </section>   
 
-    <a href="{{ path('recette_index') }}">back to list</a>
+             <article class="btn-group-vertical">
+     
+                 {# {{ include('recette/_form.html.twig', {'button_label': 'Mettre à jour'}) }} #}
+                 <button href="{{ include('recette/_form.html.twig', {'button_label': 'Mettre à jour'}) }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">
+                 </button>
 
-    {{ include('recette/_delete_form.html.twig') }}
-{% endblock %}
+                 {# {{ include('recette/_delete_form.html.twig') }} #}
+                 <button href="{{ include('recette/_delete_form.html.twig') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3"> 
+                 </button>
+     
+                 <button href="{{ path('recette_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+                     Retour à la liste
+                 </button>
+
+             </article> 
+
+         </main>
+
+     {% endblock %}
+      
+         

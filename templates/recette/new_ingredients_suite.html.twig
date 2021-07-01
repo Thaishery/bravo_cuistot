@@ -1,13 +1,46 @@
-{% extends 'base.html.twig' %}
+ {% extends 'base.html.twig' %}
 
-{% block title %}New ingredients{% endblock %}
+     {% block metaTitle %}
+         " Créer un nouvel ingrédients (suite) "
+     {% endblock %}
 
-{% block body %}
-    <h1>suite ingrédients</h1>
-    {{dump(listeIngredients)}}
+     {% block title %}
+         Créer un nouvel ingrédients (suite)
+     {% endblock %}
+     
+     {% block body %}
 
-    {{ include('recette/_form.html.twig') }}
-    <a href="{{ path('recette_new_etapes',{'id': app.request.get('id')})}}"> passer a l'ajout des étapes</a><br/>
+         <main class="Form">  
 
-    <a href="{{ path('recette_index') }}">back to list</a>
-{% endblock %}
+             <section class="text-center">
+
+                 <h1 class="h1 mb-3 font-weight-normal"> Créer un nouvel ingrédients (suite) </h1>
+
+             </section>    
+
+             <article>
+
+                 {{dump(listeIngredients)}}
+               
+             </article>    
+
+             <article class="btn-group-vertical">
+
+                 {{ include('recette/_form.html.twig') }}
+
+                 <button href="{{ path('recette_new_etapes',{'id': app.request.get('id')})}}" type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
+                     Passer a l'ajout des étapes
+                 </button>            
+
+                 <button href="{{ path('recette_index') }}" type="submit" class="btn col-12 btn-dark btn-lg px-4">                                
+                     Retour à la liste 
+                 </button>   
+
+             </article>
+
+         </main>
+
+     {% endblock %}
+
+
+                 

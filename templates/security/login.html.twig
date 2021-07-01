@@ -6,7 +6,7 @@
      
      {% block body %}
 
-         <main class="form-login ">
+         <main class="Form">
 
              <form method="post">
 
@@ -27,9 +27,10 @@
                  {% endif %}
              
                  {# *** Conteneur du titre du formulaire *** #}
+
                  <div id="bloc_page" class="py-5 text-center col-12">
                  
-                     <h1 class="h3 mb-3 font-weight-normal"> Formulaire de connection </h1>
+                     <h1 class="h1 mb-3 font-weight-normal"> Formulaire de connection </h1>
                  
                      <label for="inputLogin"> Pseudo </label>
                      <input type="text" value="{{ last_username }}" name="login" id="inputLogin" class="form-control" autocomplete="username" required autofocus>
@@ -61,14 +62,13 @@
                          </button>
     
                          {# *** Bouton: S'inscrire *** #}
-                         <div class="col-12">
-                         <a class="col-12" href="{{ path('app_register') }}">
-                         <button type="submit" class="btn col-12 btn-success btn-lg px-4">                                
+                         <button href="{{ path('app_register') }}" type="submit" class="btn col-12 btn-success btn-lg px-4">                                
                              S'inscrire 
                          </button>
-                        </a> 
-                        </div>
+                      
                      </div>
+
+                 </div>
 
              </form>
 

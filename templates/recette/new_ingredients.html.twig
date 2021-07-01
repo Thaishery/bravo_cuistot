@@ -1,11 +1,35 @@
-{% extends 'base.html.twig' %}
+ {% extends 'base.html.twig' %}
 
-{% block title %}New ingredients{% endblock %}
+     {% block metaTitle %}
+         " Créer un nouvel ingrédients "
+     {% endblock %}
 
-{% block body %}
-    <h1>Create new ingredients</h1>
+     {% block title %}
+         Créer un nouvel ingrédients
+     {% endblock %}
+     
+     {% block body %}
 
-    {{ include('recette/_form.html.twig') }}
+         <main class="Form">  
+ 
+             <section class="text-center">
 
-    <a href="{{ path('recette_index') }}">back to list</a>
-{% endblock %}
+                 <h1 class="h1 mb-3 font-weight-normal"> Créer un nouvel ingrédients </h1>
+
+             </section>      
+     
+             <article>  
+
+                 {{ include('recette/_form.html.twig') }}
+              
+                 <button href="{{ path('recette_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+                     Retour à la liste
+                 </button>
+
+             </article>
+
+         </main>
+
+     {% endblock %}
+
+        

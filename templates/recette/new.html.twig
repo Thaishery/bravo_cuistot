@@ -1,14 +1,41 @@
 {% extends 'base.html.twig' %}
 
+     {% block metaTitle %}
+         " Créer une nouvelle recette "
+     {% endblock %}
+
      {% block title %}
-         New Recette
+         Créer une nouvelle recette
      {% endblock %}
 
      {% block body %}
 
-         <h1> Create new Recette </h1>
-     
-         {{ include('recette/_form.html.twig') }}
-     
-         <a href="{{ path('recette_index') }}"> back to list </a>
+         <main class="Form">  
+
+             <section class="text-center">
+
+                 <h1 id="" class="h1 mb-3 font-weight-normal"> Créer une nouvelle recette </h1>
+                      
+                     <p class="lead"> 
+                         Créer vos propres recette étapes-par-étapes! 
+                     </p>
+
+             </section>
+
+             <article>
+
+                 <form class="text-center">
+ 
+                 {{ include('recette/_form.html.twig') }}
+
+                 </form>
+
+                 <button href="{{ path('recette_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+                     Retour à la liste
+                 </button>
+
+             </article>
+
+         <main>
+        
      {% endblock %}

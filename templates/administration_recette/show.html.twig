@@ -37,10 +37,15 @@
             </tr>
         </tbody>
     </table>
+ 
+     <button href="{{ path('administration_recette_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+         Retour à la liste 
+     </button>
 
-    <a href="{{ path('administration_recette_index') }}">back to list</a>
-
-    <a href="{{ path('administration_recette_edit', {'id': recette.id}) }}">edit</a>
+     <button href="{{ path('administration_recette_edit', {'id': recette.id}) }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+         Modifier
+     </button>
 
     {{ include('administration_recette/_delete_form.html.twig') }}
+
 {% endblock %}

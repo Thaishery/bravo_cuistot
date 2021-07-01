@@ -1,4 +1,14 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+ {{ form_start(form) }}
+
+     {{ form_widget(form) }}
+
+         <button class="btn col-12 btn-dark btn-lg px-4">
+
+             {# <acronym style="decoration:none"title="Passer à l'étape suivante"> #}
+                 {{ button_label|default('Valider cette étape') }}
+             {# </acronym> #}
+
+         </button>
+
+ {{ form_end(form) }}
+
