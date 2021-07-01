@@ -16,9 +16,8 @@
                        {# <div class="col-md-3 text-start "> #}
 
                      {% if app.user %}
-                        <p class="textPink"> vous etes connecter en tant que : 
-                            {{app.user.login}}
-                         {% if app.user.avatar %}
+                        
+                         {# {% if app.user.avatar %} #}
 
 
                          <div class="" style="display:flex; justify-content:space-around;">
@@ -33,7 +32,7 @@
                                  <div class="d-flex justify-content-between">
     
                                      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                         <img src="{{app.user.avatar}} " alt="" width="32" height="32" class="rounded-circle me-2">
+                                         <img src="/uploads/avatar/{{app.user.avatar}} " alt="" width="32" height="32" class="rounded-circle me-2">
 
                                          <div class="d-flex justify-content-between">
                                                         
