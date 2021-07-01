@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserProfileType;
+use App\Repository\UserRepository;
 use App\Service\AvatarFileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,10 +12,28 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
+/**
+ * @Route("/profile")
+ */
 class UserProfileController extends AbstractController
 {
+
     /**
-     * @Route("/profile", name="profile", methods={"GET","POST"})
+     * @Route("/{id}", name="profile_show", methods={"GET","POST"})
+     */
+    public function show(Request $request, UserRepository $userRepository, $id){
+        $user = $userRepository->findById($id);
+        if($user){
+        return $this->render('user/profile_show.html.twig', [
+            'user' => $user,
+        ]);
+        }
+        else{
+            return $this->render('home/index.html.twig');
+        }
+    }
+    /**
+     * @Route("/edit", name="profile", methods={"GET","POST"})
      */
 //fonction récupérée à partir de UserController
 // On a enlevé les paramètres $user puisque seul le user connecté nous intéresse
