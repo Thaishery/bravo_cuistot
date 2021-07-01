@@ -1,3 +1,10 @@
+
+ /* **************************************************************************** */ 
+ /* *  Feuille de style principale de notre document Fil-Rouge - BravoCuistot * */
+ /* **************************************************************************** */ 
+ 
+     /* ? Style de tout le document */
+
 /* *** Style Commun *** */
 .textPink{
     color: #f0626f;
@@ -7,62 +14,108 @@
 }
 
  /* *** Style de l'entete *** */
+
      
-     header {
-         background-color: rgb(0 0 0);
-         /* background-image: url("../Images/background1.png") ; */
-         /* background-attachment: fixed;     */
-         /* font-size: 1.0em; */
-     }
-
-     header div.row {
-         padding: 1%;
-     }
-
-     .menuNav {
-         text-align: right;
-    }
-
- /* *** Style des titres *** */  
-    
-     /* Titre de premier niveau */
-
-         h1 {     
-             margin: 20%S;
-             padding: 5px;
-             border-radius: 3px;
-             background-color: rgba(25,135,84,0.9); 
-             /* ? Black w/opacity */       
-             /* color:blanchedalmond; */
-             /* padding: 1%; */
-             background-image: url("../Images/background1.png") ;
-             background-blend-mode:screen;
-
-             border:  rgba(25,135,84,0.9) groove 1px;
-             box-shadow: 3px 3px 3px #f0626f;
+         * {
+             font-family: 'Jura', sans-serif;
          }
 
- /* *** Style du formulaire d'inscription *** */
+ /* ***** ***** ***** ***** ***** */ 
 
-     #inscriptionForm{
-        margin: 2%;
-        padding: 3%;
-     }
+     /* ? Style de l'entete */
+         
+         header {
+             background-color: rgb(0 0 0);
+         }
+     
+         header div.row {
+             padding: 1%;
+         }
+     
+         .menuNav {
+             text-align: right;
+        }
+     
+ /* ***** ***** ***** ***** ***** */ 
 
-     #plantFont {
-         /* padding: 1%; */
-         background-image: url("../Images/background1.png") ;
-         background-blend-mode:screen;
-         /* background-color: rgb(0 0 0); */
-     }
+     /* ? Style des titres */  
+        
+         /* ! Titre de premier niveau */
+     
+             h1 {     
+                 text-align: center;
+                 margin: 20%S;
+                 padding: 5px;
+                 border-radius: 3px;
+                 background-color: rgba(25,135,84,0.9); /* ? Black w/opacity */                    
+                 background-image: url("../Images/background1.png") ;
+                 background-blend-mode:screen;    
+                 border:  rgba(25,135,84,0.9) groove 1px;              
+                     color: var(--ecriture);
+             }
+         
+ /* ***** ***** ***** ***** ***** */                  
 
- /* *** Style du formulaire de connection (normal) *** */ 
+     /* ? Style du formulaire d'inscription */
+     
+         #plantFont {           
+             background-image: url("../Images/background1.png") ;
+             background-blend-mode:screen;
+         }
+         #inscriptionForm{
+             margin:auto;
+         }
+  
+ /* ***** ***** ***** ***** ***** */       
 
-     #bloc_page,
-     #bloc_page1 {
-         width: 80%;
-         margin: auto;
-     }
+     /* ? Style du formulaire de connection (normal) */ 
+     
+         #bloc_page,
+         #bloc_page1 {
+             width: 80%;
+             margin: auto;
+         }
+     
+ /* ***** ***** ***** ***** ***** */ 
+         
+     /* ? Style du contenu des formulaires */ 
+     
+         .contenu {
+             padding: 50px 10%;
+             text-align: justify;     
+         }
+  
+ /* ***** ***** ***** ***** ***** */             
+
+     /* ? Style du menu de navigation */  
+        
+         #myNav {
+             background-image: url("../Images/Confetti-Doodles.svg") ;
+             opacity: 0.9;
+          }
+
+ /* ***** ***** ***** ***** ***** */
+
+     /* ? Style des cartes */  
+
+
+     .carteBg1 {
+             background-image: url("../Images/carteBg8.jpg") ;    
+             font-size: 1.0em;           
+         }
+
+     .carteBg2 {
+             background-image: url("../Images/carteBg9.jpg") ;             
+         }
+     
+     .carteBg3 {
+             background-image: url("../Images/carteBg4.png") ;
+             font-size: 1.0em; 
+         }
+     
+     .carteBg4 {
+             background-image: url("../Images/carteBg10.jpg") ;
+         }
 
  /* ***Style du menu de navigation *** */  
     
@@ -70,20 +123,8 @@
 
      } */
 
-     /* #body { */
-         /* display: flex;
-         align-items: center;
-         padding-top: 40px; */
-         /* padding-bottom: 40px; 
-         height: 50vh;
-         width: 50vw;
-         margin: auto;  */
-    
-     /* } */
 
-     button a {
-         color: #f0626f;
-     }
+
 /* *** Style de l'interface d'administration *** */
 .administrationCard{
     justify-content: center;
@@ -93,3 +134,13 @@
     text-align: center;
     justify-content: center;
 }
+
+ /* ***** ***** ***** ***** ***** */    
+      
+     /* ? Style des boutons *** */ 
+
+         button a {
+             color: #f0626f;
+         }
+     
+ /* ***** ***** ***** ***** ***** */ 

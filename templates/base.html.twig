@@ -43,30 +43,37 @@
                  {# ***** Script Css ***** #}
                  <link href="{{asset ('style/style.css')}}" rel="stylesheet">
 
+                     {# ***** Script Css: Animations bouton "Close" ***** #}
+                     {# ! Fontionne mais je n'arrive pas à l'intégrer à la bonne place. Revenir dessus plus tard JC_  #}
+                     {# <link href="{{asset ('style/style_close_button.css')}}" rel="stylesheet"> #}
+                    
              {% endblock %}
      
              {% block javascripts %}
 
-                {# ***** Script Js ***** #}
+                 {# ***** Script Js: SideBar ***** #}
                  <script src="{{asset ('js/sidebar.js')}} "type="text/javascript"" "></script> 
                  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-
+            
              {% endblock %}
-
 
          </head>
 
          <header>
 
-
              {% include 'partials/header.html.twig' %}
 
          </header>
 
-         <body>
-         
-             {# {% include 'partials/body.html.twig' %} #}
-             {% block body %}{% endblock %}
+         <body class="">
+        
+         {# {% include 'partials/home.html.twig' %} #}
+          
+             {% block body %}   
+
+                  
+
+             {% endblock %}
          
          </body>
 
