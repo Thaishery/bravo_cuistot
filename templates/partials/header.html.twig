@@ -79,10 +79,10 @@
                                          {# ***** Gestion du site ***** #}
                                          <h6> <kbd> Gestion du site </kbd> </h6>
 
-                                             <li> <a class="dropdown-item" href="{{path ('user_index')}}"> Gérer les utilisateurs </a> </li>
-                                             <li> <a class="dropdown-item" href="#"> Gérer les roles </a> </li>
-                                             <li> <a class="dropdown-item" href="#"> Gérer les commentaires </a> </li>
-                                             <li> <a class="dropdown-item" href="#"> Gérer les notes </a> </li>
+                                             <li> <a class="dropdown-item" href="{{path ('user_index') }}"> Gérer les utilisateurs </a> </li>
+                                             {# <li> <a class="dropdown-item" href="#"> Gérer les roles </a> </li> #}
+                                             {# <li> <a class="dropdown-item" href="#"> Gérer les commentaires </a> </li> #}
+                                             {# <li> <a class="dropdown-item" href="#"> Gérer les notes </a> </li> #}
                                             
                                              <li> <hr class="dropdown-divider"> </li>
 
@@ -90,8 +90,8 @@
                                          {# ***** Gestion du site ***** #}
                                          <h6> <kbd> Gestion du profil </kbd> </h6>
 
-                                             <li> <a class="dropdown-item" href="#"> Gérer mon compte </a></li>
-                                             <li> <a class="dropdown-item" href="#"> Gérer mes commentaires </a></li>
+                                             <li> <a class="dropdown-item" href="{{path ('user_edit',{'id': app.user.id})}}"> Gérer mon compte </a></li>
+                                             <li> <a class="dropdown-item" href="{{path ('user_show',{'id': app.user.id})}}"> Mon profil </a></li>
                                              <li> <a class="dropdown-item" href="#"> Paramètres </a></li>
 
                                              <li> <hr class="dropdown-divider">   </li> 
