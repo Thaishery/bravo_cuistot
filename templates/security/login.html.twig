@@ -6,9 +6,11 @@
      
      {% block body %}
 
-         <main class="form-login ">
+         <main>
 
              <form method="post">
+
+                 {# *** Partie: Authentification sécurité *** #}
 
                  {% if error %}
 
@@ -17,7 +19,7 @@
                      </div>
 
                  {% endif %}
-             
+                 
                  {% if app.user %}
 
                      <div class="mb-3">
@@ -25,50 +27,55 @@
                      </div>
 
                  {% endif %}
-             
-                 {# *** Conteneur du titre du formulaire *** #}
+                 
+                 {# *** Conteneur du formulaire *** #}
+
                  <div id="bloc_page" class="py-5 text-center col-12">
                  
                      <h1 class="h3 mb-3 font-weight-normal"> Formulaire de connection </h1>
+ 
+                         <label for="inputLogin"> Pseudo </label>
+                         <input type="text" value="{{ last_username }}" name="login" id="inputLogin" class="form-control" autocomplete="username" required autofocus>
+                        
+                         <label for="inputPassword"> Mot de passe </label>
+                         <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
                  
-                     <label for="inputLogin"> Pseudo </label>
-                     <input type="text" value="{{ last_username }}" name="login" id="inputLogin" class="form-control" autocomplete="username" required autofocus>
-                    
-                     <label for="inputPassword"> Mot de passe </label>
-                     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-             
-                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-             
-                     <div class="checkbox mb-3">
-                     
-                         <label>
-                             <input type="checkbox" name="_remember_me">
-                             Se souvenir de moi
-                         </label>
-                   
-                     </div>
+                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                 
+                         <div class="checkbox mb-3">
+                         
+                             <label>
+                                 <input type="checkbox" name="_remember_me">
+                                 Se souvenir de moi
+                             </label>
+                        
+                         </div>
 
                      {#
-                         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-                         See https://symfony.com/doc/current/security/remember_me.html                 
+                             Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                             See https://symfony.com/doc/current/security/remember_me.html                 
                      #}
+
+                     {# *** Conteneur des boutons *** #}
 
                      <div class="btn-group-vertical col-12">
 
-                         {# *** Bouton: Se Connecter *** #}
                          <button type="submit" class="btn btn-dark btn-lg px-4 gap-3"> 
-                            Se connecter 
+
+                             {# <a href="{{ path('home') }}"> Se connecter </a>  #}
+                             Se connecter 
                          </button>
-    
-                         {# *** Bouton: S'inscrire *** #}
-                         <div class="col-12">
-                         <a class="col-12" href="{{ path('app_register') }}">
-                         <button type="submit" class="btn col-12 btn-success btn-lg px-4">                                
-                             S'inscrire 
+
+                         <button href="{{ path('app_register') }}" type="submit" class="btn btn-success btn-lg px-4">                                
+                             S'inscrire
                          </button>
-                        </a> 
-                        </div>
+ 
+
                      </div>
+
+                     {# ******************** #}
+
+                 </div>  
 
              </form>
 

@@ -1,23 +1,119 @@
  {# ? Partie: Header #}
- 
+
+         {# ! Bouton LightMode/ DarkMode: Mache pas Ca m'as fait craqué je dois revenir dessus JC_ #}
+         {# <div class="btn btn-outline-dark btn-toggle btn-sm" >Go Nuit</div> #}
+
          <div class="container">
 
-             <header class="d-flex flex-wrap align-items-center justify-content-md-between mb-4">
+             <header class="row align-items-center justify-content-md-between ">
 
-                 <div>
+
+                 <hr class="dropdown-divider" style="color: black;"> 
+
+                 <div class="col-4 mb-0 small lh-1 text-start">
+                 {# <div class="col-4 pb-3 mb-0 small lh-sm border-bottom w-10" > #}
+                 {# <div class="col-4 text-start" > #}
+                       {# <div class="col-md-3 text-start "> #}
 
                      {% if app.user %}
                         <p class="textPink"> vous etes connecter en tant que : 
                             {{app.user.login}}
                          {% if app.user.avatar %}
 
-                             <img src="/uploads/avatar/{{app.user.avatar}}">
 
-                         {% else %}
+                         <div class="" style="display:flex; justify-content:space-around;">
 
-                             <p class="textPink"> placeholder </p>
+                             {# *********************************** #}
+                             {# * Gestion de l'utilisateur actuel * #}
+                             {# *********************************** #}
 
-                         {% endif %}
+                             <div class="dropdown">
+                             {# {% if user.avatar %} #}
+    
+                                 <div class="d-flex justify-content-between">
+    
+                                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                         <img src="{{app.user.avatar}} " alt="" width="32" height="32" class="rounded-circle me-2">
+
+                                         <div class="d-flex justify-content-between">
+                                                        
+                                             <strong class="text-gray-dark">
+
+                                                 {# Full Name #}                                                
+                                                 {% if app.user.login %} 
+
+                                                     @ {{app.user.username}} 
+
+                                                 {% else %}
+
+                                                     Bienvenue
+                                                     <i class="bi bi-caret-down"></i>
+
+                                                 {% endif %}
+
+                                             </strong>
+    
+                                         </div>
+                                         
+                                     </a>
+    
+                                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+
+                                        
+                                         {# <li> <hr class="dropdown-divider">   </li>   #}
+
+                                         {# ***** Gestion du site ***** #}
+                                         {# <h6> <kbd> Gestion du site </kbd> </h6>
+                                             <li> <hr class="dropdown-divider">   </li> #}
+
+                                        
+                                         
+                                         {# <li> <hr class="dropdown-divider">   </li>   #}
+
+                                         {# ***** Gestion des recettes ***** #}
+                                         <h6> <kbd> Gestion des recettes </kbd> </h6> 
+
+                                             <li> <a class="dropdown-item" href="#"> Créer une nouvelle recette </a> </li> 
+                                             <li> <a class="dropdown-item" href="#"> Gérer mes recettes </a> </li>
+                                             <li> <hr class="dropdown-divider"> </li>                                                                                                        
+
+                                         {# ***** Gestion du site ***** #}
+                                         <h6> <kbd> Gestion du site </kbd> </h6>
+
+                                             <li> <a class="dropdown-item" href="{{path ('user_index')}}"> Gérer les utilisateurs </a> </li>
+                                             <li> <a class="dropdown-item" href="#"> Gérer les roles </a> </li>
+                                             <li> <a class="dropdown-item" href="#"> Gérer les commentaires </a> </li>
+                                             <li> <a class="dropdown-item" href="#"> Gérer les notes </a> </li>
+                                            
+                                             <li> <hr class="dropdown-divider"> </li>
+
+
+                                         {# ***** Gestion du site ***** #}
+                                         <h6> <kbd> Gestion du profil </kbd> </h6>
+
+                                             <li> <a class="dropdown-item" href="#"> Gérer mon compte </a></li>
+                                             <li> <a class="dropdown-item" href="#"> Gérer mes commentaires </a></li>
+                                             <li> <a class="dropdown-item" href="#"> Paramètres </a></li>
+
+                                             <li> <hr class="dropdown-divider">   </li> 
+
+                                             <li> <a class="dropdown-item" href="{{ path ('app_logout') }}"> Se déconnecter </a></li>
+
+
+                                     </ul>
+     
+                                 </div> 
+    
+                             </div>  
+
+                         </div>
+
+                     {# <p> avatar de l'utilisateur  </p> #}
+
+                     {# {% else %} #}
+
+                     {# {% endif %} #}
+
 
                      {% else %}
                          
@@ -28,27 +124,20 @@
        
                  </div>
 
-                 <div class=" "> 
-                     <img src="/logo.png" alt="Logo du site" >
-                 </div>
+                 {# ********** Partie: Logo ********** #}
 
+                 <div class="col-4 text-center "> 
+                     <img id="avatarUser"src="/logo.png" alt="Logo du site" >
+                 </div>
+             
                  {# ********** Partie: SideBar ********** #}
 
-                 <div class="col-md-3 text-end ">
+                 <div class="col-4 text-end ">
 
                      <div id="myNav" class="overlay">
 
                          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times; </a>
-
-                         {# <div class="overlay-content">
-                             <a href="#"> Accueil </a>
-                             <a href="#"> Actualités </a>
-                             <a href="#"> Recettes </a>
-                             <a href="#"> Astuces </a>
-                             <a href="#"> Contact </a>
-                         </div> #}
-
-
+                    
                          {# <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;"> #}
                          <div class="overlay-content">
                              
@@ -118,9 +207,54 @@
 
                      </div>
              
-                     <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776; </span> 
+                     {# ********** Partie: SearchBar ********** #} 
 
+                     {# <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                         <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+                     </form> #}
+
+                     <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776; </span> 
+     
                  </div>
+
+                  {# <div class="container-fluid">
+                     <a class="navbar-brand" href="#">Never expand</a>
+                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="true" aria-label="Toggle navigation">
+                       <span class="navbar-toggler-icon"></span>
+                     </button>
+
+                     <div class="navbar-collapse collapse show" id="navbarsExample01" style="">
+                       <ul class="navbar-nav me-auto mb-2">
+                         <li class="nav-item">
+                           <a class="nav-link active" aria-current="page" href="#">Home</a>
+                         </li>
+                         <li class="nav-item">
+                           <a class="nav-link" href="#">Link</a>
+                         </li>
+                         <li class="nav-item">
+                           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                         </li>
+                         <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                           <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                             <li><a class="dropdown-item" href="#">Action</a></li>
+                             <li><a class="dropdown-item" href="#">Another action</a></li>
+                             <li><a class="dropdown-item" href="#">Something else here</a></li>
+                           </ul>
+                         </li>
+                       </ul> #}
+{#                  
+                 <hr class="dropdown-divider" style="color: black;"> 
+
+                       <form>
+                         <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                       </form> #}
+
+                     {# </div>
+
+                   </div> #}
+ 
+                 <hr class="dropdown-divider" style="color: black; "> 
 
              </header>
 

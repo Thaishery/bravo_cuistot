@@ -11,343 +11,328 @@
      {% block body %}
 
          {# <body class="px-4 py-5 my-5 text-center"> #}
-    
-             <main class="form-signin">
+         <body>
+ 
+             <hr style="color:white;"/>
 
-                 {{ form_start (registrationForm, 
-                     { 'attr':
-                         {
-                             'class':'needs-validation',
-                             'novalidate':''
-                         }
-                     })
-                 }}   
+                 <main class="form-signin">
 
-                     <form>     
+                     {{ form_start (registrationForm, 
+                         { 'attr':
+                             {
+                                 'class':'needs-validation',
+                                 'novalidate':''
+                             }
+                         })
+                     }}   
 
-                         <div id="inscriptionForm">                 
-                            
+                     <form>    
+
+                         <div id="inscriptionForm"> 
+
+                             {# ************************* #}                
+
                              {# *** Conteneur du titre du formulaire *** #}
                              <div id="bloc_page1" class="text-center">
 
-
                                  {# *** Titre du formulaire *** #}
-                                 <h1 id="plantFont" class="h1 mb-3 font-weight-normal"> Formulaire d'inscription </h1>
+                                 <h1 id="plantFont" class="h3 mb-3 font-weight-normal"> Formulaire d'inscription </h1>
 
                                  {# *** Phrase d'accroche du formulaire *** #}
                                  <p class="lead"> 
-                                   Inscrivez-vous gratuitement pour créer un compte et accéder au contenu du site. 
+                                     Inscrivez-vous gratuitement pour créer un compte et accéder au contenu du site. 
                                  </p>
                                
                              </div>   
 
-                             {# **************************************************************** #}
-
-                             <div id="inscriptionForm">
+                             <div id="inscriptionForm" class="contenu">
+                     
+                                 {# ***** Partie: Pseudo / Avatar ***** #}
 
                                  <div class="row">
-                                 
-                                     {# **************************************************************** #}
-                                     {# **************************** LOGIN ***************************** #}
-                                     {# **************************************************************** #}
-
-                                         <div class="col-12 col-xl-6">   
-                                               
-                                             {# *** LABEL *** #}
-                                             {{form_label (registrationForm.login, 'Pseudo' ) }}
-
-                                             <div class="input-group has-validation">
-
-                                                 <span class="input-group-text"> <i class="bi bi-person-circle"></i> </span>
  
-                                                 {# *** INPUT *** #}
-                                                 {{form_widget
-                                                     (registrationForm.login,
-                                                         { 'attr': 
-                                                             {
-                                                                 'placeholder':'Entrez votre pseudo',
-                                                                 'class':'form-control',
-                                                             }
-                                                         }
-                                                     ) 
-                                                 }}
-                                            
-                                                 <div class="invalid-feedback">
-                                                     Le champ pseudo est requis.
-                                                     {{form_errors(registrationForm.login)}}
-                                                 </div>
+                                     {# ********** LOGIN ******** #}
+ 
+                                     <div class="col-12 col-xl-6">   
+                                           
+                                         {# *** LABEL *** #}
+                                         {{form_label (registrationForm.login, 'Pseudo' ) }}
 
-                                             </div>
-                                                     
-                                             <span class="text-danger"> 
-                                                 {{form_errors(registrationForm.login)}}
-                                             </span>
-                                                     
-                                         </div> 
+                                         <div class="input-group has-validation">
 
-                                     {# **************************************************************** #}
-                                     {# **************************** AVATAR **************************** #}
-                                     {# **************************************************************** #}
-
-                                         <div class="col-12 col-xl-6">  
-
-                                             {{form_label(registrationForm.avatar, ' Photo de profil')}}
-
-                                                 {{form_widget
-                                                     (registrationForm.avatar,
+                                             <span class="input-group-text"> <i class="bi bi-person-circle"></i> </span>
+ 
+                                             {# *** INPUT *** #}
+                                             {{form_widget
+                                                 (registrationForm.login,
+                                                     { 'attr': 
                                                          {
-                                                             'attr': { 'class':'form-control', }
+                                                             'placeholder':'Entrez votre pseudo',
+                                                             'class':'form-control',
                                                          }
-                                                     ) 
-                                                 }}
-                                                 
-                                              {# <hr class="my-4"> #}
+                                                     }
+                                                 ) 
+                                             }}
+                                        
+                                             <div class="invalid-feedback">
+                                                 Le champ pseudo est requis.
+                                                 {{form_errors(registrationForm.login)}}
+                                             </div>
 
-                                         </div> 
+                                         </div>
+                                                 
+                                         <span class="text-danger"> 
+                                             {{form_errors(registrationForm.login)}}
+                                         </span>
+                                                 
+                                     </div> 
+
+                                     {# ************************* #}
+                                     {# ******** AVATAR ********* #}
+                                     {# ************************* #}
+
+                                     <div class="col-12 col-xl-6">  
+
+                                         {{form_label(registrationForm.avatar, ' Photo de profil')}}
+
+                                             {{form_widget
+                                                 (registrationForm.avatar,
+                                                     {
+                                                         'attr': { 'class':'form-control', }
+                                                     }
+                                                 ) 
+                                             }}
+
+                                     </div> 
 
                                  </div>      
 
-                             {# **************************************************************** #}
+                                 {# ***** Partie: Email / Email confirmation ***** #}
                              
-                                     <div class="row">
+                                 <div class="row">
 
-                                         {# **************************************************************** #}
-                                         {# **************************** EMAIL ***************************** #}
-                                         {# **************************************************************** #}
+                                     {# ********** EMAIL ******** #}
 
-                                         <div class="col-sm-6">
-                                                
-                                             {# *** LABEL *** #}
-                                             {{form_label (registrationForm.email.first, 'Adresse email' ) }}
+                                     <div class="col-sm-6">
+                                            
+                                         {# *** LABEL *** #}
+                                         {{form_label (registrationForm.email.first, 'Adresse email' ) }}
 
-                                             <div class="input-group has-validation">
+                                         <div class="input-group has-validation">
 
-                                                 <span class="input-group-text"> @ </span>
+                                             <span class="input-group-text"> @ </span>
 
-                                                 {# *** INPUT *** #}
-                                                 {{form_widget
-                                                     (registrationForm.email.first,
-                                                         {
-                                                             'attr': {'placeholder':'Entrez votre adresse email',
-                                                             'class':'form-control',
-                                                             }
+                                             {# *** INPUT *** #}
+                                             {{form_widget
+                                                 (registrationForm.email.first,
+                                                     {
+                                                         'attr': {'placeholder':'Entrez votre adresse email',
+                                                         'class':'form-control',
                                                          }
-                                                     ) 
-                                                 }}
-                                                              
-                                                 {# *** IF ERROR *** #}
-                                                 <div class="invalid-feedback">
-                                                     Le champ email est requis.
-                                                     {{form_errors(registrationForm.email.first)}}
-                                                 </div>
-    
+                                                     }
+                                                 ) 
+                                             }}
+                                                          
+                                             {# *** IF ERROR *** #}
+                                             <div class="invalid-feedback">
+                                                 Le champ email est requis.
+                                                 {{form_errors(registrationForm.email.first)}}
                                              </div>
-
-                                             <span class="text-danger">
-                                                 {{ form_errors (registrationForm.email.first) }} 
-                                             </span>
-                                                                             
+    
                                          </div>
 
-                                         {# **************************************************************** #}
-                                         {# *********************** EMAIL CONFIRMATION  ******************** #}
-                                         {# **************************************************************** #}
-
-                                         {# <div class="checkbox mb-3">
-                                             <label> <input type="checkbox" value="remember-me"> Remember me </label>
-                                         </div> #}
-
-                                         <div class="col-sm-6">
-                                                
-                                             {# *** LABEL *** #}
-                                             {{form_label (registrationForm.email.second, 'Confirmer votre email' ) }}
-
-                                             <div class="input-group has-validation">
-
-                                                 <span class="input-group-text"> @ </span>
-
-                                                 {# *** INPUT *** #}
-                                                 {{form_widget (registrationForm.email.second,
-                                                         {
-                                                             'attr': {'placeholder':'Confirmer votre adresse email',
-                                                             'class':'form-control',
-                                                             }
-                                                         }
-                                                     ) 
-                                                 }}
-    
-                                                 {# *** IF ERROR *** #}
-                                                 <div class="invalid-feedback">
-                                                   Le champ Email est requis.
-                                                   {{form_errors(registrationForm.email.second)}}
-                                                 </div>
-    
-                                             </div>
-
-                                             <span class="text-danger">
-                                                 {{ form_errors (registrationForm.email.second) }} 
-                                             </span>
-                                                                                                                       
-                                         </div>
-
+                                         <span class="text-danger">
+                                             {{ form_errors (registrationForm.email.first) }} 
+                                         </span>
+                                                                         
                                      </div>
-                                 {# **************************************************************** #}
-                                 {# **************************** PASSWORD ************************** #}
-                                 {# **************************************************************** #}
 
-                                     <div class="row"> 
-
-                                         <div class="col-sm-6">
-                                            
-                                             {# *** LABEL *** #}
-                                             {{form_label (registrationForm.plainPassword.first, 'Mot de passe' ) }}
-                                             {# {{ form_label (registrationForm.plainPassword.first, { label: 'Password' } )}} #}
-                                        
-                                             <div class="input-group has-validation">
-
-                                                 <span class="input-group-text"> <i class="bi bi-key"></i> </span>
-
-                                                 {# *** INPUT *** #}
-                                                 {{form_widget
-                                                     (registrationForm.plainPassword.first,
-                                                         {'attr':
-                                                             {
-                                                                 'placeholder':'Entrez votre mot de passe',
-                                                                 'class':'form-control',
-                                                             }
-                                                         }
-                                                     ) 
-                                                 }}
-
-                                                 {# *** IF ERROR *** #}
-                                                 <div class="invalid-feedback">
-                                                   Le champ mot de passe est requis.
-                                                   {{form_errors(registrationForm.plainPassword.first)}}
-                                                 </div>
-
-                                             </div>
+                                     {# ** EMAIL CONFIRMATION *** #}
  
-                                             <span class="text-danger"> 
-                                                 {{ form_errors (registrationForm.plainPassword.first) }} 
-                                             </span>
-                                                                 
+                                     <div class="col-sm-6">
+                                            
+                                         {# *** LABEL *** #}
+                                         {{form_label (registrationForm.email.second, 'Confirmer votre email' ) }}
+
+                                         <div class="input-group has-validation">
+
+                                             <span class="input-group-text"> @ </span>
+
+                                             {# *** INPUT *** #}
+                                             {{form_widget (registrationForm.email.second,
+                                                     {
+                                                         'attr': {'placeholder':'Confirmer votre adresse email',
+                                                         'class':'form-control',
+                                                         }
+                                                     }
+                                                 ) 
+                                             }}
+    
+                                             {# *** IF ERROR *** #}
+                                             <div class="invalid-feedback">
+                                               Le champ Email est requis.
+                                               {{form_errors(registrationForm.email.second)}}
+                                             </div>
+    
                                          </div>
 
-                                         {# **************************************************************** #}
-                                         {# ******************* PASSWORD CONFIRMATION ********************** #}
-                                         {# **************************************************************** #}
+                                         <span class="text-danger">
+                                             {{ form_errors (registrationForm.email.second) }} 
+                                         </span>
+                                                                                                                   
+                                     </div>
 
-                                         <div class="col-sm-6">
-                                            
-                                             {# *** LABEL *** #}
-                                             {{form_label (registrationForm.plainPassword.second, 'Confirmer votre mot de passe' ) }}
-                                             {# {{form_label (registrationForm.plainPassword.second, 'Confirmer votre mot de passe' ) }} #}
+                                 </div>
 
-                                             <div class="input-group has-validation">
+                                 {# ************************* #}
+                                 {# ******* PASSWORD ******** #}
+                                 {# ************************* #}
 
-                                                 <span class="input-group-text"> <i class="bi bi-key"></i> </span>
+                                 <div class="row"> 
 
-                                                 {# *** INPUT *** #}
-                                                 {{form_widget
-                                                     (registrationForm.plainPassword.second,
+                                     <div class="col-sm-6">
+                                        
+                                         {# *** LABEL *** #}
+                                         {{form_label (registrationForm.plainPassword.first, 'Mot de passe' ) }}
+                                    
+                                         <div class="input-group has-validation">
+
+                                             <span class="input-group-text"> <i class="bi bi-key"></i> </span>
+
+                                             {# *** INPUT *** #}
+                                             {{form_widget
+                                                 (registrationForm.plainPassword.first,
+                                                     {'attr':
                                                          {
-                                                             'attr': {'placeholder':'Confirmer votre mot de passe',
+                                                             'placeholder':'Entrez votre mot de passe',
                                                              'class':'form-control',
-                                                             }
                                                          }
-                                                     ) 
-                                                 }}
+                                                     }
+                                                 ) 
+                                             }}
 
-                                                 {# *** IF ERROR *** #}
-                                                 <div class="invalid-feedback">
-                                                     Le champ confirmer votre mot de passe est requis.
-                                                     {{form_errors(registrationForm.plainPassword.second)}}
-                                                 </div>
-
+                                             {# *** IF ERROR *** #}
+                                             <div class="invalid-feedback">
+                                               Le champ mot de passe est requis.
+                                               {{form_errors(registrationForm.plainPassword.first)}}
                                              </div>
 
-                                             <span class="text-danger"> 
-                                                 {{ form_errors (registrationForm.plainPassword.second) }} 
-                                             </span>
+                                         </div>
+ 
+                                         <span class="text-danger"> 
+                                             {{ form_errors (registrationForm.plainPassword.first) }} 
+                                         </span>
+                                                             
+                                     </div>
+
+                                     {# ************************* #} 
+                                     {# * PASSWORD CONFIRMATION * #}
+                                     {# ************************* #}
+
+                                     <div class="col-sm-6">
+                                        
+                                         {# *** LABEL *** #}
+                                         {{form_label (registrationForm.plainPassword.second, 'Confirmer votre mot de passe' ) }}
+
+                                         <div class="input-group has-validation">
+
+                                             <span class="input-group-text"> <i class="bi bi-key"></i> </span>
+
+                                             {# *** INPUT *** #}
+                                             {{form_widget
+                                                 (registrationForm.plainPassword.second,
+                                                     {
+                                                         'attr': {'placeholder':'Confirmer votre mot de passe',
+                                                         'class':'form-control',
+                                                         }
+                                                     }
+                                                 ) 
+                                             }}
+
+                                             {# *** IF ERROR *** #}
+                                             <div class="invalid-feedback">
+                                                 Le champ confirmer votre mot de passe est requis.
+                                                 {{form_errors(registrationForm.plainPassword.second)}}
+                                             </div>
+
+                                         </div>
+
+                                         <span class="text-danger"> 
+                                             {{ form_errors (registrationForm.plainPassword.second) }} 
+                                         </span>
                                                                                                
                                      </div>
 
-                             {# **************************************************************** #}
-                             {# **************************** C.G.U. **************************** #}
-                             {# **************************************************************** #}
+                                     {# ************************* #}
+                                     {# ********* C.G.U. ******** #}
+                                     {# ************************* #}
 
-                             <hr class="my-4">
+                                     <hr class="my-4">
 
-                                 <div class="col-12 mx-auto">
+                                         <div class="col-12 mx-auto">
 
-                                     {# *** LABEL *** #}
-                                     <div class="offset-md-5 CGU_center">{{form_label(registrationForm.agreeTerms, 'Veuillez accepter nos conditions :')}}
+                                             {# *** LABEL *** #}
+                                             <div class="offset-md-5 CGU_center">{{form_label(registrationForm.agreeTerms, 'Veuillez accepter nos conditions :')}}
 
-                                     {# *** INPUT *** #}
-                                     {{form_widget
-                                         (registrationForm.agreeTerms,
-                                             {
-                                                 'attr':
+                                             {# *** INPUT *** #}
+                                             {{form_widget
+                                                 (registrationForm.agreeTerms,
                                                      {
-                                                      'class':'form-check-input',
+                                                         'attr':
+                                                             {
+                                                              'class':'form-check-input',
+                                                             }
                                                      }
-                                             }
-                                         ) 
-                                     }}
-                                     </div>
+                                                 ) 
+                                             }}
+                                             </div>
 
-                                     {# *** If Errors *** #}
-                                     <div class="invalid-feedback">
-                                         Le champ validation des conditions est requis.
-                                         {{form_errors(registrationForm.agreeTerms)}}
-                                     </div>
+                                             {# *** If Errors *** #}
+                                             <div class="invalid-feedback">
+                                                 Le champ validation des conditions est requis.
+                                                 {{form_errors(registrationForm.agreeTerms)}}
+                                             </div>
 
-                                     <span class="text-danger">
-                                         {{form_errors(registrationForm.agreeTerms)}}
-                                     </span>
-                                                 
-                                 </div>
+                                             <span class="text-danger">
+                                                 {{form_errors(registrationForm.agreeTerms)}}
+                                             </span>
+                                                         
+                                         </div>
  
-                             <hr class="my-4">
+                                     <hr class="my-4">
 
-                             {# **************************************************************** #}
-                             {# **************************** ACTION ***************************** #}
-                             {# **************************************************************** #}
+                                     {# ************************* #} 
+                                     {# ********* ACTION ******** #}
+                                     {# ************************* #}
 
-                                 <div class="btn-group-vertical">
+                                     <div class="btn-group-vertical">
 
-                                     {# *** Bouton: S'inscrire *** #}
-                                     <button type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
-                                         S'inscrire 
-                                     </button>
+                                         {# *** Bouton: S'inscrire *** #}
+                                         <button type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
+                                             S'inscrire 
+                                         </button>
          
-                                     {# ! to do: link le bouton se connecter #}
-                       
-                                     {# *** Bouton: Se Connecter *** #}
-                                     
-                                     <div class="col-12">
-                                     <a href="{{ path('app_login') }}">
-                                     <button type="submit" class="btn col-12 btn-dark btn-lg px-4">                                
-                                          Se connecter  
-                                     </button>  
-                                     </a>
+
+                                         {# *** Bouton: Se Connecter *** #}
+                                         <button href="{{ path('app_login') }}" type="submit" class="btn btn-dark btn-lg px-4">                                
+                                             Se connecter 
+                                         </button>  
+
+
                                      </div>
 
-                                 </div>
+                                 </div> 
 
-                         </div> 
+                             </div> 
+
+                         </div>        
 
                  {{ form_end(registrationForm) }}
-                    
-                     </form>
+ 
+                 </form>
 
              </main>
 
          </body>
-
-       
-
-
-
 
      {% endblock %}
