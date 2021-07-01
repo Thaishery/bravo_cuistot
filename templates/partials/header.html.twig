@@ -150,27 +150,28 @@
 
                              <ul class="nav nav-pills flex-column mb-auto">
 
-                                 {# *** Lien n° 1 *** #}
+                                 {# *** Partie: Accueil *** #}
 
                                  <li class="nav-item">
-                                     <a href="#" class="nav-link" aria-current="page">
+                                     <a href="{{path("home")}}" class="nav-link" aria-current="page">
                                          <svg class="bi me-2" width="16" height="16">
                                          <use xlink:href="#home"></use></svg>
                                          <i class='fas fa-house-user'></i> &nbsp; Accueil
+                                         
                                      </a>
                                  </li>
 
-                                 {# *** Lien n° 2 *** #}
+                                 {# *** Partie: Actualités *** #} 
 
-                                 <li>
+                                 {# <li>
                                      <a href="#" class="nav-link">
                                          <svg class="bi me-2" width="16" height="16">
                                          <use xlink:href="#speedometer2"></use></svg>
                                          <i class='fas fa-pepper-hot'></i> &nbsp; Actualités
                                      </a>
-                                 </li>
+                                 </li> #}
 
-                                 {# *** Lien n° 3 *** #}
+                                 {# *** Partie: Recettes *** #}
 
                                  <li>
                                      <a href="#" class="nav-link">
@@ -180,25 +181,35 @@
                                      </a>
                                  </li>
 
-                                 {# *** Lien n° 4 *** #}
+                                 {# *** Partie: Catégories *** #}
 
                                  <li>
+                                     <a href="{{path("categories")}}" class="nav-link">
+                                         <svg class="bi me-2" width="16" height="16">
+                                         <use xlink:href="#table"></use></svg>
+                                         <i class='fas fa-utensils'></i> &nbsp; Catégories
+                                     </a>
+                                 </li> 
+
+                                 {# *** Partie: Astuces *** #}
+
+                                 {# <li>
                                      <a href="#" class="nav-link">
                                          <svg class="bi me-2" width="16" height="16">
                                          <use xlink:href="#grid"></use></svg>
                                           <i class='fas fa-hand-sparkles'></i> &nbsp; Astuces
                                      </a>
-                                 </li>
+                                 </li> #}
 
-                                 {# *** Lien n° 5 *** #}
+                                 {# *** Partie: Contact *** #}
 
-                                 <li>
+                                 {# <li>
                                      <a href="#" class="nav-link">
                                          <svg class="bi me-2" width="16" height="16">
                                          <use xlink:href="#people-circle"></use></svg>
                                          <i class='fas fa-address-card'></i> &nbsp;  Contact
                                      </a>
-                                 </li>
+                                 </li> #}
 
                              </ul>
 
