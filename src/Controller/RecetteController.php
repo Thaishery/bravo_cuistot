@@ -205,8 +205,9 @@ class RecetteController extends AbstractController
      * @Route("/new/{id}/preview", name="recette_new_preview", methods={"GET","POST"})
      */
     public function preview(Recette $recette, $id, EtapesRepository $etapesRepository, IngredientsRecetteRepository $ingredientsRecetteRepository): Response{
-        $listeEtapes = $etapesRepository->findByRecetteId($id);
+        $listeEtapes = $etapesRepository->findByRecetteIdOrderByIsNumber($id);
         $listeIngredient = $ingredientsRecetteRepository->findByRecetteId($id);
+        $nomberEtapes = count($listeEtapes);
         $user = $this->getUser();
         //si la recette a modifier a un auteur différent de l'utilisateur actuel, ne pas permetre la modification de la liste d'étape:
             if ($recette->getAuthorId()->getId() !== $user->getId()){
@@ -217,6 +218,7 @@ class RecetteController extends AbstractController
         
         return $this->render('recette/preview.html.twig',[
             'recette' => $recette,
+            'nombreEtapes'=>$nomberEtapes,
             'listeIngredient' => $listeIngredient,
             'listeEtapes' => $listeEtapes,
         ]);

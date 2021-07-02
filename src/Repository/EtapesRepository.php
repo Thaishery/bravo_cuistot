@@ -32,6 +32,15 @@ class EtapesRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult()
         ;
+    }public function findByRecetteIdOrderByIsNumber($value)
+    {
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.recette_id = :val')
+            ->setParameter('val', $value)
+            ->orderBy('e.is_number', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
     }
     
 

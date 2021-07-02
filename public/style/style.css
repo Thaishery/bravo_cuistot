@@ -93,3 +93,8 @@
     text-align: center;
     justify-content: center;
 }
+/* *** Style préview Recette *** */
+.previewRecetteBoutonFin{
+    justify-content: space-around;
+    padding-top: 20px;
+}

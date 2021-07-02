@@ -8,13 +8,14 @@
 {{dump(recette)}}
 {{dump(listeIngredient)}}
 {{dump(listeEtapes)}}
+{{dump(nombreEtapes)}}
     <div class="container">
         <div class="row">
             <div class="col-12">
                 {% if recette.image %}
                     {{recette.image}}
                 {% endif %}
-                <h1>{{recette.name}}</h1>
+                <h1>{{recette.name}} Prévisualisation</h1>
             </div>
             <div class="col-12">
                 <h2>pour {{recette.NbPersonnes}} Convives</h2>
@@ -57,7 +58,40 @@
                     Note : Votre recette n'est pas encore publié, elle n'a donc pas de note pour le moment.
                 </p>
             </div>
-            
+            <div class="col-12">
+            <button class="col-12 btn btn-success btn-lg px-4 gap-3"> passer en mode slideshow. </button>
+            </div>
+            <div class="col-12">
+                {% for etapes in listeEtapes %}
+                    {% if etapes.image %}
+                        <div class ="col-6">
+                            <img src="#" alt="image de l'étape"/>
+                            image de l'étapes
+                        </div>
+                        <div class="col-6">
+                            <h2>{{etapes.name}}</h2>
+                        </div>
+                    {% else %}
+                        <div class="col-12">
+                            <h2>{{etapes.name}}</h2>
+                        </div>
+                    {% endif %}
+                    <div class="col-12 row">
+                        <div class="col-1">
+                            {{etapes.isNumber}} / {{nombreEtapes}}
+                        </div>
+                        <div class="col-10">
+                            {{etapes.description}}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col-12 row previewRecetteBoutonFin">
+                <button class="col-2 btn btn-success btn-lg">Modifier les étapes.</button>
+                <button class="col-2 btn btn-success btn-lg">Modifier la liste des ingrédients</button>
+                <button class="col-3 btn btn-success btn-lg">Modifier les information de la recette</button>
+                <button class="col-2 btn btn-success btn-lg">Valider la recette</button>
+            </div>
         </div>
     </div>
 {% endblock %}
