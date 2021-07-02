@@ -98,7 +98,7 @@ class RecetteType extends AbstractType
                     new Assert\Regex([
                         'pattern' => '/^0{1}/',
                         'match' => false,
-                        'message' => 'ce champ ne peut être vide'
+                        'message' => 'Ce champ ne peut être vide'
                     ]),
                     //au maximum 2 caractéres
                     new Assert\Regex([
