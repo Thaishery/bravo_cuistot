@@ -42,13 +42,9 @@
                  box-shadow: 3px 3px 3px #f0626f;
              }
      
-             /* .h1Title{
-                 text-align: center;
-             } */
-     
      /* *** Style de l'interface d'administration *** */
      
-         .administrationCard {
+         /* .administrationCard {
              justify-content: center;
              margin: auto;
          }
@@ -57,7 +53,7 @@
              text-align: center;
              justify-content: center;
          }
-     
+      */
      /* *** Style du formulaire d'inscription *** */
      
          .Form{

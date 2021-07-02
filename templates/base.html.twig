@@ -43,6 +43,13 @@
                  {# ***** Script Css ***** #}
                  <link href="{{asset ('style/style.css')}}" rel="stylesheet">
 
+
+
+                 {# ***** Script NavBarAlien ***** #}
+                 <link href="{{asset ('style/style_navAlien.css')}}" rel="stylesheet">
+
+
+
              {% endblock %}
      
              {% block javascripts %}
@@ -50,6 +57,14 @@
                 {# ***** Script Js ***** #}
                  <script src="{{asset ('js/sidebar.js')}} "type="text/javascript"" "></script> 
                  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+                 {# ! J'ai trouver cette animation de navBar sympa.
+                 {# ! J'aimerai bien que cette barre reste accrocher en bas de l'écran! Faut que je regarde comment la fixée.
+                 {# ! On pourrait par exemple y intégrer la barre de recherche et/ou d'autres truc si vosu avez des idéés  
+                 {# ! JC_ 
+
+                 {# ***** Script NavBarAlien ***** #}
+                 <script src="{{asset ('js/navAlien.js')}} "type="text/javascript"" "></script> 
 
              {% endblock %}
 

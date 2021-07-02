@@ -1,43 +1,84 @@
-{% extends 'base.html.twig' %}
+ {% extends 'base.html.twig' %}
 
-{% block title %}Gestion des catégories{% endblock %}
+     {% block metaTitle %}
+         " Gestion des catégories "
+     {% endblock %}
 
-{% block body %}
-<h1 class="h1Title">Gestion des catégories</h1>
-<div class="container">
-        <div class="row">
-            <div class="col-6 administrationCard">
-                <a href="{{path("administration_plats_index")}}">
-                    <div class="cardImage">
-                        <img class="administrationLogo col-6" src="{{asset ('Images/plats.jpg')}}" alt="image d'une persone type emoji">
-                    </div>
-                    <p class="administrationTitle">
-                        Gérer les types de plats
-                    </p>
-                </a>
-            </div>
-            <div class="col-6 administrationCard">
-                <a href="{{path("administration_alimentation_index")}}">
-                    <div class="cardImage">
-                        <img class="administrationLogo col-6" src="{{asset ('Images/steak.png')}}" alt="image d'une persone type emoji">
-                    </div>
-                    <p class="administrationTitle">
-                       Gérer les type d'alimentation
-                    </p>
-                </a>
-            </div>
-            <div class="col-6 administrationCard">
-                <a href="{{path("administration_cuisson_index")}}">
-                    <div class="cardImage">
-                        <img class="administrationLogo col-6" src="{{asset ('Images/barbecue.jpg')}}" alt="image d'une persone type emoji">
-                    </div>
-                    <p class="administrationTitle">
-                       Gérer les type de cuisson
-                    </p>
-                </a>
-            </div>
-            <div class="col-6">
-            </div>
-        </div>
-</div>
-{% endblock %}
+     {% block title %}
+         Gestion des catégories
+     {% endblock %}
+     
+     {% block body %}
+
+         <main class="Form">  
+
+             <section class="text-center">
+             
+                 <h1 class="h1 mb-3 font-weight-normal text-center"> Gestion des catégories </h1>
+            
+             </section>
+
+             <article>
+             {# <article class="container"> #}
+
+                 <div class="row">
+
+                     {# ? Partie: Carte n°1 #}
+
+                     <section class="col-12 ">
+
+                             {# <figure >
+                                 <img class="administrationLogo col-6" src="{{asset ('Images/carteEPD.png')}}" alt="image d'une persone type emoji">
+                             </figure> #}
+                             
+                             <button href="{{path("administration_plats_index")}}" type="submit" class="btn btn-success bg-gradient col-12 btn-lg px-4 gap-3">                                
+                                 {# <abbr title="Exemples: Petit-Déjeuner, Entrées, Plats, Desserts, etc..."> Gérer les type de plats </abbr> #}
+                                 Gérer les type de plats 
+                             </button>
+                             
+                     </section>
+
+                         <hr style="color:white;"/>
+
+                     {# ? Partie: Carte n°2 #}
+
+                     <section class="col-12 ">
+
+                             {# <figure >
+                                 <img class="administrationLogo col-6" src="{{asset ('Images/steak.png')}}" alt="image d'une persone type emoji">
+                             </figure> #}
+
+                             <button href="{{ path("administration_alimentation_index") }}" type="submit" class="btn btn-success bg-gradient col-12 btn-lg px-4 gap-3">                                
+                                 {# <abbr title="Exemples: Omnivores, Végétarien, Fruitarien, etc..."> Gérer les type d'alimentations </abbr>  #}
+                                 Gérer les type d'alimentations 
+                             </button>
+                             
+                     </section>
+
+                         <hr style="color:white;"/>
+
+                     {# ? Partie: Carte n°3 #}
+ 
+                     <section class="col-12 ">
+                                        
+                             {# <figure >
+                                 <img class="administrationLogo col-6" src="{{asset ('Images/barbecue.jpg')}}" alt="image d'une persone type emoji">
+                             </figure> #}
+
+                             <button href="{{path("administration_cuisson_index")}}" type="submit" class="btn btn-success bg-gradient col-12 btn-lg px-4 gap-3">                                
+                                 {# <abbr title="Exemples: Cru(e), Vapeur, Grill, etc..."> Gérer les type de cuissons </abbr> #}
+                                 Gérer les type de cuissons
+                             </button>
+
+                     </section>                
+
+                 </div>
+
+             </article>
+
+         </main>
+
+     {% endblock %}
+
+
+ 

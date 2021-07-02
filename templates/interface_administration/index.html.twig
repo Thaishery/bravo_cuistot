@@ -1,70 +1,115 @@
-{% extends 'base.html.twig' %}
+ {% extends 'base.html.twig' %}
 
-{% block title %}Interface administration{% endblock %}
+     {% block metaTitle %}
+         " Interface d'administration "
+     {% endblock %}   
 
-{% block body %}
-<h1 class="h1Title">Interface D'Administration</h1>
-    <div class="container">
-        <div class="row">
-            <div class="col-6 administrationCard">
-                <a href="{{path("user_index")}}">
-                    <div class="cardImage">
-                        <img class="administrationLogo col-6" src="{{asset ('Images/avatar.png')}}" alt="image d'une persone type emoji">
-                    </div>
-                    <p class="administrationTitle">
-                        Gérer les utilisateurs 
-                    </p>
-                </a>
-            </div>
-            <div class="col-6 administrationCard">
-                <a href="{{path("administration_recette_index")}}">
-                    <div class="cardImage">
-                        <img class="administrationLogo col-6" src="{{asset ('Images/cuisineBg1.jpg')}}" alt="image d'une persone type emoji">
-                    </div>
-                    <p class="administrationTitle">
-                        Gérer les recettes
-                    </p>
-                </a>
-            </div>
-            <div class="col-6 administrationCard">
-                <a href="{{path("administration_comentaires_index")}}">
-                    <div class="cardImage">
-                        <img class="administrationLogo col-6" src="{{asset ('Images/bulleText.png')}}" alt="image d'une persone type emoji">
-                    </div>
-                    <p class="administrationTitle">
-                        Gérer les commentaires
-                    </p>
-                </a>
-            </div>
-            <div class="col-6 administrationCard">
-                <a href="{{path("categories")}}">
-                    <div class="cardImage">
-                        <img class="administrationLogo col-6" src="{{asset ('Images/dossier.jpg')}}" alt="image d'une persone type emoji">
-                    </div>
-                    <p class="administrationTitle">
-                        Gérer les catégories
-                    </p>
-                </a>
-            </div>
-            <div class="col-6 administrationCard">
-                <a href="{{path("administration_ingredients_index")}}">
-                    <div class="cardImage">
-                        <img class="administrationLogo col-6" src="{{asset ('Images/ingrédients.jpg')}}" alt="image d'une persone type emoji">
-                    </div>
-                    <p class="administrationTitle">
-                        Gérer les ingédients 
-                    </p>
-                </a>
-            </div>
-            <div class="col-6 administrationCard">
-                <a href="{{path("unite_mesure_index")}}">
-                    <div class="cardImage">
-                        <img class="administrationLogo col-6" src="{{asset ('Images/mesures.jpg')}}" alt="image d'une persone type emoji">
-                    </div>
-                    <p class="administrationTitle">
-                        Gérer les unitées de messures 
-                    </p>
-                </a>
-        </div>
-    </div>
-{% endblock %}
+     {% block title %}
+         Interface d'administration
+     {% endblock %}
+     
+     {% block body %}
+
+         <main class="Form"> 
+
+             <section class="text-center">     
+ 
+                 <h1 class="h1 mb-3 font-weight-normal"> Interface d'administration </h1>
+
+             </section>      
+
+             <article class="container">
+
+                 <div class="row">
+
+                     {# ? Partie: Gérer les utilisateurs  #}
+
+                     <section class="col-6  administrationCard">
+
+                         <figure class="cardImage">
+                             <img class="administrationLogo col-6" src="{{asset ('Images/avatar.png')}}" alt="image d'une persone type emoji">
+                         </figure>
+                         <button href="{{path("user_index")}}" type="submit" class="btn btn-success bg-gradient col-6 btn-lg px-4 gap-3">                                
+                             Gérer les utilisateurs
+                         </button> 
+
+                     </section>
+
+                     {# ? Partie: Gérer les recettes  #}
+
+                     <section class="col-6 administrationCard">
+
+                         <figure class="cardImage">
+                             <img class="administrationLogo col-6" src="{{asset ('Images/cuisineBg1.jpg')}}" alt="image d'une persone type emoji">
+                         </figure>
+
+                         <button href="{{path("administration_recette_index")}}" type="submit" class="btn btn-success bg-gradient col-6 btn-lg px-4 gap-3">                                
+                             Gérer les recettes
+                         </button> 
+
+                     </section>
+
+                     {# ? Partie: Gérer les commentaires #}
+
+                     <section class="col-6 administrationCard">
+
+                         <figure class="cardImage">
+                             <img class="administrationLogo col-6" src="{{asset ('Images/bulleText.png')}}" alt="image d'une persone type emoji">
+                         </figure>
+
+                         <button href="{{path("administration_comentaires_index")}}" type="submit" class="btn btn-success bg-gradient col-6 btn-lg px-4 gap-3">                                
+                             Gérer les commentaires
+                         </button> 
+
+                     </section>
+
+                     {# ? Partie: Gérer les catégories #}
+
+                     <section class="col-6 administrationCard">
+
+                             <figure class="cardImage">
+                                 <img class="administrationLogo col-6" src="{{asset ('Images/dossier.jpg')}}" alt="image d'une persone type emoji">
+                             </figure>
+
+                             <button href="{{path("categories")}}" type="submit" class="btn btn-success bg-gradient col-6 btn-lg px-4 gap-3">                                
+                                 Gérer les catégories
+                             </button>
+
+                     </section>
+
+                     {# ? Partie: Gérer les ingrédients #}
+
+                     <section class="col-6 administrationCard">
+
+                         <figure class="cardImage">
+                             <img class="administrationLogo col-6" src="{{asset ('Images/ingrédients.jpg')}}" alt="image d'une persone type emoji">
+                         </figure>
+
+                         <button href="{{path("administration_ingredients_index")}}" type="submit" class="btn btn-success bg-gradient col-6 btn-lg px-4 gap-3">                                
+                             Gérer les ingrédients 
+                         </button>
+
+                     </section> 
+
+                     {# ? Partie: Gérer les unites de mesures #}
+
+                     <section class="col-6  administrationCard">
+
+                         <figure class="cardImage">
+                             <img class="administrationLogo col-6" src="{{asset ('Images/mesures.jpg')}}" alt="image d'une persone type emoji">
+                         </figure>
+
+                         <button href="{{path("unite_mesure_index")}}" type="submit" class="btn btn-success bg-gradient col-6 btn-lg px-4 gap-3">                                
+                             Gérer les unites de mesures
+                         </button>
+
+                     </section>
+
+                 </div>
+
+             </article>
+
+         </main>
+
+     {% endblock %}
+     
