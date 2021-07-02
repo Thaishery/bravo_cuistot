@@ -1,3 +1,5 @@
+ {# ? Partie : Créer une étape #ModeUser #}
+ 
  {% extends 'base.html.twig' %}
 
      {% block metaTitle %}
@@ -20,7 +22,11 @@
              
              <article class="btn-group-vertical">
             
-                 {{ include('recette/_form.html.twig') }}
+                 <form class="text-center">
+
+                     {{ include('recette/_form.html.twig') }}
+
+                 </form>  
             
                  <button href="{{ path('recette_index') }}" type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
                      Retour à la liste

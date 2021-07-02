@@ -1,4 +1,13 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+ {# ? Feuille du bouton Sauvegarder #} 
+         
+     {{ form_start(form) }}
+     
+         {{ form_widget(form) }}
+     
+         <button class="btn col-12 btn-dark btn-lg px-4">
+
+             {{ button_label|default('Sauvegarder') }} 
+             
+         </button>
+     
+     {{ form_end(form) }}

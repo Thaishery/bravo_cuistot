@@ -1,3 +1,5 @@
+ {# ? Partie : Créer une étape (suite) #ModeUser #}
+ 
  {% extends 'base.html.twig' %}
 
      {% block metaTitle %}
@@ -26,9 +28,13 @@
 
              <article class="btn-group-vertical">
 
-                 {{ include('recette/_form.html.twig') }}
+                 <form class="text-center">
+
+                     {{ include('recette/_form.html.twig') }}
+
+                 </form>
                  
-                 {# todo : prévoir une vue de validation :  #}
+                 {# ! todo : prévoir une vue de validation #}
                  {# <a href="{{ path('recette_new_etapes',{'id': app.request.get('id')})}}"> passer a l'ajout des étapes</a><br/> #}
                
                  <button href="{{ path('recette_index') }}" type="submit" class="btn btn-success btn-lg px-4 gap-3">                                

@@ -1,4 +1,6 @@
-{% extends 'base.html.twig' %}
+  {# ? Partie : Créer un nouvel ingrédients (suite) #ModeUser #}
+
+ {% extends 'base.html.twig' %}
 
      {% block metaTitle %}
          " Créer une nouvelle recette "
@@ -22,12 +24,10 @@
 
              </section>
 
-             <article>
+             <article class="btn-group-vertical">
 
                  <form class="text-center">
- 
-                 {{ include('recette/_form.html.twig') }}
-
+                     {{ include('recette/_form.html.twig') }}
                  </form>
 
                  <button href="{{ path('recette_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                

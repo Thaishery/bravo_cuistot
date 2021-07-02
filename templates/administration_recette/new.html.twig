@@ -1,11 +1,35 @@
-{% extends 'base.html.twig' %}
+ {# ? Feuille : Gestion des recettes #ModeAdmin #} 
 
-{% block title %}New Recette{% endblock %}
+ {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>Create new Recette</h1>
+     {% block title %}
+         Créer une nouvelle recette 
+     {% endblock %}
+     
+     {% block body %}
 
-    {{ include('administration_recette/_form.html.twig') }}
+         <main class="Form"> 
 
-    <a href="{{ path('administration_recette_index') }}">back to list</a>
-{% endblock %}
+             <section class="text-center">
+   
+                 <h1 class="h1 mb-3 font-weight-normal"> Créer une nouvelle recette </h1>
+
+             </section> 
+
+             <article>
+
+                 <form class="text-center">
+
+                     {{ include('administration_recette/_form.html.twig') }}
+       
+                 </form>  
+
+                 <button href="{{ path('administration_recette_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+                     Retour à la liste
+                 </button>
+
+             </article>
+
+         <main> 
+
+     {% endblock %}

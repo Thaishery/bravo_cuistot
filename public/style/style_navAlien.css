@@ -1,3 +1,4 @@
+ /* ? Feuille de style de navBar Alien (Source: https://codepen.io/izkshitiz/pen/VymObE) */
 
 	@font-face {
         font-family: pirulen;
@@ -10,11 +11,7 @@
         
         }
         
-        body{background-color:;
-    background-image:url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
-    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-        }
-        
+            
         nav li a{
             color:black;
             text-decoration: none;

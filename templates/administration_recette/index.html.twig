@@ -1,45 +1,56 @@
-{% extends 'base.html.twig' %}
+ {# ? Feuille : Gestion des recettes #ModeAdmin #} 
 
-{% block title %}Recette index{% endblock %}
+ {% extends 'base.html.twig' %}
+ 
+     {% block metaTitle %}
+         " Gestion des recettes "
+     {% endblock %}
 
-{% block body %}
-    <h1>Recette index</h1>
+     {% block title %}
+         Gestion des recettes
+     {% endblock %}
+     
+     {% block body %}
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Image</th>
-                <th>Temps_preparation</th>
-                <th>Temps_cuisson</th>
-                <th>Nb_personnes</th>
-                <th>Difficulte</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for recette in recettes %}
-            <tr>
-                <td>{{ recette.id }}</td>
-                <td>{{ recette.name }}</td>
-                <td>{{ recette.image }}</td>
-                <td>{{ recette.tempsPreparation }}</td>
-                <td>{{ recette.tempsCuisson }}</td>
-                <td>{{ recette.nbPersonnes }}</td>
-                <td>{{ recette.difficulte }}</td>
-                <td>
-                    <a href="{{ path('administration_recette_show', {'id': recette.id}) }}">show</a>
-                    <a href="{{ path('administration_recette_edit', {'id': recette.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+         <h1> Gestion des recettes </h1>
+     
+         <table class="table">
+             <thead>
+                 <tr>
+                     <th>Id</th>
+                     <th>Name</th>
+                     <th>Image</th>
+                     <th>Temps_preparation</th>
+                     <th>Temps_cuisson</th>
+                     <th>Nb_personnes</th>
+                     <th>Difficulte</th>
+                     <th>actions</th>
+                 </tr>
+             </thead>
+             <tbody>
+             {% for recette in recettes %}
+                 <tr>
+                     <td>{{ recette.id }}</td>
+                     <td>{{ recette.name }}</td>
+                     <td>{{ recette.image }}</td>
+                     <td>{{ recette.tempsPreparation }}</td>
+                     <td>{{ recette.tempsCuisson }}</td>
+                     <td>{{ recette.nbPersonnes }}</td>
+                     <td>{{ recette.difficulte }}</td>
+                     <td>
+                         <a href="{{ path('administration_recette_show', {'id': recette.id}) }}">show</a>
+                         <a href="{{ path('administration_recette_edit', {'id': recette.id}) }}">edit</a>
+                     </td>
+                 </tr>
+             {% else %}
+                 <tr>
+                     <td colspan="8">no records found</td>
+                 </tr>
+             {% endfor %}
+             </tbody>
+         </table>
+     
+         <a href="{{ path('administration_recette_new') }}">Create new</a>
 
-    <a href="{{ path('administration_recette_new') }}">Create new</a>
-{% endblock %}
+ {% endblock %}
+ 

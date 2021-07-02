@@ -1,14 +1,12 @@
- {{ form_start(form) }}
-
-     {{ form_widget(form) }}
-
-         <button class="btn col-12 btn-dark btn-lg px-4">
-
-             {# <acronym style="decoration:none"title="Passer à l'étape suivante"> #}
+ {# ? Feuille du bouton Delete #ModeUser #}
+ 
+     {{ form_start(form) }}
+     
+         {{ form_widget(form) }}
+     
+             <button class="btn col-12 btn-dark btn-lg px-4">  
                  {{ button_label|default('Valider cette étape') }}
-             {# </acronym> #}
-
-         </button>
-
- {{ form_end(form) }}
+             </button>
+     
+     {{ form_end(form) }}
 
