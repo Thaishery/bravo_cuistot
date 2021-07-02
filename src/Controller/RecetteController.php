@@ -2,15 +2,20 @@
 
 namespace App\Controller;
 
+use App\Entity\Commentaires;
 use App\Entity\Etapes;
 use App\Entity\IngredientsRecette;
+use App\Entity\Notes;
 use App\Entity\Recette;
 use App\Entity\User;
+use App\Form\CommentairesType;
 use App\Form\EtapesType;
 use App\Form\IngredientsRecetteType;
 use App\Form\RecetteType;
+use App\Repository\CommentairesRepository;
 use App\Repository\EtapesRepository;
 use App\Repository\IngredientsRecetteRepository;
+use App\Repository\NotesRepository;
 use App\Repository\RecetteRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -135,7 +140,7 @@ class RecetteController extends AbstractController
      * @IsGranted("ROLE_USER", message="Veuillez vous connecter ou créer un compte pour pouvoir créer une recette!")
      * @Route("/new/{id}/etapes", name="recette_new_etapes", methods={"GET","POST"})
      */
-    public function newEtapes(Request $request, $id,EtapesRepository $etapesRepository, IngredientsRecetteRepository $ingredientsRecetteRepository, RecetteRepository $recetteRepository, Recette $recette): Response
+    public function newEtapes(Request $request,int $id,EtapesRepository $etapesRepository, IngredientsRecetteRepository $ingredientsRecetteRepository, RecetteRepository $recetteRepository, Recette $recette): Response
     {
         //récupére l'utilisateur: 
         $user = $this->getUser();
@@ -145,7 +150,7 @@ class RecetteController extends AbstractController
         $form = $this->createForm(EtapesType::class, $etape);
         $form->handleRequest($request);
         // on récupére la liste des étapes de la recette pour vérifier si elle est vide ou non
-        $listeEtapes = $etapesRepository->findByRecetteId($id);
+        $listeEtapes = $etapesRepository->findByRecetteId($recette);
         // ajout de l'id de la recette a la class Etapes. (via l'injection de dépendances)
         $etape->setRecetteId($recette);
         // TODO : trouver un moyen d'incrémenter de 1 le numéro de l'étape automatiquement pour chaque nouvelle étape.
@@ -204,17 +209,20 @@ class RecetteController extends AbstractController
      * @IsGranted("ROLE_USER", message="Veuillez vous connecter ou créer un compte pour pouvoir créer une recette!")
      * @Route("/new/{id}/preview", name="recette_new_preview", methods={"GET","POST"})
      */
-    public function preview(Recette $recette, $id, EtapesRepository $etapesRepository, IngredientsRecetteRepository $ingredientsRecetteRepository): Response{
+    public function preview(Recette $recette,int $id, EtapesRepository $etapesRepository, IngredientsRecetteRepository $ingredientsRecetteRepository): Response{
+        //on récupére la liste des Etapes trié par numéro d'etape. 
         $listeEtapes = $etapesRepository->findByRecetteIdOrderByIsNumber($id);
+        //on récupére la listre des ingrédients de la recette. 
         $listeIngredient = $ingredientsRecetteRepository->findByRecetteId($id);
+        // on compte les étape pour l'envoyer a la vue.
         $nomberEtapes = count($listeEtapes);
+        // on récupére l'utilisateur pour vérification Id (recette toujour en création même si preview)
         $user = $this->getUser();
         //si la recette a modifier a un auteur différent de l'utilisateur actuel, ne pas permetre la modification de la liste d'étape:
             if ($recette->getAuthorId()->getId() !== $user->getId()){
                 // forbiden.html.twig => a modifier (placeholder atm) les paramétres pouront être suprimer par la suite. 
                 return $this->render('errors/forbiden.html.twig');
             }
-
         
         return $this->render('recette/preview.html.twig',[
             'recette' => $recette,
@@ -224,14 +232,77 @@ class RecetteController extends AbstractController
         ]);
     }
 
-
+    //on affiche la recette
     /**
-     * @Route("/{id}", name="recette_show", methods={"GET"})
+     * @Route("/{id}", name="recette_show", methods={"GET","POST"}})
      */
-    public function show(Recette $recette): Response
+    public function show(
+        Request $request,
+        Recette $recette,
+        int $id,
+        EtapesRepository $etapesRepository,
+        IngredientsRecetteRepository $ingredientsRecetteRepository,
+        CommentairesRepository $commentairesRepository,
+        NotesRepository $notesRepository
+    ): Response
     {
+        //on récupére la liste des Etapes trié par numéro d'etape. 
+        $listeEtapes = $etapesRepository->findByRecetteIdOrderByIsNumber($id);
+        //on récupére la listre des ingrédients de la recette. 
+        $listeIngredient = $ingredientsRecetteRepository->findByRecetteId($id);
+        //on récupére la liste des commentaires .
+        $listeCommentaires = $commentairesRepository->findByRecetteId($id);
+        // on compte les étape pour l'envoyer a la vue.
+        $nomberEtapes = count($listeEtapes);
+        // on gére le formulaire d'ajout de commentaire : 
+        $commentaire = new Commentaires();
+        $form = $this->createForm(CommentairesType::class, $commentaire);
+        $form->handleRequest($request);
+        // on gére la notation : 
+        // 1. on gére les notes deja présente : 
+        // 1.1 on récupére la liste des notes de la recettes : 
+        $listeNotes = $notesRepository->findByRecetteId($id);
+        // 1.2 on fait la moyenne : 
+        $totalNotes = 0;
+        for ($i = 0 ; $i < count($listeNotes); $i ++){
+            $totalNotes = $totalNotes + $listeNotes[$i];
+        }
+        $moyenneNote = $totalNotes/count($listeNotes);
+        // 2. on laisse l'utilisateur actuel noter la recette : 
+        // 2.1 on vérifie si l'utilisateur actuel a deja noter la recette : 
+        // 2.1.1 on récupére l'utilisateur actuel : 
+        $user = $this->getUser();
+        // 2.1.2 on compare avec la liste des notes de la recette pour voir si l'id de l'utilisateur actuel y figure : 
+        $haveNoted = false;
+        for ($i = 0; $i < count($listeNotes); $i++){
+            if($listeNotes[$i]->getUserId() == $user->getId()){
+                $haveNoted = true;
+            }
+        }
+        // 2.1.3 si l'utilisateur a deja noter la recette, on récupére la note et renvoie la vue, 
+        // sinon on initialise le formulaire d'ajout de note dans cette vue. 
+        if($haveNoted == true){
+            $noteUser = $notesRepository;
+            return $this->render('recette/show.html.twig', [
+                'recette' => $recette,
+                'nombreEtapes'=>$nomberEtapes,
+                'listeIngredient' => $listeIngredient,
+                'listeEtapes' => $listeEtapes,
+                'listeCommentaires' => $listeCommentaires,
+                'moyenneNote' => $moyenneNote
+            ]);
+        }
+        
+        
+        
+
         return $this->render('recette/show.html.twig', [
             'recette' => $recette,
+            'nombreEtapes'=>$nomberEtapes,
+            'listeIngredient' => $listeIngredient,
+            'listeEtapes' => $listeEtapes,
+            'listeCommentaires' => $listeCommentaires,
+            'moyenneNote' => $moyenneNote
         ]);
     }
 
