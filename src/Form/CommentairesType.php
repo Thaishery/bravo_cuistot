@@ -30,8 +30,8 @@ class CommentairesType extends AbstractType
                 ],
                 'required' => true,
             ])
-            ->add('created_at')
-            ->add('edited_at')
+            // ->add('created_at')
+            // ->add('edited_at')
             // ->add('user_id')
             // ->add('recette_id')
         ;

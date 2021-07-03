@@ -26,7 +26,7 @@ class CommentairesRepository extends ServiceEntityRepository
     public function findByRecetteId($value)
     {
         return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
+            ->andWhere('c.recette_id = :val')
             ->setParameter('val', $value)
             ->orderBy('c.created_at', 'ASC')
             ->setMaxResults(10)

@@ -22,19 +22,30 @@ class NotesRepository extends ServiceEntityRepository
     // /**
     //  * @return Notes[] Returns an array of Notes objects
     //  */
-    /*
-    public function findByExampleField($value)
+    
+    public function findByUserId($value)
     {
         return $this->createQueryBuilder('n')
-            ->andWhere('n.exampleField = :val')
+            ->andWhere('n.user_id = :val')
             ->setParameter('val', $value)
             ->orderBy('n.id', 'ASC')
-            ->setMaxResults(10)
+            // ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    public function findByRecetteId($value)
+    {
+        return $this->createQueryBuilder('n')
+            ->andWhere('n.recette_id = :val')
+            ->setParameter('val', $value)
+            ->orderBy('n.id', 'ASC')
+            // ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    
 
     /*
     public function findOneBySomeField($value): ?Notes

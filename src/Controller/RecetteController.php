@@ -11,6 +11,7 @@ use App\Entity\User;
 use App\Form\CommentairesType;
 use App\Form\EtapesType;
 use App\Form\IngredientsRecetteType;
+use App\Form\NotesType;
 use App\Form\RecetteType;
 use App\Repository\CommentairesRepository;
 use App\Repository\EtapesRepository;
@@ -234,7 +235,7 @@ class RecetteController extends AbstractController
 
     //on affiche la recette
     /**
-     * @Route("/{id}", name="recette_show", methods={"GET","POST"}})
+     * @Route("/{id}", name="recette_show", methods={"GET","POST"})
      */
     public function show(
         Request $request,
@@ -256,8 +257,18 @@ class RecetteController extends AbstractController
         $nomberEtapes = count($listeEtapes);
         // on gére le formulaire d'ajout de commentaire : 
         $commentaire = new Commentaires();
-        $form = $this->createForm(CommentairesType::class, $commentaire);
-        $form->handleRequest($request);
+        $formCommentaire = $this->createForm(CommentairesType::class, $commentaire);
+        $formCommentaire->handleRequest($request);
+        if ($formCommentaire->isSubmitted() && $formCommentaire->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($commentaire);
+            $entityManager->flush();
+            
+            return $this->redirectToRoute('recette_show',[
+                'id' => $id,
+            ]);
+        }
+
         // on gére la notation : 
         // 1. on gére les notes deja présente : 
         // 1.1 on récupére la liste des notes de la recettes : 
@@ -265,9 +276,15 @@ class RecetteController extends AbstractController
         // 1.2 on fait la moyenne : 
         $totalNotes = 0;
         for ($i = 0 ; $i < count($listeNotes); $i ++){
-            $totalNotes = $totalNotes + $listeNotes[$i];
+            $totalNotes = $totalNotes + $listeNotes[$i]->getNote();
         }
+        // 1.3 rien ne nous assure qu'il y ai des notes, il faut donc ajouter une condition pour éviter de diviser par 0: 
+        if($totalNotes != 0 ){
         $moyenneNote = $totalNotes/count($listeNotes);
+        }
+        else{
+            $moyenneNote = 0;
+        }
         // 2. on laisse l'utilisateur actuel noter la recette : 
         // 2.1 on vérifie si l'utilisateur actuel a deja noter la recette : 
         // 2.1.1 on récupére l'utilisateur actuel : 
@@ -275,26 +292,44 @@ class RecetteController extends AbstractController
         // 2.1.2 on compare avec la liste des notes de la recette pour voir si l'id de l'utilisateur actuel y figure : 
         $haveNoted = false;
         for ($i = 0; $i < count($listeNotes); $i++){
-            if($listeNotes[$i]->getUserId() == $user->getId()){
+            //il dois y avoir un probléme sur cette condition : 
+            if($listeNotes[$i]->getUserId() == $this->getUser()){
                 $haveNoted = true;
             }
         }
         // 2.1.3 si l'utilisateur a deja noter la recette, on récupére la note et renvoie la vue, 
-        // sinon on initialise le formulaire d'ajout de note dans cette vue. 
+        
         if($haveNoted == true){
-            $noteUser = $notesRepository;
+            $noteUser = $notesRepository->findByUserId($id);
             return $this->render('recette/show.html.twig', [
                 'recette' => $recette,
                 'nombreEtapes'=>$nomberEtapes,
                 'listeIngredient' => $listeIngredient,
                 'listeEtapes' => $listeEtapes,
                 'listeCommentaires' => $listeCommentaires,
-                'moyenneNote' => $moyenneNote
+                'moyenneNote' => $moyenneNote,
+                'noteUser' => $noteUser,
+                'haveNoted' =>$haveNoted,
+                'formCommentaire' => $formCommentaire->createView(),
             ]);
+        }   
+        // 2.1.3Bis sinon on initialise le formulaire d'ajout de note dans cette vue. 
+        else{
+            $note = new Notes();
+            $formNote = $this->createForm(NotesType::class, $note);
+            $formNote->handleRequest($request);
+            $note->setRecetteId($recette);
+            $note->setUserId($user);
+            if ($formNote->isSubmitted() && $formNote->isValid()) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($note);
+                $entityManager->flush();
+                
+                return $this->redirectToRoute('recette_show',[
+                    'id' => $id,
+                ]);
+            }
         }
-        
-        
-        
 
         return $this->render('recette/show.html.twig', [
             'recette' => $recette,
@@ -302,7 +337,10 @@ class RecetteController extends AbstractController
             'listeIngredient' => $listeIngredient,
             'listeEtapes' => $listeEtapes,
             'listeCommentaires' => $listeCommentaires,
-            'moyenneNote' => $moyenneNote
+            'moyenneNote' => $moyenneNote,
+            'haveNoted' =>$haveNoted,
+            'formNote' => $formNote->createView(),
+            'formCommentaire' => $formCommentaire->createView(),
         ]);
     }
 
