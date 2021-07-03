@@ -116,6 +116,28 @@ have noted
                 {% endfor %}
             </div>
             <div class="col-12">
+                <h2>commentaires : </h2>
+                {% if listeCommentaires %}
+                    {% for commentaire in listeCommentaires %}
+                        <div class="col-3">
+                            <p>
+                                {{commentaire.userId.login}} : <br/>
+                                le : {{commentaire.createdAt|date('d-m-Y')}} à {{commentaire.createdAt|date('h:i:s')}}
+                            </p>
+                        </div>
+                        <div class="col-9">
+                            <p>
+                                {{commentaire.content}}
+                            </p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>
+                        Il n'y as pas encore de commentaires. 
+                    </p>
+                {% endif %}
+            </div>
+            <div class="col-12">
             Laisser un commentaire : 
             {{ form_start(formCommentaire) }}
                  {{ form_widget(formCommentaire) }}

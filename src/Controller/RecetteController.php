@@ -18,6 +18,7 @@ use App\Repository\EtapesRepository;
 use App\Repository\IngredientsRecetteRepository;
 use App\Repository\NotesRepository;
 use App\Repository\RecetteRepository;
+use DateTimeImmutable;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -253,12 +254,18 @@ class RecetteController extends AbstractController
         $listeIngredient = $ingredientsRecetteRepository->findByRecetteId($id);
         //on récupére la liste des commentaires .
         $listeCommentaires = $commentairesRepository->findByRecetteId($id);
+        //on récupére l'utilisateur actuel : 
+        $user = $this->getUser();
         // on compte les étape pour l'envoyer a la vue.
         $nomberEtapes = count($listeEtapes);
         // on gére le formulaire d'ajout de commentaire : 
         $commentaire = new Commentaires();
         $formCommentaire = $this->createForm(CommentairesType::class, $commentaire);
         $formCommentaire->handleRequest($request);
+        $commentaire->setCreatedAt(new DateTimeImmutable());
+        $commentaire->setUserId($user);
+        $commentaire->setRecetteId($recette);
+
         if ($formCommentaire->isSubmitted() && $formCommentaire->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($commentaire);
@@ -288,7 +295,8 @@ class RecetteController extends AbstractController
         // 2. on laisse l'utilisateur actuel noter la recette : 
         // 2.1 on vérifie si l'utilisateur actuel a deja noter la recette : 
         // 2.1.1 on récupére l'utilisateur actuel : 
-        $user = $this->getUser();
+        // fait ligne 258
+        
         // 2.1.2 on compare avec la liste des notes de la recette pour voir si l'id de l'utilisateur actuel y figure : 
         $haveNoted = false;
         for ($i = 0; $i < count($listeNotes); $i++){
