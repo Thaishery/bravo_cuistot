@@ -23,7 +23,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+// use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Validator\Constraints\Length;
 
@@ -364,9 +364,19 @@ class RecetteController extends AbstractController
         int $id
         ): Response
     {
+        //on récupére l'utilisateur,
         $user = $this->getUser();
-        if ($recette->getAuthorId()->getId() !== $user->getId()){
-            return $this-> render('errors/forbiden.html.twig');
+        //on récupére les roles,
+        $roles = $user->getRoles();
+        //on crée un bool "Admin" qui vaux vrais si "ROLE_ADMIN" est dans la variable $roles, 
+        // https://stackoverflow.com/questions/14585897/how-to-check-the-user-role-inside-form-builder-in-symfony2 (dernier message)
+        $boolAdmin = in_array('ROLE_ADMIN', $roles);
+        //si l'utilisateur n'est pas administrateur ou l'autheur de la recette : 
+        // on renvoie vers erros/fobiden.html.twig.
+        if ($boolAdmin == false){
+            if ($recette->getAuthorId()->getId() !== $user->getId()){
+                return $this-> render('errors/forbiden.html.twig');
+            }
         }
         //récupération liste ingrédients et etapes : 
         $listeIngredient = $ingredientsRecetteRepository->findByRecetteId($id);
