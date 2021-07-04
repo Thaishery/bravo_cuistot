@@ -3,6 +3,8 @@
 {% block title %}Edit Recette{% endblock %}
 
 {% block body %}
+{{dump(listeIngredient)}}
+
     <h1>Edit Recette</h1>
 
     {{ include('recette/_form.html.twig', {'button_label': 'Update'}) }}

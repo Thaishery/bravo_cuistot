@@ -356,20 +356,41 @@ class RecetteController extends AbstractController
     /**
      * @Route("/{id}/edit", name="recette_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Recette $recette): Response
+    public function edit(
+        Request $request,
+        Recette $recette,
+        EtapesRepository $etapesRepository,
+        IngredientsRecetteRepository $ingredientsRecetteRepository,
+        int $id
+        ): Response
     {
-        $form = $this->createForm(RecetteType::class, $recette);
-        $form->handleRequest($request);
+        $user = $this->getUser();
+        if ($recette->getAuthorId()->getId() !== $user->getId()){
+            return $this-> render('errors/forbiden.html.twig');
+        }
+        //récupération liste ingrédients et etapes : 
+        $listeIngredient = $ingredientsRecetteRepository->findByRecetteId($id);
+        $listeEtapes = $etapesRepository->findByRecetteId($id);
+        //on génére les formulaires : 
+        //la recette: 
+        $formRecette = $this->createForm(RecetteType::class, $recette);
+        $formRecette->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($formRecette->isSubmitted() && $formRecette->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('recette_index');
         }
+        //les ingrédient : 
+        // on vérifie si la liste des ingrédient comprend bien au moins 1 ingrédient, sinon on redirige vers une page d'érreur disant que la recette que 
+        // l'utilisateur essaie de modifier n'est pas fini avec un lien de redirection vers l'ajout d'un 1er ingrédient. 
+        // todo : vérifier lors de la création qu'il ne soit pas possible de passer diréctement a l'ajout d'étape sans avoir ajouter d'ingrédient
+
 
         return $this->render('recette/edit.html.twig', [
             'recette' => $recette,
-            'form' => $form->createView(),
+            'form' => $formRecette->createView(),
+            'listeIngredient' => $listeIngredient,
         ]);
     }
 
