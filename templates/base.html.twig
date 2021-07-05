@@ -38,7 +38,7 @@
                  <script src="{{asset ('js/sidebar.js')}}"></script>
 
                  {# ***** Style CSS Fonctionnalité SideBar ***** #}
-                 {# <link href="{{asset ('style/style_sidebar.css')}}" rel="stylesheet">       #}
+                 <link href="{{asset ('style/style_sidebar.css')}}" rel="stylesheet">
 
                  {# ***** Script Css Général ***** #}
                  <link href="{{asset ('style/style.css')}}" rel="stylesheet">
@@ -46,27 +46,29 @@
                  {# ***** Script NavBarAlien ***** #}
                  <link href="{{asset ('style/style_navAlien.css')}}" rel="stylesheet">
 
+                 {# ? Script: AngularJs Framework #}
+                 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
              {% endblock %}
      
              {% block javascripts %}
 
-                {# ***** Script Js ***** #}
+                 {# ? Script Js #}
                  <script src="{{asset ('js/sidebar.js')}} "type="text/javascript"" "></script> 
                  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
-                 {# ! J'ai trouver cette animation de navBar sympa.
-                 {# ! J'aimerai bien que cette barre reste accrocher en bas de l'écran! Faut que je regarde comment la fixée.
-                 {# ! On pourrait par exemple y intégrer la barre de recherche et/ou d'autres truc si vosu avez des idéés  
-                 {# ! JC_ 
+                     {# ! J'ai trouver cette animation de navBar sympa.
+                     {# ! J'aimerai bien que cette barre reste accrocher en bas de l'écran! Faut que je regarde comment la fixée.
+                     {# ! On pourrait par exemple y intégrer la barre de recherche et/ou d'autres truc si vosu avez des idéés  
+                     {# ! JC_ 
 
-                 {# ***** Script NavBarAlien ***** #}
-                 <script src="{{asset ('js/navAlien.js')}} "type="text/javascript"" "></script> 
+                     {# ? Script NavBarAlien #}
+                     <script src="{{asset ('js/navAlien.js')}}" type="text/javascript"></script> 
 
-                 {# ***** Script JQuery ***** #}
+                 {# ? Script JQuery #}
                  {# <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> #}
-
+     
              {% endblock %}
-
 
          </head>
 

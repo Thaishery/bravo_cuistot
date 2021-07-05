@@ -1,11 +1,44 @@
-{% extends 'base.html.twig' %}
+ {# ? Feuille : Gestion des utilisateurs #ModeAdmin #} 
 
-{% block title %}New User{% endblock %}
+     {% extends 'base.html.twig' %}
+     
+     {% block metaTitle %}
+         " Créer un nouvel utilisateur "
+     {% endblock %}
 
-{% block body %}
-    <h1>Create new User</h1>
+     {% block title %}
+         Créer un nouvel utilisateur
+     {% endblock %}
+     
+     {% block body %}
 
-    {{ include('user/_form.html.twig') }}
+         <main class="Form">  
+ 
+             <section class="text-center">
 
-    <a href="{{ path('user_index') }}">back to list</a>
-{% endblock %}
+                 <h1 class="plantFont h1 mb-3 font-weight-normal"> Créer une nouvel utilisateur </h1>
+                      
+                     <p class="lead"> 
+                         <em> Créer un nouvel utilisateur! </em> 👤
+                     </p>
+
+             </section>
+
+             <article>
+       
+                 <div class="text-center"> 
+                     {{ include('user/_form.html.twig') }}
+                 </div>     
+     
+             </article>
+
+             <br/>
+
+                 <a href="{{ path('user_index') }}" type="submit" class="btn btn-success col-12 px-4 gap-3">
+                     Retour à la liste
+                 </a>
+   
+         </main>     
+
+     {% endblock %}
+     

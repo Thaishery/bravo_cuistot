@@ -23,10 +23,6 @@
          header div.row {
            padding: 1%;
          }
-     
-         .menuNav {
-           text-align: right;
-        }
 
      /* *** Style des titres *** */  
         
@@ -48,7 +44,7 @@
          /* ? Style du bouton CLose du menu */
 
           a.closebtn {
-             margin: 6px;
+             margin: 16px;
          }
 
          /* .administrationCard {
@@ -161,12 +157,12 @@
         
         /* ? Position the close button (top right corner) *** */
        
-          .overlay .closebtn {
+          /* .overlay .closebtn {
             position: absolute;
             top: 20px;
             right: 45px;
             font-size: 60px;
-          }
+          } */
         
         /* ? When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap *** */
        

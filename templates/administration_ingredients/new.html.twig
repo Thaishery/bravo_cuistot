@@ -18,14 +18,16 @@
    
                  <h1 class="h1 mb-3 font-weight-normal"> Créer un nouvel ingrédient </h1>
 
+                 <p class="lead"> 
+                     Créer un nouvel ingrédient! 👨‍🍳
+                 </p> 
+
              </section> 
 
              <article>
 
-                 <form class="text-center">
-
+                 <div class="text-center">
                      {{ include('administration_ingredients/_form.html.twig') }}
- 
                  </form> 
      
                  <a href="{{ path('administration_ingredients_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                

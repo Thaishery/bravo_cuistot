@@ -27,15 +27,15 @@
 
                              <section class="text-center">
 
-                                 <h1 id="plantFont" class="h1 mb-3 font-weight-normal"> Formulaire d'inscription </h1>
+                                 <h1 class="plantFont" class="h1 mb-3 font-weight-normal"> Formulaire d'inscription </h1>
                   
                                  <p class="lead"> 
-                                     Inscrivez-vous gratuitement pour créer un compte et accéder au contenu du site. 
+                                     Inscrivez-vous gratuitement pour créer un compte et accéder à tout le contenu du site. 
                                  </p>
                                
                              </section>                     
 
-                             <article id="inscriptionForm">
+                             <article id="inscriptionForm" class="text-center">
 
                                  <div class="row">
                                  
@@ -248,13 +248,13 @@
                                          </div>
  
                                          {# **************************** C.G.U. **************************** #}
+                                    
+                                         <hr class="my-4" style="color:rgba(25,135,84,0.9);"/>
 
-                                         <hr class="my-4" style="color:white;">
-
-                                         <article class="col-12 mx-auto">
+                                         <article class="col-12 mx-auto ">
 
                                              {# *** LABEL *** #}
-                                             <section class="offset-md-5 CGU_center">{{form_label(registrationForm.agreeTerms, 'Veuillez accepter nos conditions :')}}
+                                             <section class="text-center">{{form_label(registrationForm.agreeTerms, 'Veuillez accepter nos conditions :')}}
 
                                                  {# *** INPUT *** #}
                                                  {{form_widget
@@ -281,7 +281,7 @@
                                                              
                                              </section>
  
-                                             <hr class="my-4" style="color:white;">
+                                         <hr class="my-4" style="color:rgba(25,135,84,0.9);"/>
 
                                              {# **************************** ACTION ***************************** #}
 
