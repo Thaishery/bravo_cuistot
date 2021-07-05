@@ -18,99 +18,182 @@
 
              </section>      
 
-             <article class="container">
+                 {# ******************************************** #}
+ 
+                 <hr style="color:white;"/>
 
-                 <div class="row">
+                 {# ******************************************** #}
 
-                     {# ? Partie: Gérer les utilisateurs  #}
+                 {# ? Partie: Les dernierès recettes. #}
 
-                     <section class="col-6  administrationCard">
+                 <article class="container">
 
-                         <figure class="cardImage">
-                             <img class="administrationLogo col-6" src="{{asset ('Images/avatar.png')}}" alt="image d'une persone type emoji">
-                         </figure>
-                         
-                         <button href="{{path("user_index")}}" type="submit" class="btn btn-success bg-gradient col-6 btn-lg px-4 gap-3">                                
-                             Gérer les utilisateurs
-                         </button> 
+                         <div class="text-center">
 
-                     </section>
+                                 {# ******************** #}
 
-                     {# ? Partie: Gérer les recettes  #}
+                                     <div class="text-center p-4 p-md-5 mb-4 text-white rounded bg-dark">                               
+                                       
+                                         <div class="col-md-12 px-0">                       
+                                            
+                                             <div class="row">
 
-                     <section class="col-6 administrationCard">
+                                                 {# ******************** #}
 
-                         <figure class="cardImage">
-                             <img class="administrationLogo col-6" src="{{asset ('Images/cuisineBg1.jpg')}}" alt="image d'une persone type emoji">
-                         </figure>
+                                                 {# ? Carte n°1: Gérer les utilisateurs  #}
 
-                         <button href="{{path("administration_recette_index")}}" type="submit" class="btn btn-success bg-gradient col-6 btn-lg px-4 gap-3">                                
-                             Gérer les recettes
-                         </button> 
+                                                 <section class="col-sm-3 administrationCard">
 
-                     </section>
+                                                     <div class="carteBg1 card mb-3">
 
-                     {# ? Partie: Gérer les commentaires #}
+                                                         <div class="card-body">
 
-                     <section class="col-6 administrationCard">
+                                                             <figure class="cardImage">
+                                                                 <img class="administrationLogo col-6" src="{{asset ('Images/avatar.png')}}" alt="image d'une persone type emoji">
+                                                             </figure>
+                                                             
+                                                             <button href="{{path("user_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12 ">                                
+                                                                 UTLISATEURS
+                                                             </button> 
+                                                    
+                                                         </div>
 
-                         <figure class="cardImage">
-                             <img class="administrationLogo col-6" src="{{asset ('Images/bulleText.png')}}" alt="image d'une persone type emoji">
-                         </figure>
+                                                     </div>
 
-                         <button href="{{path("administration_comentaires_index")}}" type="submit" class="btn btn-success bg-gradient col-6 btn-lg px-4 gap-3">                                
-                             Gérer les commentaires
-                         </button> 
+                                                 </section>
 
-                     </section>
+                                                 {# ******************** #}
 
-                     {# ? Partie: Gérer les catégories #}
+                                                 {# ? Carte n°2: Gérer les recettes  #}
 
-                     <section class="col-6 administrationCard">
+                                                 <section class="col-sm-3 administrationCard">
 
-                             <figure class="cardImage">
-                                 <img class="administrationLogo col-6" src="{{asset ('Images/dossier.jpg')}}" alt="image d'une persone type emoji">
-                             </figure>
+                                                     <div class="carteBg1 card mb-3">
 
-                             <button href="{{path("categories")}}" type="submit" class="btn btn-success bg-gradient col-6 btn-lg px-4 gap-3">                                
-                                 Gérer les catégories
-                             </button>
+                                                         <div class="card-body">
 
-                     </section>
+                                                             <figure class="cardImage">
+                                                                 <img class="administrationLogo col-6" src="{{asset ('Images/avatar.png')}}" alt="image d'une persone type emoji">
+                                                             </figure>
+                                                             
+                                                             <button href="{{path("administration_recette_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12 ">                                
+                                                                 RECETTES
+                                                             </button> 
+                                                    
+                                                         </div>
 
-                     {# ? Partie: Gérer les ingrédients #}
+                                                     </div>
 
-                     <section class="col-6 administrationCard">
+                                                 </section>
 
-                         <figure class="cardImage">
-                             <img class="administrationLogo col-6" src="{{asset ('Images/ingrédients.jpg')}}" alt="image d'une persone type emoji">
-                         </figure>
+                                                 {# ******************** #}
 
-                         <button href="{{path("administration_ingredients_index")}}" type="submit" class="btn btn-success bg-gradient col-6 btn-lg px-4 gap-3">                                
-                             Gérer les ingrédients 
-                         </button>
+                                                 {# ? Carte n°3: Gérer les commentaires #}
 
-                     </section> 
+                                                 <section class="col-sm-3 administrationCard">
 
-                     {# ? Partie: Gérer les unites de mesures #}
+                                                     <div class="carteBg1 card mb-3">
 
-                     <section class="col-6  administrationCard">
+                                                         <div class="card-body">
 
-                         <figure class="cardImage">
-                             <img class="administrationLogo col-6" src="{{asset ('Images/mesures.jpg')}}" alt="image d'une persone type emoji">
-                         </figure>
+                                                             <figure class="cardImage">
+                                                                 <img class="administrationLogo col-6" src="{{asset ('Images/avatar.png')}}" alt="image d'une persone type emoji">
+                                                             </figure>
+                                                             
+                                                             <button href="{{path("administration_comentaires_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12">                                
+                                                                 COMMENTAIRES
+                                                             </button> 
+                                                    
+                                                         </div>
 
-                         <button href="{{path("unite_mesure_index")}}" type="submit" class="btn btn-success bg-gradient col-6 btn-lg px-4 gap-3">                                
-                             Gérer les unites de mesures
-                         </button>
+                                                     </div>
 
-                     </section>
+                                                 </section>
 
-                 </div>
+                                                 {# ******************** #}
+ 
+                                                 {# ? Carte n°4: Gérer les catégories #}
 
-             </article>
+                                                 <section class="col-sm-3 administrationCard">
 
-         </main>
+                                                     <div class="carteBg1 card mb-3">
 
+                                                         <div class="card-body">
+
+                                                             <figure class="cardImage">
+                                                                 <img class="administrationLogo col-6" src="{{asset ('Images/avatar.png')}}" alt="image d'une persone type emoji">
+                                                             </figure>
+                                                             
+                                                             <button href="{{path("categories")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12">                                
+                                                                 CATÉGORIES
+                                                             </button> 
+                                                    
+                                                         </div>
+
+                                                     </div>
+
+                                                 </section>
+                                              
+                                                 {# ******************** #}
+
+                                                 {# ? Carte n°5: Gérer les ingrédients #}
+
+                                                 <section class="col-sm-3 administrationCard">
+
+                                                     <div class="carteBg1 card mb-3">
+
+                                                         <div class="card-body">
+
+                                                             <figure class="cardImage">
+                                                                 <img class="administrationLogo col-6" src="{{asset ('Images/avatar.png')}}" alt="image d'une persone type emoji">
+                                                             </figure>
+                                                             
+                                                             <button href="{{path("administration_ingredients_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12">                                
+                                                                 INGRÉDIENTS
+                                                             </button> 
+                                                    
+                                                         </div>
+
+                                                     </div>
+
+                                                 </section>
+
+                                                 {# ******************** #}
+
+                                                 {# ? Carte n°6: Gérer les unités de mesures #}
+
+                                                 <section class="col-sm-3 administrationCard">
+
+                                                     <div class="carteBg1 card mb-3">
+
+                                                         <div class="card-body">
+
+                                                             <figure class="cardImage">
+                                                                 <img class="administrationLogo col-6" src="{{asset ('Images/avatar.png')}}" alt="image d'une persone type emoji">
+                                                             </figure>
+                                                             
+                                                             <button href="{{path("unite_mesure_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12 ">                                
+                                                                 UNITÉES DE MESURES
+                                                             </button> 
+                                                    
+                                                         </div>
+
+                                                     </div>
+
+                                                 </section>
+                                              
+                                                 {# ******************** #}
+
+                                             </div>
+
+                                         </div>         
+
+                                     </div>
+
+                     </div>
+ 
+                 </article>
+
+             </main>
+  
      {% endblock %}
-     
