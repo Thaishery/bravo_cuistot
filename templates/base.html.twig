@@ -37,18 +37,14 @@
                  {# ***** Script: JS - Fonctionnalité SideBar ***** #}
                  <script src="{{asset ('js/sidebar.js .js')}}"></script>
 
-                 {# ***** Script Fonctionnalité SideBar ***** #}
+                 {# ***** Style CSS Fonctionnalité SideBar ***** #}
                  <link href="{{asset ('style/style_sidebar.css')}}" rel="stylesheet">      
 
-                 {# ***** Script Css ***** #}
+                 {# ***** Script Css Général ***** #}
                  <link href="{{asset ('style/style.css')}}" rel="stylesheet">
-
-
 
                  {# ***** Script NavBarAlien ***** #}
                  <link href="{{asset ('style/style_navAlien.css')}}" rel="stylesheet">
-
-
 
              {% endblock %}
      
@@ -66,6 +62,10 @@
                  {# ***** Script NavBarAlien ***** #}
                  <script src="{{asset ('js/navAlien.js')}} "type="text/javascript"" "></script> 
 
+                 {# ***** Script JQuery ***** #}
+                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
              {% endblock %}
 
 
@@ -78,15 +78,17 @@
          </header>
 
          <body>
-         
+
+             {% block body %}
+             
+             {% endblock %}
              {# {% include 'partials/body.html.twig' %} #}
-             {% block body %}{% endblock %}
          
          </body>
 
          <footer>
 
-             {% include 'partials/footer.html.twig' %}
+             {# {% include 'partials/footer.html.twig' %} #}
 
          </footer>
 

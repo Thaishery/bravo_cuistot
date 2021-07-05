@@ -1,11 +1,39 @@
-{% extends 'base.html.twig' %}
+  {# ? Feuille : Créer un nouveau plat #ModeAdmin #} 
 
-{% block title %}New Plats{% endblock %}
+ {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>Create new Plats</h1>
+     {% block metaTitle %}
+         "  Créer un nouveau plat  "
+     {% endblock %}
 
-    {{ include('administration_plats/_form.html.twig') }}
+     {% block title %}
+         Créer un nouveau plat
+     {% endblock %}
+     
+     {% block body %}
 
-    <a href="{{ path('administration_plats_index') }}">back to list</a>
-{% endblock %}
+         <main class="Form">  
+
+             <section class="text-center">
+    
+                 <h1 class="h1 mb-3 font-weight-normal"> Créer un nouveau plat </h1>
+         
+             </section>
+     
+             <article>
+
+                 <form class="text-center">
+
+                     {{ include('administration_plats/_form.html.twig') }}
+
+                 </form>  
+
+                 <a href="{{ path('administration_plats_index') }}" class="btn btn-success col-12 btn-lg px-4 gap-3"> 
+                     Retour à la liste
+                 </a>
+
+             </article>
+
+         </main> 
+
+     {% endblock %}

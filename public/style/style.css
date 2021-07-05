@@ -1,28 +1,31 @@
  /* ? Feuille de style CSS Générale : Bravo Cuistot */
 
+     /* *** Style du corps du document *** */
+
+         body {
+           background-image:url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
+           /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+           /* background-color: #7c8782; */
+         }
+
      /* *** Style Commun *** */
 
          .textPink{
-             color: #f0626f;
+           color: #f0626f;
          }    
      
      /* *** Style de l'entete *** */
          
          header {
-             background-color: rgb(0 0 0);           
-             /* background-image: url("../Images/background1.png") ; */
-             /* background-image: url("https://www.transparenttextures.com/patterns/gray-floral.png"); */    
-             /* background-image: url("https://www.transparenttextures.com/patterns/starring.png"); */
-             /* background-attachment: fixed;     */
-             /* font-size: 1.0em; */ 
+           background-color: rgb(0 0 0);           
          }
      
          header div.row {
-             padding: 1%;
+           padding: 1%;
          }
      
          .menuNav {
-             text-align: right;
+           text-align: right;
         }
 
      /* *** Style des titres *** */  
@@ -30,19 +33,14 @@
          /* ? Titre de premier niveau */
      
              h1 {     
-                 margin: 20%S;
-                 padding: 5px;
-                 border-radius: 3px;
-                 background-color: rgba(25,135,84,0.9); 
-                 /* ? Black w/opacity */       
-                 /* color:blanchedalmond; */
-                 /* padding: 1%; */
-                 background-image: url("../Images/background1.png") ;
-                 background-blend-mode:screen;
-     
-                 border:  rgba(25,135,84,0.9) groove 1px;
-                 /* box-shadow: 3px 3px 3px #f0626f; */
-                 box-shadow: 1px 1px 2px rgba(25,135,84,0.9); 
+               margin: 20%S;
+               padding: 5px;
+               border-radius: 3px;
+               background-color: rgba(25,135,84,0.9);       
+               background-image: url("../Images/background1.png") ;
+               background-blend-mode:screen;  
+               border:  rgba(25,135,84,0.9) groove 1px;
+               box-shadow: 1px 1px 2px rgba(25,135,84,0.9); 
              }
      
      /* *** Style de l'interface d'administration *** */
@@ -60,25 +58,32 @@
      /* *** Style du formulaire d'inscription *** */
      
          .Form{
-            margin: 2%;
-            padding: 3%;
+           margin: 2%;
+           padding: 3%;
          }
      
          .plantFont {
-             /* padding: 1%; */
-             background-image: url("../Images/background1.png") ;
-             background-blend-mode:screen;
-             /* background-color: rgb(0 0 0); */
+           background-image: url("../Images/background1.png") ;
+           background-blend-mode:screen;
          }
      
      /* *** Style du formulaire de connection (normal) *** */ 
      
          .bloc_page,
          .bloc_page1 {
-             width: 80%;
-             margin: auto;
+           width: 80%;
+           margin: auto;
          }
      
+     /* *** Style du formulaire de connection (modal) *** */ 
+
+     /* .modal_Cuistot{ */
+         /* transition: 0.5s;  */
+         /* ? 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+         /* background-color: rgba(0,0,0,0.9); */
+          /* ? Black fallback color */
+     /* } */
+  
      /* *** Style du menu de navigation *** */  
         
          /* #titreNav {
@@ -97,19 +102,78 @@
          /* } */
      
          button a {
-             color: #f0626f;
+           color: #f0626f;
          }
      
-     /* *** Style du corps du document *** */
-
-        body {
-             background-image:url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
-             /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+      /* *** Style de la SideBar *** */
+     
+         /* ? The Overlay (background) *** */  
        
-             /* background-color: #7c8782; */
-             /* background-image: url("https://www.transparenttextures.com/patterns/xv.png"); */
-             /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-         }
+         .sideBar_Cuistot {
+           height: 100%; /* ? Height & width depends on how you want to reveal the overlay (see JS below) */ 
+           width: 0;
+           position: fixed; /* ? Stay in place */
+           z-index: 1; /* ? Sit on top */
+           top: 0;
+           left: 0;
+           background-color: rgba(0,0,0,0.9); /* ? Black fallback color */
+           /* background-color: rgba(25,135,84,0.9);  */
+           /* ? Black w/opacity */ 
+           overflow-x: hidden; /* ? Disable horizontal scroll */
+           transition: 0.5s; /* ? 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+        }
+        
+        /* ? Position the content inside the overlay *** */
+       
+          .sideBar_Cuistot-content {
+             position: relative;
+             top: 25%; /* ? 25% from the top */
+             width: 100%; /* ? 100% width */
+             text-align: center; /* ? Centered text/links */
+             margin-top: 30px; /* ? 30px top margin to avoid conflict with the close button on smaller screens */
+          }
+       
+        /* ? The navigation links inside the overlay *** */
+       
+          .overlay a {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 36px;
+            color: #f0626f;
+            display: block; /* ? Display block instead of inline */
+            transition: 0.3s; /* ?Transition effects on hover (color) */
+          }
+        
+        /* ? When you mouse over the navigation links, change their color *** */
+       
+             .sideBar_Cuistot a:hover,
+             .overlay a:focus {
+              color: #f1f1f1;
+              background-color: rgba(25,135,84,0.9); 
+               
+
+          }
+        
+        /* ? Position the close button (top right corner) *** */
+       
+          .overlay .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            font-size: 60px;
+          }
+        
+        /* ? When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap *** */
+       
+          @media screen and (max-height: 450px) {
+            .overlay a {font-size: 20px}
+            .overlay .closebtn {
+              font-size: 40px;
+              top: 15px;
+              right: 35px;
+            }
+          }
+
 
      /* *** Style des tables *** */
 

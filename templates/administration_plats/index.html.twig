@@ -1,35 +1,69 @@
-{% extends 'base.html.twig' %}
+ {# ? Feuille : Gestion des plats #ModeAdmin #} 
+ 
+ {% extends 'base.html.twig' %}
 
-{% block title %}Plats index{% endblock %}
+     {% block metaTitle %}
+         " Gestion des plats "
+     {% endblock %}
+   
+     {% block title %}
+         Gestion des plats
+     {% endblock %}
+     
+     {% block body %}
 
-{% block body %}
-    <h1>Plats index</h1>
+         <main class="Form">  
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for plat in plats %}
-            <tr>
-                <td>{{ plat.id }}</td>
-                <td>{{ plat.name }}</td>
-                <td>
-                    <a href="{{ path('administration_plats_show', {'id': plat.id}) }}">show</a>
-                    <a href="{{ path('administration_plats_edit', {'id': plat.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+             <section class="text-center">
+    
+                 <h1 class="h1 mb-3 font-weight-normal"> Gestion des plats </h1>
+         
+             </section>
+     
+             <article> 
 
-    <a href="{{ path('administration_plats_new') }}">Create new</a>
-{% endblock %}
+                 <table class="table table-dark table-hover">
+
+                     <thead>
+
+                         <tr>
+                             <th> Id </th>
+                             <th> Nom </th>
+                             <th> Actions </th>
+                         </tr>
+
+                     </thead>
+
+                     <tbody>
+
+                         {% for plat in plats %}
+
+                             <tr>
+                                 <td> {{ plat.id }} </td>
+                                 <td> {{ plat.name }} </td>
+                                 <td>
+                                     <a href="{{ path('administration_plats_show', {'id': plat.id}) }}"> Voir </a>
+                                     <a href="{{ path('administration_plats_edit', {'id': plat.id}) }}"> Modifier </a>
+                                 </td>
+                             </tr>
+
+                         {% else %}
+
+                             <tr>
+                                 <td colspan="3"> Aucun élément ne correspond à votre recherche </td>
+                             </tr>
+
+                         {% endfor %}
+
+                     </tbody>
+
+                 </table>
+     
+                 <a href="{{ path('administration_plats_new') }}" class="btn btn-success col-12 btn-lg px-4 gap-3"> Créer un nouveau plat </a>
+     
+             </article>
+
+         </main>     
+
+     {% endblock %}
+     

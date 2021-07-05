@@ -28,7 +28,7 @@
              
                  {# *** Conteneur du titre du formulaire *** #}
 
-                 <div id="bloc_page" class="py-5 text-center col-12">
+                 <article id="bloc_page" class="py-5 text-center col-12">
                  
                      <h1 class="h1 mb-3 font-weight-normal"> Formulaire de connection </h1>
                  
@@ -40,21 +40,21 @@
              
                      <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
              
-                     <div class="checkbox mb-3">
+                     <section class="checkbox mb-3">
                      
                          <label>
                              <input type="checkbox" name="_remember_me">
                              Se souvenir de moi
                          </label>
                    
-                     </div>
+                     </section>
 
                      {#
                          Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
                          See https://symfony.com/doc/current/security/remember_me.html                 
                      #}
 
-                     <div class="btn-group-vertical col-12">
+                     <section class="btn-group-vertical col-12">
 
                          {# *** Bouton: Se Connecter *** #}
                          <button type="submit" class="btn btn-dark btn-lg px-4 gap-3"> 
@@ -62,16 +62,18 @@
                          </button>
     
                          {# *** Bouton: S'inscrire *** #}
-                         <button href="{{ path('app_register') }}" type="submit" class="btn col-12 btn-success btn-lg px-4">                                
-                             S'inscrire 
-                         </button>
+                         <a type="submit" href="{{ path('app_register') }}" class="btn btn-success btn-lg px-4 gap-3">                                 
+                             S'inscrire
+                         </a>
                       
-                     </div>
+                     </section>
 
-                 </div>
+                 </article>
 
              </form>
 
          <main>
 
      {% endblock %}
+
+    

@@ -249,12 +249,12 @@
  
                                          {# **************************** C.G.U. **************************** #}
 
-                                         <hr class="my-4">
+                                         <hr class="my-4" style="color:white;">
 
-                                         <div class="col-12 mx-auto">
+                                         <article class="col-12 mx-auto">
 
                                              {# *** LABEL *** #}
-                                             <div class="offset-md-5 CGU_center">{{form_label(registrationForm.agreeTerms, 'Veuillez accepter nos conditions :')}}
+                                             <section class="offset-md-5 CGU_center">{{form_label(registrationForm.agreeTerms, 'Veuillez accepter nos conditions :')}}
 
                                                  {# *** INPUT *** #}
                                                  {{form_widget
@@ -279,28 +279,27 @@
                                                      {{form_errors(registrationForm.agreeTerms)}}
                                                  </span>
                                                              
-                                             </div>
+                                             </section>
  
-                                             <hr class="my-4">
+                                             <hr class="my-4" style="color:white;">
 
                                              {# **************************** ACTION ***************************** #}
 
-                                             <div class="btn-group-vertical">
+                                             <section class="btn-group-vertical col-12 ">
 
                                                  {# *** Bouton: S'inscrire *** #}
-                                                 <button type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
-                                                     S'inscrire 
+                                                 <button type="submit" class="btn btn-dark btn-lg">                                
+                                                     Valider le formulaire
                                                  </button>            
                        
                                                  {# *** Bouton: Se Connecter *** #}
-                                                 
-                                                 <button href="{{ path('app_login') }}" type="submit" class="btn col-12 btn-dark btn-lg px-4">                                
-                                                      Se connecter  
-                                                 </button>   
+                                                 <a type="submit" href="{{ path('app_login') }}" class="btn btn-success btn-lg">                                
+                                                     Se connecter  
+                                                 </a>   
 
-                                             </div>
+                                             </section>
 
-                                         </div>
+                                         </article>
 
                                  </div>
 

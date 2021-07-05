@@ -1,88 +1,89 @@
 {# ? MODAL CONNEXION #}
 
-     <button type="button" class=" btn btn-success btn-lg login-position" data-bs-toggle="modal" data-bs-target="#exampleModal">
-         <i id="house1" class="bi bi-house "> </i>
-         {# <span class="mobileHide"> Connection </span> #}
-     </button>
+     <main class="modal_Cuistot">
 
-     {# ***** MODAL ***** #}
+         <button type="button" class=" btn btn-success btn-lg login-position" data-bs-toggle="modal" data-bs-target="#exampleModal">
+             <i id="house1" class="bi bi-house "> </i>
+             {# <span class="mobileHide"> Connection </span> #}
+         </button>
 
-     <div class="login-box modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         {# ***** MODAL ***** #}
 
-         <div class="modal-dialog modal-dialog-centered">
+         <div class="login-box modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-             <div class="modal-content ">
-             {# ? div pour second modal #}
-             {# <div class="login-box">  #}
+             <div class="modal-dialog modal-dialog-centered">
 
-                 <section class="modal-header ">
+                 <div class="modal-content ">
+                 {# ? div pour second modal #}
+                 {# <div class="login-box">  #}
 
-                     <h5 class="modal-title" id="exampleModalLabel">
-                         <i class="bi bi-house-door">
-                         </i> Menu de connection 
-                     </h5>
+                     <section class="modal-header ">
 
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                         <h5 class="modal-title" id="exampleModalLabel">
+                             <i class="bi bi-house-door"> </i> 
+                             Menu de connection 
+                         </h5>
 
-                 </section>
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
-                 <article class="modal-body">
+                     </section>
 
-                     <div id="loginStyle" class="text-center">
+                     <article class="modal-body">
 
-                         <main class="form-signin">
+                         <div id="loginStyle" class="text-center">
 
-                             <form method="post" action="{{ path ("app_login") }}">
+                             <main class="form-signin">
 
-                                 {# *** SI L'UTILISATEUR EST AUTHENTIFIÉ *** #}
+                                 <form method="post" action="{{ path ("app_login") }}">
 
-                                 {% if app.user %}
+                                     {# *** SI L'UTILISATEUR EST AUTHENTIFIÉ *** #}
 
-                                     <div class="mb-3">
-                                         Vous etes connecter en tant que {{ app.user.username }},
-                                         <a href="{{ path('app_logout') }}"> Se déconnecter </a>
-                                     </div>
+                                     {% if app.user %}
 
-                                 {% endif %}
+                                         <div class="mb-3">
+                                             Vous etes connecter en tant que {{ app.user.username }},
+                                             <a href="{{ path('app_logout') }}"> Se déconnecter </a>
+                                         </div>
 
-                                 {# *** IMAGE: LOGO DU SITE *** #}
+                                     {% endif %}
 
-                                 {# <img class="mb-4" src="/Images/logo.png" alt="Logo du site BravoCuistot" width="72" height="57"> #}
+                                     {# *** IMAGE: LOGO DU SITE *** #}
 
-                                 <h1 class="h1 mb-3 font-weight-normal"> Se connecter </h1>
+                                     <h1 class="h1 mb-3 font-weight-normal"> Se connecter </h1>
 
-                                     <label for="inputLogin" class="visually-hidden"> Pseudo </label>
-                                     <input  type="text"  name="login" id="inputLogin" class="form-control"  placeholder="Login" required autofocus>                           
-                                     <label for="inputPassword" class="visually-hidden"> Mot de passe </label>
-                                     <input  type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required=""> 
+                                         <label for="inputLogin" class="visually-hidden"> Pseudo </label>
+                                         <input  type="text"  name="login" id="inputLogin" class="form-control"  placeholder="Login" required autofocus>                           
+                                         <label for="inputPassword" class="visually-hidden"> Mot de passe </label>
+                                         <input  type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required=""> 
 
-                                     <br/>  
+                                         <br/>  
 
-                                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-                                      <div class="row">    
+                                         <section class="btn-group-vertical col-12">
 
-                                         <button class="btn btn-dark btn-lg btn-block col-6 " type="submit"> 
-                                             Valider
-                                         </button>
+                                             <button class="btn btn-dark btn-lg px-4 gap-3"> 
+                                                 Valider
+                                             </button>
 
-                                         <button href="{{ path ('app_register') }}" class="btn btn-success btn-lg btn-block col-6" type="submit">
-                                             S'inscrire
-                                         </button>
+                                             <a type="button" href="{{ path('app_register') }}" class="btn btn-success btn-lg px-4 gap-3">                                
+                                                 S'inscrire
+                                             </a>
 
-                                     <div>   
-                                  
-                             </form>
+                                         <section>   
+                                      
+                                 </form>
 
-                         </main>
+                             </main>
 
-                     </div>  
+                         </div>  
 
-                 </article>              
+                     </article>              
+
+                 </div>
 
              </div>
 
          </div>
-
-     </div>
      
+     </main>

@@ -2,6 +2,10 @@
 
  {% extends 'base.html.twig' %}
 
+     {% block metaTitle %}
+         " Créer une nouvelle recette  "
+     {% endblock %}
+
      {% block title %}
          Créer une nouvelle recette 
      {% endblock %}
@@ -16,20 +20,27 @@
 
              </section> 
 
-             <article>
+             <div>
+               blablablablalbalbla
+             </div> 
 
-                 <form class="text-center">
 
-                     {{ include('administration_recette/_form.html.twig') }}
-       
-                 </form>  
+             <article class="btn-group-vertical col-12">
 
-                 <button href="{{ path('administration_recette_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+                 <form class="text-center col-12">
+                    {{ include('administration_recette/_form.html.twig') }}  
+                 </form>
+
+                 <a href="{{ path('administration_recette_index') }}" type="submit" class="btn btn-success  btn-lg px-4 gap-3">                                
                      Retour à la liste
-                 </button>
+                 </a>
 
              </article>
 
-         <main> 
+         </main> 
 
      {% endblock %}
+
+      
+
+                

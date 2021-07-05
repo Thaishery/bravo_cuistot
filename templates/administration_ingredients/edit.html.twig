@@ -1,13 +1,39 @@
-{% extends 'base.html.twig' %}
+ {# ? Feuille : Modifier une recette #ModeAdmin #} 
+ 
+ {% extends 'base.html.twig' %}
+ 
+     {% block metaTitle %}
+         " Modifier un ingrédient "
+     {% endblock %}
 
-{% block title %}Edit Ingredients{% endblock %}
+     {% block title %}
+         Modifier un ingrédient
+     {% endblock %}
+     
+     {% block body %}
 
-{% block body %}
-    <h1>Edit Ingredients</h1>
+        <main class="Form"> 
 
-    {{ include('administration_ingredients/_form.html.twig', {'button_label': 'Update'}) }}
+             <section class="text-center">
+   
+                 <h1 class="h1 mb-3 font-weight-normal"> Modifier un ingrédient </h1>
 
-    <a href="{{ path('administration_ingredients_index') }}">back to list</a>
+             </section>  
 
-    {{ include('administration_ingredients/_delete_form.html.twig') }}
-{% endblock %}
+             <article class="btn-group-vertical">
+
+                 <button href=" {{ include('administration_ingredients/_form.html.twig', {'button_label': 'Update'}) }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">
+                 </button>
+
+                 <button href="{{ include('administration_ingredients/_delete_form.html.twig') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3"> 
+                 </button> 
+                 
+                 <button href="{{ path('administration_ingredients_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+                     Retour à la liste
+                 </button>
+
+             </article> 
+
+         </main>    
+
+     {% endblock %}

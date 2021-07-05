@@ -1,35 +1,69 @@
-{% extends 'base.html.twig' %}
+ {# ? Feuille : Gestion des ingrédients #ModeAdmin #} 
+ 
+ {% extends 'base.html.twig' %}
 
-{% block title %}Ingredients index{% endblock %}
+     {% block metaTitle %}
+         " Gestion des ingrédients "
+     {% endblock %}
 
-{% block body %}
-    <h1>Ingredients index</h1>
+     {% block title %}
+         Gestion des ingrédients
+     {% endblock %}
+     
+     {% block body %}
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for ingredient in ingredients %}
-            <tr>
-                <td>{{ ingredient.id }}</td>
-                <td>{{ ingredient.name }}</td>
-                <td>
-                    <a href="{{ path('administration_ingredients_show', {'id': ingredient.id}) }}">show</a>
-                    <a href="{{ path('administration_ingredients_edit', {'id': ingredient.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+         <main class="Form">  
 
-    <a href="{{ path('administration_ingredients_new') }}">Create new</a>
-{% endblock %}
+             <section class="text-center">
+    
+                 <h1 class="h1 mb-3 font-weight-normal"> Gestion des ingrédients </h1>
+         
+             </section>
+     
+             <article>
+
+                 <table class="table table-dark table-hover">
+
+                     <thead>
+
+                         <tr>
+                             <th> Id </th>
+                             <th> Nom </th>
+                             <th> Actions </th>
+                         </tr>
+
+                     </thead>
+
+                     <tbody>
+
+                         {% for ingredient in ingredients %}
+
+                             <tr>
+                                 <td> {{ ingredient.id }} </td>
+                                 <td> {{ ingredient.name }} </td>
+                                 <td>
+                                     <a href="{{ path('administration_ingredients_show', {'id': ingredient.id}) }}"> Voir </a>
+                                     <a href="{{ path('administration_ingredients_edit', {'id': ingredient.id}) }}"> Modifier </a>
+                                 </td>
+                             </tr>
+
+                         {% else %}
+
+                             <tr>
+                                 <td colspan="3"> Aucun élément ne correspond à votre recherche </td>
+                             </tr>
+                             
+                         {% endfor %}
+
+                     </tbody>
+
+                 </table>
+     
+                 <a href="{{ path('administration_ingredients_new') }}" class="btn btn-success col-12 btn-lg px-4 gap-3"> Créer une nouvel ingrédient </a>
+    
+             </article>
+
+         </main>  
+
+     {% endblock %}
+     
