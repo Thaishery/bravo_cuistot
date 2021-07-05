@@ -10,6 +10,8 @@
             <div id="avatar" class="col-4">
                 <h2>Avatar</h2>
                 {{dump(listeRecette)}}
+                {{dump(listeNotes)}}
+                {{dump(moyenneActuelle)}}
                 {% if user.0.avatar %}
                    <img src="{{asset("uploads/avatar/")}}{{user.0.avatar}}">
                 {% else %}
@@ -36,7 +38,7 @@
                     temps de préparation : {{recettes.tempsPreparation}} minutes
                 </div>
                 <div class="col-4">
-                    difficulté : {{recette.difficulte}}
+                    difficulté : {{recettes.difficulte}}
                 </div>
                 <div class="col-4">
                     notes :
