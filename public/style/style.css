@@ -42,7 +42,7 @@
 
  /* *** Style du formulaire d'inscription *** */
 
-     #inscriptionForm{
+     #inscriptionForm, #profileForm{
         margin: 2%;
         padding: 3%;
      }
@@ -82,3 +82,13 @@
      button a {
          color: #f0626f;
      }
+
+     /* ***Style de la vue profile *** */  
+
+     #avatar {
+        max-height: 20%;
+        }
+    #avatar img {
+        height: 80%;
+    }
+    

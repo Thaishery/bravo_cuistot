@@ -1,1 +1,35 @@
-{{dump (user)}}
+{% extends 'base.html.twig' %}
+
+{% block title %}Cuistot{% endblock %}
+
+{% block body %}
+    <h1>Cuistot</h1>
+<tbody>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="avatar" class="col-4">
+                <h2>Avatar</h2>
+                
+                {% if user.0.avatar %}
+                   <img src="{{asset("uploads/avatar/")}}{{user.0.avatar}}">
+                {% else %}
+                    <p>Pas d'avatar disponible</p>
+                {% endif %}
+            </div>     
+            <div id="right_element" class="col-8" style="background:green">    
+                <div id="login" class="col-12" style="background:blue">
+                        <h2>Vous êtes sur le profil de :</h2>
+                        <h2>{{ user.0.login }}</h2>
+                </div>
+            </div>       
+    </div>          
+</tbody>
+    
+    <a href="{{ path('user_index') }}">Retour à la liste</a>
+
+    
+     {% if app.user.id == user.0.id %} 
+     <a href="{{ path('profile_edit') }}">éditer mon profil</a>
+    {% endif %}
+
+{% endblock %}
