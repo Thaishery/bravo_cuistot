@@ -1,3 +1,5 @@
+ {# ? Partie: Interface d'administration  #}
+
  {% extends 'base.html.twig' %}
 
      {% block metaTitle %}
@@ -15,6 +17,10 @@
              <section class="text-center">     
  
                  <h1 class="h1 mb-3 font-weight-normal"> Interface d'administration </h1>
+             
+                 <p class="lead"> 
+                     Choisissez la section que vous voulez Gérer ! 
+                 </p>
 
              </section>      
 
@@ -24,11 +30,15 @@
 
                  {# ******************************************** #}
 
+                 {# ! Les images doivent etre redimensionnées en 380x380px comme l'avatar pour ne pas détruire la structure du site... #}
+                 {# ! Je dis ca je dis rien... C'est important de dire les choses #}
+                 {# ! Non parce que si on le dit pas heiin!? Et bah forcément ca seras pas dit ! #}
+
                  {# ? Partie: Les dernierès recettes. #}
 
                  <article class="container">
 
-                         <div class="text-center">
+                         {# <div class="text-center"> #}
 
                                  {# ******************** #}
 
@@ -49,12 +59,12 @@
                                                          <div class="card-body">
 
                                                              <figure class="cardImage">
-                                                                 <img class="administrationLogo col-6" src="{{asset ('Images/avatar.png')}}" alt="image d'une persone type emoji">
+                                                                 <img class="administrationLogo col-6" src="{{asset ('Images/avatar.png')}}" alt="Image de type emoji, d'une personne. Cette image représente la section UTILISATEUR">
                                                              </figure>
                                                              
-                                                             <button href="{{path("user_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12 ">                                
+                                                             <a href="{{path("user_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12 ">                                
                                                                  UTLISATEURS
-                                                             </button> 
+                                                             </a> 
                                                     
                                                          </div>
 
@@ -73,12 +83,12 @@
                                                          <div class="card-body">
 
                                                              <figure class="cardImage">
-                                                                 <img class="administrationLogo col-6" src="{{asset ('Images/avatar.png')}}" alt="image d'une persone type emoji">
+                                                                 <img class="administrationLogo col-6" src="{{asset ('Images/cuisineBg1.jpg')}}" alt="Image de type emoji, d'une personne. Cette image représente la section UTILISATEUR">
                                                              </figure>
                                                              
-                                                             <button href="{{path("administration_recette_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12 ">                                
+                                                             <a href="{{path("administration_recette_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12 ">                                
                                                                  RECETTES
-                                                             </button> 
+                                                             </a> 
                                                     
                                                          </div>
 
@@ -97,12 +107,12 @@
                                                          <div class="card-body">
 
                                                              <figure class="cardImage">
-                                                                 <img class="administrationLogo col-6" src="{{asset ('Images/avatar.png')}}" alt="image d'une persone type emoji">
+                                                                 <img class="administrationLogo col-6" src="{{asset ('Images/Galerie(3).png')}}" alt="Image de type emoji, d'une personne. Cette image représente la section UTILISATEUR">
                                                              </figure>
                                                              
-                                                             <button href="{{path("administration_comentaires_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12">                                
+                                                             <a href="{{path("administration_comentaires_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12">                                
                                                                  COMMENTAIRES
-                                                             </button> 
+                                                             </a> 
                                                     
                                                          </div>
 
@@ -121,12 +131,12 @@
                                                          <div class="card-body">
 
                                                              <figure class="cardImage">
-                                                                 <img class="administrationLogo col-6" src="{{asset ('Images/avatar.png')}}" alt="image d'une persone type emoji">
+                                                                 <img class="administrationLogo col-6" src="{{asset ('Images/beverage.jpg')}}" alt="Image de type emoji, d'une personne. Cette image représente la section UTILISATEUR">
                                                              </figure>
                                                              
-                                                             <button href="{{path("categories")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12">                                
+                                                             <a href="{{path("categories")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12">                                
                                                                  CATÉGORIES
-                                                             </button> 
+                                                             </a> 
                                                     
                                                          </div>
 
@@ -145,12 +155,12 @@
                                                          <div class="card-body">
 
                                                              <figure class="cardImage">
-                                                                 <img class="administrationLogo col-6" src="{{asset ('Images/avatar.png')}}" alt="image d'une persone type emoji">
+                                                                 <img class="administrationLogo col-6" src="{{asset ('Images/JunkFood.jpg')}}" alt="Image de type emoji, d'une personne. Cette image représente la section UTILISATEUR">
                                                              </figure>
                                                              
-                                                             <button href="{{path("administration_ingredients_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12">                                
+                                                             <a href="{{path("administration_ingredients_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12">                                
                                                                  INGRÉDIENTS
-                                                             </button> 
+                                                             </a> 
                                                     
                                                          </div>
 
@@ -169,12 +179,12 @@
                                                          <div class="card-body">
 
                                                              <figure class="cardImage">
-                                                                 <img class="administrationLogo col-6" src="{{asset ('Images/avatar.png')}}" alt="image d'une persone type emoji">
+                                                                 <img class="administrationLogo col-6" src="{{asset ('Images/mesure2.jpg')}}" alt="Image de type emoji, d'une personne. Cette image représente la section UTILISATEUR">
                                                              </figure>
                                                              
-                                                             <button href="{{path("unite_mesure_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12 ">                                
+                                                             <a href="{{path("unite_mesure_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12 ">                                
                                                                  UNITÉES DE MESURES
-                                                             </button> 
+                                                             </a> 
                                                     
                                                          </div>
 
@@ -190,7 +200,7 @@
 
                                      </div>
 
-                     </div>
+                     {# </div> #}
  
                  </article>
 
