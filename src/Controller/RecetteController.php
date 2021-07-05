@@ -401,6 +401,7 @@ class RecetteController extends AbstractController
             'recette' => $recette,
             'form' => $formRecette->createView(),
             'listeIngredient' => $listeIngredient,
+            'listeEtapes' => $listeEtapes,
         ]);
     }
 

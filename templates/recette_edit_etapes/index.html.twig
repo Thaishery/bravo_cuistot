@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RecetteEditIngredientsController!{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <h1>édition de l'étape :  {{etapes.name}} de la recette {{recette.0.name}}</h1>
+    {{dump(recette)}}
+    {{dump(etapes)}}
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn">{{ button_label|default('Update') }}</button>
+    {{ form_end(form) }}
+
+    
+</div>
+{% endblock %}

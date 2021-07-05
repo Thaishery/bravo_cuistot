@@ -30,6 +30,21 @@
             </div>
         {% endfor %}
         </div>
+        <div class="col-12 row">
+            {% for etapes in listeEtapes %}
+            <div class="col-12">
+                <p>
+                    {{dump(etapes)}}
+                    étape n°: {{etapes.isNumber}} <br/>
+                    nom de l'étape : {{etapes.name}} <br/>
+                    a une image : {% if etapes.image != null %} oui {% else %} non {% endif %} <br/>
+                    description : <br/>
+                    {{etapes.description}}<br/>
+                    <a href="{{path("recette_edit_etapes", {'id': etapes.id, 'idRecette': recette.id})}}">cliquer ici pour modifier l'étape </a>
+                </p>
+            </div>
+            {% endfor %}
+        </div>
 
     </div>
 
