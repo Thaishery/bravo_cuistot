@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Recette;
 use App\Entity\User;
 use App\Form\UserProfileType;
+use App\Repository\RecetteRepository;
 use App\Repository\UserRepository;
 use App\Service\AvatarFileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,6 +31,7 @@ class UserProfileController extends AbstractController
     {
         //on récupère l'user connecté
         $user = $this->getUser();
+        
  // On utilise plus UserType mais UserProfileType parce que la modification du rôle et le mot de passe ne sera pas gérée dans le profil
         $form = $this->createForm(UserProfileType::class, $user);
         $form->handleRequest($request);
@@ -77,11 +80,13 @@ $avatar = $form->get('avatar')->getData();
     /**
      * @Route("/{id}", name="profile_show", methods={"GET","POST"})
      */
-    public function show(Request $request, UserRepository $userRepository, $id){
+    public function show(Request $request,RecetteRepository $recetteRepository, UserRepository $userRepository, $id){
         $user = $userRepository->findById($id);
+        $listeRecette = $recetteRepository->findByUserId($id);
         if($user){
         return $this->render('user/profile_show.html.twig', [
             'user' => $user,
+            'listeRecette' => $listeRecette, 
         ]);
         }
         else{

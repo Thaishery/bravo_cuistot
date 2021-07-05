@@ -9,7 +9,7 @@
         <div class="row">
             <div id="avatar" class="col-4">
                 <h2>Avatar</h2>
-                
+                {{dump(listeRecette)}}
                 {% if user.0.avatar %}
                    <img src="{{asset("uploads/avatar/")}}{{user.0.avatar}}">
                 {% else %}
@@ -21,7 +21,29 @@
                         <h2>Vous êtes sur le profil de :</h2>
                         <h2>{{ user.0.login }}</h2>
                 </div>
-            </div>       
+            </div>
+            
+        </div> 
+        <div class="row col-12">
+        <h2> liste des recettes de l'utilisateur : </h2>
+        {% for recettes in listeRecette %}
+            <div class="col-1">
+                {{recettes.image}}
+            </div>
+            <div class="col-11">
+                <h2>{{recettes.name}}</h2>
+                <div class="col-4">
+                    temps de préparation : {{recettes.tempsPreparation}} minutes
+                </div>
+                <div class="col-4">
+                    difficulté : {{recette.difficulte}}
+                </div>
+                <div class="col-4">
+                    notes :
+                </div>
+            </div>
+        {% endfor %}
+        </div>     
     </div>          
 </tbody>
     
