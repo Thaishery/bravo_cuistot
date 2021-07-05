@@ -14,22 +14,25 @@
 
          <main class="Form"> 
 
+             <nav aria-label="breadcrumb">
+
+                 <ol class="breadcrumb">
+                     <li class="breadcrumb-item active" aria-current="page"> Créer une nouvelle recette </li>
+                 </ol>
+
+             </nav>
+
              <section class="text-center">
    
                  <h1 class="h1 mb-3 font-weight-normal"> Créer une nouvelle recette </h1>
 
              </section> 
 
-             <div>
-               blablablablalbalbla
-             </div> 
-
-
              <article class="btn-group-vertical col-12">
 
-                 <form class="text-center col-12">
+                 <div class="text-center col-12">
                     {{ include('administration_recette/_form.html.twig') }}  
-                 </form>
+                 </div>
 
                  <a href="{{ path('administration_recette_index') }}" type="submit" class="btn btn-success  btn-lg px-4 gap-3">                                
                      Retour à la liste

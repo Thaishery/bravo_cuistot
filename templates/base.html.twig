@@ -35,10 +35,10 @@
                  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> #}
 
                  {# ***** Script: JS - Fonctionnalité SideBar ***** #}
-                 <script src="{{asset ('js/sidebar.js .js')}}"></script>
+                 <script src="{{asset ('js/sidebar.js')}}"></script>
 
                  {# ***** Style CSS Fonctionnalité SideBar ***** #}
-                 <link href="{{asset ('style/style_sidebar.css')}}" rel="stylesheet">      
+                 {# <link href="{{asset ('style/style_sidebar.css')}}" rel="stylesheet">       #}
 
                  {# ***** Script Css Général ***** #}
                  <link href="{{asset ('style/style.css')}}" rel="stylesheet">
@@ -63,8 +63,7 @@
                  <script src="{{asset ('js/navAlien.js')}} "type="text/javascript"" "></script> 
 
                  {# ***** Script JQuery ***** #}
-                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+                 {# <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> #}
 
              {% endblock %}
 
@@ -81,9 +80,11 @@
 
              {% block body %}
              
+                 
+
              {% endblock %}
              {# {% include 'partials/body.html.twig' %} #}
-             {% include 'partials/alien.html.twig' %}
+             {# {% include 'partials/alien.html.twig' %} #}
          
          </body>
 

@@ -13,27 +13,41 @@
      {% block body %}
 
          <main class="Form">  
+  
+         {# <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column"> #}
 
-             <section class="text-center">
-    
-                 <h1 class="h1 mb-3 font-weight-normal"> Créer un nouveau plat </h1>
-         
-             </section>
-     
-             <article>
+             {# <header class="mb-auto">
 
-                 <form class="text-center">
+                 <div>
 
-                     {{ include('administration_plats/_form.html.twig') }}
+                     <h3 class="float-md-start mb-0"></h3>
+                   
+                 </div>
 
-                 </form>  
+             </header> #}
+           
+             {# <main class="px-3"> #}
 
-                 <a href="{{ path('administration_plats_index') }}" class="btn btn-success col-12 btn-lg px-4 gap-3"> 
-                     Retour à la liste
-                 </a>
+                
 
-             </article>
+                 {# <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p> #}
+             
+                 {# <p class="lead"> #}
+                     {# <a href="{{ include('administration_plats/_form.html.twig') }}" class="btn btn-lg btn-secondary fw-bold border-white bg-white">  </a> #}
+                 {# </p> #}
+
+                 {# <p class="lead"> #}
+                     {# <a href="{{ path('administration_plats_index') }}" class="btn btn-lg btn-secondary fw-bold border-white bg-white"> Retour à la liste </a> #}
+                 {# </p> #}
+
+             {# </main> #}
+           
+             {# <footer class="mt-auto text-white-50">
+                 <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+             </footer> #}
+       
+         {# </div> #}
 
          </main> 
-
+         
      {% endblock %}

@@ -20,6 +20,15 @@
 
              </section>    
 
+             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+
+                 <ol class="breadcrumb">
+                     <li class="breadcrumb-item" name="Etape n°1" alt="Etape n°1: Créer une nouvelle recette"> Etape n°1: Créer une nouvelle recette </li>
+                     <li class="breadcrumb-item active" aria-current="page" name="Etape n°1" alt="Etape n°2 bis: Ajout d'ingrédient" aria-current="page"> Etape n°2 bis: Ajout d'ingrédient </li>    
+                 </ol>
+
+             </nav>
+
              <article>
 
                  {{dump(listeIngredients)}}
@@ -32,13 +41,13 @@
                      {{ include('recette/_form.html.twig') }}
                  </form>
 
-                 <button href="{{ path('recette_new_etapes',{'id': app.request.get('id')})}}" type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
+                 <a href="{{ path('recette_new_etapes',{'id': app.request.get('id')})}}" type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
                      Passer a l'ajout des étapes
-                 </button>            
+                 </a>            
 
-                 <button href="{{ path('recette_index') }}" type="submit" class="btn col-12 btn-dark btn-lg px-4">                                
+                 <a href="{{ path('recette_index') }}" type="submit" class="btn col-12 btn-dark btn-lg px-4">                                
                      Retour à la liste 
-                 </button>   
+                 </a>   
 
              </article>
 

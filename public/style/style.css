@@ -45,6 +45,12 @@
      
      /* *** Style de l'interface d'administration *** */
      
+         /* ? Style du bouton CLose du menu */
+
+          a.closebtn {
+             margin: 6px;
+         }
+
          /* .administrationCard {
              justify-content: center;
              margin: auto;
@@ -150,6 +156,7 @@
              .overlay a:focus {
               color: #f1f1f1;
               background-color: rgba(25,135,84,0.9); 
+              
           }
         
         /* ? Position the close button (top right corner) *** */

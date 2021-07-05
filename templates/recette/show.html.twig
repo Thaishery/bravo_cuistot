@@ -55,7 +55,7 @@
                          </tr>
 
                          <tr>
-                             <th>Difficulte</th>
+                             <th> Difficulté </th>
                              <td>{{ recette.difficulte }}</td>
                          </tr>
 
@@ -67,17 +67,17 @@
      
              <article class="btn-group-vertical">
 
-                 <button href="{{ path('recette_edit', {'id': recette.id}) }}" type="submit" class="btn col-12 btn-dark btn-lg px-4">                                
+                 <a href="{{ path('recette_edit', {'id': recette.id}) }}" type="submit" class="btn col-12 btn-dark btn-lg px-4">                                
                      Modifier 
-                 </button>   
+                 </a>   
 
-                 <button href="{{ include('recette/_delete_form.html.twig') }}" type="submit" onsubmit="return confirm('Voulez vraiment supprimer ce fichier?');" class="btn btn-success btn-lg px-4 gap-3">                                
+                 <a href="{{ include('recette/_delete_form.html.twig') }}" type="submit" onsubmit="return confirm('Voulez vraiment supprimer ce fichier?');" class="btn btn-success btn-lg px-4 gap-3">                                
                      Supprimer
-                 </button>   
+                 </a>   
 
-                 <button href="{{ path('recette_index') }}" type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
+                 <a href="{{ path('recette_index') }}" type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
                      Retour à la liste
-                 </button>   
+                 </a>   
 
              </article>
 
