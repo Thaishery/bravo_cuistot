@@ -6,6 +6,7 @@
 parameters:
     avatar_directory: '%kernel.project_dir%/public/uploads/avatar'
     recettes_directory: '%kernel.project_dir%/public/uploads/recettes'
+    etapes_directory: '%kernel.project_dir%/public/uploads/etapes'
 
 services:
     # default configuration for services in *this* file
@@ -28,4 +29,9 @@ services:
     App\Service\AvatarFileUploader:
             arguments:
                 $avatarTargetDirectory: '%avatar_directory%'
+    App\Service\RecettesFileUploader:
+            arguments:
                 $recettesTargetDirectory: '%recettes_directory%'
+    App\Service\EtapesFileUploader:
+            arguments:
+                $etapesTargetDirectory: '%etapes_directory%'            

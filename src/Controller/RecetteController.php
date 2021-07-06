@@ -18,11 +18,13 @@ use App\Repository\EtapesRepository;
 use App\Repository\IngredientsRecetteRepository;
 use App\Repository\NotesRepository;
 use App\Repository\RecetteRepository;
+use App\Service\EtapesFileUploader;
 use DateTimeImmutable;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Service\RecettesFileUploader;
 // use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Validator\Constraints\Length;
@@ -47,7 +49,7 @@ class RecetteController extends AbstractController
      * @IsGranted("ROLE_USER", message="Veuillez vous connecter ou créer un compte pour pouvoir créer une recette!")
      * @Route("/new", name="recette_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, RecettesFileUploader $recetteFileUploader): Response
     {
         $user = $this->getUser();
         $recette = new Recette();
@@ -57,6 +59,15 @@ class RecetteController extends AbstractController
         
 
         if ($form->isSubmitted() && $form->isValid()) {
+            //on récupére l'image de recette si il y en as une : 
+            $imageRecette= $form->get('image')->getData();
+            if($imageRecette){
+                $imageName = $recetteFileUploader->upload($imageRecette);
+                $recette->setImage($imageName);
+            }
+            else{
+                $recette->setImage('placeholder.jpg');
+            }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($recette);
             $entityManager->flush();
@@ -142,7 +153,7 @@ class RecetteController extends AbstractController
      * @IsGranted("ROLE_USER", message="Veuillez vous connecter ou créer un compte pour pouvoir créer une recette!")
      * @Route("/new/{id}/etapes", name="recette_new_etapes", methods={"GET","POST"})
      */
-    public function newEtapes(Request $request,int $id,EtapesRepository $etapesRepository, IngredientsRecetteRepository $ingredientsRecetteRepository, RecetteRepository $recetteRepository, Recette $recette): Response
+    public function newEtapes(Request $request,int $id, EtapesFileUploader $etapesFileUploader ,EtapesRepository $etapesRepository, IngredientsRecetteRepository $ingredientsRecetteRepository, RecetteRepository $recetteRepository, Recette $recette): Response
     {
         //récupére l'utilisateur: 
         $user = $this->getUser();
@@ -171,6 +182,14 @@ class RecetteController extends AbstractController
             $etape->setIsNumber(count($listeEtapes)+1);
             //traitement formulaire 
             if ($form->isSubmitted() && $form->isValid()) {
+                $etapeImage = $form->get('image')->getData();
+                if($etapeImage){
+                    $imageName = $etapesFileUploader->upload($etapeImage);
+                    $etape->setImage($imageName);
+                }
+                else{
+                    $etape->setImage('placeholder.jpg');
+                }
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($etape);
                 $entityManager->flush();
