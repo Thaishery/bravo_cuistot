@@ -407,7 +407,7 @@ class RecetteController extends AbstractController
 
     // a éditer aussi pour éviter la suppréssion des recette des autres. 
     /**
-     * @Route("/{id}", name="recette_delete", methods={"POST"})
+     * @Route("/{id}/delete", name="recette_delete", methods={"POST"})
      */
     public function delete(Request $request, Recette $recette): Response
     {

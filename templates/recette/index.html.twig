@@ -12,9 +12,15 @@
         <img src="#" />
         <h2>{{recette.name}}</h2>
         {% else  %}
-        <h2> {{recette.name}}
+        <h2> {{recette.name}}</h2>
         {% endif %}
         </a>
+        {% if is_granted('ROLE_ADMIN') %}
+            <form method="post" action="{{ path('recette_delete', {'id': recette.id}) }}" onsubmit="return confirm('êtes vous sure de vouloir suprimer cette recette? Cette action est iréversible');">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ recette.id) }}">
+                <button class="btn btn-primary">Supprimer la recette</button>
+            </form>
+        {% endif %}
         </div>
         {% endfor %}
     </div>
