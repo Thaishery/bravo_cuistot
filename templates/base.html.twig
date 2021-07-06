@@ -73,7 +73,7 @@
                      {# ! On pourrait par exemple y intégrer la barre de recherche et/ou d'autres truc si vosu avez des idéés  
                      {# ! JC_ 
 
-                     {# ? Script NavBarAlien #}
+                     {# ? Script Js: NavBarAlien #}
                      <script src="{{asset ('js/navAlien.js')}}" type="text/javascript"></script> 
 
              {% endblock %}
@@ -88,14 +88,11 @@
 
          <body>
 
-             {% block body %}
-             
-                 
-
-             {% endblock %}
+             {% block body %} {% endblock %}
              {# {% include 'partials/body.html.twig' %} #}
              {# {% include 'partials/alien.html.twig' %} #}
-         
+           
+              
          </body>
 
          <footer>

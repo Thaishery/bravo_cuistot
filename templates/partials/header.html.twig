@@ -39,20 +39,14 @@
 
                      <div id="myNav" class="sideBar_Cuistot">
 
-                         {# <ul class="SoundMenuOff">  
-
-                             <audio id="menuOff" preload="auto">
-                                 <source src="/sound/MGS_MenuOff1.wav">
-                             </audio> #}
-
-                             {# <hr style="color:bleu;"/> #}
+                         {# <hr style="color:bleu;"/> #}
                          
                          {# ? Animation Bouton " Close " du Menu de navigation #}
 
                          <article>
 		
 		                	 <audio id="MenuNavigationClose" onclick="SoundAnimationBoutonClose()">
-		                    	 <source src="/Sound/MGS_MenuOff1.mp3"></source>
+		                    	 <source src="/Sound/MGS_MenuOff1.mp3" type="audio/mpeg"></source>
 		                     </audio>
 
                              <a href="javascript:void(0)" class="closebtn" preload="auto" onmousedown="SoundFxMenuClose()" onclick="closeNav()"> &times;  </a>
@@ -66,21 +60,8 @@
                  
 		                 </article>
 
+                         <hr style="color:rgba(25,135,84,0.9);"/>
 
-                             <hr style="color:rgba(25,135,84,0.9);"/>
-
-                         {# </ul> #}
-
-                         {# <div class="overlay-content">
-                             <a href="#"> Accueil </a>
-                             <a href="#"> Actualités </a>
-                             <a href="#"> Recettes </a>
-                             <a href="#"> Astuces </a>
-                             <a href="#"> Contact </a>
-                         </div> #}
-
-
-                         {# <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;"> #}
                          <div class="overlay-content">
                              
                              {# *** Titre *** #}
@@ -94,7 +75,7 @@
 
                              </a>
             
-                             <hr style="color:rgba(25,135,84,0.9);"/>
+                                 <hr style="color:rgba(25,135,84,0.9);"/>
 
                              <ul class="nav nav-pills flex-column">
 
@@ -103,11 +84,7 @@
                                  <li class="nav-item">
 
                                      <a href="/" class="nav-link" >
-
-                                         <svg class="bi me-2" width="16" height="16">
-                                             <use xlink:href="#home"></use>
-                                         </svg>
-                                         
+               
                                          <i class='fas fa-house-user'></i> &nbsp; Accueil 
 
                                      </a>
@@ -118,8 +95,6 @@
 
                                  <li>
                                      <a href="#" class="nav-link">
-                                         <svg class="bi me-2" width="16" height="16">
-                                         <use xlink:href="#speedometer2"></use></svg>
                                          <i class='fas fa-pepper-hot'></i> &nbsp; Actualités
                                      </a>
                                  </li>
@@ -128,8 +103,6 @@
 
                                  <li>
                                      <a href="#" class="nav-link">
-                                         <svg class="bi me-2" width="16" height="16">
-                                         <use xlink:href="#table"></use></svg>
                                          <i class='fas fa-utensils'></i> &nbsp; Recettes
                                      </a>
                                  </li>
@@ -138,8 +111,6 @@
 
                                  <li>
                                      <a href="#" class="nav-link">
-                                         <svg class="bi me-2" width="16" height="16">
-                                         <use xlink:href="#grid"></use></svg>
                                           <i class='fas fa-hand-sparkles'></i> &nbsp; Astuces
                                      </a>
                                  </li>
@@ -149,8 +120,6 @@
                                  <li>
 
                                      <a href="#" class="nav-link" >
-                                         <svg class="bi me-2" width="16" height="16">
-                                         <use xlink:href="#people-circle"></use></svg>
                                          <i class='fas fa-address-card'></i> &nbsp;  Contact 
                                      </a>
                                      
@@ -162,24 +131,24 @@
 
                      </div>
 
-                     {# ? Animation Bouton " Close " du Menu de navigation #}
+                         {# ? Animation Bouton " Close " du Menu de navigation #}
 
-                     <article>
+                         <article>
 		
-		                 <audio id="MenuNavigationOpen" onclick="SoundAnimationBoutonOpen()">
-			            	 <source src="/Sound/MGS_MenuOn1.mp3"></source>
-			             </audio>
+		                     <audio id="MenuNavigationOpen" onclick="SoundAnimationBoutonOpen()">
+			            	     <source src="/Sound/MGS_MenuOn1.mp3" type="audio/mpeg"></source>
+			                 </audio>
 
-                         <span style="font-size:30px;cursor:pointer" preload="auto" onmousedown="SoundFxMenuOpen()"  onclick="openNav(1)"> &#9776; </span> 
+                             <span style="font-size:30px;cursor:pointer" preload="auto" onmousedown="SoundFxMenuOpen()"  onclick="openNav(1)"> &#9776; </span> 
    
-                         <script>
-		            		 var audioDuBoutonOpen = document.getElementById("MenuNavigationOpen");
-		            	  	 function SoundFxMenuOpen() {
-		            			 audioDuBoutonOpen.play ();
-		            		 }
-		            	 </script>
+                             <script>
+		            	    	 var audioDuBoutonOpen = document.getElementById("MenuNavigationOpen");
+		            	      	 function SoundFxMenuOpen() {
+		            	    		 audioDuBoutonOpen.play ();
+		            	    	 }
+		                    </script>
 
-		             </article>
+		                 </article>
 
                  </div>
 
