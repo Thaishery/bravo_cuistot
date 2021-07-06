@@ -98,3 +98,8 @@
     justify-content: space-around;
     padding-top: 20px;
 }
+/* *** Style des recettes *** */
+/* impose une taille mini aux miniatures des recette, a voir avec des image comment cela ce comporte (comenter pour le moment) */
+/* .cardRecette{
+    min-height: 200px;
+} */

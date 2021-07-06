@@ -1,45 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Recette index{% endblock %}
+{% block title %}Liste des recettes{% endblock %}
 
 {% block body %}
-    <h1>Recette index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Image</th>
-                <th>Temps_preparation</th>
-                <th>Temps_cuisson</th>
-                <th>Nb_personnes</th>
-                <th>Difficulte</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <h1>Liste des recettes</h1>
+    <div class="col-12 row">
         {% for recette in recettes %}
-            <tr>
-                <td>{{ recette.id }}</td>
-                <td>{{ recette.name }}</td>
-                <td>{{ recette.image }}</td>
-                <td>{{ recette.tempsPreparation }}</td>
-                <td>{{ recette.tempsCuisson }}</td>
-                <td>{{ recette.nbPersonnes }}</td>
-                <td>{{ recette.difficulte }}</td>
-                <td>
-                    <a href="{{ path('recette_show', {'id': recette.id}) }}">show</a>
-                    <a href="{{ path('recette_edit', {'id': recette.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
+        <div class="col-6 cardRecette">
+        <a href="{{path("recette_show", {'id': recette.id})}}">
+        {% if recette.image %}
+        <img src="#" />
+        <h2>{{recette.name}}</h2>
+        {% else  %}
+        <h2> {{recette.name}}
+        {% endif %}
+        </a>
+        </div>
         {% endfor %}
-        </tbody>
-    </table>
+    </div>
 
-    <a href="{{ path('recette_new') }}">Create new</a>
 {% endblock %}
