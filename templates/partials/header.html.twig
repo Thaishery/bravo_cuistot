@@ -46,9 +46,27 @@
                              </audio> #}
 
                              {# <hr style="color:bleu;"/> #}
+                         
+                         {# ? Animation Bouton " Close " du Menu de navigation #}
 
-                             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times;  </a>
+                         <article>
+		
+		                	 <audio id="MenuNavigationClose" onclick="SoundAnimationBoutonClose()">
+		                    	 <source src="/Sound/MGS_MenuOff1.mp3"></source>
+		                     </audio>
+
+                             <a href="javascript:void(0)" class="closebtn" preload="auto" onmousedown="SoundFxMenuClose()" onclick="closeNav()"> &times;  </a>
                         
+                             <script>
+		                		 var audioDuBoutonClose = document.getElementById("MenuNavigationClose");
+		                	  	 function SoundFxMenuClose() {
+		                			 audioDuBoutonClose.play ();
+		                		 }
+		                	 </script>
+                 
+		                 </article>
+
+
                              <hr style="color:rgba(25,135,84,0.9);"/>
 
                          {# </ul> #}
@@ -144,7 +162,24 @@
 
                      </div>
 
-                         <span  style="font-size:30px;cursor:pointer"  onclick="openNav(1)"> &#9776; </span> 
+                     {# ? Animation Bouton " Close " du Menu de navigation #}
+
+                     <article>
+		
+		                 <audio id="MenuNavigationOpen" onclick="SoundAnimationBoutonOpen()">
+			            	 <source src="/Sound/MGS_MenuOn1.mp3"></source>
+			             </audio>
+
+                         <span style="font-size:30px;cursor:pointer" preload="auto" onmousedown="SoundFxMenuOpen()"  onclick="openNav(1)"> &#9776; </span> 
+   
+                         <script>
+		            		 var audioDuBoutonOpen = document.getElementById("MenuNavigationOpen");
+		            	  	 function SoundFxMenuOpen() {
+		            			 audioDuBoutonOpen.play ();
+		            		 }
+		            	 </script>
+
+		             </article>
 
                  </div>
 
@@ -155,7 +190,5 @@
          {# ***** ***** ***** ***** ***** #}
 
 
-            
-
-                           
+                         
                         

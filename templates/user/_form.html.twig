@@ -1,6 +1,10 @@
-     
+
+      
+
      {{ form_start(form) }}
      
+     
+
          {# <form>      #}
 
              <div class="Form">                 
@@ -11,7 +15,7 @@
 
                          {# **************************** LOGIN ***************************** #}
 
-                             <section>
+                             <section class="col-6">
 
                                  {# *** LABEL *** #}
                                  {{ form_label(form.login) }}
@@ -23,7 +27,7 @@
                          
                          {# **************************** PASSWORD ************************** #}
 
-                             <section>
+                             <section class="col-6">
                              
                                  {#{{ form_label(form.plainPassword) }}#}
                              
@@ -36,24 +40,69 @@
                                      'class':'inputEmail' }}) }}     
                              
                              </section>
+
+                     </div>         
                          
                          {# **************************** ROLES ************************** #}
+ 
+                     <div class="row">
 
-                             <section>
+                             <section class="col-6">
 
                                  {# <label> Roles </label> #}
                              
                                  {# *** LABEL *** #}
-                                 {{ form_label(form.roles) }}
+                                 
+                                 <label>
+                                     {{ form_label(form.roles) }}
+                                 </label>
                              
                                  {# *** INPUT *** #}
-                                 {{ form_widget(form.roles) }}
-                             
+
+                                
+                                         {{ form_widget(form.roles) }}
+                                      
+
+                                 <select class="form-control">
+
+                                 {% for choices in form.roles.vars.choices %} 
+
+                                     {{dump(choices)}}
+
+                               
+
+
+                                     {# {% endfor %} #}
+
+                                     {% set selected = '' %}
+
+                                         {# {% if (oneSupervisor.fname ~ ' ' ~ oneSupervisor.lname) == user.supervisor %}
+
+                                             {% set selected = 'selected' %}
+
+                                         {% endif %} #}
+
+                                         <option 
+                                             value="{{oneSupervisor.fname}} 
+                                                     {{oneSupervisor.lname}}"
+                                                     {{ selected }}>
+                                                         {{oneSupervisor.fname}} 
+                                                         {{oneSupervisor.lname}}
+                                         </option>
+                                  
+                                     {% endfor %}
+                                     
+                                 </select> #} 
+
+                                
+
+
+
                              </section>
                          
                          {# **************************** PASSWORD ************************** #}
 
-                             <section>
+                             <section class="col-6">
                              
                                  {# *** LABEL *** #}
                                  {{ form_label(form.email) }}
@@ -62,17 +111,38 @@
                                  {{ form_widget(form.email) }}
                              
                              </section>
+ 
+                     </div>  
+
+                         {# **************************** AVATAR ************************** #}
+
+                     <div class="row">
+
+                             <section class="col-6">
+                             
+                                 {# *** LABEL *** #}
+                                 {{ form_label(form.avatar) }}
+                             
+                                  {# *** INPUT *** #}
+                                 {{ form_widget(form.avatar) }}
+                             
+                             </section>
+
+                     </div> 
+  
+                     <hr style="color:white;"/>
                  
                  {# </article>  #}
 
+                 
 
-                     <button class="btn">
+                     <button class="btn btn-success col-12  btn-lg px-4 gap-3">
                          {{ button_label|default('Sauvegarder') }}
                      </button>
      
-        
+                
 
-             </div>
+          
 
          {# </form> #}
 

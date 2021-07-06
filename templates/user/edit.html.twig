@@ -14,7 +14,7 @@
 
              <section class="text-center">
 
-                 <h1 class="h1 mb-3 font-weight-normal"> Modifier un utilisateur </h1>
+                 <h1 class="mb-3 font-weight-normal"> Modifier un utilisateur </h1>
                   
                      <p class="lead"> 
                          <em> Modérer le profil de vos clients et leurs roles.  </em> 🐱‍💻
@@ -22,14 +22,13 @@
 
              </section>   
 
-             <article class="btn-group-vertical col-12">
+             <article>
 
-                 <a href="{{ include('user/_form.html.twig', {'button_label': 'Mettre à jour'}) }}" type="submit" class="btn btn-success  btn-lg px-4 gap-3">
-                 </a>         
-
+                 {{ include('user/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+     
                  {{ include('user/_delete_form.html.twig') }}
                  
-                  <a href="{{ path('user_index') }}" type="submit" class="btn btn-success col-12  btn-lg px-4 gap-3">                                
+                 <a href="{{ path('user_index') }}" type="submit" class="btn btn-success col-12  btn-lg px-4 gap-3">                                
                      Retour à la liste
                  </a>
     
