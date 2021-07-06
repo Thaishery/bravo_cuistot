@@ -1,44 +1,44 @@
- {# ? Feuille : Gestion des utilisateurs #ModeAdmin #} 
+ {# ? Feuille : Créer un nouvel utilisateur #ModeAdmin #} 
 
      {% extends 'base.html.twig' %}
      
-     {% block metaTitle %}
-         " Créer un nouvel utilisateur "
-     {% endblock %}
+         {% block metaTitle %}
+             " Créer un nouvel utilisateur "
+         {% endblock %}
 
-     {% block title %}
-         Créer un nouvel utilisateur
-     {% endblock %}
-     
-     {% block body %}
+         {% block title %}
+             Créer un nouvel utilisateur
+         {% endblock %}
+         
+         {% block body %}
 
-         <main class="Form">  
+             <main class="Form">  
  
-             <section class="text-center">
+                 <section class="text-center">
 
-                 <h1 class="plantFont h1 mb-3 font-weight-normal"> Créer une nouvel utilisateur </h1>
-                      
-                     <p class="lead"> 
-                         <em> Créer un nouvel utilisateur! </em> 👤
-                     </p>
+                     <h1 class="plantFont mb-3 font-weight-normal"> Créer une nouvel utilisateur </h1>
+                          
+                         {# <p class="lead"> 
+                             <em> Inscrire un utilisateur manuellement? </em> 👤
+                         </p> #}
 
-             </section>
+                 </section>
 
-             <article>
-       
-                 <div class="text-center"> 
-                     {{ include('user/_form.html.twig') }}
-                 </div>     
-     
-             </article>
+                 <article class="text-center">
+           
+                     <div class="text-center"> 
+                         {{ include('user/_form.html.twig') }}
+                     </div>     
+         
+                 </article>
 
-             <br/>
+                 <br/>
 
-                 <a href="{{ path('user_index') }}" type="submit" class="btn btn-success col-12 px-4 gap-3">
-                     Retour à la liste
-                 </a>
-   
-         </main>     
+                     <a href="{{ path('user_index') }}" type="submit" class="btn btn-success col-12 px-4 gap-3">
+                         Retour à la liste
+                     </a>
+        
+             </main>     
 
-     {% endblock %}
+         {% endblock %}
      

@@ -44,7 +44,8 @@
          /* ? Style du bouton CLose du menu */
 
           a.closebtn {
-             margin: 16px;
+             margin: 34px;
+             display: flex;
          }
 
          /* .administrationCard {
@@ -88,6 +89,11 @@
   
      /* *** Style du menu de navigation *** */  
         
+         .nav-link {
+           display: block;
+           padding: 1.5rem;  
+         }
+
          /* #titreNav {
      
          } */

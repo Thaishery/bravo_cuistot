@@ -12,8 +12,12 @@
                  
              <section class="text-center">
      
-                 <h1 class="plantFont h1 mb-3 font-weight-normal"> Gestion des unités de mesures </h1>
+                 <h1 class=" mb-3 font-weight-normal"> Gestion des unités de mesures </h1>
           
+                 <p class="lead"> 
+                     <em> Consulter la liste des unités de mesures de votre site et les administrés. </em>  ⚖️
+                 </p>
+
              </section>   
 
              <article>
@@ -37,10 +41,23 @@
                          <tr>
                              <td> {{ unite_mesure.id }} </td>
                              <td> {{ unite_mesure.name }} </td>
+
                              <td>
-                                 <a href="{{ path('unite_mesure_show', {'id': unite_mesure.id}) }}" class="btn_spe"> Voir </a>
-                                 <a href="{{ path('unite_mesure_edit', {'id': unite_mesure.id}) }}" class="btn_spe"> Modifier </a>
+
+                                 <section class="btn-group">
+
+                                     <button href="{{ path('unite_mesure_show', {'id': unite_mesure.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 btn_spe">                                
+                                         Voir
+                                     </button> 
+
+                                     <button href="{{ path('unite_mesure_edit', {'id': unite_mesure.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 btn_spe">                                
+                                         Modifier
+                                     </button>   
+
+                                 </section>
+
                              </td>
+
                          </tr>
 
                      {% else %}

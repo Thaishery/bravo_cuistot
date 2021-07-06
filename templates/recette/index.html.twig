@@ -16,8 +16,12 @@
 
              <section class="text-center">
     
-                 <h1 class="h1 mb-3 font-weight-normal"> Gestion des recettes </h1>
+                 <h1 class="mb-3 font-weight-normal"> Gestion des recettes </h1>
          
+                 <p class="lead"> 
+                     <em> Consulter la liste de vos recettes et les administrés. </em>  📓
+                 </p>
+    
              </section>
     
              <article>
@@ -57,7 +61,7 @@
     
                              <td>
                                 
-                                 {# <article class="btn-group-vertical"> #}
+                                 <section class="btn-group">
             
                                      <button href="{{ path('recette_show', {'id': recette.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
                                          Voir
@@ -67,7 +71,7 @@
                                          Modifier
                                      </button>            
                                 
-                                 {# </article> #}
+                                 </section>
 
                              </td>
     

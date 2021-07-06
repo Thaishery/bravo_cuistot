@@ -18,6 +18,10 @@
     
                  <h1 class="h1 mb-3 font-weight-normal"> Gestion des plats </h1>
          
+                 <p class="lead"> 
+                     <em> Consulter la liste des types de plats et les administrés. </em>  📓
+                 </p>
+
              </section>
      
              <article> 
@@ -39,12 +43,26 @@
                          {% for plat in plats %}
 
                              <tr>
+                             
                                  <td> {{ plat.id }} </td>
                                  <td> {{ plat.name }} </td>
+
                                  <td>
-                                     <a href="{{ path('administration_plats_show', {'id': plat.id}) }}"> Voir </a>
-                                     <a href="{{ path('administration_plats_edit', {'id': plat.id}) }}"> Modifier </a>
+                                   
+                                     <section class="btn-group">
+
+                                         <a href="{{ path('administration_plats_show', {'id': plat.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12"> 
+                                             Voir 
+                                         </a>
+
+                                         <a href="{{ path('administration_plats_edit', {'id': plat.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12">
+                                             Modifier 
+                                         </a>
+                               
+                                     </section>
+
                                  </td>
+
                              </tr>
 
                          {% else %}

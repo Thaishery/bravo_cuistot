@@ -30,7 +30,7 @@
                                  <h1 class="plantFont" class="h1 mb-3 font-weight-normal"> Formulaire d'inscription </h1>
                   
                                  <p class="lead"> 
-                                     Inscrivez-vous gratuitement pour créer un compte et accéder à tout le contenu du site. 
+                                     <em> Inscrivez-vous gratuitement pour créer un compte et accéder à tout le contenu du site. </em> 
                                  </p>
                                
                              </section>                     
@@ -44,7 +44,11 @@
                                          <div class="col-12 col-xl-6">   
                                                
                                              {# *** LABEL *** #}
-                                             {{form_label (registrationForm.login, 'Pseudo' ) }}
+                                             {{form_label
+                                                 (registrationForm.login, 
+                                                     'Pseudo'
+                                                 ) 
+                                             }}
 
                                              <div class="input-group has-validation">
 
@@ -281,7 +285,7 @@
                                                              
                                              </section>
  
-                                         <hr class="my-4" style="color:rgba(25,135,84,0.9);"/>
+                                             <hr class="my-4" style="color:rgba(25,135,84,0.9);"/>
 
                                              {# **************************** ACTION ***************************** #}
 

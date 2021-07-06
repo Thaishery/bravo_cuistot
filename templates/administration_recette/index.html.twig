@@ -16,8 +16,12 @@
 
              <section class="text-center">
     
-                 <h1 class="h1 mb-3 font-weight-normal"> Gestion des recettes </h1>
+                 <h1 class="mb-3 font-weight-normal"> Gestion des recettes </h1>
          
+                 <p class="lead"> 
+                     <em> Consulter la liste des recettes de votre site et les administrés. </em>  📓
+                 </p>
+
              </section>
 
              <article>
@@ -53,8 +57,19 @@
                                  <td> {{ recette.difficulte }} </td>
 
                                  <td>
-                                     <a href="{{ path('administration_recette_show', {'id': recette.id}) }}"> Voir </a>
-                                     <a href="{{ path('administration_recette_edit', {'id': recette.id}) }}"> Modifier </a>
+
+                                     <section class="btn-group">
+                                     
+                                         <a href="{{ path('administration_recette_show', {'id': recette.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12">
+                                             Voir
+                                         </a>
+
+                                         <a href="{{ path('administration_recette_edit', {'id': recette.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12"> 
+                                             Modifier 
+                                         </a>
+                              
+                                     </td>
+
                                  </td>
 
                              </tr>

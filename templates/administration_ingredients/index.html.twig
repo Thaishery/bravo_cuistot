@@ -16,8 +16,12 @@
 
              <section class="text-center">
     
-                 <h1 class="h1 mb-3 font-weight-normal"> Gestion des ingrédients </h1>
-         
+                 <h1 class="mb-3 font-weight-normal"> Gestion des ingrédients </h1>
+          
+                 <p class="lead"> 
+                     <em> Consulter la liste des ingrédients de votre site et les administrés. </em>  🍒
+                 </p>
+
              </section>
      
              <article>
@@ -41,10 +45,25 @@
                              <tr>
                                  <td> {{ ingredient.id }} </td>
                                  <td> {{ ingredient.name }} </td>
+
                                  <td>
-                                     <a href="{{ path('administration_ingredients_show', {'id': ingredient.id}) }}"> Voir </a>
-                                     <a href="{{ path('administration_ingredients_edit', {'id': ingredient.id}) }}"> Modifier </a>
+  
+                                     <section class="btn-group">
+
+                                         <a href="{{ path('administration_ingredients_show', {'id': ingredient.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12">
+                                             Voir 
+                                         </a>
+
+                                         <a href="{{ path('administration_ingredients_edit', {'id': ingredient.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12">
+                                             Modifier
+                                         </a>
+                               
+                                     </section>
+                               
                                  </td>
+
+
+
                              </tr>
 
                          {% else %}
