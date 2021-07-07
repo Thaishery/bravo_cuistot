@@ -1,16 +1,20 @@
- {# ? Feuille du bouton Delete #ModeUser #}
+ {# ? Feuille du form #ModeUser #}
  
      {{ form_start(form) }}
      
+         <div>
+             {{ form_label(form.email) }}
+             {{ form_widget(form.email) }}
+         </div> 
 
-          <div>
+         <div>
              {{ form_label(form.login) }}
              {{ form_widget(form.login) }}
          </div>
 
          <div>
              {#{{ form_label(form.plainPassword) }}#}
-             <label>Mot de passe</label>
+             <label> Mot de passe </label>
              {{ form_widget(form.plainPassword,{ 
                  'attr':{ 
                  'class':'inputEmail' }}) }}               
@@ -21,10 +25,7 @@
              {{ form_widget(form.roles) }}
          </div>
          
-         <div>
-             {{ form_label(form.email) }}
-             {{ form_widget(form.email) }}
-         </div>
+      {{ form_end(form) }}    
 
 
 

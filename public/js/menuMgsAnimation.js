@@ -1,14 +1,14 @@
 
-     // ? Bouton Ouvrir 
+    //  // ? Bouton Ouvrir 
      
-     var audioDuBoutonClose = document.getElementById("MenuNavigationClose");
-       function SoundFxMenuClose() {
-         audioDuBoutonClose.play ();
-     }
+    //  var audioDuBoutonClose = document.getElementById("MenuNavigationClose");
+    //    function SoundFxMenuClose() {
+    //      audioDuBoutonClose.play ();
+    //  }
 
-     // ? Bouton Fermer 
+    //  // ? Bouton Fermer 
 
-     var audioDuBoutonOpen = document.getElementById("MenuNavigationOpen");
-       function SoundFxMenuOpen() {
-         audioDuBoutonOpen.play ();
-     }
+    //  var audioDuBoutonOpen = document.getElementById("MenuNavigationOpen");
+    //    function SoundFxMenuOpen() {
+    //      audioDuBoutonOpen.play ();
+    //  }

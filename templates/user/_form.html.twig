@@ -1,12 +1,7 @@
-
+{# ? Feuille du Show > User #ModeAdmin #}
       
-
      {{ form_start(form) }}
      
-     
-
-         {# <form>      #}
-
              <div class="Form">                 
 
                  {# <article class="text-center"> #}
@@ -59,45 +54,8 @@
                              
                                  {# *** INPUT *** #}
 
-                                
                                          {{ form_widget(form.roles) }}
-                                      
-
-                                 <select class="form-control">
-
-                                 {% for choices in form.roles.vars.choices %} 
-
-                                     {{dump(choices)}}
-
-                               
-
-
-                                     {# {% endfor %} #}
-
-                                     {% set selected = '' %}
-
-                                         {# {% if (oneSupervisor.fname ~ ' ' ~ oneSupervisor.lname) == user.supervisor %}
-
-                                             {% set selected = 'selected' %}
-
-                                         {% endif %} #}
-
-                                         <option 
-                                             value="{{oneSupervisor.fname}} 
-                                                     {{oneSupervisor.lname}}"
-                                                     {{ selected }}>
-                                                         {{oneSupervisor.fname}} 
-                                                         {{oneSupervisor.lname}}
-                                         </option>
-                                  
-                                     {% endfor %}
-                                     
-                                 </select> #} 
-
-                                
-
-
-
+                                    
                              </section>
                          
                          {# **************************** PASSWORD ************************** #}
@@ -131,20 +89,38 @@
                      </div> 
   
                      <hr style="color:white;"/>
-                 
-                 {# </article>  #}
-
-                 
-
+  
                      <button class="btn btn-success col-12  btn-lg px-4 gap-3">
                          {{ button_label|default('Sauvegarder') }}
                      </button>
-     
-                
-
           
-
-         {# </form> #}
-
      {{ form_end(form) }}
 
+
+                                 {# <select class="form-control">
+
+                                 {% for choices in form.roles.vars.choices %} 
+
+                                     {{dump(choices)}} #}
+
+                                     {# {% endfor %} #}
+
+                                     {# {% set selected = '' %} #}
+
+                                         {# {% if (oneSupervisor.fname ~ ' ' ~ oneSupervisor.lname) == user.supervisor %}
+
+                                             {% set selected = 'selected' %}
+
+                                         {% endif %} #}
+{# 
+                                         <option 
+                                             value="{{oneSupervisor.fname}} 
+                                                     {{oneSupervisor.lname}}"
+                                                     {{ selected }}>
+                                                         {{oneSupervisor.fname}} 
+                                                         {{oneSupervisor.lname}}
+                                         </option>
+                                  
+                                     {% endfor %}
+                                     
+                                 </select>  #}

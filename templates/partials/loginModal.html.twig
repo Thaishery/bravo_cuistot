@@ -60,6 +60,19 @@
                                          <br/>  
 
                                          <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+ 
+                                         <section class="checkbox mb-3">
+                     
+                                             {# <hr style="color:rgba(25,135,84,0.9);"/> #}
+
+                                                 <label>
+                                                     <input type="checkbox" name="_remember_me">
+                                                     Se souvenir de moi
+                                                 </label>
+                                           
+                                             {# <hr style="color:rgba(25,135,84,0.9);"/> #}
+
+                                         </section>
 
                                          <section class="btn-group col-12">
 
@@ -88,3 +101,9 @@
          </div>
      
      </main>
+
+ {# *** TEST/ CODE VRAC *** #}
+
+     {# Je dois ajouter des attributs input  #}
+     {# <input type="text" name="pseudo" value="" id="pseudo" placeholder="Ex : Zozor" size="30" maxlength="10" /> #}
+         

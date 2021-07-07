@@ -1,189 +1,113 @@
- /* ? Feuille de style CSS Générale : Bravo Cuistot */
+ /* ? Feuille de style CSS > Bravo Cuistot */
+ 
+   /* ! Pour validé/controlé le code CSS rapidement */
+   /* http://jigsaw.w3.org/css-validator/validator$link  */
+   /* or */
+   /* http://jigsaw.w3.org/css-validator/check/referer (uniquement avec des documents HTML/XML)  */
+   
+    body {
+       background-image : url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
+     }
+     
+     .textPink {
+       color : #f0626f;
+     }
 
-     /* *** Style du corps du document *** */
+     header {
+       background-color : rgb(0 0 0);
+     }
 
-         body {
-           background-image:url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
-           /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-           /* background-color: #7c8782; */
-         }
+     header div.row {
+       padding : 1%;
+       }
 
-     /* *** Style Commun *** */
+     h1 {
+       padding : 5px;
+       border-radius : 3px;
+       background-color : rgb(25, 135, 84, 0.9);
+       background-image : url("../Images/background1.png");
+       background-blend-mode : screen;
+       border : rgb(25, 135, 84, 0.9) groove 1px;
+       box-shadow : 1px 1px 2px rgb(25, 135, 84, 0.9);
+     }
 
-         .textPink{
-           color: #f0626f;
-         }    
-     
-     /* *** Style de l'entete *** */
-         
-         header {
-           background-color: rgb(0 0 0);           
-         }
-     
-         header div.row {
-           padding: 1%;
-         }
+     a.closebtn {
+       margin : 34px;
+       display : flex;
+     }
 
-     /* *** Style des titres *** */  
-        
-         /* ? Titre de premier niveau */
-     
-             h1 {     
-               margin: 20%S;
-               padding: 5px;
-               border-radius: 3px;
-               background-color: rgba(25,135,84,0.9);       
-               background-image: url("../Images/background1.png") ;
-               background-blend-mode:screen;  
-               border:  rgba(25,135,84,0.9) groove 1px;
-               box-shadow: 1px 1px 2px rgba(25,135,84,0.9); 
-             }
-     
-     /* *** Style de l'interface d'administration *** */
-     
-         /* ? Style du bouton CLose du menu */
+     .Form {
+       margin : 2%;
+       padding : 3%;
+     }
 
-          a.closebtn {
-             margin: 34px;
-             display: flex;
-         }
+     .plantFont {
+       background-image : url("../Images/background1.png");
+       background-blend-mode : screen;
+     }
 
-         /* .administrationCard {
-             justify-content: center;
-             margin: auto;
-         }
-         
-         .administrationCard>* {
-             text-align: center;
-             justify-content: center;
-         }
-      */
-     /* *** Style du formulaire d'inscription *** */
-     
-         .Form{
-           margin: 2%;
-           padding: 3%;
-         }
-     
-         .plantFont {
-           background-image: url("../Images/background1.png") ;
-           background-blend-mode:screen;
-         }
-     
-     /* *** Style du formulaire de connection (normal) *** */ 
-     
-         .bloc_page,
-         .bloc_page1 {
-           width: 80%;
-           margin: auto;
-         }
-     
-     /* *** Style du formulaire de connection (modal) *** */ 
+     .bloc_page, 
+     .bloc_page1 {
+       width : 80%;
+       margin : auto;
+     }
 
-     /* .modal_Cuistot{ */
-         /* transition: 0.5s;  */
-         /* ? 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
-         /* background-color: rgba(0,0,0,0.9); */
-          /* ? Black fallback color */
-     /* } */
-  
-     /* *** Style du menu de navigation *** */  
-        
-         .nav-link {
-           display: block;
-           padding: 1.5rem;  
-         }
+     .nav-link {
+       display : block;
+       padding : 1.5rem;
+     }
 
-         /* #titreNav {
-     
-         } */
-     
-         /* #body { */
-             /* display: flex;
-             align-items: center;
-             padding-top: 40px; */
-             /* padding-bottom: 40px; 
-             height: 50vh;
-             width: 50vw;
-             margin: auto;  */
-        
-         /* } */
-     
-         button a {
-           color: #f0626f;
-         }
-     
-      /* *** Style de la SideBar *** */
-     
-         /* ? The Overlay (background) *** */  
-       
-         .sideBar_Cuistot {
-           height: 100%; /* ? Height & width depends on how you want to reveal the overlay (see JS below) */ 
-           width: 0;
-           position: fixed; /* ? Stay in place */
-           z-index: 1; /* ? Sit on top */
-           top: 0;
-           left: 0;
-           background-color: rgba(0,0,0,0.9); /* ? Black fallback color */
-           /* background-color: rgba(25,135,84,0.9);  */
-           /* ? Black w/opacity */ 
-           overflow-x: hidden; /* ? Disable horizontal scroll */
-           transition: 0.5s; /* ? 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
-        }
-        
-        /* ? Position the content inside the overlay *** */
-       
-          .sideBar_Cuistot-content {
-             position: relative;
-             top: 25%; /* ? 25% from the top */
-             width: 100%; /* ? 100% width */
-             text-align: center; /* ? Centered text/links */
-             margin-top: 30px; /* ? 30px top margin to avoid conflict with the close button on smaller screens */
-          }
-       
-        /* ? The navigation links inside the overlay *** */
-       
-          .overlay a {
-            padding: 8px;
-            text-decoration: none;
-            font-size: 36px;
-            color: #f0626f;
-            display: block; /* ? Display block instead of inline */
-            transition: 0.3s; /* ?Transition effects on hover (color) */
-          }
-        
-        /* ? When you mouse over the navigation links, change their color *** */
-       
-             .sideBar_Cuistot a:hover,
-             .overlay a:focus {
-              color: #f1f1f1;
-              background-color: rgba(25,135,84,0.9); 
-              
-          }
-        
-        /* ? Position the close button (top right corner) *** */
-       
-          /* .overlay .closebtn {
-            position: absolute;
-            top: 20px;
-            right: 45px;
-            font-size: 60px;
-          } */
-        
-        /* ? When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap *** */
-       
-          @media screen and (max-height: 450px) {
-            .overlay a {font-size: 20px}
-            .overlay .closebtn {
-              font-size: 40px;
-              top: 15px;
-              right: 35px;
-            }
-          }
+     button a {
+       color : #f0626f;
+     }
 
+     .sideBar_Cuistot {
+       height : 100%;
+       width : 0;
+       position : fixed;
+       z-index : 1;
+       top : 0;
+       left : 0;
+       background-color : rgb(0, 0, 0, 0.9);
+       overflow-x : hidden;
+       transition : 0.5s;
+     }
 
-     /* *** Style des tables *** */
+     .sideBar_Cuistot-content {
+       position : relative;
+       top : 25%;
+       width : 100%;
+       text-align : center;
+       margin-top : 30px;
+     }
+
+     .overlay a {
+       padding : 8px;
+       text-decoration : none;
+       font-size : 36px;
+       color : #f0626f;
+       display : block;
+       transition : 0.3s;
+     }
+
+     .sideBar_Cuistot a:hover, 
+     .overlay a:focus {
+       color : #f1f1f1;
+       background-color : rgb(25, 135, 84, 0.9);
+     }
+
+     @media screen and (max-height: 450px) {
+       .overlay a {
+       font-size : 20px;
+     }
+
+     .overlay .closebtn {
+       font-size : 40px;
+       top : 15px;
+       right : 35px;
+       }
+     }
 
      table {
-        width: 80%;
-      }
+       width : 80%;
+       }
