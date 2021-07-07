@@ -155,6 +155,14 @@ class RecetteController extends AbstractController
      */
     public function newEtapes(Request $request,int $id, EtapesFileUploader $etapesFileUploader ,EtapesRepository $etapesRepository, IngredientsRecetteRepository $ingredientsRecetteRepository, RecetteRepository $recetteRepository, Recette $recette): Response
     {
+        //on récupére la liste des ingrédients : 
+        $listeIngredient = $ingredientsRecetteRepository->findByRecetteId($id);
+        //si la liste d'ingrédient est vide, on redirige vers l'ajout d'ingrédient. Une recette a forcement des ingrédients avant d'avoir des étapes. 
+        if($listeIngredient == null){
+            return $this->redirectToRoute('recette_new_ingredients',[
+                'id'=>$id
+            ]);
+        }
         //récupére l'utilisateur: 
         $user = $this->getUser();
         // initialise l'objet Etapes
@@ -211,8 +219,19 @@ class RecetteController extends AbstractController
             //listeEtape est vide, on peut donc passer is_number a 1 .
             $etape->setIsNumber(1);
             //traitement formulaire
-            //todo : gestion image étape 
             if ($form->isSubmitted() && $form->isValid()) {
+                //on récupére les donées du champ image (null si il n'y en a pas.)
+                $etapeImage = $form->get('image')->getData();
+                //si !null on traite l'image
+                if($etapeImage){
+                    $imageName = $etapesFileUploader->upload($etapeImage);
+                    $etape->setImage($imageName);
+                }
+                //sinon on met un placeholder : 
+                else{
+                    $etape->setImage('placeholder.jpg');
+                }
+                //on envoie le tout en bdd
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($etape);
                 $entityManager->flush();
@@ -325,7 +344,6 @@ class RecetteController extends AbstractController
         // 2.1.2 on compare avec la liste des notes de la recette pour voir si l'id de l'utilisateur actuel y figure : 
         $haveNoted = false;
         for ($i = 0; $i < count($listeNotes); $i++){
-            //??? il dois y avoir un probléme sur cette condition : 
             if($listeNotes[$i]->getUserId() == $this->getUser()){
                 $haveNoted = true;
             }
@@ -385,6 +403,7 @@ class RecetteController extends AbstractController
     /**
      * @Route("/{id}/edit", name="recette_edit", methods={"GET","POST"})
      */
+    //todo : gestion image recette + dans RecetteEditEtapes => gestion image etape. 
     public function edit(
         Request $request,
         Recette $recette,
@@ -423,8 +442,6 @@ class RecetteController extends AbstractController
         //les ingrédient : 
         // on vérifie si la liste des ingrédient comprend bien au moins 1 ingrédient, sinon on redirige vers une page d'érreur disant que la recette que 
         // l'utilisateur essaie de modifier n'est pas fini avec un lien de redirection vers l'ajout d'un 1er ingrédient. 
-        // todo : vérifier lors de la création qu'il ne soit pas possible de passer diréctement a l'ajout d'étape sans avoir ajouter d'ingrédient
-
 
         return $this->render('recette/edit.html.twig', [
             'recette' => $recette,
@@ -434,12 +451,22 @@ class RecetteController extends AbstractController
         ]);
     }
 
-    // a éditer aussi pour éviter la suppréssion des recette des autres. 
+    // todo : a éditer aussi pour éviter la suppréssion des recette des autres. 
     /**
      * @Route("/{id}/delete", name="recette_delete", methods={"POST"})
      */
     public function delete(Request $request, Recette $recette): Response
     {
+        //on récupére l'utilisateur et son role : 
+        $user = $this->getUser();
+        $roles = $user->getRoles();
+        $boolAdmin = in_array('ROLE_ADMIN', $roles);
+        if ($boolAdmin == false){
+            if ($recette->getAuthorId()->getId() !== $user->getId()){
+                return $this-> render('errors/forbiden.html.twig');
+            }
+        };
+
         if ($this->isCsrfTokenValid('delete'.$recette->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($recette);
