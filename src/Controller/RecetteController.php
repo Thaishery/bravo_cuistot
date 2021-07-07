@@ -7,7 +7,7 @@ use App\Entity\Etapes;
 use App\Entity\IngredientsRecette;
 use App\Entity\Notes;
 use App\Entity\Recette;
-use App\Entity\User;
+// use App\Entity\User;
 use App\Form\CommentairesType;
 use App\Form\EtapesType;
 use App\Form\IngredientsRecetteType;
@@ -27,7 +27,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Service\RecettesFileUploader;
 // use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-use Symfony\Component\Validator\Constraints\Length;
+// use Symfony\Component\Validator\Constraints\Length;
 
 /**
  * @Route("/recette")
@@ -166,9 +166,6 @@ class RecetteController extends AbstractController
         $listeEtapes = $etapesRepository->findByRecetteId($recette);
         // ajout de l'id de la recette a la class Etapes. (via l'injection de dépendances)
         $etape->setRecetteId($recette);
-        // TODO : trouver un moyen d'incrémenter de 1 le numéro de l'étape automatiquement pour chaque nouvelle étape.
-        // TODO : a faire dans les conditions qui suivent => si $listeEtapes != null et else. 
-        
 
         //si la recette a modifier a un auteur différent de l'utilisateur actuel, ne pas permetre la modification de la liste d'étape:
         if ($recette->getAuthorId()->getId() !== $user->getId()){
@@ -177,23 +174,27 @@ class RecetteController extends AbstractController
         }
         // si il y a deja des ingrédients de recette
         else if($listeEtapes != null){
-            //todo : on utilise la fonction count sur notre tableau listeEtapes et on ajoute 1 a celui ci. 
-
+            //on définie le numéro de l'etape, pour cela : 
+            //on utilise la fonction count() sur notre tableau et ajout 1 
             $etape->setIsNumber(count($listeEtapes)+1);
             //traitement formulaire 
             if ($form->isSubmitted() && $form->isValid()) {
+                //on récupére les donées du champ image (null si il n'y en a pas.)
                 $etapeImage = $form->get('image')->getData();
+                //si !null on traite l'image
                 if($etapeImage){
                     $imageName = $etapesFileUploader->upload($etapeImage);
                     $etape->setImage($imageName);
                 }
+                //sinon on met un placeholder : 
                 else{
                     $etape->setImage('placeholder.jpg');
                 }
+                //on envoie le tout en bdd
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($etape);
                 $entityManager->flush();
-                
+                //on redirige sur le même formulaire pour pouvoir ajouter des étapes suplaimentaire si besoin : 
                 return $this->redirectToRoute('recette_new_etapes',[
                     'id' => $id,
                 ]);
@@ -207,9 +208,10 @@ class RecetteController extends AbstractController
         }
         //listeEtape est null => il n'y a donc pas encore d'étape! 
         else {
-            // todo: listeEtape est vide, on peut donc passer is_number a 1 .
+            //listeEtape est vide, on peut donc passer is_number a 1 .
             $etape->setIsNumber(1);
             //traitement formulaire
+            //todo : gestion image étape 
             if ($form->isSubmitted() && $form->isValid()) {
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($etape);
@@ -277,12 +279,17 @@ class RecetteController extends AbstractController
         $user = $this->getUser();
         // on compte les étape pour l'envoyer a la vue.
         $nomberEtapes = count($listeEtapes);
-        // on gére le formulaire d'ajout de commentaire : 
+        // on gére le formulaire d'ajout de commentaire :
+            //on crée notre objet Commentaires :  
         $commentaire = new Commentaires();
+        //on initialise le formulaire : 
         $formCommentaire = $this->createForm(CommentairesType::class, $commentaire);
         $formCommentaire->handleRequest($request);
+        //on définie la date de creation du commentaire via un objet DateTimeImmutable.
         $commentaire->setCreatedAt(new DateTimeImmutable());
+        //on définie l'utilisateur qui a poster le commentaire
         $commentaire->setUserId($user);
+        //on définie la recette a laquel le commentaire est atribuer : 
         $commentaire->setRecetteId($recette);
 
         if ($formCommentaire->isSubmitted() && $formCommentaire->isValid()) {
@@ -313,13 +320,12 @@ class RecetteController extends AbstractController
         }
         // 2. on laisse l'utilisateur actuel noter la recette : 
         // 2.1 on vérifie si l'utilisateur actuel a deja noter la recette : 
-        // 2.1.1 on récupére l'utilisateur actuel : 
-        // fait ligne 258
+        // 2.1.1 on récupére l'utilisateur actuel : fait ligne 279
         
         // 2.1.2 on compare avec la liste des notes de la recette pour voir si l'id de l'utilisateur actuel y figure : 
         $haveNoted = false;
         for ($i = 0; $i < count($listeNotes); $i++){
-            //il dois y avoir un probléme sur cette condition : 
+            //??? il dois y avoir un probléme sur cette condition : 
             if($listeNotes[$i]->getUserId() == $this->getUser()){
                 $haveNoted = true;
             }
@@ -342,10 +348,14 @@ class RecetteController extends AbstractController
         }   
         // 2.1.3Bis sinon on initialise le formulaire d'ajout de note dans cette vue. 
         else{
+            //on crée notre objet Notes
             $note = new Notes();
+            //on crée notre formulaire
             $formNote = $this->createForm(NotesType::class, $note);
             $formNote->handleRequest($request);
+            //on définie la recette associé a la note
             $note->setRecetteId($recette);
+            //on définie l'utilisateur associé a la note
             $note->setUserId($user);
             if ($formNote->isSubmitted() && $formNote->isValid()) {
                 $entityManager = $this->getDoctrine()->getManager();
