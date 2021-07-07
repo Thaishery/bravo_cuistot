@@ -12,71 +12,101 @@
 
          <main class="Form">  
 
-             <section class="text-center">
+             <article class="text-center">
              
-                 <h1 class="mb-3 font-weight-normal text-center"> Gestion des catégories </h1>
+                 <h1 class="font-weight-normal text-center"> Gestion des catégories </h1>
 
                  <p class="lead"> 
                      <em> Veuillez sélectionnez une catégorie à administrer : </em>  📂
                  </p>
 
-             </section>
+             </article>
 
-             <article>
-             {# <article class="container"> #}
+             <article class="containerCarte">
 
-                 <div class="row">
+                 <section class="card">
 
-                     {# ? Partie: Carte n°1 #}
+                     <h3 class="title">Card 1</h3>
 
-                     <section class="col-12 ">
+                     <ul class="bar">
+                         <li class="emptybar"></li>
+                         <li class="filledbar"></li>
+                     </ul>
 
-                             {# <figure >
-                                 <img class="administrationLogo col-6" src="{{asset ('Images/carteEPD.png')}}" alt="image d'une persone type emoji">
-                             </figure> #}
-                             
-                             <a href="{{path("administration_plats_index")}}" type="submit" class="btn btn-success bg-gradient col-12 btn-lg px-4 gap-3">                                
-                                 {# <abbr title="Exemples: Petit-Déjeuner, Entrées, Plats, Desserts, etc..."> Gérer les type de plats </abbr> #}
-                                 Gérer les type de plats 
-                             </a>
-                             
-                     </section>
+                     <figure class="circle">
 
-                         <hr style="color:white;"/>
+                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                             <circle class="stroke" cx="60" cy="60" r="50"/>
+                         </svg>
 
-                     {# ? Partie: Carte n°2 #}
+                     </figure>
 
-                     <section class="col-12 ">
+                 </section>
 
-                             {# <figure >
-                                 <img class="administrationLogo col-6" src="{{asset ('Images/steak.png')}}" alt="image d'une persone type emoji">
-                             </figure> #}
+                 {# ***** ***** *****#}
 
-                             <a href="{{ path("administration_alimentation_index") }}" type="submit" class="btn btn-success bg-gradient col-12 btn-lg px-4 gap-3">                                
-                                 {# <abbr title="Exemples: Omnivores, Végétarien, Fruitarien, etc..."> Gérer les type d'alimentations </abbr>  #}
-                                 Gérer les type d'alimentations 
-                             </a>
-                             
-                     </section>
+                 <section class="card">
 
-                         <hr style="color:white;"/>
+                     <h3 class="title">Card 2</h3>
 
-                     {# ? Partie: Carte n°3 #}
- 
-                     <section class="col-12 ">
-                                        
-                             {# <figure >
-                                 <img class="administrationLogo col-6" src="{{asset ('Images/barbecue.jpg')}}" alt="image d'une persone type emoji">
-                             </figure> #}
+                     <ul class="bar">
+                         <li class="emptybar"></li>
+                         <li class="filledbar"></li>
+                     </ul>
 
-                             <a href="{{path("administration_cuisson_index")}}" type="submit" class="btn btn-success bg-gradient col-12 btn-lg px-4 gap-3">                                
-                                 {# <abbr title="Exemples: Cru(e), Vapeur, Grill, etc..."> Gérer les type de cuissons </abbr> #}
-                                 Gérer les type de cuissons
-                             </a>
+                     <figure class="circle">
+                     
+                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                             <circle class="stroke" cx="60" cy="60" r="50"/>
+                        </svg>
 
-                     </section>                
+                     </figure>
 
-                 </div>
+                 </section>
+
+                 {# ***** ***** *****#}
+
+                 <section class="card">
+
+                     <h3 class="title">Card 3</h3>
+
+                     <ul class="bar">
+                         <li class="emptybar"></li>
+                         <li class="filledbar"></li>
+                     </ul>
+
+                     <figure class="circle">
+
+                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                             <circle class="stroke" cx="60" cy="60" r="50"/>
+                         </svg>
+
+                     </figure>
+
+                 </section>
+
+                 {# ***** ***** *****#}
+
+                 <section class="card">
+
+                     <h3 class="title">Card 4</h3>
+
+                     <ul class="bar">
+                         <li class="emptybar"></li>
+                         <li class="filledbar"></li>
+                     </ul>
+
+                     <figure class="circle">
+
+                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                             <circle class="stroke" cx="60" cy="60" r="50"/>
+                         </svg>
+
+                     </figure>
+
+                 </section>
+
+                 {# ***** ***** *****#}
 
              </article>
 
@@ -85,4 +115,56 @@
      {% endblock %}
 
 
+ {# TEST / CODE VRAC , etc... #}
  
+ {# ? Carte Carousel Lien SOurce : https://codepen.io/onion2k/pen/xxZYBVj #}
+
+ {# ? Autre Style de carte en HTML CSS #}
+
+     {# <div class="column"> 
+  
+         <input type="radio" name="position" />
+         <input type="radio" name="position" checked/>
+         <input type="radio" name="position" />
+        
+         <article id="carousel">
+
+                 <section class="item col-12">
+     
+                     <a href="{{path("administration_plats_index")}}" type="submit" class="btn btn-success bg-gradient col-12 btn-lg px-4 gap-3">                                
+                         Types de plats 
+                     </a>      
+
+                     <figure >
+                         <img class="administrationLogo col-12" src="{{asset ('Images/Nourriture.png')}}" alt="image d'une persone type emoji">
+                     </figure>
+
+                 </section>
+ 
+                 <section class="item col-12">                  
+
+                     <a href="{{ path("administration_alimentation_index") }}" type="submit" class="btn btn-success bg-gradient col-12 btn-lg px-4 gap-3">                                
+                         Types d'alimentations 
+                     </a>
+
+                     <figure >
+                         <img class="administrationLogo col-12" src="{{asset ('Images/JunkFood.jpg')}}" alt="image d'une persone type emoji">
+                     </figure>
+
+                 </section>
+
+                 <section class="item col-12">
+
+                     <a href="{{path("administration_cuisson_index")}}" type="submit" class="btn btn-success bg-gradient col-12 btn-lg px-4 gap-3">                                
+                         Types de cuissons
+                     </a>
+               
+                     <figure >
+                         <img class="administrationLogo col-12" src="{{asset ('Images/barbecue.jpg')}}" alt="image d'une persone type emoji">
+                     </figure>
+
+                 </section>
+         
+         </article>
+
+     </div> #}
