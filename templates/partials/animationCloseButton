@@ -1,0 +1,25 @@
+ {# ! Fontionne mais je n'arrive pas à l'intégrer à la bonne place. Revenir dessus plus tard JC_  #}
+    
+     {# ? Partie: Animation Bouton " Close " #}
+             
+         <article class=""> 
+     
+             <input type="checkbox" id="checkbox2" class="checkbox2 visuallyHidden">
+     
+                 <label for="checkbox2">
+     
+                     <div class="hamburger hamburger2">
+     
+                         <span class="bar bar1"></span>
+                         <span class="bar bar2"></span>
+                         <span class="bar bar3"></span>
+                         <span class="bar bar4"></span>
+     
+                     </div>
+     
+                 </label>
+     
+         </article> 
+
+
+         

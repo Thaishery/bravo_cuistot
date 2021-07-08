@@ -12,9 +12,13 @@
      
      {% block body %}
 
+
          <main class="Form">
 
+
              <form method="post">
+
+                 {# *** Partie: Authentification sécurité *** #}
 
                  {% if error %}
 
@@ -23,7 +27,7 @@
                      </div>
 
                  {% endif %}
-             
+                 
                  {% if app.user %}
 
                      <div class="mb-3">
@@ -31,6 +35,7 @@
                      </div>
 
                  {% endif %}
+
              
                  {# *** Conteneur du titre du formulaire *** #}
 
@@ -65,18 +70,22 @@
 
                      </section>
 
+
                      {#
-                         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-                         See https://symfony.com/doc/current/security/remember_me.html                 
+                             Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                             See https://symfony.com/doc/current/security/remember_me.html                 
                      #}
+
 
                      <section class="btn-group-vertical col-12">
 
-                         {# *** Bouton: Se Connecter *** #}
+
                          <button type="submit" class="btn btn-dark btn-lg px-4 gap-3"> 
-                            Se connecter 
+
+                             {# <a href="{{ path('home') }}"> Se connecter </a>  #}
+                             Se connecter 
                          </button>
-    
+   
                          {# *** Bouton: S'inscrire *** #}
                          <a type="submit" href="{{ path('app_register') }}" class="btn btn-success btn-lg px-4 gap-3">                                 
                              S'inscrire
@@ -85,6 +94,11 @@
                      </section>
 
                  </article>
+
+
+                     {# ******************** #}
+
+                 </div>  
 
              </form>
 
