@@ -1,31 +1,21 @@
 
+
 {% extends 'base.html.twig' %}
 
-{% block title %}Recette{% endblock %}
+{% block title %}Préview Recette{% endblock %}
 
 {% block body %}
-    <h1>Recette</h1>
-recette:
 {{dump(recette)}}
-liste ingredients
 {{dump(listeIngredient)}}
-liste etapes
 {{dump(listeEtapes)}}
-nombre d'étapes
 {{dump(nombreEtapes)}}
-liste commentaire 
-{{dump(listeCommentaires)}}
-note moyenne
-{{dump(moyenneNote)}}
-have noted
-{{dump(haveNoted)}}
     <div class="container">
         <div class="row">
             <div class="col-12">
                 {% if recette.image %}
                     {{recette.image}}
                 {% endif %}
-                <h1>{{recette.name}}</h1>
+                <h1>{{recette.name}} Prévisualisation</h1>
             </div>
             <div class="col-12">
                 <h2>pour {{recette.NbPersonnes}} Convives</h2>
@@ -65,29 +55,9 @@ have noted
             </div>
             <div class="col-6">
                 <p>
-                    Note : 
-                    {% if moyenneNote == 0 %} 
-                    Cette recette n'as pas encore reçu de Note
-                    {% else %}
-                    {{moyenneNote}}
-                    {% endif %}
-
-                    {# a mettre dans un template show_noted ??? #}
-                    {# {% if noteUser %}
-                    Vous avez notez cette recette : {{noteUser}}
-                    {% endif %} #}
+                    Note : Votre recette n'est pas encore publié, elle n'a donc pas de note pour le moment.
                 </p>
             </div>
-            <div class="col-6 placeholder">
-            </div>
-            {% if haveNoted == false %}
-            <div class="col-6">
-            {{ form_start(formNote) }}
-                 {{ form_widget(formNote) }}
-                <button class="btn">{{ button_label|default('Save') }}</button>
-            {{ form_end(formNote) }}
-            </div>
-            {% endif %}
             <div class="col-12">
             <button class="col-12 btn btn-success btn-lg px-4 gap-3"> passer en mode slideshow. </button>
             </div>
@@ -116,35 +86,12 @@ have noted
                     </div>
                 {% endfor %}
             </div>
-            <div class="col-12">
-                <h2>commentaires : </h2>
-                {% if listeCommentaires %}
-                    {% for commentaire in listeCommentaires %}
-                        <div class="col-3">
-                            <p>
-                                {{commentaire.userId.login}} : <br/>
-                                le : {{commentaire.createdAt|date('d-m-Y')}} à {{commentaire.createdAt|date('h:i:s')}}
-                            </p>
-                        </div>
-                        <div class="col-9">
-                            <p>
-                                {{commentaire.content}}
-                            </p>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    <p>
-                        Il n'y as pas encore de commentaires. 
-                    </p>
-                {% endif %}
+            <div class="col-12 row previewRecetteBoutonFin">
+                <button class="col-2 btn btn-success btn-lg">Modifier les étapes.</button>
+                <button class="col-2 btn btn-success btn-lg">Modifier la liste des ingrédients</button>
+                <button class="col-3 btn btn-success btn-lg">Modifier les information de la recette</button>
+                <button class="col-2 btn btn-success btn-lg">Valider la recette</button>
             </div>
-            <div class="col-12">
-            Laisser un commentaire : 
-            {{ form_start(formCommentaire) }}
-                 {{ form_widget(formCommentaire) }}
-                <button class="btn">{{ button_label|default('Save') }}</button>
-            {{ form_end(formCommentaire) }}
-            </div>
-
-    {# {{ include('recette/_delete_form.html.twig') }} #}
+        </div>
+    </div>
 {% endblock %}
