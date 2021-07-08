@@ -57,7 +57,7 @@
                                          {{ form_widget(form.roles) }}
                                     
                              </section>
-                         
+                    
                          {# **************************** PASSWORD ************************** #}
 
                              <section class="col-6">
@@ -97,22 +97,26 @@
      {{ form_end(form) }}
 
 
-                                 {# <select class="form-control">
+ {#  ? TEST / CODE VRAC #}
+                                  
+
+                                    {# <select class="form-control">
 
                                  {% for choices in form.roles.vars.choices %} 
 
-                                     {{dump(choices)}} #}
+                                     {{dump(choices)}}  #}
 
                                      {# {% endfor %} #}
 
                                      {# {% set selected = '' %} #}
 
-                                         {# {% if (oneSupervisor.fname ~ ' ' ~ oneSupervisor.lname) == user.supervisor %}
+                                         {# {% if (oneSupervisor.fname ~ ' ' ~ oneSupervisor.lname) == user.supervisor %} #}
 
-                                             {% set selected = 'selected' %}
+                                             {# {% set selected = 'selected' %}
 
-                                         {% endif %} #}
-{# 
+                                         {% endif %} 
+                                 
+                               
                                          <option 
                                              value="{{oneSupervisor.fname}} 
                                                      {{oneSupervisor.lname}}"
@@ -123,4 +127,4 @@
                                   
                                      {% endfor %}
                                      
-                                 </select>  #}
+                             </select>    #}
