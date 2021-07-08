@@ -5,8 +5,7 @@
 
          <div class="container">
 
-
-             <header class="d-flex flex-wrap align-items-center justify-content-between">
+             <header class="row align-items-center justify-content-md-between ">
 
 
                  <hr class="dropdown-divider" style="color: black;"> 
@@ -17,12 +16,83 @@
                        {# <div class="col-md-3 text-start "> #}
 
                      {% if app.user %}
+                        
+                         {# {% if app.user.avatar %} #}
 
-                     
-                        <p class="textPink"> vous etes connecter en tant que : 
-                            {{app.user.login}}
-                         {% if app.user.avatar %}
 
+                         <div class="" style="display:flex; justify-content:space-around;">
+
+                             {# *********************************** #}
+                             {# * Gestion de l'utilisateur actuel * #}
+                             {# *********************************** #}
+
+                             <div class="dropdown">
+                             {# {% if user.avatar %} #}
+    
+                                 <div class="d-flex justify-content-between">
+    
+                                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                         <img src="/uploads/avatar/{{app.user.avatar}} " alt="" width="32" height="32" class="rounded-circle me-2">
+
+                                         <div class="d-flex justify-content-between">
+                                                        
+                                             <strong class="text-gray-dark">
+
+                                                 {# Full Name #}                                                
+                                                 {% if app.user.login %} 
+
+                                                     @ {{app.user.username}} 
+
+                                                 {% else %}
+
+                                                     Bienvenue
+                                                     <i class="bi bi-caret-down"></i>
+
+                                                 {% endif %}
+
+                                             </strong>
+    
+                                         </div>
+                                         
+                                     </a>
+    
+                                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+
+                                        
+                                         {# <li> <hr class="dropdown-divider">   </li>   #}
+
+                                         {# ***** Gestion du site ***** #}
+                                         {# <h6> <kbd> Gestion du site </kbd> </h6>
+                                             <li> <hr class="dropdown-divider">   </li> #}
+
+                                        
+                                         
+                                         {# <li> <hr class="dropdown-divider">   </li>   #}
+
+                                         {# ***** Gestion des recettes ***** #}
+                                         <h6> <kbd> Gestion des recettes </kbd> </h6> 
+
+                                             <li> <a class="dropdown-item" href="#"> Créer une nouvelle recette </a> </li> 
+                                             <li> <a class="dropdown-item" href="#"> Gérer mes recettes </a> </li>
+                                             <li> <hr class="dropdown-divider"> </li>                                                                                                        
+
+                                         {# ***** Gestion du site ***** #}
+                                         <h6> <kbd> Gestion du site </kbd> </h6>
+
+                                             <li> <a class="dropdown-item" href="{{path ('user_index') }}"> Gérer les utilisateurs </a> </li>
+                                             {# <li> <a class="dropdown-item" href="#"> Gérer les roles </a> </li> #}
+                                             {# <li> <a class="dropdown-item" href="#"> Gérer les commentaires </a> </li> #}
+                                             {# <li> <a class="dropdown-item" href="#"> Gérer les notes </a> </li> #}
+                                            
+                                             <li> <hr class="dropdown-divider"> </li>
+
+
+                                         {# ***** Gestion du site ***** #}
+                                         <h6> <kbd> Gestion du profil </kbd> </h6>
+
+                                             <li> <a class="dropdown-item" href="{{path ('user_edit',{'id': app.user.id})}}"> Gérer mon compte </a></li>
+                                             <li> <a class="dropdown-item" href="{{path ('user_show',{'id': app.user.id})}}"> Mon profil </a></li>
+                                             <li> <a class="dropdown-item" href="#"> Paramètres </a></li>
 
                                              <li> <hr class="dropdown-divider">   </li> 
 
@@ -53,11 +123,7 @@
        
                  </div>
 
-
-                 <figure> 
-                     <img src="/logo.png" alt="Logo du site" >
-                 </figure>
-
+                 {# ********** Partie: Logo ********** #}
 
                  <div class="col-4 text-center "> 
                      <img id="avatarUser"src="/logo.png" alt="Logo du site" >
@@ -65,7 +131,7 @@
              
                  {# ********** Partie: SideBar ********** #}
 
-                 <div class="">
+                 <div class="col-4">
 
                      <div id="myNav" class="sideBar_Cuistot">
 
@@ -92,7 +158,6 @@
 
                          <hr style="color:rgba(25,135,84,0.9);"/>
 
-
                          <div class="overlay-content">
                              
                              {# *** Titre *** #}
@@ -110,29 +175,27 @@
 
                              <ul class="nav nav-pills flex-column">
 
-                                 {# *** Partie: Accueil *** #}
+                                 {# *** Lien n° 1 *** #}
 
                                  <li class="nav-item">
-
 
                                      <a href="/" class="nav-link" >
                
                                          <i class='fas fa-house-user'></i> &nbsp; Accueil 
 
-
                                      </a>
 
                                  </li>
 
-                                 {# *** Partie: Actualités *** #} 
+                                 {# *** Lien n° 2 *** #}
 
-                                 {# <li>
+                                 <li>
                                      <a href="#" class="nav-link">
                                          <i class='fas fa-pepper-hot'></i> &nbsp; Actualités
                                      </a>
-                                 </li> #}
+                                 </li>
 
-                                 {# *** Partie: Recettes *** #}
+                                 {# *** Lien n° 3 *** #}
 
                                  <li>
                                      <a href="#" class="nav-link">
@@ -140,26 +203,15 @@
                                      </a>
                                  </li>
 
-                                 {# *** Partie: Catégories *** #}
+                                 {# *** Lien n° 4 *** #}
 
                                  <li>
-                                     <a href="{{path("categories")}}" class="nav-link">
-                                         <svg class="bi me-2" width="16" height="16">
-                                         <use xlink:href="#table"></use></svg>
-                                         <i class='fas fa-utensils'></i> &nbsp; Catégories
-                                     </a>
-                                 </li> 
-
-                                 {# *** Partie: Astuces *** #}
-
-                                 {# <li>
                                      <a href="#" class="nav-link">
                                           <i class='fas fa-hand-sparkles'></i> &nbsp; Astuces
                                      </a>
-                                 </li> #}
+                                 </li>
 
-                                 {# *** Partie: Contact *** #}
-
+                                 {# *** Lien n° 5 *** #}
 
                                  <li>
 
@@ -169,13 +221,11 @@
                                      
                                  </li>
 
-
                              </ul>
 
                          </div>   
 
                      </div>
-
 
                          {# ? Animation Bouton " Close " du Menu de navigation #}
 
@@ -196,49 +246,7 @@
 
 		                 </article>
 
-
-                     <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776; </span> 
-     
                  </div>
-
-                  {# <div class="container-fluid">
-                     <a class="navbar-brand" href="#">Never expand</a>
-                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="true" aria-label="Toggle navigation">
-                       <span class="navbar-toggler-icon"></span>
-                     </button>
-
-                     <div class="navbar-collapse collapse show" id="navbarsExample01" style="">
-                       <ul class="navbar-nav me-auto mb-2">
-                         <li class="nav-item">
-                           <a class="nav-link active" aria-current="page" href="#">Home</a>
-                         </li>
-                         <li class="nav-item">
-                           <a class="nav-link" href="#">Link</a>
-                         </li>
-                         <li class="nav-item">
-                           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                         </li>
-                         <li class="nav-item dropdown">
-                           <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-                           <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                             <li><a class="dropdown-item" href="#">Action</a></li>
-                             <li><a class="dropdown-item" href="#">Another action</a></li>
-                             <li><a class="dropdown-item" href="#">Something else here</a></li>
-                           </ul>
-                         </li>
-                       </ul> #}
-{#                  
-                 <hr class="dropdown-divider" style="color: black;"> 
-
-                       <form>
-                         <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-                       </form> #}
-
-                     {# </div>
-
-                   </div> #}
- 
-                 <hr class="dropdown-divider" style="color: black; "> 
 
              </header>
 
@@ -247,7 +255,6 @@
          {# ***** ***** ***** ***** ***** #}
 
          {# <p>
-
              <a href="http://jigsaw.w3.org/css-validator/check/referer">
              
                  <img style="border:0;width:88px;height:31px"
@@ -262,13 +269,11 @@
          {# ? Code CSS Validé Par W3.org #}
 
          {# <p>
-
              <a href="http://jigsaw.w3.org/css-validator/check/referer">
                
                  <img style="border:0;width:88px;height:31px"
                      src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
                      alt="CSS Valide !" />
-
                  </a>
           
              </p> #}

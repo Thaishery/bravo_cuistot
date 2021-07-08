@@ -1,299 +1,109 @@
-
  /* ? Feuille de style CSS > Bravo Cuistot */
  
 
-    body {
-       background-image : url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
-     }
-     
-     .textPink {
-       color : #f0626f;
-     }
-
-     header {
-       background-color : rgb(0 0 0);
-     }
-
-     header div.row {
-       padding : 1%;
-       }
-
-     h1 {
-       padding : 5px;
-       border-radius : 3px;
-       background-color : rgb(25, 135, 84, 0.9);
-       background-image : url("../Images/background1.png");
-       background-blend-mode : screen;
-       border : rgb(25, 135, 84, 0.9) groove 1px;
-       box-shadow : 1px 1px 2px rgb(25, 135, 84, 0.9);
-     }
-
-     a.closebtn {
-       margin : 34px;
-       display : flex;
-     }
-
-     .Form {
-       margin : 2%;
-       padding : 3%;
-     }
-
-     .plantFont {
-       background-image : url("../Images/background1.png");
-       background-blend-mode : screen;
-     }
-
-     .bloc_page, 
-     .bloc_page1 {
-       width : 80%;
-       margin : auto;
-     }
-
-     .nav-link {
-       display : block;
-       padding : 1.5rem;
-     }
-
-     button a {
-       color : #f0626f;
-     }
-
-     .sideBar_Cuistot {
-       height : 100%;
-       width : 0;
-       position : fixed;
-       z-index : 1;
-       top : 0;
-       left : 0;
-       background-color : rgb(0, 0, 0, 0.9);
-       overflow-x : hidden;
-       transition : 0.5s;
-     }
-
-     .sideBar_Cuistot-content {
-       position : relative;
-       top : 25%;
-       width : 100%;
-       text-align : center;
-       margin-top : 30px;
-     }
-
-     .overlay a {
-       padding : 8px;
-       text-decoration : none;
-       font-size : 36px;
-       color : #f0626f;
-       display : block;
-       transition : 0.3s;
-     }
-
-     .sideBar_Cuistot a:hover, 
-     .overlay a:focus {
-       color : #f1f1f1;
-       background-color : rgb(25, 135, 84, 0.9);
-     }
-
-
- /* **************************************************************************** */ 
- /* *  Feuille de style principale de notre document Fil-Rouge - BravoCuistot * */
- /* **************************************************************************** */ 
-
-
-/* *** Style Commun *** */
-.textPink{
-    color: #f0626f;
-}    
-.h1Title{
-    text-align: center;
+ body {
+  background-image : url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
 }
 
-
-     /* ***** ***** ***** ***** ***** */ 
-
-     /* *** Style de l'entete *** */
-     
-             * {
-                 font-family: 'Jura', sans-serif;
-             }
-     
-     /* ***** ***** ***** ***** ***** */ 
-     
-         /* ? Style de l'entete */
-             
-             header {
-             background-color: rgb(0 0 0);
-             }
-         
-             header div.row {
-             padding: 1%;
-             }
-         
-             .menuNav {
-             text-align: right;
-            }
-         
-     /* ***** ***** ***** ***** ***** */ 
-     
-         /* ? Style des titres */  
-            
-             /* ! Titre de premier niveau */
-         
-                 h1 {     
-                 text-align: center;
-                 margin: 20%S;
-                 padding: 5px;
-                 border-radius: 3px;
-                 background-color: rgba(25,135,84,0.9); /* ? Black w/opacity */                    
-                 background-image: url("../Images/background1.png") ;
-                 background-blend-mode:screen;    
-                 border:  rgba(25,135,84,0.9) groove 1px;              
-                     color: var(--ecriture);
-                 }
-             
-     /* ***** ***** ***** ***** ***** */                  
-     
-         /* ? Style du formulaire d'inscription */
-         
-             #plantFont {           
-             background-image: url("../Images/background1.png") ;
-             background-blend-mode:screen;
-
-         }
-         #inscriptionForm{
-             margin:auto;
-         }
-  
- /* ***** ***** ***** ***** ***** */       
-
-     /* ? Style du formulaire de connection (normal) */ 
-     
-         /* ? Style du formulaire de connection (normal) */ 
-         
-             #bloc_page,
-             #bloc_page1 {
-             width: 80%;
-             margin: auto;
-         }
-     
- /* ***** ***** ***** ***** ***** */ 
-
-         
-     /* ***** ***** ***** ***** ***** */ 
-             
-         /* ? Style du contenu des formulaires */ 
-         
-             .contenu {
-             padding: 50px 10%;
-             text-align: justify;     
-             }
-      
-     /* ***** ***** ***** ***** ***** */             
-     
-         /* ? Style du menu de navigation */  
-            
-             #myNav {
-             /* background-image: url("../Images/Confetti-Doodles.svg") ; */
-             opacity: 0.9;
-              }
-     
-         /* ? Lien non visité */ 
-
-             .liens li a:link
-             {
-             color: rgb(255 255 255); 
-             }
-             
-         /* ? Lien déjà visité) */ 	
-
-             .liens li a:visited
-             {
-             color: #00FF41;
-             }
-             
-         /* ? Lien focalisation) */
-
-             /* .liens li a:focus
-             {	 
-             color: #6666FF; 
-             } */
-
-         /* ? Lien au  survol) */    
-
-             #myNav li:hover {
-             background-color: #000;
-             }
-     
-         /* ? Lien en cours d'activation (par exemple, lorsqu'on clique dessus) */ 
-
-             /* #myNav  li a:active */
-             #myNav li:active {	 
-                 color: #00FF41; 
-             }
-     
-     /* ***** ***** ***** ***** ***** */
-     
-         /* ? Style des cartes */  
-     
-     
-         .carteBg1 {
-             background-image: url("../Images/carteBg8.jpg") ;    
-             font-size: 1.0em;           
-             }
-     
-         .carteBg2 {
-             background-image: url("../Images/carteBg9.jpg") ;             
-             }
-         
-         .carteBg3 {
-             background-image: url("../Images/carteBg4.png") ;
-             font-size: 1.0em; 
-             }
-         
-         .carteBg4 {
-             background-image: url("../Images/carteBg10.jpg") ;
-             }
-     
-     /* ***Style du menu de navigation *** */  
-        
-         /* #titreNav {
-
-
-     @media screen and (max-height: 450px) {
-       .overlay a {
-       font-size : 20px;
-     }
-
-
-     .overlay .closebtn {
-       font-size : 40px;
-       top : 15px;
-       right : 35px;
-       }
-     }
-
-     table {
-       width : 80%;
-       }
-
-
-
-
-/* *** Style de l'interface d'administration *** */
-.administrationCard{
-    justify-content: center;
-    margin: auto;
-}
-.administrationCard>*{
-    text-align: center;
-    justify-content: center;
+.textPink {
+  color : #f0626f;
 }
 
- /* ***** ***** ***** ***** ***** */    
-      
-     /* ? Style des boutons *** */ 
+header {
+  background-color : rgb(0 0 0);
+}
 
-         button a {
-             color: #f0626f;
-         }
-     
- /* ***** ***** ***** ***** ***** */ 
+header div.row {
+  padding : 1%;
+  }
+
+h1 {
+  padding : 5px;
+  border-radius : 3px;
+  background-color : rgb(25, 135, 84, 0.9);
+  background-image : url("../Images/background1.png");
+  background-blend-mode : screen;
+  border : rgb(25, 135, 84, 0.9) groove 1px;
+  box-shadow : 1px 1px 2px rgb(25, 135, 84, 0.9);
+}
+
+a.closebtn {
+  margin : 34px;
+  display : flex;
+}
+
+.Form {
+  margin : 2%;
+  padding : 3%;
+}
+
+.plantFont {
+  background-image : url("../Images/background1.png");
+  background-blend-mode : screen;
+}
+
+.bloc_page, 
+.bloc_page1 {
+  width : 80%;
+  margin : auto;
+}
+
+.nav-link {
+  display : block;
+  padding : 1.5rem;
+}
+
+button a {
+  color : #f0626f;
+}
+
+.sideBar_Cuistot {
+  height : 100%;
+  width : 0;
+  position : fixed;
+  z-index : 1;
+  top : 0;
+  left : 0;
+  background-color : rgb(0, 0, 0, 0.9);
+  overflow-x : hidden;
+  transition : 0.5s;
+}
+
+.sideBar_Cuistot-content {
+  position : relative;
+  top : 25%;
+  width : 100%;
+  text-align : center;
+  margin-top : 30px;
+}
+
+.overlay a {
+  padding : 8px;
+  text-decoration : none;
+  font-size : 36px;
+  color : #f0626f;
+  display : block;
+  transition : 0.3s;
+}
+
+.sideBar_Cuistot a:hover, 
+.overlay a:focus {
+  color : #f1f1f1;
+  background-color : rgb(25, 135, 84, 0.9);
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {
+  font-size : 20px;
+}
+
+.overlay .closebtn {
+  font-size : 40px;
+  top : 15px;
+  right : 35px;
+  }
+}
+
+table {
+  width : 80%;
+  }
