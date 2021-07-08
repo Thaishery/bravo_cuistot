@@ -5,7 +5,8 @@
 
          <div class="container">
 
-             <header class="row align-items-center justify-content-md-between ">
+
+             <header class="d-flex flex-wrap align-items-center justify-content-between">
 
 
                  <hr class="dropdown-divider" style="color: black;"> 
@@ -16,83 +17,12 @@
                        {# <div class="col-md-3 text-start "> #}
 
                      {% if app.user %}
-                        
-                         {# {% if app.user.avatar %} #}
 
+                     
+                        <p class="textPink"> vous etes connecter en tant que : 
+                            {{app.user.login}}
+                         {% if app.user.avatar %}
 
-                         <div class="" style="display:flex; justify-content:space-around;">
-
-                             {# *********************************** #}
-                             {# * Gestion de l'utilisateur actuel * #}
-                             {# *********************************** #}
-
-                             <div class="dropdown">
-                             {# {% if user.avatar %} #}
-    
-                                 <div class="d-flex justify-content-between">
-    
-                                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                         <img src="/uploads/avatar/{{app.user.avatar}} " alt="" width="32" height="32" class="rounded-circle me-2">
-
-                                         <div class="d-flex justify-content-between">
-                                                        
-                                             <strong class="text-gray-dark">
-
-                                                 {# Full Name #}                                                
-                                                 {% if app.user.login %} 
-
-                                                     @ {{app.user.username}} 
-
-                                                 {% else %}
-
-                                                     Bienvenue
-                                                     <i class="bi bi-caret-down"></i>
-
-                                                 {% endif %}
-
-                                             </strong>
-    
-                                         </div>
-                                         
-                                     </a>
-    
-                                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-
-                                        
-                                         {# <li> <hr class="dropdown-divider">   </li>   #}
-
-                                         {# ***** Gestion du site ***** #}
-                                         {# <h6> <kbd> Gestion du site </kbd> </h6>
-                                             <li> <hr class="dropdown-divider">   </li> #}
-
-                                        
-                                         
-                                         {# <li> <hr class="dropdown-divider">   </li>   #}
-
-                                         {# ***** Gestion des recettes ***** #}
-                                         <h6> <kbd> Gestion des recettes </kbd> </h6> 
-
-                                             <li> <a class="dropdown-item" href="#"> Créer une nouvelle recette </a> </li> 
-                                             <li> <a class="dropdown-item" href="#"> Gérer mes recettes </a> </li>
-                                             <li> <hr class="dropdown-divider"> </li>                                                                                                        
-
-                                         {# ***** Gestion du site ***** #}
-                                         <h6> <kbd> Gestion du site </kbd> </h6>
-
-                                             <li> <a class="dropdown-item" href="{{path ('user_index') }}"> Gérer les utilisateurs </a> </li>
-                                             {# <li> <a class="dropdown-item" href="#"> Gérer les roles </a> </li> #}
-                                             {# <li> <a class="dropdown-item" href="#"> Gérer les commentaires </a> </li> #}
-                                             {# <li> <a class="dropdown-item" href="#"> Gérer les notes </a> </li> #}
-                                            
-                                             <li> <hr class="dropdown-divider"> </li>
-
-
-                                         {# ***** Gestion du site ***** #}
-                                         <h6> <kbd> Gestion du profil </kbd> </h6>
-
-                                             <li> <a class="dropdown-item" href="{{path ('user_edit',{'id': app.user.id})}}"> Gérer mon compte </a></li>
-                                             <li> <a class="dropdown-item" href="{{path ('user_show',{'id': app.user.id})}}"> Mon profil </a></li>
-                                             <li> <a class="dropdown-item" href="#"> Paramètres </a></li>
 
                                              <li> <hr class="dropdown-divider">   </li> 
 
@@ -123,7 +53,11 @@
        
                  </div>
 
-                 {# ********** Partie: Logo ********** #}
+
+                 <figure> 
+                     <img src="/logo.png" alt="Logo du site" >
+                 </figure>
+
 
                  <div class="col-4 text-center "> 
                      <img id="avatarUser"src="/logo.png" alt="Logo du site" >
@@ -131,42 +65,69 @@
              
                  {# ********** Partie: SideBar ********** #}
 
-                 <div class="col-4 text-end ">
+                 <div class="">
 
-                     <div id="myNav" class="overlay">
+                     <div id="myNav" class="sideBar_Cuistot">
 
-                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times; </a>
-                    
-                         {# <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;"> #}
+                         {# <hr style="color:bleu;"/> #}
+                         
+                         {# ? Animation Bouton " Close " du Menu de navigation #}
+
+                         <article>
+		
+		                	 <audio id="MenuNavigationClose" onclick="SoundAnimationBoutonClose()">
+		                    	 <source src="/Sound/MGS_MenuOff1.mp3" type="audio/mpeg"></source>
+		                     </audio>
+
+                             <a href="javascript:void(0)" class="closebtn" preload="auto" onmousedown="SoundFxMenuClose()" onclick="closeNav()"> &times;  </a>
+                        
+                             <script>
+		                		 var audioDuBoutonClose = document.getElementById("MenuNavigationClose");
+		                	  	 function SoundFxMenuClose() {
+		                			 audioDuBoutonClose.play ();
+		                		 }
+		                	 </script>
+                 
+		                 </article>
+
+                         <hr style="color:rgba(25,135,84,0.9);"/>
+
+
                          <div class="overlay-content">
                              
                              {# *** Titre *** #}
-                             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                             <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                                
                                  <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-                                 <span class="h1 fs-4"> Menu de navigation </span>
+                              
+                                     <span class="h1"> 
+                                         Menu de navigation 💻
+                                     </span>
+
                              </a>
             
-                             <hr>
+                                 <hr style="color:rgba(25,135,84,0.9);"/>
 
-                             <ul class="nav nav-pills flex-column mb-auto">
+                             <ul class="nav nav-pills flex-column">
 
                                  {# *** Partie: Accueil *** #}
 
                                  <li class="nav-item">
-                                     <a href="{{path("home")}}" class="nav-link" aria-current="page">
-                                         <svg class="bi me-2" width="16" height="16">
-                                         <use xlink:href="#home"></use></svg>
-                                         <i class='fas fa-house-user'></i> &nbsp; Accueil
-                                         
+
+
+                                     <a href="/" class="nav-link" >
+               
+                                         <i class='fas fa-house-user'></i> &nbsp; Accueil 
+
+
                                      </a>
+
                                  </li>
 
                                  {# *** Partie: Actualités *** #} 
 
                                  {# <li>
                                      <a href="#" class="nav-link">
-                                         <svg class="bi me-2" width="16" height="16">
-                                         <use xlink:href="#speedometer2"></use></svg>
                                          <i class='fas fa-pepper-hot'></i> &nbsp; Actualités
                                      </a>
                                  </li> #}
@@ -175,8 +136,6 @@
 
                                  <li>
                                      <a href="#" class="nav-link">
-                                         <svg class="bi me-2" width="16" height="16">
-                                         <use xlink:href="#table"></use></svg>
                                          <i class='fas fa-utensils'></i> &nbsp; Recettes
                                      </a>
                                  </li>
@@ -195,33 +154,48 @@
 
                                  {# <li>
                                      <a href="#" class="nav-link">
-                                         <svg class="bi me-2" width="16" height="16">
-                                         <use xlink:href="#grid"></use></svg>
                                           <i class='fas fa-hand-sparkles'></i> &nbsp; Astuces
                                      </a>
                                  </li> #}
 
                                  {# *** Partie: Contact *** #}
 
-                                 {# <li>
-                                     <a href="#" class="nav-link">
-                                         <svg class="bi me-2" width="16" height="16">
-                                         <use xlink:href="#people-circle"></use></svg>
-                                         <i class='fas fa-address-card'></i> &nbsp;  Contact
+
+                                 <li>
+
+                                     <a href="#" class="nav-link" >
+                                         <i class='fas fa-address-card'></i> &nbsp;  Contact 
                                      </a>
-                                 </li> #}
+                                     
+                                 </li>
+
 
                              </ul>
 
                          </div>   
 
                      </div>
-             
-                     {# ********** Partie: SearchBar ********** #} 
 
-                     {# <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                         <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-                     </form> #}
+
+                         {# ? Animation Bouton " Close " du Menu de navigation #}
+
+                         <article>
+		
+		                     <audio id="MenuNavigationOpen" onclick="SoundAnimationBoutonOpen()">
+			            	     <source src="/Sound/MGS_MenuOn1.mp3" type="audio/mpeg"></source>
+			                 </audio>
+
+                             <span style="font-size:30px;cursor:pointer" preload="auto" onmousedown="SoundFxMenuOpen()"  onclick="openNav(1)"> &#9776; </span> 
+   
+                             <script>
+		            	    	 var audioDuBoutonOpen = document.getElementById("MenuNavigationOpen");
+		            	      	 function SoundFxMenuOpen() {
+		            	    		 audioDuBoutonOpen.play ();
+		            	    	 }
+		                    </script>
+
+		                 </article>
+
 
                      <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776; </span> 
      
@@ -269,3 +243,39 @@
              </header>
 
          </div>
+           
+         {# ***** ***** ***** ***** ***** #}
+
+         {# <p>
+
+             <a href="http://jigsaw.w3.org/css-validator/check/referer">
+             
+                 <img style="border:0;width:88px;height:31px"
+                     src="http://jigsaw.w3.org/css-validator/images/vcss"
+                     alt="CSS Valide !" />
+            
+             </a>
+             
+         </p> #}
+                     
+         {# CSS Valide ! #}
+         {# ? Code CSS Validé Par W3.org #}
+
+         {# <p>
+
+             <a href="http://jigsaw.w3.org/css-validator/check/referer">
+               
+                 <img style="border:0;width:88px;height:31px"
+                     src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+                     alt="CSS Valide !" />
+
+                 </a>
+          
+             </p> #}
+     
+         {# ***** ***** ***** ***** ***** #}
+
+
+
+                         
+                        

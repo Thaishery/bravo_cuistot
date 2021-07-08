@@ -16,13 +16,24 @@
              <meta name="viewport" content="width=device-width, initial-scale=1">
              <meta name="author" content="Guillaume Debucquet, Jordan Carmont, Christophe Laborde">       
              <meta name="description" content="Ceci est notre projet 'Bravo Cuistot' .">
+
              <meta name=" Studio" content=
-                 {% block metaTitle %} " PROJET BRAVO CUISTOT" {% endblock %}> </meta>
+
+                 {% block metaTitle %} 
+                     " PROJET BRAVO CUISTOT"
+                 {% endblock %}> 
+
+             </meta>
+
              <meta name="robots" content="none" />
              <link rel="icon" src="Images/logo.ico" type="image/x-icon" alt="Logo du site">
 
              <title>
-                 {% block title %} PROJET BRAVO CUISTOT {% endblock %}
+
+                 {% block title %}
+                      PROJET BRAVO CUISTOT 
+                 {% endblock %}
+
              </title>
   
              {% block stylesheets %}
@@ -35,27 +46,50 @@
                  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> #}
 
                  {# ***** Script: JS - Fonctionnalité SideBar ***** #}
-                 <script src="{{asset ('js/sidebar.js .js')}}"></script>
+                 <script src="{{asset ('js/sidebar.js')}}"></script>
 
-                 {# ***** Script Fonctionnalité SideBar ***** #}
-                 <link href="{{asset ('style/style_sidebar.css')}}" rel="stylesheet">      
+                 {# ***** Style CSS Fonctionnalité SideBar ***** #}
+                 <link href="{{asset ('style/style_sidebar.css')}}" rel="stylesheet">
 
-                 {# ***** Script Css ***** #}
+                 {# ***** Script Css Général ***** #}
                  <link href="{{asset ('style/style.css')}}" rel="stylesheet">
+
+
+                 {# ***** Script NavBarAlien ***** #}
+                 <link href="{{asset ('style/style_navAlien.css')}}" rel="stylesheet">
+
+                 {# ? Script: Animation Sonore Bouton Open/Close Menu de Navigation #}
+                 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+  
+                 {# ***** Script NavBarAlien ***** #}
+                 <link href="{{asset ('style/styleCardTranslation.css')}}" rel="stylesheet"> 
+                  
+
 
                      {# ***** Script Css: Animations bouton "Close" ***** #}
                      {# ! Fontionne mais je n'arrive pas à l'intégrer à la bonne place. Revenir dessus plus tard JC_  #}
                      {# <link href="{{asset ('style/style_close_button.css')}}" rel="stylesheet"> #}
                     
+
              {% endblock %}
      
              {% block javascripts %}
 
-                 {# ***** Script Js: SideBar ***** #}
+
+                 {# ? Script Js #}
                  <script src="{{asset ('js/sidebar.js')}} "type="text/javascript"" "></script> 
                  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-            
+
+                     {# ! J'ai trouver cette animation de navBar sympa.
+                     {# ! J'aimerai bien que cette barre reste accrocher en bas de l'écran! Faut que je regarde comment la fixée.
+                     {# ! On pourrait par exemple y intégrer la barre de recherche et/ou d'autres truc si vosu avez des idéés  
+                     {# ! JC_ 
+
+                     {# ? Script Js: NavBarAlien #}
+                     <script src="{{asset ('js/navAlien.js')}}" type="text/javascript"></script> 
+
              {% endblock %}
+
 
          </head>
 
@@ -65,21 +99,20 @@
 
          </header>
 
-         <body class="">
-        
-         {# {% include 'partials/home.html.twig' %} #}
-          
-             {% block body %}   
 
-                  
+         <body>
 
-             {% endblock %}
-         
+             {% block body %} {% endblock %}
+             {# {% include 'partials/body.html.twig' %} #}
+             {# {% include 'partials/alien.html.twig' %} #}
+           
+              
+
          </body>
 
          <footer>
 
-             {% include 'partials/footer.html.twig' %}
+             {# {% include 'partials/footer.html.twig' %} #}
 
          </footer>
 

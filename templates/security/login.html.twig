@@ -1,12 +1,20 @@
+ {# ? Feuille du bouton Delete #}
+ 
  {% extends 'base.html.twig' %}
 
+     {% block metaTitle %}
+         " Formulaire de connection  "
+     {% endblock %}
+
      {% block title %}
-         Log in!
+         Formulaire de connection 
      {% endblock %}
      
      {% block body %}
 
-         <main>
+
+         <main class="Form">
+
 
              <form method="post">
 
@@ -27,51 +35,66 @@
                      </div>
 
                  {% endif %}
-                 
-                 {# *** Conteneur du formulaire *** #}
 
-                 <div id="bloc_page" class="py-5 text-center col-12">
+             
+                 {# *** Conteneur du titre du formulaire *** #}
+
+                 <article id="bloc_page" class="py-5 text-center col-12">
                  
-                     <h1 class="h3 mb-3 font-weight-normal"> Formulaire de connection </h1>
- 
-                         <label for="inputLogin"> Pseudo </label>
-                         <input type="text" value="{{ last_username }}" name="login" id="inputLogin" class="form-control" autocomplete="username" required autofocus>
-                        
-                         <label for="inputPassword"> Mot de passe </label>
-                         <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                     <h1 class="mb-3 font-weight-normal">
+                         Formulaire de connection 
+                     </h1>
+
+                     <p class="lead"> 
+                         Déjà de retour! Merci de vous identifiez 🔏
+                     </p>
                  
-                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                 
-                         <div class="checkbox mb-3">
-                         
-                             <label>
-                                 <input type="checkbox" name="_remember_me">
-                                 Se souvenir de moi
-                             </label>
-                        
-                         </div>
+                     <label for="inputLogin"> Pseudo </label>
+                     <input type="text" value="{{ last_username }}" name="login" id="inputLogin" class="form-control" autocomplete="username" required autofocus>
+                    
+                     <label for="inputPassword"> Mot de passe </label>
+                     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+             
+                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+             
+                     <section class="checkbox mb-3">
+                     
+                     <hr style="color:rgba(25,135,84,0.9);"/>
+
+                         <label>
+                             <input type="checkbox" name="_remember_me">
+                             Se souvenir de moi
+                         </label>
+                   
+                     <hr style="color:rgba(25,135,84,0.9);"/>
+
+                     </section>
+
 
                      {#
                              Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
                              See https://symfony.com/doc/current/security/remember_me.html                 
                      #}
 
-                     {# *** Conteneur des boutons *** #}
 
-                     <div class="btn-group-vertical col-12">
+                     <section class="btn-group-vertical col-12">
+
 
                          <button type="submit" class="btn btn-dark btn-lg px-4 gap-3"> 
 
                              {# <a href="{{ path('home') }}"> Se connecter </a>  #}
                              Se connecter 
                          </button>
-
-                         <button href="{{ path('app_register') }}" type="submit" class="btn btn-success btn-lg px-4">                                
+   
+                         {# *** Bouton: S'inscrire *** #}
+                         <a type="submit" href="{{ path('app_register') }}" class="btn btn-success btn-lg px-4 gap-3">                                 
                              S'inscrire
-                         </button>
- 
+                         </a>
+                      
+                     </section>
 
-                     </div>
+                 </article>
+
 
                      {# ******************** #}
 
@@ -82,3 +105,5 @@
          <main>
 
      {% endblock %}
+
+    

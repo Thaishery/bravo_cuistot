@@ -9,22 +9,9 @@
      {% endblock %}
     
      {% block body %}
-
-         {# <body class="px-4 py-5 my-5 text-center"> #}
-         <body>
  
-             <hr style="color:white;"/>
+             <main>
 
-                 <main class="form-signin">
-
-                     {{ form_start (registrationForm, 
-                         { 'attr':
-                             {
-                                 'class':'needs-validation',
-                                 'novalidate':''
-                             }
-                         })
-                     }}   
 
                      <form>    
 
@@ -32,31 +19,34 @@
 
                              {# ************************* #}                
 
-                             {# *** Conteneur du titre du formulaire *** #}
-                             <div id="bloc_page1" class="text-center">
 
-                                 {# *** Titre du formulaire *** #}
-                                 <h1 id="plantFont" class="h3 mb-3 font-weight-normal"> Formulaire d'inscription </h1>
+                         <div class="Form">                 
 
-                                 {# *** Phrase d'accroche du formulaire *** #}
+                             <section class="text-center">
+
+                                 <h1 class="plantFont" class="h1 mb-3 font-weight-normal"> Formulaire d'inscription </h1>
+                  
                                  <p class="lead"> 
-                                     Inscrivez-vous gratuitement pour créer un compte et accéder au contenu du site. 
+                                     <em> Inscrivez-vous gratuitement pour créer un compte et accéder à tout le contenu du site. </em> 
                                  </p>
                                
-                             </div>   
+                             </section>                     
 
-                             <div id="inscriptionForm" class="contenu">
-                     
-                                 {# ***** Partie: Pseudo / Avatar ***** #}
+                             <article id="inscriptionForm" class="text-center">
 
                                  <div class="row">
- 
-                                     {# ********** LOGIN ******** #}
- 
-                                     <div class="col-12 col-xl-6">   
-                                           
-                                         {# *** LABEL *** #}
-                                         {{form_label (registrationForm.login, 'Pseudo' ) }}
+                                 
+                                         {# **************************** LOGIN ***************************** #}
+
+                                         <div class="col-12 col-xl-6">   
+                                               
+                                             {# *** LABEL *** #}
+                                             {{form_label
+                                                 (registrationForm.login, 
+                                                     'Pseudo'
+                                                 ) 
+                                             }}
+
 
                                          <div class="input-group has-validation">
 
@@ -79,13 +69,9 @@
                                                  {{form_errors(registrationForm.login)}}
                                              </div>
 
-                                         </div>
-                                                 
-                                         <span class="text-danger"> 
-                                             {{form_errors(registrationForm.login)}}
-                                         </span>
-                                                 
-                                     </div> 
+
+                                         {# **************************** AVATAR **************************** #}
+
 
                                      {# ************************* #}
                                      {# ******** AVATAR ********* #}
@@ -107,11 +93,11 @@
 
                                  </div>      
 
-                                 {# ***** Partie: Email / Email confirmation ***** #}
-                             
+
                                  <div class="row">
 
-                                     {# ********** EMAIL ******** #}
+                                         {# **************************** EMAIL ***************************** #}
+
 
                                      <div class="col-sm-6">
                                             
@@ -141,11 +127,9 @@
     
                                          </div>
 
-                                         <span class="text-danger">
-                                             {{ form_errors (registrationForm.email.first) }} 
-                                         </span>
-                                                                         
-                                     </div>
+
+                                         {# *********************** EMAIL CONFIRMATION  ******************** #}
+
 
                                      {# ** EMAIL CONFIRMATION *** #}
  
@@ -176,13 +160,13 @@
     
                                          </div>
 
-                                         <span class="text-danger">
-                                             {{ form_errors (registrationForm.email.second) }} 
-                                         </span>
-                                                                                                                   
-                                     </div>
 
                                  </div>
+
+                                         {# **************************** PASSWORD ************************** #}
+
+                                 <div class="row"> 
+
 
                                  {# ************************* #}
                                  {# ******* PASSWORD ******** #}
@@ -225,9 +209,9 @@
                                                              
                                      </div>
 
-                                     {# ************************* #} 
-                                     {# * PASSWORD CONFIRMATION * #}
-                                     {# ************************* #}
+
+                                         {# ******************* PASSWORD CONFIRMATION ********************** #}
+
 
                                      <div class="col-sm-6">
                                         
@@ -261,57 +245,63 @@
                                              {{ form_errors (registrationForm.plainPassword.second) }} 
                                          </span>
                                                                                                
-                                     </div>
 
-                                     {# ************************* #}
-                                     {# ********* C.G.U. ******** #}
-                                     {# ************************* #}
-
-                                     <hr class="my-4">
-
-                                         <div class="col-12 mx-auto">
-
-                                             {# *** LABEL *** #}
-                                             <div class="offset-md-5 CGU_center">{{form_label(registrationForm.agreeTerms, 'Veuillez accepter nos conditions :')}}
-
-                                             {# *** INPUT *** #}
-                                             {{form_widget
-                                                 (registrationForm.agreeTerms,
-                                                     {
-                                                         'attr':
-                                                             {
-                                                              'class':'form-check-input',
-                                                             }
-                                                     }
-                                                 ) 
-                                             }}
-                                             </div>
-
-                                             {# *** If Errors *** #}
-                                             <div class="invalid-feedback">
-                                                 Le champ validation des conditions est requis.
-                                                 {{form_errors(registrationForm.agreeTerms)}}
-                                             </div>
-
-                                             <span class="text-danger">
-                                                 {{form_errors(registrationForm.agreeTerms)}}
-                                             </span>
-                                                         
                                          </div>
  
-                                     <hr class="my-4">
+                                         {# **************************** C.G.U. **************************** #}
+                                    
+                                         <hr class="my-4" style="color:rgba(25,135,84,0.9);"/>
 
-                                     {# ************************* #} 
-                                     {# ********* ACTION ******** #}
-                                     {# ************************* #}
+                                         <article class="col-12 mx-auto ">
 
-                                     <div class="btn-group-vertical">
+                                             {# *** LABEL *** #}
+                                             <section class="text-center">{{form_label(registrationForm.agreeTerms, 'Veuillez accepter nos conditions :')}}
 
-                                         {# *** Bouton: S'inscrire *** #}
-                                         <button type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
-                                             S'inscrire 
-                                         </button>
-         
+                                                 {# *** INPUT *** #}
+                                                 {{form_widget
+                                                     (registrationForm.agreeTerms,
+                                                         {
+                                                             'attr':
+                                                                 {
+                                                                  'class':'form-check-input',
+                                                                 }
+                                                         }
+                                                     ) 
+                                                 }}
+                                                 </div>
+
+                                                 {# *** If Errors *** #}
+                                                 <div class="invalid-feedback">
+                                                     Le champ validation des conditions est requis.
+                                                     {{form_errors(registrationForm.agreeTerms)}}
+                                                 </div>
+
+                                                 <span class="text-danger">
+                                                     {{form_errors(registrationForm.agreeTerms)}}
+                                                 </span>
+                                                             
+                                             </section>
+ 
+                                             <hr class="my-4" style="color:rgba(25,135,84,0.9);"/>
+
+                                             {# **************************** ACTION ***************************** #}
+
+                                             <section class="btn-group-vertical col-12 ">
+
+                                                 {# *** Bouton: S'inscrire *** #}
+                                                 <button type="submit" class="btn btn-dark btn-lg">                                
+                                                     Valider le formulaire
+                                                 </button>            
+                       
+                                                 {# *** Bouton: Se Connecter *** #}
+                                                 <a type="submit" href="{{ path('app_login') }}" class="btn btn-success btn-lg">                                
+                                                     Se connecter  
+                                                 </a>   
+
+                                             </section>
+
+                                         </article>
+
 
                                          {# *** Bouton: Se Connecter *** #}
                                          <button href="{{ path('app_login') }}" type="submit" class="btn btn-dark btn-lg px-4">                                
@@ -319,9 +309,15 @@
                                          </button>  
 
 
+                             </article> 
+
+                         </div>
+
+
                                      </div>
 
                                  </div> 
+
 
                              </div> 
 

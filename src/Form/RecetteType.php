@@ -2,7 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Alimentation;
+use App\Entity\Cuisson;
+use App\Entity\Plats;
 use App\Entity\Recette;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -94,7 +98,7 @@ class RecetteType extends AbstractType
                     new Assert\Regex([
                         'pattern' => '/^0{1}/',
                         'match' => false,
-                        'message' => 'ce champ ne peut être vide'
+                        'message' => 'Ce champ ne peut être vide'
                     ]),
                     //au maximum 2 caractéres
                     new Assert\Regex([
@@ -134,9 +138,27 @@ class RecetteType extends AbstractType
             // commentaire temporaire pour tester les regex,
             // sera récupérer du controller et ajouter, donc pas de sécurisation (champ non exposer)
             // ->add('author_id')
-            // ->add('cuisson_id')
-            // ->add('alimentation_id')
-            // ->add('plats_id')
+            ->add('cuisson_id', EntityType::class,[
+                'class' => Cuisson::class,
+                'multiple' => false,
+                'expanded' => false,
+                'choice_label' =>'name',
+                'label' =>'Type de cuisson'
+            ])
+            ->add('alimentation_id', EntityType::class,[
+                'class' => Alimentation::class,
+                'multiple' => false,
+                'expanded' => false,
+                'choice_label' =>'name',
+                'label' => 'Type d\'alimentation'
+            ])
+            ->add('plats_id', EntityType::class,[
+                'class' => Plats::class,
+                'multiple' => false,
+                'expanded' => false,
+                'choice_label' =>'name',
+                'label' => 'Type de plats'
+            ])
             // ->add('users_fav_id')
         ;
     }

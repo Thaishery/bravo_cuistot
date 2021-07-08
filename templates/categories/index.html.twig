@@ -1,43 +1,170 @@
-{% extends 'base.html.twig' %}
+ {% extends 'base.html.twig' %}
 
-{% block title %}Gestion des catégories{% endblock %}
+     {% block metaTitle %}
+         " Gestion des catégories "
+     {% endblock %}
 
-{% block body %}
-<h1 class="h1Title">Gestion des catégories</h1>
-<div class="container">
-        <div class="row">
-            <div class="col-6 administrationCard">
-                <a href="{{path("administration_plats_index")}}">
-                    <div class="cardImage">
-                        <img class="administrationLogo col-6" src="{{asset ('Images/plats.jpg')}}" alt="image d'une persone type emoji">
-                    </div>
-                    <p class="administrationTitle">
-                        Gérer les types de plats
-                    </p>
-                </a>
-            </div>
-            <div class="col-6 administrationCard">
-                <a href="{{path("administration_alimentation_index")}}">
-                    <div class="cardImage">
-                        <img class="administrationLogo col-6" src="{{asset ('Images/steak.png')}}" alt="image d'une persone type emoji">
-                    </div>
-                    <p class="administrationTitle">
-                       Gérer les type d'alimentation
-                    </p>
-                </a>
-            </div>
-            <div class="col-6 administrationCard">
-                <a href="{{path("administration_cuisson_index")}}">
-                    <div class="cardImage">
-                        <img class="administrationLogo col-6" src="{{asset ('Images/barbecue.jpg')}}" alt="image d'une persone type emoji">
-                    </div>
-                    <p class="administrationTitle">
-                       Gérer les type de cuisson
-                    </p>
-                </a>
-            </div>
-            <div class="col-6">
-            </div>
-        </div>
-</div>
-{% endblock %}
+     {% block title %}
+         Gestion des catégories
+     {% endblock %}
+     
+     {% block body %}
+
+         <main class="Form">  
+
+             <article class="text-center">
+             
+                 <h1 class="font-weight-normal text-center"> Gestion des catégories </h1>
+
+                 <p class="lead"> 
+                     <em> Veuillez sélectionnez une catégorie à administrer : </em>  📂
+                 </p>
+
+             </article>
+
+             <article class="containerCarte">
+
+                 <section class="card">
+
+                     <h3 class="title">Card 1</h3>
+
+                     <ul class="bar">
+                         <li class="emptybar"></li>
+                         <li class="filledbar"></li>
+                     </ul>
+
+                     <figure class="circle">
+
+                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                             <circle class="stroke" cx="60" cy="60" r="50"/>
+                         </svg>
+
+                     </figure>
+
+                 </section>
+
+                 {# ***** ***** *****#}
+
+                 <section class="card">
+
+                     <h3 class="title">Card 2</h3>
+
+                     <ul class="bar">
+                         <li class="emptybar"></li>
+                         <li class="filledbar"></li>
+                     </ul>
+
+                     <figure class="circle">
+                     
+                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                             <circle class="stroke" cx="60" cy="60" r="50"/>
+                        </svg>
+
+                     </figure>
+
+                 </section>
+
+                 {# ***** ***** *****#}
+
+                 <section class="card">
+
+                     <h3 class="title">Card 3</h3>
+
+                     <ul class="bar">
+                         <li class="emptybar"></li>
+                         <li class="filledbar"></li>
+                     </ul>
+
+                     <figure class="circle">
+
+                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                             <circle class="stroke" cx="60" cy="60" r="50"/>
+                         </svg>
+
+                     </figure>
+
+                 </section>
+
+                 {# ***** ***** *****#}
+
+                 <section class="card">
+
+                     <h3 class="title">Card 4</h3>
+
+                     <ul class="bar">
+                         <li class="emptybar"></li>
+                         <li class="filledbar"></li>
+                     </ul>
+
+                     <figure class="circle">
+
+                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                             <circle class="stroke" cx="60" cy="60" r="50"/>
+                         </svg>
+
+                     </figure>
+
+                 </section>
+
+                 {# ***** ***** *****#}
+
+             </article>
+
+         </main>
+
+     {% endblock %}
+
+
+ {# TEST / CODE VRAC , etc... #}
+ 
+ {# ? Carte Carousel Lien SOurce : https://codepen.io/onion2k/pen/xxZYBVj #}
+
+ {# ? Autre Style de carte en HTML CSS #}
+
+     {# <div class="column"> 
+  
+         <input type="radio" name="position" />
+         <input type="radio" name="position" checked/>
+         <input type="radio" name="position" />
+        
+         <article id="carousel">
+
+                 <section class="item col-12">
+     
+                     <a href="{{path("administration_plats_index")}}" type="submit" class="btn btn-success bg-gradient col-12 btn-lg px-4 gap-3">                                
+                         Types de plats 
+                     </a>      
+
+                     <figure >
+                         <img class="administrationLogo col-12" src="{{asset ('Images/Nourriture.png')}}" alt="image d'une persone type emoji">
+                     </figure>
+
+                 </section>
+ 
+                 <section class="item col-12">                  
+
+                     <a href="{{ path("administration_alimentation_index") }}" type="submit" class="btn btn-success bg-gradient col-12 btn-lg px-4 gap-3">                                
+                         Types d'alimentations 
+                     </a>
+
+                     <figure >
+                         <img class="administrationLogo col-12" src="{{asset ('Images/JunkFood.jpg')}}" alt="image d'une persone type emoji">
+                     </figure>
+
+                 </section>
+
+                 <section class="item col-12">
+
+                     <a href="{{path("administration_cuisson_index")}}" type="submit" class="btn btn-success bg-gradient col-12 btn-lg px-4 gap-3">                                
+                         Types de cuissons
+                     </a>
+               
+                     <figure >
+                         <img class="administrationLogo col-12" src="{{asset ('Images/barbecue.jpg')}}" alt="image d'une persone type emoji">
+                     </figure>
+
+                 </section>
+         
+         </article>
+
+     </div> #}

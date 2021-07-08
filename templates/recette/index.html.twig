@@ -1,0 +1,101 @@
+ {# ? Partie : Gestion des recettes #ModeUser #}
+ 
+ {% extends 'base.html.twig' %}
+
+     {% block metaTitle %}
+         " Gestion des recettes "
+     {% endblock %}
+
+     {% block title %}
+         Gestion des recettes
+     {% endblock %}
+     
+     {% block body %}
+
+         <main class="Form">  
+
+             <section class="text-center">
+    
+                 <h1 class="mb-3 font-weight-normal"> Gestion des recettes </h1>
+         
+                 <p class="lead"> 
+                     <em> Consulter la liste de vos recettes et les administrés. </em>  📓
+                 </p>
+    
+             </section>
+    
+             <article>
+    
+                 <table class="table table-dark table-hover">
+                 
+                     <thead>
+    
+                         <tr>
+    
+                             <th> Id </th>
+                             <th> Nom de la recette </th>
+                             <th> Image </th>
+                             <th> Temps de préparation </th>
+                             <th> Temps de cuisson </th>
+                             <th> Nombre de personnes </th>
+                             <th> Difficulté </th>
+                             <th> Action </th>
+    
+                         </tr>
+    
+                     </thead>
+    
+                     <tbody>
+    
+                     {% for recette in recettes %}
+    
+                         <tr>
+    
+                             <td> {{ recette.id }} </td>
+                             <td> {{ recette.name }} </td>
+                             <td> {{ recette.image }} </td>
+                             <td> {{ recette.tempsPreparation }} </td>
+                             <td> {{ recette.tempsCuisson }} </td>
+                             <td> {{ recette.nbPersonnes }} </td>
+                             <td> {{ recette.difficulte }} </td>
+    
+                             <td>
+                                
+                                 <section class="btn-group">
+            
+                                     <button href="{{ path('recette_show', {'id': recette.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
+                                         Voir
+                                     </button>   
+                                
+                                     <button href="{{ path('recette_edit', {'id': recette.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
+                                         Modifier
+                                     </button>            
+                                
+                                 </section>
+
+                             </td>
+    
+                         </tr>
+    
+                     {% else %}
+    
+                         <tr>
+                             <td colspan="8"> Aucun élément ne correspond à votre recherche </td>
+                         </tr>
+    
+                     {% endfor %}
+    
+                     </tbody>
+    
+                 </table>
+         
+             </article>
+    
+             <a type="submit" href="{{ path('recette_new') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+                 Créer une nouvelle recette
+             </a>
+
+         </main>
+
+     {% endblock %}
+     

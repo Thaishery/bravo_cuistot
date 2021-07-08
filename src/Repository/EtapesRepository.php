@@ -22,11 +22,11 @@ class EtapesRepository extends ServiceEntityRepository
     // /**
     //  * @return Etapes[] Returns an array of Etapes objects
     //  */
-    /*
-    public function findByExampleField($value)
+    
+    public function findByRecetteId($value)
     {
         return $this->createQueryBuilder('e')
-            ->andWhere('e.exampleField = :val')
+            ->andWhere('e.recette_id = :val')
             ->setParameter('val', $value)
             ->orderBy('e.id', 'ASC')
             ->setMaxResults(10)
@@ -34,7 +34,7 @@ class EtapesRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?Etapes

@@ -22,19 +22,19 @@ class RecetteRepository extends ServiceEntityRepository
     // /**
     //  * @return Recette[] Returns an array of Recette objects
     //  */
-    /*
-    public function findByExampleField($value)
+    
+    public function findById($value)
     {
         return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
+            ->andWhere('r.id = :val')
             ->setParameter('val', $value)
             ->orderBy('r.id', 'ASC')
-            ->setMaxResults(10)
+            // ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?Recette
