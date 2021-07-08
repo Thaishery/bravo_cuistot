@@ -20,19 +20,15 @@
 
              </section>  
 
-             <article class="btn-group-vertical">
+             {# <article class="btn-group-vertical"> #}
 
-                 <button href=" {{ include('administration_ingredients/_form.html.twig', {'button_label': 'Update'}) }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">
-                 </button>
-
-                 <button href="{{ include('administration_ingredients/_delete_form.html.twig') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3"> 
-                 </button> 
-                 
-                 <button href="{{ path('administration_ingredients_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+                {{ include('administration_ingredients/_form.html.twig', {'button_label': 'Update'}) }}
+                {{ include('administration_ingredients/_delete_form.html.twig') }}
+                 <a href="{{ path('administration_ingredients_index') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
                      Retour à la liste
-                 </button>
+                 </a>
 
-             </article> 
+             {# </article>  #}
 
          </main>    
 

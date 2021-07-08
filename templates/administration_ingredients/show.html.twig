@@ -44,17 +44,15 @@
 
              <article>
 
-                 <button href="{{ path('administration_ingredients_edit', {'id': ingredient.id}) }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+                 <a href="{{ path('administration_ingredients_edit', {'id': ingredient.id}) }}"  class="btn btn-success col-12 btn-lg px-4 gap-3">                                
                      Modifier
-                 </button>    
+                 </a>    
 
-                 <button href="{{ include('administration_ingredients/_delete_form.html.twig') }}" type="submit" onsubmit="return confirm('Voulez vraiment supprimer ce fichier?');" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
-                     Supprimer
-                 </button>
+                 {{ include('administration_ingredients/_delete_form.html.twig') }}
                     
-                 <button href="{{ path('administration_ingredients_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+                 <a href="{{ path('administration_ingredients_index') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
                      Retour à la liste 
-                 </button>   
+                 </a>   
 
              </article>
 

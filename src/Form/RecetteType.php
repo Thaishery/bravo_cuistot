@@ -141,20 +141,23 @@ class RecetteType extends AbstractType
             ->add('cuisson_id', EntityType::class,[
                 'class' => Cuisson::class,
                 'multiple' => false,
-                'expanded' => true,
-                'choice_label' =>'name'
+                'expanded' => false,
+                'choice_label' =>'name',
+                'label' =>'Type de cuisson'
             ])
             ->add('alimentation_id', EntityType::class,[
                 'class' => Alimentation::class,
                 'multiple' => false,
-                'expanded' => true,
-                'choice_label' =>'name'
+                'expanded' => false,
+                'choice_label' =>'name',
+                'label' => 'Type d\'alimentation'
             ])
             ->add('plats_id', EntityType::class,[
                 'class' => Plats::class,
                 'multiple' => false,
-                'expanded' => true,
-                'choice_label' =>'name'
+                'expanded' => false,
+                'choice_label' =>'name',
+                'label' => 'Type de plats'
             ])
             // ->add('users_fav_id')
         ;

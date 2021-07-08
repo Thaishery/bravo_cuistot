@@ -20,19 +20,16 @@
 
              </section>   
 
-             <article class="btn-group-vertical">
+             {# <article class="btn-group-vertical"> #}
 
-                 <button href="{{ include('administration_recette/_form.html.twig', {'button_label': 'Update'}) }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">
-                 </button>
+                {{ include('administration_recette/_form.html.twig', {'button_label': 'Update'}) }}
+                {{ include('administration_recette/_delete_form.html.twig') }}
 
-                 <button href="{{ include('administration_recette/_delete_form.html.twig') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3"> 
-                 </button>
-
-                 <button href="{{ path('administration_recette_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+                 <a href="{{ path('administration_recette_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
                      Retour à la liste
-                 </button>
+                 </a>
                
-             </article> 
+             {# </article>  #}
 
          </main>
 

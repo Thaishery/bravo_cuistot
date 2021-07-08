@@ -20,19 +20,15 @@
 
              </section>   
 
-             <article class="btn-group-vertical">
+             {# <article class="btn-group-vertical"> #}
 
-                 <button href="{{ include('unite_mesure/_form.html.twig', {'button_label': 'Update'}) }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">
-                 </button>
-     
-                 <button href="{{ include('unite_mesure/_delete_form.html.twig') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3"> 
-                 </button>  
-     
-                 <button href="{{ path('unite_mesure_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+                 {{ include('unite_mesure/_form.html.twig', {'button_label': 'Update'}) }}
+                {{ include('unite_mesure/_delete_form.html.twig') }}     
+                 <a href="{{ path('unite_mesure_index') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
                      Retour à la liste
-                 </button>
+                 </a>
 
-             </article> 
+             {# </article>  #}
 
          </main>
 
