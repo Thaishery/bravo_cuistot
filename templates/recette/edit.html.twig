@@ -1,4 +1,11 @@
-{% extends 'base.html.twig' %}
+ {# ? Feuille : Modifier une recette #ModeUser #}
+ 
+ {% extends 'base.html.twig' %}
+ 
+     {% block metaTitle %}
+         " Modifier une recette "
+     {% endblock %}
+
 
 {% block title %}Editer la Recette{% endblock %}
 
@@ -53,3 +60,4 @@
     {# pas d'option pour supprimer la recette ici, elle devrais être dans la vue "gérer mes recettes" #}
     {# {{ include('recette/_delete_form.html.twig') }} #}
 {% endblock %}
+

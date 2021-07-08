@@ -1,11 +1,42 @@
-{% extends 'base.html.twig' %}
+ {# ? Partie : Créer un nouveau commentaire #ModeAdmin #}
+ 
+ {% extends 'base.html.twig' %}
+ 
+      {% block metaTitle %}
+         " Créer un nouveau commentaire "
+     {% endblock %}
 
-{% block title %}New Commentaires{% endblock %}
+     {% block title %}
+         Créer un nouveau commentaire 
+     {% endblock %}
+     
+     {% block body %}
 
-{% block body %}
-    <h1>Create new Commentaires</h1>
+         <main class="Form"> 
 
-    {{ include('administration_comentaires/_form.html.twig') }}
+             <section class="text-center">
+    
+                 <h1 class="mb-3 font-weight-normal"> Créer un nouveau commentaire  </h1>
+         
+                     <p class="lead"> 
+                         <em> Rédiger un nouveau commentaire </em>  ✍️
+                     </p>
 
-    <a href="{{ path('administration_comentaires_index') }}">back to list</a>
-{% endblock %}
+             </section>  
+
+             <article class="btn-group-vertical col-12">
+      
+                 <div class="text-center">
+                     {{ include('administration_comentaires/_form.html.twig') }}
+                 </div>
+
+                 <a href="{{ path('administration_comentaires_index') }}" type="submit" class="btn btn-success col-12 btn-lg">                                
+                     Retour à la liste
+                 </a>
+ 
+             </article>
+
+         <main>
+
+     {% endblock %}
+     

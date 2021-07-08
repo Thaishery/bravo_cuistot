@@ -1,11 +1,34 @@
-{% extends 'base.html.twig' %}
+  {# ? Partie : Créer une nouvelle unité de mesure #ModeAdmin #}
+ 
+ {% extends 'base.html.twig' %}
+     
+     {% block title %}
+         Créer une nouvelle unité de mesure
+     {% endblock %}
+     
+     {% block body %}
 
-{% block title %}New UniteMesure{% endblock %}
+         <main class="Form">
+                 
+             <section class="text-center">
+     
+                 <h1 class="plantFont h1 mb-3 font-weight-normal"> Créer une nouvelle unité de mesure </h1>
+          
+             </section>   
 
-{% block body %}
-    <h1>Create new UniteMesure</h1>
+             <article>
+      
 
-    {{ include('unite_mesure/_form.html.twig') }}
+                 <div class="text-center">
+                     {{ include('unite_mesure/_form.html.twig') }}
+                 </div>
 
-    <a href="{{ path('unite_mesure_index') }}">back to list</a>
-{% endblock %}
+                 <a type="submit" href="{{ path('unite_mesure_index') }}" class="btn btn-success col-12 btn-lg ">
+                     Retour à la liste
+                 </a>
+
+             </article>
+
+         </main>
+
+     {% endblock %}

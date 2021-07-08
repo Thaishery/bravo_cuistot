@@ -1,14 +1,63 @@
-{% extends 'base.html.twig' %}
+ {# ? Partie : Créer une étape (suite) #ModeUser #}
+ 
+ {% extends 'base.html.twig' %}
 
-{% block title %}New ingredients{% endblock %}
+     {% block metaTitle %}
+         " Créer une étape (suite) "
+     {% endblock %}
 
-{% block body %}
-    <h1>suite ingrédients</h1>
-    {{dump(listeEtapes)}}
+     {% block title %}
+         Créer une étape (suite) 
+     {% endblock %}
+     
+     {% block body %}
+
 
     {{ include('recette/_form.html.twig') }}
     {# todo : prévoir une vue de validation :  #}
     <a href="{{ path('recette_new_preview',{'id': app.request.get('id')})}}">Valider et passer a la prévisualisation de la recette.</a><br/>
 
-    <a href="{{ path('recette_index') }}">back to list</a>
-{% endblock %}
+
+             <section class="text-center"> 
+
+                 <h1 class="h1 mb-3 font-weight-normal"> Créer une étape (suite) </h1>
+
+             </section>          
+
+             <article class="">
+
+                 {{dump(listeEtapes)}}
+               
+             </article>
+
+             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+
+                 <ol class="breadcrumb">
+                     <li class="breadcrumb-item" name="Etape n°1" alt="Etape n°1: Créer une nouvelle recette"> Etape n°1: Créer une nouvelle recette </li>
+                     <li class="breadcrumb-item" name="Etape n°1" alt="Etape n°2 bis: Ajout d'ingrédient"> Etape n°2 bis: Ajout d'ingrédient </li>    
+                     <li class="breadcrumb-item active" aria-current="page" name="Etape n°3 bis" alt="Etape n°3 bis: Ajout d'ingrédient" aria-current="page"> Etape n°3 bis: Créer une étape </li>    
+                 </ol>
+
+             </nav>
+
+             <article class="btn-group-vertical">
+
+                 <form class="text-center">
+
+                     {{ include('recette/_form.html.twig') }}
+
+                 </form>
+                 
+                 {# ! todo : prévoir une vue de validation #}
+                 {# <a href="{{ path('recette_new_etapes',{'id': app.request.get('id')})}}"> passer a l'ajout des étapes</a><br/> #}
+               
+                 <button href="{{ path('recette_index') }}" type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
+                     Retour à la liste
+                 </button>    
+
+             </article>
+
+         </main>            
+     
+     {% endblock %}
+           

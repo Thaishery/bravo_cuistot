@@ -1,35 +1,81 @@
-{% extends 'base.html.twig' %}
+ {# ? Partie : Gestion des unités de mesures #ModeAdmin #}
+ 
+ {% extends 'base.html.twig' %}
 
-{% block title %}UniteMesure index{% endblock %}
+     {% block title %}
+         Gestion des unités de mesures
+     {% endblock %}
+     
+     {% block body %}
 
-{% block body %}
-    <h1>UniteMesure index</h1>
+         <main class="Form">
+                 
+             <section class="text-center">
+     
+                 <h1 class=" mb-3 font-weight-normal"> Gestion des unités de mesures </h1>
+          
+                 <p class="lead"> 
+                     <em> Consulter la liste des unités de mesures de votre site et les administrés. </em>  ⚖️
+                 </p>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for unite_mesure in unite_mesures %}
-            <tr>
-                <td>{{ unite_mesure.id }}</td>
-                <td>{{ unite_mesure.name }}</td>
-                <td>
-                    <a href="{{ path('unite_mesure_show', {'id': unite_mesure.id}) }}">show</a>
-                    <a href="{{ path('unite_mesure_edit', {'id': unite_mesure.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+             </section>   
 
-    <a href="{{ path('unite_mesure_new') }}">Create new</a>
-{% endblock %}
+             <article>
+     
+                 <table class="table table-dark table-hover">
+
+                     <thead>
+
+                         <tr>
+                             <th> Id </th>
+                             <th> Nom de l'unité de mesure </th>
+                             <th> Action </th>
+                         </tr>
+
+                     </thead>
+
+                     <tbody>
+
+                     {% for unite_mesure in unite_mesures %}
+
+                         <tr>
+                             <td> {{ unite_mesure.id }} </td>
+                             <td> {{ unite_mesure.name }} </td>
+
+                             <td>
+
+                                 <section class="btn-group">
+
+                                     <a href="{{ path('unite_mesure_show', {'id': unite_mesure.id}) }}"  class="btn btn-success btn-lg px-4 gap-3 btn_spe">                                
+                                         Voir
+                                     </a> 
+
+                                     <a href="{{ path('unite_mesure_edit', {'id': unite_mesure.id}) }}" class="btn btn-success btn-lg px-4 gap-3 btn_spe">                                
+                                         Modifier
+                                     </a>   
+
+                                 </section>
+
+                             </td>
+
+                         </tr>
+
+                     {% else %}
+
+                         <tr>
+                             <td colspan="3"> Aucun élément ne correspond à votre recherche </td>
+                         </tr>
+
+                     {% endfor %}
+
+                     </tbody>
+
+                 </table>
+     
+                 <a type="submit" href="{{ path('unite_mesure_new') }}" class="btn btn-success col-12 btn-lg px-4 gap-3"> 
+                     Créer une nouvelle unité de mesure
+                 </a>
+
+         </main>
+
+     {% endblock %}

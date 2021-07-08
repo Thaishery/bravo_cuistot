@@ -1,89 +1,116 @@
-{# ? MODAL CONNEXION #}
+ {# ? MODAL CONNEXION #}
 
-     <button type="button" class=" btn btn-success btn-lg login-position" data-bs-toggle="modal" data-bs-target="#exampleModal">
-         <i id="house1" class="bi bi-house "> </i>
-         {# <span class="mobileHide"> Connection </span> #}
-     </button>
 
-     {# ***** MODAL ***** #}
+     <main class="modal_Cuistot">
 
-     <div class="login-box modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <button type="button" class=" btn btn-success btn-lg login-position" data-bs-toggle="modal" data-bs-target="#exampleModal">
+             <i id="house1" class="bi bi-house "> </i>
+             {# <span class="mobileHide"> Connection </span> #}
+         </button>
 
-         <div class="modal-dialog modal-dialog-centered">
+         {# ***** MODAL ***** #}
 
-             <div class="modal-content ">
-             {# ? div pour second modal #}
-             {# <div class="login-box">  #}
+         <div class="login-box modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-                 <div class="modal-header ">
+             <div class="modal-dialog modal-dialog-centered">
 
-                     <h5 class="modal-title" id="exampleModalLabel">
-                         <i class="bi bi-house-door">
-                         </i> Menu de connection 
-                     </h5>
+                 <div class="modal-content ">
+                 {# ? div pour second modal #}
+                 {# <div class="login-box">  #}
 
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     <section class="modal-header ">
+
+                         <h5 class="modal-title" id="exampleModalLabel">
+                             <i class="bi bi-house-door"> </i> 
+                             Menu de connection 
+
+                         </h5>
+
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+
+                     </section>
+
+                     <article class="modal-body">
+
+                         <div id="loginStyle" class="text-center">
+
+                             <main class="form-signin">
+
+                                 <form method="post" action="{{ path ("app_login") }}">
+
+                                     {# *** SI L'UTILISATEUR EST AUTHENTIFIÉ *** #}
+
+                                     {% if app.user %}
+
+                                         <div class="mb-3">
+                                             Vous etes connecter en tant que {{ app.user.username }},
+                                             <a href="{{ path('app_logout') }}"> Se déconnecter </a>
+                                         </div>
+
+                                     {% endif %}
+
+                                     {# *** IMAGE: LOGO DU SITE *** #}
+
+                                     <h1 class="mb-3 font-weight-normal"> Se connecter </h1>
+
+                                         <label for="inputLogin" class="visually-hidden"> Pseudo </label>
+                                         <input  type="text"  name="login" id="inputLogin" class="form-control"  placeholder="Login" required autofocus>        
+                                                            
+                                         <label for="inputPassword" class="visually-hidden"> Mot de passe </label>
+                                         <input  type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required=""> 
+
+                                         <br/>  
+
+                                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+ 
+                                         <section class="checkbox mb-3">
+                     
+                                             {# <hr style="color:rgba(25,135,84,0.9);"/> #}
+
+                                                 <label>
+                                                     <input type="checkbox" name="_remember_me">
+                                                     Se souvenir de moi
+                                                 </label>
+                                           
+                                             {# <hr style="color:rgba(25,135,84,0.9);"/> #}
+
+                                         </section>
+
+                                         <section class="btn-group col-12">
+
+                                             <button class="btn btn-dark btn-lg px-4 gap-3"> 
+                                                 Valider
+                                             </button>
+
+                                             <a type="button" href="{{ path('app_register') }}" class="btn btn-success btn-lg px-4 gap-3">                                
+                                                 S'inscrire
+                                             </a>
+
+                                         <section>   
+                                      
+                                 </form>
+
+
+                             </main>
+
+                         </div>  
+
+                     </article>              
 
                  </div>
 
-                 <div class="modal-body">
 
-                     <div id="loginStyle" class="text-center">
+                 </div>
 
-                         <main class="form-signin">
-
-                             <form method="post" action="{{ path ("app_login") }}">
-
-                                 {# *** SI L'UTILISATEUR EST AUTHENTIFIÉ *** #}
-
-                                 {% if app.user %}
-
-                                     <div class="mb-3">
-                                         Vous etes connecter en tant que {{ app.user.username }},
-                                         <a href="{{ path('app_logout') }}"> Se déconnecter </a>
-                                     </div>
-
-                                 {% endif %}
-
-                                 {# *** IMAGE: LOGO DU SITE *** #}
-
-                                 <img class="mb-4" src="/Images/logo.png" alt="Logo du site BravoCuistot" width="72" height="57">
-
-                                 <h1 class="h1 mb-3 font-weight-normal"> Se connecter </h1>
-
-                                     <label for="inputLogin" class="visually-hidden"> Pseudo </label>
-                                     <input  type="text"  name="login" id="inputLogin" class="form-control"  placeholder="Login" required autofocus>                           
-                                     <label for="inputPassword" class="visually-hidden"> Mot de passe </label>
-                                     <input  type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required=""> 
-
-                                     <br/>  
-
-                                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-                                      <div class="row">    
-
-                                         <button class="btn btn-dark btn-lg btn-block col-6 " type="submit"> 
-                                             Valider
-                                         </button>
- 
-
-                                         <button href="{{ path ('app_register') }}" class="btn btn-success btn-lg btn-block col-6" type="submit">
-                                             S'inscrire
-                                         </button>
-
-                                     <div>   
-                                  
-                             </form>
-
-                         </main>
-
-                     </div>  
-
-                 </div>              
-
-             </div>
 
          </div>
-
-     </div>
      
+     </main>
+
+ {# *** TEST/ CODE VRAC *** #}
+
+     {# Je dois ajouter des attributs input  #}
+     {# <input type="text" name="pseudo" value="" id="pseudo" placeholder="Ex : Zozor" size="30" maxlength="10" /> #}
+         
+

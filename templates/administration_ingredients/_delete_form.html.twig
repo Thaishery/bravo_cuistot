@@ -1,4 +1,13 @@
-<form method="post" action="{{ path('administration_ingredients_delete', {'id': ingredient.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ ingredient.id) }}">
-    <button class="btn">Delete</button>
-</form>
+ {# ? Feuille du bouton Delete #ModeAdmin #}    
+     
+     <form method="post" action="{{ path('administration_ingredients_delete', {'id': ingredient.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+ 
+         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ ingredient.id) }}">
+ 
+         <button class="btn col-12 btn-dark btn-lg px-4">
+              Supprimer 
+         </button>
+  
+     </form>
+     
+

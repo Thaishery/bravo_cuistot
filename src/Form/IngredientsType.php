@@ -26,6 +26,7 @@ class IngredientsType extends AbstractType
                     ])
                 ],
                 'required' => true,
+                'label' => 'Nom de l\'ingrédient'
             ])
         ;
     }

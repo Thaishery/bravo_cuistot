@@ -1,11 +1,49 @@
-{% extends 'base.html.twig' %}
+ {# ? Partie : Créer une étape #ModeUser #}
+ 
+ {% extends 'base.html.twig' %}
 
-{% block title %}New ingredients{% endblock %}
+     {% block metaTitle %}
+         " Créer une étape "
+     {% endblock %}
 
-{% block body %}
-    <h1>Create new étapes</h1>
+     {% block title %}
+         Créer une étape
+     {% endblock %}
+     
+     {% block body %}
 
-    {{ include('recette/_form.html.twig') }}
+         <main class="Form">  
 
-    <a href="{{ path('recette_index') }}">back to list</a>
-{% endblock %}
+             <section class="text-center">
+
+                 <h1 class="h1 mb-3 font-weight-normal"> Créer une étape </h1>
+
+             </section>      
+              
+             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+
+                 <ol class="breadcrumb">
+                     <li class="breadcrumb-item" name="Etape n°1" alt="Etape n°1: Créer une nouvelle recette"> Etape n°1: Créer une nouvelle recette </li>
+                     <li class="breadcrumb-item" name="Etape n°1" alt="Etape n°2 bis: Ajout d'ingrédient"> Etape n°2 bis: Ajout d'ingrédient </li>    
+                     <li class="breadcrumb-item active" aria-current="page" name="Etape n°3" alt="Etape n°3: Ajout d'ingrédient" aria-current="page"> Etape n°3: Créer une étape </li>    
+                 </ol>
+
+             </nav>
+
+             <article class="btn-group-vertical">
+            
+                 <div class="text-center">
+
+                     {{ include('recette/_form.html.twig') }}
+
+                 </div>  
+            
+                 <a href="{{ path('recette_index') }}" type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
+                     Retour à la liste
+                 </a>            
+            
+             </article>
+
+         </main>   
+        
+     {% endblock %}

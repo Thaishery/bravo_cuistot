@@ -126,7 +126,7 @@ use Symfony\Component\Validator\Constraints\File;
                      'mapped' => false,
                      'constraints' => [
                          new IsTrue([
-                             'message' => 'You should agree to our terms.',
+                             'message' => 'Veuillez cocher la case conditions du site.',
                          ]),
                      ],
                  ]);

@@ -72,6 +72,9 @@ class UserController extends AbstractController
      */
     public function edit(Request $request, User $user, UserPasswordEncoderInterface $passwordEncoder): Response
     {
+
+         $listRoles = 
+
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
@@ -92,6 +95,7 @@ class UserController extends AbstractController
             'user' => $user,
             'form' => $form->createView(),
         ]);
+
     }
 
     /**

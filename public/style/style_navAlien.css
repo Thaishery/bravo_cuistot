@@ -1,0 +1,317 @@
+     @font-face {
+       font-family : pirulen;
+       src : url(https://raw.githubusercontent.com/th3knigh7/css-design/black-bg/pirulen.ttf);
+     }
+     
+     @font-face {
+
+         {
+         font-family : destructob;
+         src : url(https://raw.githubusercontent.com/th3knigh7/css-design/black-bg/destructob.ttf);
+         }
+
+     }
+       
+     nav li a {
+       color : black;
+       text-decoration : none;
+       transition : letter-spacing 0.5s;
+     }
+     
+     .circle_main {
+       font-family : pirulen;
+       font-size : 10px;
+       color : white;
+       position : relative;
+       margin : 0 auto;
+       width : 100px;
+       height : 100px;
+       border-radius : 50%;
+       background : rgb(15, 94, 110, 0.1);
+       transition : width 1s, height 1s;
+       z-index : 1;
+     }
+
+     .change .circle_main {
+       width : 110px;
+       height : 110px;
+     }
+
+     .circle_main:hover {
+       animation : vibrate 0.5s ease-out infinite;
+     }
+
+     .bar_left {
+       position : absolute;
+       top : 35px;
+       right : 43px;
+       width : 4px;
+       height : 33px;
+       border-radius : 2px;
+       box-shadow : 0 0 13px 3px rgb(0, 131, 177, 0.77);
+       transition : transform 1s, width 1s;
+       z-index : -2;
+     }
+
+     .change .bar_left {
+       width : 240px;
+       transform : skewX(20deg);
+       animation : op 1s;
+     }
+
+     .bar_right {
+       position : absolute;
+       top : 35px;
+       left : 43px;
+       width : 4px;
+       height : 33px;
+       border-radius : 2px;
+       box-shadow : 0 0 13px 3px rgb(0, 131, 177, 0.77);
+       transition : transform 1s, width 1s;
+       z-index : -1;
+     }
+
+     .change .bar_right {
+       width : 240px;
+       transform : skewX(-20deg);
+       animation : op 1s;
+     }
+
+     @keyframes op {
+
+       0% {
+         opacity : 0;
+       }
+       20% {
+         opacity : 0;
+       }
+       100% {
+         opacity : 1;
+       }
+
+     }
+
+     .arc1 {
+       content : "";
+       position : absolute;
+       width : 90%;
+       height : 90%;
+       left : 4.92%;
+       top : 4.92%;
+       border-radius : 50%;
+       box-sizing : border-box;
+       animation : rotate 4s linear infinite;
+       text-align : center;
+       line-height : 129px;
+     }
+
+     .line1 {
+       border : white solid 2px;
+       border-left : 1px solid transparent;
+       animation : rotate 5s linear infinite;
+     }
+
+     .line2 {
+       border : white solid 4px;
+       border-left : 4px solid transparent;
+       border-right : 4px solid transparent;
+       animation : rotate_anti 4s linear infinite;
+     }
+
+     .line3 {
+       border : white solid 2px;
+       border-left : 2px solid transparent;
+       border-right : 2px solid transparent;
+       animation : rotate 3s linear infinite;
+     }
+
+     .line4 {
+       border : white solid 4px;
+       border-left : 4px solid transparent;
+       border-right : 4px solid transparent;
+       border-bottom : 4px solid transparent;
+       animation : rotate_anti 2s linear infinite;
+     }
+
+     .reactor {
+       position : absolute;
+       background : #fff;
+       width : 30%;
+       height : 30%;
+       border-radius : 50%;
+       border : rgb(2, 255, 255, 0.15) solid 5px;
+       margin : 30%;
+       cursor : pointer;
+     }
+
+     .change .reactor {
+       animation : flicker 0.2s infinite;
+     }
+
+     .reacttext {
+       opacity : 0;
+       position : absolute;
+       top : 25%;
+       margin : 0 auto;
+       color : rgb(0, 0, 0, 1);
+       font-size : 14px;
+       font-weight : 900;
+       font-family : destructob;
+       transition : opacity 1s;
+     }
+
+     .change .reacttext {
+       opacity : 1;
+     }
+
+     .bar_left > ul {
+       padding : 0;
+       margin : 10px 70px 0 0;
+       list-style : none;
+       transform : skewX(-20deg);
+     }
+
+     .bar_right > ul {
+       padding : 0;
+       margin : 10px 0 0 70px;
+       list-style : none;
+       transform : skewX(20deg);
+     }
+
+     li {
+       margin : auto;
+     }
+
+     nav li a:hover {
+       letter-spacing : 2px;
+     }
+
+     .nav_top {
+       display : none;
+       flex-direction : row;
+     }
+
+     .change .nav_top {
+       display : flex;
+     }
+
+     .nav_bottom {
+       display : none;
+       flex-direction : row-reverse;
+     }
+
+     .change .nav_bottom {
+       display : flex;
+     }
+
+     .hamContainer {
+       position : absolute;
+       top : -6%;
+       transition : opacity 1s;
+     }
+
+     .hbar1, 
+     .hbar2,
+     .hbar3,
+     .hbar4,
+     .hbar5 {
+       height : 2px;
+       background-color : black;
+       border-radius : 4px;
+       margin : 4px auto;
+     }
+
+     .hbar1 {
+       width : 15px;
+       animation : a 1s infinite;
+       animation-delay : 0.5s;
+     }
+
+     .hbar2 {
+       width : 20px;
+       animation : a 1s infinite;
+       animation-delay : 0.5s;
+     }
+
+     .hbar3 {
+       width : 30px;
+       animation : a 1s infinite;
+       animation-delay : 0.5s;
+     }
+
+     .hbar4 {
+       width : 20px;
+       animation : a 1s infinite;
+       animation-delay : 0.5s;
+     }
+
+     .hbar5 {
+       width : 15px;
+       animation : a 1s infinite;
+       animation-delay : 0.5s;
+     }
+
+     .change .hamContainer {
+       opacity : 0;
+     }
+    
+     @keyframes a {
+
+       0% {
+         transform : scaleX(1) skewX(10deg);
+       }
+       50% {
+         transform : scaleX(0.7) skewX(20deg);
+       }
+       100% {
+         transform : scaleX(1) skewX(30deg);
+       }
+
+     }
+
+     @keyframes flicker {
+
+       0% {
+         box-shadow : 0 0 60px 25px rgb(150, 255, 255, 0.5), 0 1px 4px 2px rgb(21, 211, 233, 0.3) inset;
+       }
+
+       40% {
+         box-shadow : 0 0 60px 25px rgb(150, 255, 255, 0.5), 0 1px 4px 2px rgb(21, 211, 233, 0.3) inset;
+       }
+
+       50% {
+         box-shadow : 0 0 50px 17px rgb(150, 255, 255, 0.5), 0 1px 100px 2px rgb(21, 211, 233, 0.3) inset;
+       }
+
+       60% {
+         box-shadow : 0 0 60px 25px rgb(150, 255, 255, 0.5), 0 1px 4px 2px rgb(21, 211, 233, 0.3) inset;
+       }
+
+       100% {
+         box-shadow : 0 0 60px 25px rgb(150, 255, 255, 0.5), 0 1px 4px 2px rgb(21, 211, 233, 0.3) inset;
+       }
+
+     }
+
+     @keyframes rotate {
+
+       0% {
+         transform : rotateZ(0deg);
+       }
+       100% {
+         transform : rotateZ(360deg);
+       }
+
+     }
+
+     @keyframes rotate_anti {
+
+       0% {
+         transform : rotateZ(360deg);
+       }
+       
+       100% {
+         transform : rotateZ(0deg);
+       }
+
+     }

@@ -1,13 +1,35 @@
-{% extends 'base.html.twig' %}
+ {# ? Partie : Modifier une unité de mesure #ModeAdmin #}
+ 
+ {% extends 'base.html.twig' %}
+     
+     {% block metaTitle %}
+         " Modifier une unité de mesure  "
+     {% endblock %}
 
-{% block title %}Edit UniteMesure{% endblock %}
+     {% block title %}
+         Modifier une unité de mesure 
+     {% endblock %}
+     
+     {% block body %}
 
-{% block body %}
-    <h1>Edit UniteMesure</h1>
+         <main class="Form"> 
 
-    {{ include('unite_mesure/_form.html.twig', {'button_label': 'Update'}) }}
+             <section class="text-center">
+   
+                 <h1 class="h1 mb-3 font-weight-normal"> Modifier une unité de mesure  </h1>
 
-    <a href="{{ path('unite_mesure_index') }}">back to list</a>
+             </section>   
 
-    {{ include('unite_mesure/_delete_form.html.twig') }}
-{% endblock %}
+             {# <article class="btn-group-vertical"> #}
+
+                 {{ include('unite_mesure/_form.html.twig', {'button_label': 'Update'}) }}
+                {{ include('unite_mesure/_delete_form.html.twig') }}     
+                 <a href="{{ path('unite_mesure_index') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+                     Retour à la liste
+                 </a>
+
+             {# </article>  #}
+
+         </main>
+
+     {% endblock %}

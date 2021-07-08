@@ -1,14 +1,24 @@
+ {# ? Feuille du bouton Delete #}
+ 
  {% extends 'base.html.twig' %}
 
+     {% block metaTitle %}
+         " Formulaire de connection  "
+     {% endblock %}
+
      {% block title %}
-         Log in!
+         Formulaire de connection 
      {% endblock %}
      
      {% block body %}
 
-         <main class="form-login ">
+
+         <main class="Form">
+
 
              <form method="post">
+
+                 {# *** Partie: Authentification sécurité *** #}
 
                  {% if error %}
 
@@ -17,7 +27,7 @@
                      </div>
 
                  {% endif %}
-             
+                 
                  {% if app.user %}
 
                      <div class="mb-3">
@@ -25,11 +35,19 @@
                      </div>
 
                  {% endif %}
+
              
                  {# *** Conteneur du titre du formulaire *** #}
-                 <div id="bloc_page" class="py-5 text-center col-12">
+
+                 <article id="bloc_page" class="py-5 text-center col-12">
                  
-                     <h1 class="h3 mb-3 font-weight-normal"> Formulaire de connection </h1>
+                     <h1 class="mb-3 font-weight-normal">
+                         Formulaire de connection 
+                     </h1>
+
+                     <p class="lead"> 
+                         Déjà de retour! Merci de vous identifiez 🔏
+                     </p>
                  
                      <label for="inputLogin"> Pseudo </label>
                      <input type="text" value="{{ last_username }}" name="login" id="inputLogin" class="form-control" autocomplete="username" required autofocus>
@@ -39,39 +57,53 @@
              
                      <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
              
-                     <div class="checkbox mb-3">
+                     <section class="checkbox mb-3">
                      
+                     <hr style="color:rgba(25,135,84,0.9);"/>
+
                          <label>
                              <input type="checkbox" name="_remember_me">
                              Se souvenir de moi
                          </label>
                    
-                     </div>
+                     <hr style="color:rgba(25,135,84,0.9);"/>
+
+                     </section>
+
 
                      {#
-                         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-                         See https://symfony.com/doc/current/security/remember_me.html                 
+                             Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                             See https://symfony.com/doc/current/security/remember_me.html                 
                      #}
 
-                     <div class="btn-group-vertical col-12">
 
-                         {# *** Bouton: Se Connecter *** #}
+                     <section class="btn-group-vertical col-12">
+
+
                          <button type="submit" class="btn btn-dark btn-lg px-4 gap-3"> 
-                            Se connecter 
+
+                             {# <a href="{{ path('home') }}"> Se connecter </a>  #}
+                             Se connecter 
                          </button>
-    
+   
                          {# *** Bouton: S'inscrire *** #}
-                         <div class="col-12">
-                         <a class="col-12" href="{{ path('app_register') }}">
-                         <button type="submit" class="btn col-12 btn-success btn-lg px-4">                                
-                             S'inscrire 
-                         </button>
-                        </a> 
-                        </div>
-                     </div>
+                         <a type="submit" href="{{ path('app_register') }}" class="btn btn-success btn-lg px-4 gap-3">                                 
+                             S'inscrire
+                         </a>
+                      
+                     </section>
+
+                 </article>
+
+
+                     {# ******************** #}
+
+                 </div>  
 
              </form>
 
          <main>
 
      {% endblock %}
+
+    

@@ -1,11 +1,42 @@
-{% extends 'base.html.twig' %}
+ {# ? Feuille : Gestion des ingrédient #ModeAdmin #}  
+ 
+ {% extends 'base.html.twig' %}
+ 
+     {% block metaTitle %}
+         " Créer un nouvel ingrédient "
+     {% endblock %}
 
-{% block title %}New Ingredients{% endblock %}
+     {% block title %}
+         Créer un nouvel ingrédient
+     {% endblock %}
+     
+     {% block body %}
 
-{% block body %}
-    <h1>Create new Ingredients</h1>
+         <main class="Form"> 
 
-    {{ include('administration_ingredients/_form.html.twig') }}
+             <section class="text-center">
+   
+                 <h1 class="h1 mb-3 font-weight-normal"> Créer un nouvel ingrédient </h1>
 
-    <a href="{{ path('administration_ingredients_index') }}">back to list</a>
-{% endblock %}
+                 <p class="lead"> 
+                     Créer un nouvel ingrédient! 👨‍🍳
+                 </p> 
+
+             </section> 
+
+             <article>
+
+                 <div class="text-center">
+                     {{ include('administration_ingredients/_form.html.twig') }}
+                 </form> 
+     
+                 <a href="{{ path('administration_ingredients_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+                     Retour à la liste
+                 </a>
+ 
+             </article>
+
+         </main>      
+
+     {% endblock %}
+ 
