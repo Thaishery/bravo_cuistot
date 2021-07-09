@@ -5,7 +5,7 @@
      {% endblock %}
 
      {% block body %}
-       
+       {{dump(listeNotes)}}
          <header>
              <h1 class="text-center"> Cuistot </h1>
          </header>
@@ -95,7 +95,12 @@
                              </section>
 
                              <section class="col-4">
-                                 Moyenne des notes de la recette : {{moyenneRecette.0}}
+                                 Moyenne des notes de la recette :
+                                 {% if attribute(moyenneRecette, loop.index -1)!= 0 %} 
+                                    {{(attribute(moyenneRecette, loop.index -1))}}
+                                 {% else %}
+                                    Recette non notée
+                                 {% endif %}
                              </section>
 
                      </div>

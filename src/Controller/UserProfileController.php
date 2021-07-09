@@ -91,19 +91,24 @@ $avatar = $form->get('avatar')->getData();
         if ($listeRecette != NULL) {
         for ($i = 0; $i<count($listeRecette); $i++) {
             $notesRecette = $listeRecette[$i]->getNotesId();
+            $moyenneRecette[$i] = 0;
             if (count($notesRecette) !== 0) {
                 for ($n = 0; $n<count($notesRecette); $n++) {
                     $moyenneRecette[$i] = $moyenneRecette[$i] + $notesRecette[$n]->getNote();
-                }
+                    }
                 $moyenneRecette[$i] = $moyenneRecette[$i]/count($notesRecette);
             }   
 
         }
-        }   
+        } 
+        $compteurDeNotes = 0;  
         for ( $i = 0; $i<count($moyenneRecette); $i++) {
+            if($moyenneRecette[$i] != 0){
+                $compteurDeNotes = $compteurDeNotes +1;
+            }
             $moyenneActuelle = $moyenneActuelle + $moyenneRecette[$i];
         }
-        $moyenneActuelle = $moyenneActuelle/count($moyenneRecette);
+        $moyenneActuelle = $moyenneActuelle/$compteurDeNotes;
 
         if($user){
         return $this->render('user/profile_show.html.twig', [
