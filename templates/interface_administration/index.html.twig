@@ -13,6 +13,8 @@
      
      {% block body %}
 
+         </script>
+
          <main class="Form"> 
 
              <section class="text-center">     
@@ -60,7 +62,11 @@
                                                          <div class="card-body">
 
                                                              <figure class="cardImage">
-                                                                 <img class="administrationLogo carteSpeciale rounded" src="{{asset ('Images/avatar.png')}}" alt="Image de type emoji, d'une personne. Cette image représente la section UTILISATEUR">
+
+                                                                 <img class="administrationLogo carteSpeciale rounded" 
+                                                                     src="{{asset ('Images/avatar.png')}}"
+                                                                     alt="Image de type emoji, d'une personne. Cette image représente la section UTILISATEUR">
+                                                            
                                                              </figure>
                                                              
                                                              <a href="{{path("user_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12 ">                                

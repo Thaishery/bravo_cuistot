@@ -13,14 +13,350 @@
      
                  <h1 class="plantFont h1 mb-3 font-weight-normal"> Accueil </h1>
 
-                 <p class="lead"> 
-                     Bienvenue sur Bravo Cuistot ! 
+                 <p class="lead">
+
+                     <em>
+
+                          Bienvenue sur Bravo Cuistot 
+                     
+                         {% if app.user %}
+
+                             {{ app.user.username }} 
+
+                         {% endif %}  
+
+                     ! </em>     
+                      
                  </p>
                
              </section>   
 
          </main>
+
+          {# **************************************************************************************** #}
+
+         {# ? Partie: Les dernierès recettes. #}
+
+         <div class="container">
+
+             <div class="row">
+             {# <div class="row g-5 align-items-center g-lg-5 py-5"> #}
+
+                 <div class="text-center">
+                 {# <div class="col-md-8 text-center"> #}
+
+                         {# ******************** #}
+
+                             <div class="text-center p-4 p-md-5 mb-4 text-white rounded bg-dark">                               
+                               
+                                 <div class="col-md-12 px-0">
+ 
+                                     <h2 class="mb-3 rounded"> 
+                                         Les dernierès recettes 🌆 
+                                     </h2>
+                                   
+                                     {# <h1 id="plantFont" class="h1 mb-3 font-weight-normal"> Accueil </h1> #}
+                                    
+                                     <div class="row">
+
+                                         {# ******************** #}
+                                     
+                                         {# ? Carte n°1 #}
+
+                                         <div class=" col-sm-3 ">
+
+                                             <div class="carteBg1 card mb-3">
+                                             {# <div class="card text-white bg-success bg-gradient mb-3"> #}
+
+                                                 <div class="card-body">
+
+                                                     <h5 class="card-title"> Titre exemple </h5>
+                                                     <p class="card-text"> Article exemple </p>
+                                                     <a href="#" class="col-12 btn btn-success bg-gradient "> Petit-Déjeuner </a>
+
+                                                 </div>
+
+                                             </div>
+
+                                         </div>
+
+                                         {# ******************** #}
+
+                                         {# ? Carte n°2 #}
+
+                                         <div class="col-sm-3">
     
+                                             <div class="carteBg2 card mb-3">
+                                             {# <div class="card text-white bg-success bg-gradient mb-3"> #}
+
+                                                 <div class="card-body">
+    
+                                                     <h5 class="card-title"> Titre exemple </h5>
+                                                     <p class="card-text"> Article exemple </p>
+                                                     <a href="#" class="col-12 btn btn-success bg-gradient"> Entrées </a>
+                                                     
+                                                 </div>
+    
+                                             </div>
+    
+                                         </div>
+
+                                         {# ******************** #}
+
+                                         {# ? Carte n°3 #}
+
+                                         <div class="col-sm-3">
+
+                                             <div class="carteBg3 card mb-3">
+                                             {# <div class="card text-white bg-success bg-gradient mb-3"> #}
+
+                                                 <div class="card-body">
+
+                                                     <h5 class="card-title"> Titre exemple </h5>
+                                                     <p class="card-text"> Article exemple </p>
+                                                     <a href="#" class="col-12 btn btn-success bg-gradient"> Plats </a>
+                                                     
+                                                 </div>
+
+                                             </div>
+
+                                         </div>
+
+                                         {# ******************** #}
+ 
+                                         {# ? Carte n°4 #}
+
+                                         <div class="col-sm-3">
+
+                                             <div class="carteBg4 card mb-3">
+                                             {# <div class="card text-white bg-success bg-gradient mb-3"> #}
+
+                                                 <div class="card-body">
+
+                                                     <h5 class="card-title"> Titre exemple </h5>
+                                                     <p class="card-text"> Article exemple </p>
+                                                     <a href="#" class="col-12 btn btn-success "> Desserts </a>
+                                                     
+                                                 </div>
+
+                                             </div>
+
+                                         </div>
+                                      
+                                         {# ******************** #}
+
+                                     </div>
+
+                                 </div>         
+
+                             </div>
+
+             </div>
+ 
+         </div>
+
+             {# **************************************************************************************** #}
+
+
+             {# </main> #}
+  
+         {# </div>  #}
+
      {% endblock %}
+
+ {# ? CODE VRAC / TEST #}
+
+ {# *************************** #}
+ {# * Partie: Exemple article * #}
+ {# *************************** #}
+
+ {# 
+
+     <article class="blog-post">
+
+         <h2 class="blog-post-title"> New feature </h2>
+
+             <p class="blog-post-meta"> December 14, 2020 by <a href="#"> Chris </a> </p>
+                  
+             <p>
+                 This is some additional paragraph placeholder content. 
+                 It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. 
+                 We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.
+             </p>
+
+             <ul>
+               <li>First list item</li>
+               <li>Second list item with a longer description</li>
+               <li>Third list item to close it out</li>
+             </ul>
+
+             <p>
+                 This is some additional paragraph placeholder content.
+                 It's a slightly shorter version of the other highly repetitive body text used throughout.
+             </p>
+   
+     </article> 
+
+ #}
+
+ {# ********************************* #}
+ {# * Partie: Autre Exemple article * #}
+ {# ********************************* #}
+
+  {# 
+  
+      <h3> Example lists </h3>
+
+      <p> And this is a definiton list: </p>
+
+      <dl>
+
+          <dt> HyperText Markup Language (HTML) </dt>
+          <dd> The language used to describe and define the content of a Web page</dd>
+          <dt> Cascading Style Sheets (CSS)</dt>
+          <dd> Used to describe the appearance of Web content</dd>
+          <dt> JavaScript (JS)</dt>
+          <dd> The programming language used to build advanced Web sites and applications</dd>
+  
+      </dl> 
+
+  #}
+
+ {# ************************* #}
+ {# ***** Partie: Aside ***** #}
+ {# ************************* #}
+
+ {# 
+ 
+ <div class="col-md-4">
+
+     <div class="position-sticky" style="top: 2rem;"> #}
+                      
+         {# ******************** #}
+
+         {# <hr style="color:white;"/>  #}
+
+         {# ? Partie: About #}
+
+         {# <div class="p-4 mb-3 bg-light rounded">
+
+             <h4 class="fst-italic"> Exemple Aside </h4>
+
+                 <p class="mb-0">
+                     Customize this section to tell your visitors a little bit about your publication,
+                      writers, content, or something else entirely. Totally up to you.
+                 </p>
+
+         </div> #}
+                 
+         {# ******************** #}
+
+         {# <hr style="color:white;"/>   #}
+
+         {# ******************** #}
+
+         {# <div class="card text-center">
+
+             <div class="card-header">
+                 Featured
+             </div>
+
+             <div class="card-body">
+                 <h5 class="card-title">Special title treatment</h5>
+                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                 <a href="#" class="btn btn-primary">Go somewhere</a>
+             </div>
+
+             <div class="card-footer text-muted">
+                 2 days ago
+             </div>
+
+         </div> #}
+       
+         {# ******************** #} 
+
+         {# ? Partie: Archives #}
+ 
+             {# <div class="p-4">
+
+                 <h4 class="fst-italic"> Autre exemple Aside </h4>
+
+                     <ol class="list-unstyled mb-0">
+
+                         <li> 
+                             <a href="#"> A personnaliser </a> 
+                         </li>
+
+                         <li>
+                             <a href="#"> A personnaliser </a> 
+                         </li>
+
+                         <li>
+                             <a href="#"> A personnaliser </a>
+                         </li>
+
+                         <li>
+                             <a href="#"> A personnaliser </a>
+                         </li>
+
+                         <li>
+                             <a href="#"> A personnaliser </a> 
+                         </li>
+
+                         <li>
+                             <a href="#"> A personnaliser </a> 
+                         </li>
+
+                         <li>
+                             <a href="#"> A personnaliser </a>
+                         </li>
+
+                         <li>
+                             <a href="#"> A personnaliser </a>
+                         </li>
+
+                         <li>
+                             <a href="#"> A personnaliser </a>
+                         </li>
+
+                         <li>
+                             <a href="#"> A personnaliser </a>
+                         </li>
+
+                         <li> 
+                             <a href="#"> A personnaliser </a>
+                         </li>
+
+                         <li>
+                             <a href="#"> A personnaliser </a>
+                         </li>
+
+                     </ol>
+
+             </div> #}
+
+             {# ? Partie: ElseWhere / Réseaux Sociaux #}
+
+             {# <div class="p-4">
+    
+                 <h4 class="fst-italic"> Encore un exemple Aside </h4>
+    
+                     <ol class="list-unstyled">
+    
+                         <li><a href="#"> A personnaliser </a></li>
+                         <li><a href="#"> A personnaliser </a></li>
+                         <li><a href="#"> A personnaliser </a></li>
+                         
+                     </ol>
+    
+             </div> #}
+
+     {# </div>
+
+ </div> 
+ 
+ #}
+    
+     {# {% endblock %} #}
 
 

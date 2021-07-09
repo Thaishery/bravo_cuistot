@@ -1,7 +1,7 @@
  {# ? Partie: Header #}
 
          {# ! Bouton LightMode/ DarkMode: Mache pas Ca m'as fait craqué je dois revenir dessus JC_ #}
-         {# <div class="btn btn-outline-dark btn-toggle btn-sm" >Go Nuit</div> #}
+         {# <div class="btn btn-outline-dark btn-toggle btn-sm" >Go Nuit</div> #}   
 
          <div class="container">
 
@@ -93,9 +93,9 @@
                                              <li> <a class="dropdown-item" href="{{path ('user_show',{'id': app.user.id})}}"> Mon profil </a></li>
                                              <li> <a class="dropdown-item" href="#"> Paramètres </a></li>
 
-                                             <li> <hr class="dropdown-divider">   </li> 
+                                             <li> <hr class="dropdown-divider"> </li> 
 
-                                             <li> <a class="dropdown-item" href="{{ path ('app_logout') }}"> Se déconnecter </a></li>
+                                             <li> <a class="dropdown-item" href="{{ path ('app_logout') }}" name="Se déconnecter" alt="Bouton se déconnecter"> 🔘 Se déconnecter</a></li>
 
 
                                      </ul>
@@ -144,7 +144,7 @@
 		                    	 <source src="/Sound/MGS_MenuOff1.mp3" type="audio/mpeg"></source>
 		                     </audio>
 
-                             <a href="javascript:void(0)" class="closebtn" preload="auto" onmousedown="SoundFxMenuClose()" onclick="closeNav()"> &times;  </a>
+                             <a href="javascript:void(0)" class="closebtn" preload="auto" onmousedown="SoundFxMenuClose()" onclick="closeNav()" onmouseover="style.color='red'" onmouseout="style.color='rgb(25, 135, 84, 0.9)'" > &times;  </a>
                         
                              <script>
 		                		 var audioDuBoutonClose = document.getElementById("MenuNavigationClose");
@@ -180,7 +180,9 @@
 
                                      <a href="/" class="nav-link" >
                
-                                         <i class='fas fa-house-user'></i> &nbsp; Accueil 
+                                         <h2> 
+                                             <i class='fas fa-house-user'> </i> &nbsp; Accueil 
+                                         </h2>
 
                                      </a>
 
@@ -188,26 +190,44 @@
 
                                  {# *** Lien n° 2 *** #}
 
-                                 <li>
+                                 <li >
+
                                      <a href="#" class="nav-link">
-                                         <i class='fas fa-pepper-hot'></i> &nbsp; Actualités
+
+                                         <h2> 
+                                             <i class='fas fa-pepper-hot'></i> &nbsp; Actualités
+                                         </h2>
+
                                      </a>
+
                                  </li>
 
                                  {# *** Lien n° 3 *** #}
 
                                  <li>
+
                                      <a href="#" class="nav-link">
-                                         <i class='fas fa-utensils'></i> &nbsp; Recettes
+
+                                         <h2> 
+                                             <i class='fas fa-utensils'></i> &nbsp; Recettes
+                                         </h2>
+
                                      </a>
+
                                  </li>
 
                                  {# *** Lien n° 4 *** #}
 
                                  <li>
+
                                      <a href="#" class="nav-link">
-                                          <i class='fas fa-hand-sparkles'></i> &nbsp; Astuces
+
+                                         <h2> 
+                                             <i class='fas fa-hand-sparkles'></i> &nbsp; Astuces
+                                         </h2>
+
                                      </a>
+
                                  </li>
 
                                  {# *** Lien n° 5 *** #}
@@ -215,7 +235,11 @@
                                  <li>
 
                                      <a href="#" class="nav-link" >
-                                         <i class='fas fa-address-card'></i> &nbsp;  Contact 
+
+                                         <h2> 
+                                             <i class='fas fa-address-card'></i> &nbsp;  Contact 
+                                         </h2>
+
                                      </a>
                                      
                                  </li>
@@ -234,7 +258,7 @@
 			            	     <source src="/Sound/MGS_MenuOn1.mp3" type="audio/mpeg"></source>
 			                 </audio>
 
-                             <span style="font-size:30px;cursor:pointer" preload="auto" onmousedown="SoundFxMenuOpen()"  onclick="openNav(1)"> &#9776; </span> 
+                             <span style="font-size:30px;cursor:pointer" preload="auto" onmousedown="SoundFxMenuOpen()"  onclick="openNav(1)" onmouseover="style.color='#f0626f'" onmouseout="style.color='white'"> &#9776; </span> 
    
                              <script>
 		            	    	 var audioDuBoutonOpen = document.getElementById("MenuNavigationOpen");
