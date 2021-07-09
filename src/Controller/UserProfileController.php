@@ -85,20 +85,33 @@ $avatar = $form->get('avatar')->getData();
         $user = $userRepository->findById($id);
         $listeRecette = $recetteRepository->findByUserId($id);
         $listeNotes = $notesRepository->findbyUserId($id);
-        $moyenneActuelle = 0 ;
-        
-        if ($listeNotes != NULL) {
-        for ($i = 0; $i<count($listeNotes); $i++) {
-            $moyenneActuelle = $moyenneActuelle + $listeNotes[$i]->getNote();
+        $moyenneActuelle = 0;
+        $moyenneRecette[] = 0;
+
+        if ($listeRecette != NULL) {
+        for ($i = 0; $i<count($listeRecette); $i++) {
+            $notesRecette = $listeRecette[$i]->getNotesId();
+            if (count($notesRecette) !== 0) {
+                for ($n = 0; $n<count($notesRecette); $n++) {
+                    $moyenneRecette[$i] = $moyenneRecette[$i] + $notesRecette[$n]->getNote();
+                }
+                $moyenneRecette[$i] = $moyenneRecette[$i]/count($notesRecette);
+            }   
+
         }
-        $moyenneActuelle = $moyenneActuelle/count($listeNotes);
+        }   
+        for ( $i = 0; $i<count($moyenneRecette); $i++) {
+            $moyenneActuelle = $moyenneActuelle + $moyenneRecette[$i];
         }
+        $moyenneActuelle = $moyenneActuelle/count($moyenneRecette);
+
         if($user){
         return $this->render('user/profile_show.html.twig', [
             'user' => $user,
             'listeRecette' => $listeRecette,
             'listeNotes' => $listeNotes,
             'moyenneActuelle'=> $moyenneActuelle,
+            'moyenneRecette'=> $moyenneRecette,
 
         ]);
         }
