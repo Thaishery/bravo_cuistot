@@ -1,11 +1,55 @@
-{% extends 'base.html.twig' %}
+ {# ? Feuille : Créer un nouveau plat #ModeAdmin #} 
+ 
+ {% extends 'base.html.twig' %}
+      
+     {% block metaTitle %}
+         " Créer un nouveau type d'alimentation "
+     {% endblock %}
 
-{% block title %}New Alimentation{% endblock %}
+     {% block title %}
+         Créer un nouveau type d'alimentation
+     {% endblock %}
+     
+     {% block body %}
 
-{% block body %}
-    <h1>Create new Alimentation</h1>
+         <main class="Form">  
+ 
+             <div class="py-5 text-center col-12">
 
-    {{ include('administration_alimentation/_form.html.twig') }}
+                 {# *********************************************** #}  
 
-    <a href="{{ path('administration_alimentation_index') }}">back to list</a>
-{% endblock %}
+                 <section class="text-center">
+
+                     <h1> Créer un nouveau type d'alimentation </h1>
+                   
+                     <hr style="color:white;"/>
+
+                     <p class="lead"> 
+                         <em> Ajouter un nouveau type d'alimentation à votre site! </em> ⏰
+                     </p>
+
+                     <hr style="color:white;"/>
+
+                 </section>
+               
+                 {# *********************************************** #}
+
+                 <article>
+
+                     {# ! Problèmes bouton delete, se valide sans confirmation ?  #}
+
+                     {{ include('administration_alimentation/_form.html.twig') }}
+                   
+                     <a href="{{ path('administration_alimentation_index') }}" class="btn btn-lg btn-success col-12">
+                         Retour à la liste 
+                     </a>
+ 
+                 </article>
+
+                 {# *********************************************** #}
+
+             </div>  
+
+         </main> 
+
+     {% endblock %}

@@ -6,58 +6,61 @@
          " Modifier une recette "
      {% endblock %}
 
+     {% block title %}
+         Editer la Recette
+     {% endblock %}
+     
+     {% block body %}
 
-{% block title %}Editer la Recette{% endblock %}
-
-{% block body %}
-{{dump(listeIngredient)}}
-
-    <h1>Editer la Recette : {{recette.name}}</h1>
-    <div class="container row col-12">
-        {# le formulaire de la recette :  #}
-        <div class="col-12">
-        {{ include('recette/_form.html.twig', {'button_label': 'Update'}) }}
-        </div>
-        <div class="col-12 row">
-        {# on liste les ingrédient et met un bouton pour éditer ingrédient par ingrédien #}
-        {# cela nous renvera vers la vue de d'édition de l'ingrédient concerner #}
-        {# on pourra par le suite l'aficher via un iframe ou modale cacher et rendre le tout un peu plus dynamique #}
-        {% for ingredient in listeIngredient %}
-            <div class="col-6">
-                <p>
-                {{dump(ingredient)}}
-                ingredient : 
-                {{ingredient.IngredientsId.name}} 
-                {{ingredient.quantite}} 
-                {{ingredient.UnitemesureId.name}} 
-                {# todo : générer controller pour éditer l'ingredient car admin pas bon. #}
-                {# todo : changer le path  #}
-                <a href="{{path("recette_edit_ingredients", {'id': ingredient.id, 'idRecette': recette.id})}}" >Modifier</a>
-                </p>
-            </div>
-        {% endfor %}
-        </div>
-        <div class="col-12 row">
-            {% for etapes in listeEtapes %}
-            <div class="col-12">
-                <p>
-                    {{dump(etapes)}}
-                    étape n°: {{etapes.isNumber}} <br/>
-                    nom de l'étape : {{etapes.name}} <br/>
-                    a une image : {% if etapes.image != null %} oui {% else %} non {% endif %} <br/>
-                    description : <br/>
-                    {{etapes.description}}<br/>
-                    <a href="{{path("recette_edit_etapes", {'id': etapes.id, 'idRecette': recette.id})}}">cliquer ici pour modifier l'étape </a>
-                </p>
-            </div>
-            {% endfor %}
-        </div>
-
-    </div>
-
-    {# pas de retour a la liste des recette #}
-    {# <a href="{{ path('recette_index') }}">back to list</a> #}
-    {# pas d'option pour supprimer la recette ici, elle devrais être dans la vue "gérer mes recettes" #}
-    {# {{ include('recette/_delete_form.html.twig') }} #}
-{% endblock %}
-
+         {{dump(listeIngredient)}}
+     
+         <h1>Editer la Recette : {{recette.name}}</h1>
+         <div class="container row col-12">
+             {# le formulaire de la recette :  #}
+             <div class="col-12">
+             {{ include('recette/_form.html.twig', {'button_label': 'Update'}) }}
+             </div>
+             <div class="col-12 row">
+             {# on liste les ingrédient et met un bouton pour éditer ingrédient par ingrédien #}
+             {# cela nous renvera vers la vue de d'édition de l'ingrédient concerner #}
+             {# on pourra par le suite l'aficher via un iframe ou modale cacher et rendre le tout un peu plus dynamique #}
+             {% for ingredient in listeIngredient %}
+                 <div class="col-6">
+                     <p>
+                     {{dump(ingredient)}}
+                     ingredient : 
+                     {{ingredient.IngredientsId.name}} 
+                     {{ingredient.quantite}} 
+                     {{ingredient.UnitemesureId.name}} 
+                     {# todo : générer controller pour éditer l'ingredient car admin pas bon. #}
+                     {# todo : changer le path  #}
+                     <a href="{{path("recette_edit_ingredients", {'id': ingredient.id, 'idRecette': recette.id})}}" >Modifier</a>
+                     </p>
+                 </div>
+             {% endfor %}
+             </div>
+             <div class="col-12 row">
+                 {% for etapes in listeEtapes %}
+                 <div class="col-12">
+                     <p>
+                         {{dump(etapes)}}
+                         étape n°: {{etapes.isNumber}} <br/>
+                         nom de l'étape : {{etapes.name}} <br/>
+                         a une image : {% if etapes.image != null %} oui {% else %} non {% endif %} <br/>
+                         description : <br/>
+                         {{etapes.description}}<br/>
+                         <a href="{{path("recette_edit_etapes", {'id': etapes.id, 'idRecette': recette.id})}}">cliquer ici pour modifier l'étape </a>
+                     </p>
+                 </div>
+                 {% endfor %}
+             </div>
+     
+         </div>
+     
+         {# pas de retour a la liste des recette #}
+         {# <a href="{{ path('recette_index') }}">back to list</a> #}
+         {# pas d'option pour supprimer la recette ici, elle devrais être dans la vue "gérer mes recettes" #}
+         {# {{ include('recette/_delete_form.html.twig') }} #}
+     {% endblock %}
+     
+     

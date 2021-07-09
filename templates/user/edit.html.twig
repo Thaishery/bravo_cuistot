@@ -12,27 +12,45 @@
 
          <main class="Form">  
 
-             <section class="text-center">
+             <div class="py-5 text-center col-12">
 
-                 <h1 class="mb-3 font-weight-normal"> Modifier un utilisateur </h1>
-                  
+                 {# *********************************************** #}
+
+                 <section class="text-center">
+
+                     <h1 class="mb-3 font-weight-normal"> Modifier un utilisateur </h1>
+                      
+                     <hr style="color:white;"/>
+
                      <p class="lead"> 
                          <em> Modérer le profil de vos clients et leurs roles.  </em> 🐱‍💻
                      </p>
 
-             </section>   
+                     <hr style="color:white;"/>
 
-             <article>
+                 </section>   
 
-                 {{ include('user/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
-     
-                 {{ include('user/_delete_form.html.twig') }}
-                 
-                 <a href="{{ path('user_index') }}" type="submit" class="btn btn-success col-12  btn-lg px-4 gap-3">                                
-                     Retour à la liste
-                 </a>
+                 {# *********************************************** #}
+
+                 <article class="col-12">
+                      
+                     {{ include('user/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+                
+                     <a href="{{ path('user_index') }}" type="submit" class="btn btn-success col-12  btn-lg px-4 gap-3">                                
+                         Retour à la liste
+                     </a>
     
-             </article> 
+                 {# </article>  #}
+
+                 <hr style="color:white;"/>
+ 
+                 {# <article class="col-12"> #}
+
+                     {{ include('user/_delete_form.html.twig') }}
+
+                 </article> 
+
+             </div> 
 
          </main>
 

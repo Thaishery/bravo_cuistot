@@ -6,10 +6,14 @@
       background-image : url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
     }
     
+   /* ? Style de police */   
+
     .textPink {
       color : #f0626f;
     }
     
+   /* ? Style de l'entete */   
+
     header {
       background-color : rgb(0 0 0);
     }
@@ -29,20 +33,15 @@
       border : rgb(25, 135, 84, 0.9) groove 1px;
       box-shadow : 1px 1px 2px rgb(25, 135, 84, 0.9);
     }
-    
-    a.closebtn {
-      margin : 34px;
-      display : flex;
+     
+   .plantFont {
+      background-image : url("../Images/background1.png");
+      background-blend-mode : screen;
     }
-    
+   
     .Form {
       margin : 2%;
       padding : 3%;
-    }
-    
-    .plantFont {
-      background-image : url("../Images/background1.png");
-      background-blend-mode : screen;
     }
     
     .bloc_page, 
@@ -55,9 +54,16 @@
       display : block;
       padding : 1.5rem;
     }
+
+   /* ? Style des boutons 'Action'*/
     
     button a {
       color : #f0626f;
+    }
+
+    a.closebtn {
+      margin : 34px;
+      display : flex;
     }
     
    /* ? Style de la Side Bar */
@@ -109,12 +115,15 @@
       }
     }
     
+   /* ? Style de nos tableaux ? */ 
+
     table {
       width : 80%;
       }
     
 
-   /* *** Style préview Recette *** */
+   /* ? Style préview Recette ? */
+
    .previewRecetteBoutonFin{
     justify-content: space-around;
     padding-top: 20px;

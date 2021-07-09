@@ -14,82 +14,108 @@
 
          <main class="Form"> 
 
-             <section class="text-center">
+             <div  class="py-5 text-center col-12">
+
+                {# *********************************************** #}
+
+                 <section class="text-center">
     
-                 <h1 class=" mb-3 font-weight-normal"> Gestion des utilisateurs </h1>
+                     <h1 class=" mb-3 font-weight-normal"> Gestion des utilisateurs </h1>
          
-                 <p class="lead"> 
-                     <em> Consulter la liste des utlisateurs de votre site et administrer leurs droits. </em>  👤
-                 </p>
+                     <hr style="color:white;"/>
 
-             </section>
+                     <p class="lead"> 
+                         <em> Consulter la liste des utlisateurs de votre site et administrer leurs droits. </em>  📇 
+                     </p>
+
+                     <hr style="color:white;"/>
+
+                 </section>
+                 
+                 {# *********************************************** #}
   
-             <article>
+                 <article>
     
-                 <table class="table table-dark table-hover">
+                     <table class="table table-dark table-hover">
 
-                     <thead>
-
-                         <tr>
-                             <th> Id </th>
-                             <th> Pseudo </th>
-                             <th> Roles </th>
-                             <th> Mot de passe </th>
-                             <th> Avatar </th>
-                             <th> Email </th>
-                             <th> Actions </th>
-                         </tr>
-
-                     </thead>
-
-                     <tbody>
-
-                     {% for user in users %}
-
-                         <tr>
-
-                             <td> {{ user.id }} </td>
-                             <td> {{ user.login }} </td>
-                             <td> {{ user.roles ? user.roles|json_encode : '' }} </td>
-                             <td> {{ user.password }} </td>
-                             <td> {{ user.avatar }} </td>
-                             <td> {{ user.email }} </td>
-
-                             <td>
-                            
-                                 <section class="btn-group">
-
-                                     <a href="{{ path('user_show', {'id': user.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12">                                
-                                         Voir
-                                     </a>  
-    
-                                     <a href="{{ path('user_edit', {'id': user.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12">                                
-                                         Modifier
-                                     </a>   
-
-                                 </section>    
-
-                             </td>
-
-                         </tr>
-
-                         {% else %}
+                         <thead>
 
                              <tr>
-                                 <td colspan="7"> Aucun élément ne correspond à votre recherche </td>
+                                 <th> Id </th>
+                                 <th> Pseudo </th>
+                                 <th> Roles </th>
+                                 <th> Mot de passe </th>
+                                 <th> Avatar </th>
+                                 <th> Email </th>
+                                 <th> Actions </th>
                              </tr>
 
-                         {% endfor %}
+                         </thead>
 
-                     </tbody>
+                         <tbody>
 
-                 </table>
+                         {% for user in users %}
 
-             </article>
-             
-             <a href="{{ path('user_new') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">
-                 Créer un nouvel utilisateur
-             </a>
+                             <tr>
+
+                                 <td> {{ user.id }} </td>
+                                 <td> {{ user.login }} </td>
+                                 <td> {{ user.roles ? user.roles|json_encode : '' }} </td>
+                                 <td> {{ user.password }} </td>
+                                 <td> {{ user.avatar }} </td>
+                                 <td> {{ user.email }} </td>
+
+                                 <td>
+                                
+                                     <section class="btn-group">
+
+                                         <a href="{{ path('user_show', {'id': user.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12">                                
+                                             Voir
+                                         </a>  
+    
+                                         <a href="{{ path('user_edit', {'id': user.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12">                                
+                                             Modifier
+                                         </a>   
+
+                                     </section>    
+
+                                 </td>
+
+                             </tr>
+
+                             {% else %}
+
+                                 <tr>
+                                     <td colspan="7"> Aucun élément ne correspond à votre recherche </td>
+                                 </tr>
+
+                             {% endfor %}
+
+                         </tbody>
+
+                     </table>
+
+                 </article>
+                 
+                 {# *********************************************** #}
+
+                 <hr style="color:white;"/>
+
+                 <section class="btn-group-vertical col-12 ">
+
+                     <a href="{{ path('user_new') }}" class="btn btn-dark col-12 btn-lg px-4 gap-3">
+                         Créer un nouvel utilisateur
+                     </a>
+
+                     <a href="{{ path('interface_administration') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">
+                         Retour à l'interface d'administration
+                     </a>
+
+                 </section>    
+
+                 {# *********************************************** #}
+
+             <div/>      
 
          </main>
 

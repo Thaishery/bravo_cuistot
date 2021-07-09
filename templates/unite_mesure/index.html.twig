@@ -9,72 +9,98 @@
      {% block body %}
 
          <main class="Form">
+
+             <div  class="py-5 text-center col-12">
+
+                 {# *********************************************** #}
                  
-             <section class="text-center">
+                 <section class="text-center">
      
-                 <h1 class=" mb-3 font-weight-normal"> Gestion des unités de mesures </h1>
-          
-                 <p class="lead"> 
-                     <em> Consulter la liste des unités de mesures de votre site et les administrés. </em>  ⚖️
-                 </p>
+                     <h1 class=" mb-3 font-weight-normal"> Gestion des unités de mesures </h1>
+           
+                     <hr style="color:white;"/>
 
-             </section>   
+                     <p class="lead"> 
+                         <em> Consulter la liste des unités de mesures de votre site et les administrés. </em>  ⚖️
+                     </p>
 
-             <article>
+                     <hr style="color:white;"/>
+
+                 </section>   
+
+                 {# *********************************************** #}
+
+                 <article>
      
-                 <table class="table table-dark table-hover">
+                     <table class="table table-dark table-hover">
 
-                     <thead>
+                         <thead>
 
-                         <tr>
-                             <th> Id </th>
-                             <th> Nom de l'unité de mesure </th>
-                             <th> Action </th>
-                         </tr>
+                             <tr>
+                                 <th> Id </th>
+                                 <th> Nom de l'unité de mesure </th>
+                                 <th> Action </th>
+                             </tr>
 
-                     </thead>
+                         </thead>
 
-                     <tbody>
+                         <tbody>
 
-                     {% for unite_mesure in unite_mesures %}
+                         {% for unite_mesure in unite_mesures %}
 
-                         <tr>
-                             <td> {{ unite_mesure.id }} </td>
-                             <td> {{ unite_mesure.name }} </td>
+                             <tr>
+                                 <td> {{ unite_mesure.id }} </td>
+                                 <td> {{ unite_mesure.name }} </td>
 
-                             <td>
+                                 <td>
 
-                                 <section class="btn-group">
+                                     <section class="btn-group">
 
-                                     <a href="{{ path('unite_mesure_show', {'id': unite_mesure.id}) }}"  class="btn btn-success btn-lg px-4 gap-3 btn_spe">                                
-                                         Voir
-                                     </a> 
+                                         <a href="{{ path('unite_mesure_show', {'id': unite_mesure.id}) }}"  class="btn btn-success btn-lg px-4 gap-3 btn_spe">                                
+                                             Voir
+                                         </a> 
 
-                                     <a href="{{ path('unite_mesure_edit', {'id': unite_mesure.id}) }}" class="btn btn-success btn-lg px-4 gap-3 btn_spe">                                
-                                         Modifier
-                                     </a>   
+                                         <a href="{{ path('unite_mesure_edit', {'id': unite_mesure.id}) }}" class="btn btn-success btn-lg px-4 gap-3 btn_spe">                                
+                                             Modifier
+                                         </a>   
 
-                                 </section>
+                                     </section>
 
-                             </td>
+                                 </td>
 
-                         </tr>
+                             </tr>
 
-                     {% else %}
+                         {% else %}
 
-                         <tr>
-                             <td colspan="3"> Aucun élément ne correspond à votre recherche </td>
-                         </tr>
+                             <tr>
+                                 <td colspan="3"> Aucun élément ne correspond à votre recherche </td>
+                             </tr>
 
-                     {% endfor %}
+                         {% endfor %}
 
-                     </tbody>
+                         </tbody>
 
-                 </table>
-     
-                 <a type="submit" href="{{ path('unite_mesure_new') }}" class="btn btn-success col-12 btn-lg px-4 gap-3"> 
-                     Créer une nouvelle unité de mesure
-                 </a>
+                     </table>
+      
+                     {# *********************************************** #}
+
+                     <hr style="color:white;"/>
+
+                     <section class="btn-group-vertical col-12 ">
+
+                         <a type="submit" href="{{ path('unite_mesure_new') }}" class="btn btn-dark col-12 btn-lg px-4 gap-3"> 
+                             Créer une nouvelle unité de mesure
+                         </a>
+    
+                         <a href="{{ path('interface_administration') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">
+                             Retour à l'interface d'administration
+                         </a>
+
+                     </section>    
+
+                     {# *********************************************** #}
+
+             </div>    
 
          </main>
 

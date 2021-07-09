@@ -14,73 +14,101 @@
 
          <main class="Form">  
 
-             <section class="text-center">
+             <div  class="py-5 text-center col-12">
+
+                 {# *********************************************** #}
+
+                 <section class="text-center">
     
-                 <h1 class="mb-3 font-weight-normal"> Gestion des ingrédients </h1>
-          
-                 <p class="lead"> 
-                     <em> Consulter la liste des ingrédients de votre site et les administrés. </em>  🍒
-                 </p>
+                     <h1 class="mb-3 font-weight-normal"> Gestion des ingrédients </h1>
+               
+                     <hr style="color:white;"/>
 
-             </section>
+                     <p class="lead"> 
+                         <em> Consulter la liste des ingrédients de votre site et les administrer. </em>  🍒
+                     </p>
+
+                     <hr style="color:white;"/>
+
+                 </section>
      
-             <article>
+                 {# *********************************************** #}   
 
-                 <table class="table table-dark table-hover">
+                 <article>
 
-                     <thead>
+                     <table class="table table-dark table-hover">
 
-                         <tr>
-                             <th> Id </th>
-                             <th> Nom </th>
-                             <th> Actions </th>
-                         </tr>
-
-                     </thead>
-
-                     <tbody>
-
-                         {% for ingredient in ingredients %}
+                         <thead>
 
                              <tr>
-                                 <td> {{ ingredient.id }} </td>
-                                 <td> {{ ingredient.name }} </td>
+                                 <th> Id </th>
+                                 <th> Nom </th>
+                                 <th> Actions </th>
+                             </tr>
 
-                                 <td>
+                         </thead>
+
+                         <tbody>
+
+                             {% for ingredient in ingredients %}
+
+                                 <tr>
+                                     <td> {{ ingredient.id }} </td>
+                                     <td> {{ ingredient.name }} </td>
+
+                                     <td>
   
-                                     <section class="btn-group">
+                                         <section class="btn-group">
 
-                                         <a href="{{ path('administration_ingredients_show', {'id': ingredient.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12">
-                                             Voir 
-                                         </a>
+                                             <a href="{{ path('administration_ingredients_show', {'id': ingredient.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12">
+                                                 Voir 
+                                             </a>
 
-                                         <a href="{{ path('administration_ingredients_edit', {'id': ingredient.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12">
-                                             Modifier
-                                         </a>
-                               
-                                     </section>
-                               
-                                 </td>
+                                             <a href="{{ path('administration_ingredients_edit', {'id': ingredient.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12">
+                                                 Modifier
+                                             </a>
+                                   
+                                         </section>
+                                   
+                                     </td>
 
 
 
-                             </tr>
+                                 </tr>
 
-                         {% else %}
+                             {% else %}
 
-                             <tr>
-                                 <td colspan="3"> Aucun élément ne correspond à votre recherche </td>
-                             </tr>
-                             
-                         {% endfor %}
+                                 <tr>
+                                     <td colspan="3"> Aucun élément ne correspond à votre recherche </td>
+                                 </tr>
+                                 
+                             {% endfor %}
 
-                     </tbody>
+                         </tbody>
 
-                 </table>
+                     </table>
      
-                 <a href="{{ path('administration_ingredients_new') }}" class="btn btn-success col-12 btn-lg px-4 gap-3"> Créer une nouvel ingrédient </a>
+                     {# *********************************************** #}
+
+                     <hr style="color:white;"/>
+
+                     <section class="btn-group-vertical col-12 ">
+
+                         <a href="{{ path('administration_ingredients_new') }}" class="btn btn-dark col-12 btn-lg px-4 gap-3"> 
+                             Créer un nouvel ingrédient
+                         </a>
     
-             </article>
+                         <a href="{{ path('interface_administration') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">
+                             Retour à l'interface d'administration
+                         </a>    
+
+                     </section>    
+
+                     {# *********************************************** #} 
+
+                 </article>
+
+             </div>    
 
          </main>  
 

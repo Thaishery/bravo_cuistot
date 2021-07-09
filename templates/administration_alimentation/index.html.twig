@@ -1,35 +1,111 @@
-{% extends 'base.html.twig' %}
+ {% extends 'base.html.twig' %}
+     
+     {% block title %}
+         Alimentation index
+     {% endblock %}
+     
+     {% block body %}
 
-{% block title %}Alimentation index{% endblock %}
+         <main class="Form">  
+ 
+             <div class="py-5 text-center col-12">
 
-{% block body %}
-    <h1>Alimentation index</h1>
+                 {# *********************************************** #}
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for alimentation in alimentations %}
-            <tr>
-                <td>{{ alimentation.id }}</td>
-                <td>{{ alimentation.name }}</td>
-                <td>
-                    <a href="{{ path('administration_alimentation_show', {'id': alimentation.id}) }}">show</a>
-                    <a href="{{ path('administration_alimentation_edit', {'id': alimentation.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                 <section class="text-center">
 
-    <a href="{{ path('administration_alimentation_new') }}">Create new</a>
-{% endblock %}
+                     <h1 class="h1 mb-3 font-weight-normal"> 
+                         Gestion des types d'alimentation
+                     </h1>
+     
+                     <hr style="color:white;"/>
+
+                     <p class="lead"> 
+                         <em> Consulter la liste des types d'alimentations et les administrés. </em>  📓
+                     </p>
+
+                     <hr style="color:white;"/>
+
+                 </section>
+     
+                 {# *********************************************** #}
+
+                 <article> 
+
+                     <table class="table table-dark table-hover">
+
+                         <thead>
+
+                             <tr>
+                                 <th>Id</th>
+                                 <th>Name</th>
+                                 <th>actions</th>
+                             </tr>
+
+                         </thead>
+
+                         <tbody>
+
+                         {% for alimentation in alimentations %}
+
+                             <tr>
+
+                                 <td>{{ alimentation.id }}</td>
+                                 <td>{{ alimentation.name }}</td>
+
+                                 <td>
+
+                                     <section class="btn-group">
+                                  
+                                         <a href="{{ path('administration_alimentation_show', {'id': alimentation.id}) }}" class="btn btn-success btn-lg px-4 gap-3 col-12">
+                                             Voir
+                                         </a>
+
+                                         <a href="{{ path('administration_alimentation_edit', {'id': alimentation.id}) }}" class="btn btn-success btn-lg px-4 gap-3 col-12">
+                                             Modifier
+                                         </a>
+                                  
+                                     </section>
+
+                                 </td>
+
+                             </tr>
+
+                         {% else %}
+
+                             <tr>
+                                 <td colspan="3"> Aucun élément ne correspond à votre recherche </td>
+                             </tr>
+
+                         {% endfor %}
+
+                         </tbody>
+
+                     </table>
+
+                     {# *********************************************** #}
+     
+                     <hr style="color:white;"/>
+
+                     <section class="btn-group-vertical col-12 ">
+
+                         <a href="{{ path('administration_alimentation_new') }}" class="btn btn-dark col-12 btn-lg px-4 gap-3">
+                             Créer un nouveau type d'alimentation
+                         </a>
+      
+                         <a href="{{ path('categories') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">
+                              Retour à la gestion des catégories
+                         </a>    
+
+                     </section>    
+
+                     {# *********************************************** #} 
+
+                 </article>
+
+             </div>
+
+         </main>  
+       
+     {% endblock %}
+     

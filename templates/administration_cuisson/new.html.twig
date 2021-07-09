@@ -1,11 +1,56 @@
-{% extends 'base.html.twig' %}
+  {# ? Feuille : Créer un nouveau type de cuisson #ModeAdmin #}  
+ 
+ {% extends 'base.html.twig' %}
+  
+    {% block metaTitle %}
+         " Créer un nouveau type de cuisson "
+     {% endblock %}
 
-{% block title %}New Cuisson{% endblock %}
+     {% block title %}
+         Créer un nouveau type de cuisson
+     {% endblock %}
+     
+     {% block body %}
 
-{% block body %}
-    <h1>Create new Cuisson</h1>
+         <main class="Form">  
+ 
+             <div class="py-5 text-center col-12">
 
-    {{ include('administration_cuisson/_form.html.twig') }}
+                 {# *********************************************** #}
 
-    <a href="{{ path('administration_cuisson_index') }}">back to list</a>
-{% endblock %}
+                 <section class="text-center">
+
+                     <h1 class="plantFont">
+                         Créer un nouveau type de cuisson 
+                     </h1>
+                  
+                     <hr style="color:white;"/>
+
+                     <p class="lead"> 
+                         <em> Ajouter un nouveau type de cuisson à votre site! </em> ⏰
+                     </p>
+
+                     <hr style="color:white;"/>
+
+                 </section>
+               
+                 {# *********************************************** #}
+
+                 <article class="px-3">
+
+                     {{ include('administration_cuisson/_form.html.twig') }}
+                  
+                     <a href="{{ path('administration_cuisson_index') }}" class="btn btn-lg btn-secondary fw-bold border-white bg-white">
+                         Retour à la liste 
+                     </a>
+  
+                 </article>
+
+                 {# *********************************************** #}
+
+             </div>  
+
+         </main> 
+
+     {% endblock %}
+     

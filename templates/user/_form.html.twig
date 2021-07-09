@@ -19,12 +19,24 @@
                                  {{ form_widget(form.login) }}
                              
                              </section>
+
+                         {# **************************** EMAIL ************************** #}
+
+                             <section class="col-6">
+                             
+                                 {# *** LABEL *** #}
+                                 {{ form_label(form.email) }}
+                             
+                                  {# *** INPUT *** #}
+                                 {{ form_widget(form.email) }}
+                             
+                             </section>
                          
                          {# **************************** PASSWORD ************************** #}
 
                              <section class="col-6">
                              
-                                 {#{{ form_label(form.plainPassword) }}#}
+                                 {# {{ form_label(form.plainPassword) }} #}
                              
                                  <label> Mot de passe </label>
                  
@@ -32,7 +44,7 @@
                              
                                      'attr':{ 
                              
-                                     'class':'inputEmail' }}) }}     
+                                     'class':'plainPassword' }}) }}     
                              
                              </section>
 
@@ -56,19 +68,7 @@
 
                                          {{ form_widget(form.roles) }}
                                     
-                             </section>
-                    
-                         {# **************************** PASSWORD ************************** #}
-
-                             <section class="col-6">
-                             
-                                 {# *** LABEL *** #}
-                                 {{ form_label(form.email) }}
-                             
-                                  {# *** INPUT *** #}
-                                 {{ form_widget(form.email) }}
-                             
-                             </section>
+                             </section>                                       
  
                      </div>  
 
@@ -90,41 +90,11 @@
   
                      <hr style="color:white;"/>
   
-                     <button class="btn btn-success col-12  btn-lg px-4 gap-3">
+                     <button class="btn btn-dark col-12  btn-lg px-4 gap-3">
                          {{ button_label|default('Sauvegarder') }}
                      </button>
           
      {{ form_end(form) }}
 
 
- {#  ? TEST / CODE VRAC #}
                                   
-
-                                    {# <select class="form-control">
-
-                                 {% for choices in form.roles.vars.choices %} 
-
-                                     {{dump(choices)}}  #}
-
-                                     {# {% endfor %} #}
-
-                                     {# {% set selected = '' %} #}
-
-                                         {# {% if (oneSupervisor.fname ~ ' ' ~ oneSupervisor.lname) == user.supervisor %} #}
-
-                                             {# {% set selected = 'selected' %}
-
-                                         {% endif %} 
-                                 
-                               
-                                         <option 
-                                             value="{{oneSupervisor.fname}} 
-                                                     {{oneSupervisor.lname}}"
-                                                     {{ selected }}>
-                                                         {{oneSupervisor.fname}} 
-                                                         {{oneSupervisor.lname}}
-                                         </option>
-                                  
-                                     {% endfor %}
-                                     
-                             </select>    #}

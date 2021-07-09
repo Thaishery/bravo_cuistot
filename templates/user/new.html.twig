@@ -14,21 +14,33 @@
 
              <main class="Form">  
  
-                 <section class="text-center">
+                 <div  class="py-5 text-center col-12">
 
-                     <h1 class="plantFont mb-3 font-weight-normal"> Créer une nouvel utilisateur </h1>
-                          
+                     {# *********************************************** #}
 
-                 </section>
+                     <section class="text-center">
 
-                 <article>
+                         <h1 class="plantFont mb-3 font-weight-normal"> Créer un nouvel utilisateur </h1>
+                              
+
+                     </section>
+
+                     {# *********************************************** #}
+
+                     <article>
            
                          {{ include('user/_form.html.twig') }}
-                     <a href="{{ path('user_index') }}" type="submit" class="btn btn-success col-12 px-4 gap-3">
-                         Retour à la liste
-                     </a>
+
+                         <a href="{{ path('user_index') }}" type="submit" class="btn btn-success col-12 ">
+                             Retour à la liste
+                         </a>
+
                      </article>
+
+                     {# *********************************************** #}
         
+                 </div>
+
              </main>     
 
          {% endblock %}

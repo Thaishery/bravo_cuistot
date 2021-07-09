@@ -5,45 +5,54 @@
      {% endblock %}
      
      {% block body %}
-
-                  
+           
          <main class="Form">
+
+             <div  class="py-5 text-center col-12">
+
+                 {# *********************************************** #}
                  
-             <section class="text-center">
+                 <section class="text-center">
      
-                 <h1 class="plantFont h1 mb-3 font-weight-normal"> Accueil </h1>
+                     <h1 class="mb-3 font-weight-normal"> 
+                         Accueil
+                     </h1>
 
-                 <p class="lead">
+                     <hr style="color:white;"/>
 
-                     <em>
+                     <p class="lead">
 
-                          Bienvenue sur Bravo Cuistot 
-                     
-                         {% if app.user %}
+                         <em>
 
-                             {{ app.user.username }} 
+                              Bienvenue sur Bravo Cuistot 
+                         
+                             {% if app.user %}
 
-                         {% endif %}  
+                                 {{ app.user.username }} 
 
-                     ! </em>     
-                      
-                 </p>
-               
-             </section>   
+                             {% endif %}  
+
+                         ! </em> 🏡     
+                           
+                     </p>
+
+                     <hr style="color:white;"/>
+                   
+                 </section>   
+
+             </div>     
 
          </main>
 
-          {# **************************************************************************************** #}
+         {# **************************************************************************************** #}
 
          {# ? Partie: Les dernierès recettes. #}
 
          <div class="container">
 
              <div class="row">
-             {# <div class="row g-5 align-items-center g-lg-5 py-5"> #}
 
                  <div class="text-center">
-                 {# <div class="col-md-8 text-center"> #}
 
                          {# ******************** #}
 
@@ -55,8 +64,6 @@
                                          Les dernierès recettes 🌆 
                                      </h2>
                                    
-                                     {# <h1 id="plantFont" class="h1 mb-3 font-weight-normal"> Accueil </h1> #}
-                                    
                                      <div class="row">
 
                                          {# ******************** #}
@@ -66,7 +73,6 @@
                                          <div class=" col-sm-3 ">
 
                                              <div class="carteBg1 card mb-3">
-                                             {# <div class="card text-white bg-success bg-gradient mb-3"> #}
 
                                                  <div class="card-body">
 
@@ -87,7 +93,6 @@
                                          <div class="col-sm-3">
     
                                              <div class="carteBg2 card mb-3">
-                                             {# <div class="card text-white bg-success bg-gradient mb-3"> #}
 
                                                  <div class="card-body">
     

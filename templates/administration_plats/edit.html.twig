@@ -1,39 +1,65 @@
- {# ? Feuille : Modifier une recette #ModeAdmin #} 
+ {# ? Feuille : Modifier un type de plat #ModeAdmin #} 
  
  {% extends 'base.html.twig' %}
 
      {% block metaTitle %}
-         " Modifier un plat "
+         " Modifier un type de plat "
      {% endblock %} 
 
      {% block title %}
-         Modifier un plat
+         Modifier un type de plat
      {% endblock %}
      
      {% block body %}
 
          <main class="Form"> 
 
-             <section class="text-center">
-   
-                 <h1 class="h1 mb-3 font-weight-normal"> Modifier un plat </h1>
+             <div  class="py-5 text-center col-12">
 
-             </section>  
-     
-             <article class="btn-group-vertical">
-   
-                 <button href="{{ include('administration_plats/_form.html.twig', {'button_label': 'Update'}) }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">
-                 </button>
+                 {# *********************************************** #}
 
-                 <button href="{{ include('administration_plats/_delete_form.html.twig') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3"> 
-                 </button>
+                 <section class="text-center">
+       
+                     <h1 class="plantFont"> 
+                         Modifier un type de plat
+                     </h1>
+       
+                     <hr style="color:white;"/>
 
-                 <button href="{{ path('administration_plats_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
-                     Retour à la liste
-                 </button>
+                     <p class="lead"> 
+                         <em> Administrer vos types de plats </em>  📂
+                     </p>
 
-             </article> 
+                     <hr style="color:white;"/>
 
+                 </section>  
+
+                 {# *********************************************** #}
+           
+                 <hr style="color:white;"/>
+
+                 <article class="col-12">
+       
+                     {{ include('administration_plats/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+                    
+                     <a href="{{ path('administration_plats_index') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+                         Retour à la liste
+                     </a>
+       
+                 </article> 
+
+                 <hr style="color:white;"/>
+
+                 <article class="col-12">
+
+                     {{ include('administration_plats/_delete_form.html.twig') }}
+
+                 </article>
+
+                 {# *********************************************** #}
+
+             </div>      
+       
          </main>
 
      {% endblock %}

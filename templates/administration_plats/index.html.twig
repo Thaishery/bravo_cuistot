@@ -13,73 +13,101 @@
      {% block body %}
 
          <main class="Form">  
+ 
+             <div  class="py-5 text-center col-12">
 
-             <section class="text-center">
+                 {# *********************************************** #}
+
+                 <section class="text-center">
     
-                 <h1 class="h1 mb-3 font-weight-normal"> Gestion des plats </h1>
+                     <h1 class=" mb-3 font-weight-normal"> Gestion des types de plats </h1>
          
-                 <p class="lead"> 
-                     <em> Consulter la liste des types de plats et les administrés. </em>  📓
-                 </p>
+                     <hr style="color:white;"/>
 
-             </section>
+                     <p class="lead"> 
+                         <em> Consulter la liste des types de plats et les administrés. </em>  📓
+                     </p>
+
+                     <hr style="color:white;"/>
+
+                 </section>
      
-             <article> 
+                 {# *********************************************** #}
 
-                 <table class="table table-dark table-hover">
+                 <article> 
 
-                     <thead>
+                     <table class="table table-dark table-hover">
 
-                         <tr>
-                             <th> Id </th>
-                             <th> Nom </th>
-                             <th> Actions </th>
-                         </tr>
-
-                     </thead>
-
-                     <tbody>
-
-                         {% for plat in plats %}
+                         <thead>
 
                              <tr>
-                             
-                                 <td> {{ plat.id }} </td>
-                                 <td> {{ plat.name }} </td>
+                                 <th> Id </th>
+                                 <th> Nom du type de plat </th>
+                                 <th> Actions </th>
+                             </tr>
 
-                                 <td>
+                         </thead>
+
+                         <tbody>
+
+                             {% for plat in plats %}
+
+                                 <tr>
+                                 
+                                     <td> {{ plat.id }} </td>
+                                     <td> {{ plat.name }} </td>
+
+                                     <td>
+                                       
+                                         <section class="btn-group">
+
+                                             <a href="{{ path('administration_plats_show', {'id': plat.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12"> 
+                                                 Voir 
+                                             </a>
+
+                                             <a href="{{ path('administration_plats_edit', {'id': plat.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12">
+                                                 Modifier 
+                                             </a>
                                    
-                                     <section class="btn-group">
+                                         </section>
 
-                                         <a href="{{ path('administration_plats_show', {'id': plat.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12"> 
-                                             Voir 
-                                         </a>
+                                     </td>
 
-                                         <a href="{{ path('administration_plats_edit', {'id': plat.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12">
-                                             Modifier 
-                                         </a>
-                               
-                                     </section>
+                                 </tr>
 
-                                 </td>
+                             {% else %}
 
-                             </tr>
+                                 <tr>
+                                     <td colspan="3"> Aucun élément ne correspond à votre recherche </td>
+                                 </tr>
 
-                         {% else %}
+                             {% endfor %}
 
-                             <tr>
-                                 <td colspan="3"> Aucun élément ne correspond à votre recherche </td>
-                             </tr>
+                         </tbody>
 
-                         {% endfor %}
+                     </table>
 
-                     </tbody>
+                     {# *********************************************** #}
 
-                 </table>
-     
-                 <a href="{{ path('administration_plats_new') }}" class="btn btn-success col-12 btn-lg px-4 gap-3"> Créer un nouveau plat </a>
-     
-             </article>
+                         <hr style="color:white;"/>
+
+                         <section class="btn-group-vertical col-12 ">
+                     
+                              <a href="{{ path('administration_plats_new') }}" class="btn btn-dark col-12 btn-lg px-4 gap-3"> 
+                                 Créer un nouveau type de plat 
+                              </a>
+    
+                             <a href="{{ path('categories') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">
+                                 Retour à la gestion des catégories
+                             </a>    
+
+                         </section>    
+
+                         {# *********************************************** #} 
+
+                 </article>
+
+             </div>
 
          </main>     
 

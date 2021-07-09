@@ -7,28 +7,35 @@
      
      {% block body %}
 
-         <h1> Recette </h1>
+     <main class="Form">  
+         
+             <section class="text-center">
+ 
+                 <h1 class="plantFont mb-3 font-weight-normal"> Recette </h1>
+ 
+             </section>
 
-         recette:
-         {{dump(recette)}}
 
-         liste ingredients
-         {{dump(listeIngredient)}}
+             recette:
+             {{dump(recette)}}
 
-         liste etapes
-         {{dump(listeEtapes)}}
+             liste ingredients
+             {{dump(listeIngredient)}}
 
-         nombre d'étapes
-         {{dump(nombreEtapes)}}
+             liste etapes
+             {{dump(listeEtapes)}}
 
-         liste commentaire 
-         {{dump(listeCommentaires)}}
+             nombre d'étapes
+             {{dump(nombreEtapes)}}
 
-         note moyenne
-         {{dump(moyenneNote)}}
+             liste commentaire 
+             {{dump(listeCommentaires)}}
 
-         have noted
-         {{dump(haveNoted)}}
+             note moyenne
+             {{dump(moyenneNote)}}
+
+             have noted
+             {{dump(haveNoted)}}
          
              <div class="container">
              
@@ -42,7 +49,7 @@
 
                          {% endif %}
 
-                         <h1>{{recette.name}}</h1>
+                         <h1> {{recette.name}} </h1>
 
                      </div>
 
@@ -80,7 +87,7 @@
 
                      <div class="col-6">
 
-                         <p>Difficulté: 
+                         <p> Difficulté: 
 
                              {% if recette.Difficulte == 1 %}
 

@@ -1,35 +1,118 @@
-{% extends 'base.html.twig' %}
+ {# ? Feuille : Gestion des cuissons #ModeAdmin #} 
+ 
+ {% extends 'base.html.twig' %}
+ 
+     {% block metaTitle %}
+         " Gestion des cuissons "
+     {% endblock %}
 
-{% block title %}Cuisson index{% endblock %}
+     {% block title %}
+         Gestion des cuissons
+     {% endblock %}
+     
+     {% block body %}
 
-{% block body %}
-    <h1>Cuisson index</h1>
+         <main class="Form">  
+ 
+             <div  class="py-5 text-center col-12">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for cuisson in cuissons %}
-            <tr>
-                <td>{{ cuisson.id }}</td>
-                <td>{{ cuisson.name }}</td>
-                <td>
-                    <a href="{{ path('administration_cuisson_show', {'id': cuisson.id}) }}">show</a>
-                    <a href="{{ path('administration_cuisson_edit', {'id': cuisson.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                 {# *********************************************** #}
 
-    <a href="{{ path('administration_cuisson_new') }}">Create new</a>
-{% endblock %}
+                 <section class="text-center">
+
+                     <h1 class="plantFont"> 
+                         Gestion des cuissons 
+                     </h1>
+      
+                     <hr style="color:white;"/>
+
+                     <p class="lead"> 
+                         <em> Consulter la liste des types de cuissons et les administrés. </em>  📓
+                     </p>
+
+                     <hr style="color:white;"/>
+
+                 </section>
+     
+                 {# *********************************************** #}
+
+                 <article> 
+
+                     <table class="table table-dark table-hover">
+
+                         <thead>
+
+                             <tr>
+                                 <th> Id </th>
+                                 <th> Nom du type de cuisson </th>
+                                 <th> Actions </th>
+                             </tr>
+
+                         </thead>
+
+                         <tbody>
+
+                         {% for cuisson in cuissons %}
+
+                             <tr>
+
+                                 <td> {{ cuisson.id }} </td>
+                                 <td> {{ cuisson.name }} </td>
+                              
+                                 <td>
+ 
+                                     <section class="btn-group">
+
+                                         <a href="{{ path('administration_cuisson_show', {'id': cuisson.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12">
+                                             Voir
+                                         </a>
+
+                                         <a href="{{ path('administration_cuisson_edit', {'id': cuisson.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12">
+                                             Modifier
+                                         </a>
+                              
+                                     </section>
+
+                                 </td>
+
+                             </tr>
+                             
+                         {% else %}
+                         
+                             <tr>
+                                 <td colspan="3"> Aucun élément ne correspond à votre recherche </td>
+                             </tr>
+
+                         {% endfor %}
+
+                         </tbody>
+
+                     </table>
+
+                     {# *********************************************** #}
+     
+                     <hr style="color:white;"/>
+
+                     <section class="btn-group-vertical col-12 ">
+
+                         <a href="{{ path('administration_cuisson_new') }}" class="btn btn-dark col-12 btn-lg px-4 gap-3">
+                             Créer un nouveau type de cuisson 
+                         </a>
+
+
+                         <a href="{{ path('categories') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">
+                             Retour à la gestion des catégories
+                         </a>    
+
+                     </section>    
+
+                     {# *********************************************** #} 
+
+                 </article>
+
+             </div>
+
+         </main>    
+ 
+     {% endblock %}
+     

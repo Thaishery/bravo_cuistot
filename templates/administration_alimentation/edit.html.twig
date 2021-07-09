@@ -1,13 +1,64 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Alimentation{% endblock %}
+     {% block metaTitle %}
+         " Modifier un type d'alimentation "
+     {% endblock %} 
 
-{% block body %}
-    <h1>Edit Alimentation</h1>
+     {% block title %}
+         Modifier un type d'alimentation
+     {% endblock %}
+     
+     {% block body %}
 
-    {{ include('administration_alimentation/_form.html.twig', {'button_label': 'Update'}) }}
+         <main class="Form"> 
 
-    <a href="{{ path('administration_alimentation_index') }}">back to list</a>
+             <div  class="py-5 text-center col-12">
 
-    {{ include('administration_alimentation/_delete_form.html.twig') }}
-{% endblock %}
+                 {# *********************************************** #}  
+
+                 <section class="text-center">
+
+                     <h1 class="plantFont"> 
+                         Modifier un type d'alimentation
+                     </h1>
+
+                     <hr style="color:white;"/>
+
+                     <p class="lead"> 
+                         <em> Administrer vos types d'alimentations </em>  📂
+                     </p>
+
+                     <hr style="color:white;"/>
+
+                 </section>  
+
+                 {# *********************************************** #}
+
+                 <hr style="color:white;"/>
+
+                 <article class="col-12">
+
+                     {{ include('administration_alimentation/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+ 
+                     <a href="{{ path('administration_alimentation_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">
+                         Retour à la liste
+                     </a>
+
+                 </article> 
+
+                 <hr style="color:white;"/>
+
+                 <article class="col-12">
+
+                     {{ include('administration_alimentation/_delete_form.html.twig') }}
+ 
+                 </article>
+
+                 {# *********************************************** #}
+
+             </div>      
+       
+         </main>
+
+     {% endblock %}
+     

@@ -144,18 +144,26 @@
 		                    	 <source src="/Sound/MGS_MenuOff1.mp3" type="audio/mpeg"></source>
 		                     </audio>
 
-                             <a href="javascript:void(0)" class="closebtn" preload="auto" onmousedown="SoundFxMenuClose()" onclick="closeNav()" onmouseover="style.color='red'" onmouseout="style.color='rgb(25, 135, 84, 0.9)'" > &times;  </a>
+                             <a href="javascript:void(0)" 
+                                 class="closebtn" 
+                                 preload="auto" 
+                                 onmousedown="SoundFxMenuClose()" 
+                                 onclick="closeNav()" 
+                                 onmouseover="style.color='red'" 
+                                 onmouseout="style.color='rgb(25, 135, 84, 0.9)'" > &times; </a>
                         
                              <script>
+
 		                		 var audioDuBoutonClose = document.getElementById("MenuNavigationClose");
 		                	  	 function SoundFxMenuClose() {
 		                			 audioDuBoutonClose.play ();
 		                		 }
+                                 
 		                	 </script>
                  
 		                 </article>
 
-                         <hr style="color:rgba(25,135,84,0.9);"/>
+                         {# <hr style="color:rgba(25,135,84,0.9);"/> #}
 
                          <div class="overlay-content">
                              
@@ -170,7 +178,7 @@
 
                              </p>
             
-                                 <hr style="color:rgba(25,135,84,0.9);"/>
+                         {# <hr style="color:rgba(25,135,84,0.9);"/> #}
 
                              <ul class="nav nav-pills flex-column">
 

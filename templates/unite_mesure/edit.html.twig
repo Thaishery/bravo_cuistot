@@ -14,21 +14,49 @@
 
          <main class="Form"> 
 
-             <section class="text-center">
-   
-                 <h1 class="h1 mb-3 font-weight-normal"> Modifier une unité de mesure  </h1>
+             <div  class="py-5 text-center col-12">
 
-             </section>   
+                 {# *********************************************** #} 
 
-             {# <article class="btn-group-vertical"> #}
+                 <section class="text-center">
 
-                 {{ include('unite_mesure/_form.html.twig', {'button_label': 'Update'}) }}
-                {{ include('unite_mesure/_delete_form.html.twig') }}     
-                 <a href="{{ path('unite_mesure_index') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
-                     Retour à la liste
-                 </a>
+                     <h1 class="mb-3 font-weight-normal"> Modifier une unité de mesure. </h1>
+                      
+                     <hr style="color:white;"/>
 
-             {# </article>  #}
+                     <p class="lead"> 
+                         <em> Modifier les données de vos unités de mesure.  </em> 🐱‍💻
+                     </p>
+
+                     <hr style="color:white;"/>
+
+                 </section> 
+
+                 {# *********************************************** #} 
+
+                 <hr style="color:white;"/>
+
+                 <article class=" col-12">
+
+                     {{ include('unite_mesure/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+                  
+                     <a href="{{ path('unite_mesure_index') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+                         Retour à la liste
+                     </a>     
+                   
+                 </article> 
+
+                 <hr style="color:white;"/>
+
+                 <article class="col-12">
+
+                     {{ include('unite_mesure/_delete_form.html.twig') }}
+
+                 </article> 
+
+                 {# *********************************************** #} 
+
+             </div>
 
          </main>
 
