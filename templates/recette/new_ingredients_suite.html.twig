@@ -37,9 +37,7 @@
 
              <article class="btn-group-vertical">
 
-                 <form class="text-center">
                      {{ include('recette/_form.html.twig') }}
-                 </form>
 
                  <a href="{{ path('recette_new_etapes',{'id': app.request.get('id')})}}" type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
                      Passer a l'ajout des étapes

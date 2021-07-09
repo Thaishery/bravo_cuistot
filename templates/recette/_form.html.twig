@@ -1,53 +1,13 @@
- {# ? Feuille du form #ModeUser #}
- 
-     {{ form_start(form) }}
-     
-         <div>
-             {{ form_label(form.email) }}
-             {{ form_widget(form.email) }}
-         </div> 
-
-         <div>
-             {{ form_label(form.login) }}
-             {{ form_widget(form.login) }}
-         </div>
-
-         <div>
-             {#{{ form_label(form.plainPassword) }}#}
-             <label> Mot de passe </label>
-             {{ form_widget(form.plainPassword,{ 
-                 'attr':{ 
-                 'class':'inputEmail' }}) }}               
-         </div>
-
-         <div>
-             {{ form_label(form.roles) }}
-             {{ form_widget(form.roles) }}
-         </div>
+ {# ? Feuille du bouton Sauvegarder #} 
          
-      {{ form_end(form) }}    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+     {{ form_start(form) }}
 
          {{ form_widget(form) }}
      
-             <button class="btn col-12 btn-dark btn-lg px-4">  
-                 {{ button_label|default('Valider cette étape') }}
-             </button>
+         <button class="btn col-12 btn-dark btn-lg px-4">
+
+             {{ button_label|default('Sauvegarder') }} 
+             
+         </button>
      
      {{ form_end(form) }}
-

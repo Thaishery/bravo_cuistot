@@ -11,13 +11,7 @@
      {% endblock %}
      
      {% block body %}
-
-
-    {{ include('recette/_form.html.twig') }}
     {# todo : prévoir une vue de validation :  #}
-    <a href="{{ path('recette_new_preview',{'id': app.request.get('id')})}}">Valider et passer a la prévisualisation de la recette.</a><br/>
-
-
              <section class="text-center"> 
 
                  <h1 class="h1 mb-3 font-weight-normal"> Créer une étape (suite) </h1>
@@ -54,6 +48,8 @@
                  <button href="{{ path('recette_index') }}" type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
                      Retour à la liste
                  </button>    
+                 <a class="btn btn-success btn-lg px-4 gap-3" href="{{ path('recette_new_preview',{'id': app.request.get('id')})}}">Valider et passer a la prévisualisation de la recette.</a><br/>
+
 
              </article>
 
