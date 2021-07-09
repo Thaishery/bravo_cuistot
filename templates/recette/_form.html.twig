@@ -2,7 +2,7 @@
  
      {{ form_start(form) }}
      
-         <div>
+         {# <div>
              {{ form_label(form.email) }}
              {{ form_widget(form.email) }}
          </div> 
@@ -12,9 +12,9 @@
              {{ form_widget(form.login) }}
          </div>
 
-         <div>
+         <div> #}
              {#{{ form_label(form.plainPassword) }}#}
-             <label> Mot de passe </label>
+             {# <label> Mot de passe </label>
              {{ form_widget(form.plainPassword,{ 
                  'attr':{ 
                  'class':'inputEmail' }}) }}               
@@ -23,25 +23,9 @@
          <div>
              {{ form_label(form.roles) }}
              {{ form_widget(form.roles) }}
-         </div>
+         </div> #}
          
-      {{ form_end(form) }}    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      {# {{ form_end(form) }}     #}
 
          {{ form_widget(form) }}
      

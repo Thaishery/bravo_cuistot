@@ -71,9 +71,9 @@
                                          {# ***** Gestion des recettes ***** #}
                                          <h6> <kbd> Gestion des recettes </kbd> </h6> 
 
-                                             <li> <a class="dropdown-item" href="#"> Créer une nouvelle recette </a> </li> 
-                                             <li> <a class="dropdown-item" href="#"> Gérer mes recettes </a> </li>
-                                             <li> <hr class="dropdown-divider"> </li>                                                                                                        
+                                             <li> <a class="dropdown-item" href="{{path ('recette_new',{'id': app.user.id})}}"> Créer une nouvelle recette </a> </li> 
+                                             <li> <a class="dropdown-item" href="{{path ('recette_index',{'id': app.user.id})}}"> Gérer mes recettes </a> </li>
+                                             <li> <hr class="dropdown-divider"> </li>                                                                                                 
 
                                          {# ***** Gestion du site ***** #}
                                          <h6> <kbd> Gestion du site </kbd> </h6>

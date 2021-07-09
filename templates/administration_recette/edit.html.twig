@@ -22,8 +22,9 @@
 
              {# <article class="btn-group-vertical"> #}
 
-                {{ include('administration_recette/_form.html.twig', {'button_label': 'Update'}) }}
-                {{ include('administration_recette/_delete_form.html.twig') }}
+                 {{ include('administration_recette/_form.html.twig', {'button_label': 'Update'}) }}
+             
+                 {{ include('administration_recette/_delete_form.html.twig') }}
 
                  <a href="{{ path('administration_recette_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
                      Retour à la liste
