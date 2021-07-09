@@ -19,6 +19,9 @@ class RegistrationController extends AbstractController {
      */
     public function register(AvatarFileUploader $avatarFileUploader,Request $request, UserPasswordHasherInterface $PasswordHasher): Response
     {
+        if ($this->getUser()) {
+            return $this->redirectToRoute('home');
+        }
          $user = new User();
          $form = $this->createForm(RegistrationFormType::class, $user);
          $form->handleRequest($request);

@@ -32,7 +32,8 @@ class RecetteType extends AbstractType
                         'match' => false,
                         'message' => 'Ce champ ne peut contenir que des caractéres alphabétiques, accentuation incluse.',
                     ])
-                ]
+                    ],
+                    'label' => 'Nom de la recette'
             ])
             ->add('image',
                 FileType::class, [

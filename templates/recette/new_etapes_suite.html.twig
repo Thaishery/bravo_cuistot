@@ -36,18 +36,15 @@
 
              <article class="btn-group-vertical">
 
-                 <form class="text-center">
-
                      {{ include('recette/_form.html.twig') }}
 
-                 </form>
                  
                  {# ! todo : prévoir une vue de validation #}
                  {# <a href="{{ path('recette_new_etapes',{'id': app.request.get('id')})}}"> passer a l'ajout des étapes</a><br/> #}
                
-                 <button href="{{ path('recette_index') }}" type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
+                 <a href="{{ path('recette_index') }}" type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
                      Retour à la liste
-                 </button>    
+                 </a>    
                  <a class="btn btn-success btn-lg px-4 gap-3" href="{{ path('recette_new_preview',{'id': app.request.get('id')})}}">Valider et passer a la prévisualisation de la recette.</a><br/>
 
 
