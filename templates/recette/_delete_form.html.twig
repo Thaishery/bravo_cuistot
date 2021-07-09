@@ -1,0 +1,11 @@
+ {# ? Feuille du bouton Delete #ModeUser #}
+
+     <form method="post" action="{{ path('recette_delete', {'id': recette.id}) }}" onsubmit="return confirm('Voulez vraiment supprimer ce fichier?');">
+ 
+         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ recette.id) }}">
+ 
+         <button class="btn col-12 btn-dark btn-lg px-4">
+              Supprimer 
+         </button>
+ 
+     </form>

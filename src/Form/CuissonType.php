@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Cuisson;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -20,7 +21,7 @@ class CuissonType extends AbstractType
                         'message' => 'Veuillez entrer un type de cuisson.'
                     ]),
                     new Assert\Regex([
-                        'pattern' => '/^[a-zA-ZàâäêéèëîïôöùûüÀÂÄÊËÎÏÔÖÙÛÜŒœÇç]/',
+                        'pattern' => '/^[a-zA-ZàâäêéèëîïôöùûüÀÂÄÊËÎÏÔÖÙÛÜŒœÇç ]+/',
                         'message' => 'Ce champ ne peut contenir que des caractéres alphabétiques, accentuation incluse.'
                     ])
                 ],

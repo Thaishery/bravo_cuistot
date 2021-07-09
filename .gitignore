@@ -22,3 +22,6 @@
 ###> dossier d'avatar ###
 /public/uploads/avatar
 ###< dossier d'avatar ###
+###> dossier upload ###
+/public/uploads
+###< dossier upload ###

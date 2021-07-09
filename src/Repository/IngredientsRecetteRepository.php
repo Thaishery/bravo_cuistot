@@ -22,19 +22,17 @@ class IngredientsRecetteRepository extends ServiceEntityRepository
     // /**
     //  * @return IngredientsRecette[] Returns an array of IngredientsRecette objects
     //  */
-    /*
-    public function findByExampleField($value)
+    
+    public function findByRecetteId($value)
     {
         return $this->createQueryBuilder('i')
-            ->andWhere('i.exampleField = :val')
+            ->andWhere('i.recette_id = :val')
             ->setParameter('val', $value)
             ->orderBy('i.id', 'ASC')
-            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?IngredientsRecette
@@ -47,4 +45,5 @@ class IngredientsRecetteRepository extends ServiceEntityRepository
         ;
     }
     */
+
 }

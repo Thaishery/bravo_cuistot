@@ -29,11 +29,26 @@ class NotesRepository extends ServiceEntityRepository
             ->andWhere('n.user_id = :val')
             ->setParameter('val', $value)
             ->orderBy('n.id', 'ASC')
+
             //->setMaxResults(10)
+
             ->getQuery()
             ->getResult()
         ;
     }
+
+    public function findByRecetteId($value)
+    {
+        return $this->createQueryBuilder('n')
+            ->andWhere('n.recette_id = :val')
+            ->setParameter('val', $value)
+            ->orderBy('n.id', 'ASC')
+            // ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     
 
     /*

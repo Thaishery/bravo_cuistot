@@ -22,19 +22,27 @@ class EtapesRepository extends ServiceEntityRepository
     // /**
     //  * @return Etapes[] Returns an array of Etapes objects
     //  */
-    /*
-    public function findByExampleField($value)
+    
+    public function findByRecetteId($value)
     {
         return $this->createQueryBuilder('e')
-            ->andWhere('e.exampleField = :val')
+            ->andWhere('e.recette_id = :val')
             ->setParameter('val', $value)
             ->orderBy('e.id', 'ASC')
-            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }public function findByRecetteIdOrderByIsNumber($value)
+    {
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.recette_id = :val')
+            ->setParameter('val', $value)
+            ->orderBy('e.is_number', 'ASC')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?Etapes
