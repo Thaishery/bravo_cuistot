@@ -1,0 +1,178 @@
+
+{% extends 'base.html.twig' %}
+
+    {% block metaTitle %}
+        " Mise à jour profil "
+    {% endblock %}
+
+    {% block title %} 
+        Mise à jour Profil
+    {% endblock %}
+    
+    {% block body %}
+
+        {# <body class="px-4 py-5 my-5 text-center"> #}
+    
+            <main class="form-signin">
+                {{ form_start (form, 
+                    { 'attr':
+                        {
+                            'class':'needs-validation',
+                            'novalidate':''
+                        }
+                    })
+                }}   
+                    <form>     
+                        <div id="inscriptionForm">                 
+                             {# *** Conteneur du titre du formulaire *** #}
+                            <div id="bloc_page1" class="text-center">
+                                {# *** Titre du formulaire *** #}
+                                 <h1 id="plantFont" class="h1 mb-3 font-weight-normal"> Formulaire de profil </h1>
+                                
+                                {# *** Phrase d'accroche du formulaire *** #}
+                                <p class="lead"> 
+                                    Modifiez votre profil
+                                </p>
+                            </div>   
+                             {# **************************************************************** #}
+                            <div id="profileForm">
+                                <div class="row">
+                                    {# **************************************************************** #}
+                                    {# **************************** AVATAR **************************** #}
+                                    {# **************************************************************** #}
+
+                                        <div class="col-12 col-xl-6">  
+                                            {{form_label(form.avatar, ' Photo de profil')}}
+                                                {{form_widget
+                                                    (form.avatar,
+                                                        {
+                                                            'attr': { 'class':'form-control', }
+                                                        }
+                                                    ) 
+                                                }}
+                                        </div>
+                                    </div>
+
+                            {# **************************************************************** #}
+                                    <div class="row">
+                                        {# **************************************************************** #}
+                                        {# **************************** EMAIL ***************************** #}
+                                        {# **************************************************************** #}
+                                        <div class="col-sm-6">
+                                            {# *** LABEL *** #}
+                                            {{form_label (form.email, 'Adresse email' ) }}
+                                            <div class="input-group has-validation">
+                                                <span class="input-group-text"> @ </span>
+                                                {# *** INPUT *** #}
+                                                {{form_widget
+                                                    (form.email,
+                                                        {
+                                                            'attr': {'placeholder':'Entrez votre adresse email',
+                                                            'class':'form-control',
+                                                            }
+                                                        }
+                                                    ) 
+                                                }}
+                                                {# *** IF ERROR *** #}
+                                                <div class="invalid-feedback">
+                                                    Le champ email est requis.
+                                                    {{form_errors(form.email)}}
+                                                </div>
+                                            </div>
+                                            <span class="text-danger">
+                                                {{ form_errors (form.email) }} 
+                                            </span>
+                                        </div>
+                                    </div>
+                                {# **************************************************************** #}
+                                {# **************************** PASSWORD ************************** #}
+                                {# **************************************************************** #}
+
+                                    <div class="row"> 
+                                        <div class="col-sm-6">
+                                          
+                                            {# *** LABEL *** #}
+                                            {{form_label (form.plainPassword.first, 'Mot de passe' ) }}
+                                            {# {{ form_label (form.plainPassword.first, { label: 'Password' } )}} #}
+                                        
+                                            <div class="input-group has-validation">
+
+                                                <span class="input-group-text"> <i class="bi bi-key"></i> </span>
+
+                                                {# *** INPUT *** #}
+                                                {{form_widget
+                                                    (form.plainPassword.first,
+                                                        {'attr':
+                                                            {
+                                                                'placeholder':'Entrez votre mot de passe',
+                                                                'class':'form-control',
+                                                            }
+                                                        }
+                                                    ) 
+                                                }}
+
+                                                {# *** IF ERROR *** #}
+                                                <div class="invalid-feedback">
+                                                   Le champ mot de passe est requis.
+                                                   {{form_errors(form.plainPassword.first)}}
+                                                </div>
+
+                                            </div>
+ 
+                                            <span class="text-danger"> 
+                                                {{ form_errors (form.plainPassword.first) }} 
+                                            </span>
+                                                                 
+                                        </div>
+
+                                        {# **************************************************************** #}
+                                        {# ******************* PASSWORD CONFIRMATION ********************** #}
+                                        {# **************************************************************** #}
+
+                                        <div class="col-sm-6">
+                                           
+                                            {# *** LABEL *** #}
+                                            {{form_label (form.plainPassword.second, 'Confirmer votre mot de passe' ) }}
+                                            {# {{form_label (form.plainPassword.second, 'Confirmer votre mot de passe' ) }} #}
+
+                                            <div class="input-group has-validation">
+                                                <span class="input-group-text"> <i class="bi bi-key"></i> </span>
+
+                                                {# *** INPUT *** #}
+                                                {{form_widget
+                                                    (form.plainPassword.second,
+                                                        {
+                                                            'attr': {'placeholder':'Confirmer votre mot de passe',
+                                                            'class':'form-control',
+                                                            }
+                                                        }
+                                                    ) 
+                                                }}
+                                                {# *** IF ERROR *** #}
+                                                <div class="invalid-feedback">
+                                                    Le champ confirmer votre mot de passe est requis.
+                                                    {{form_errors(form.plainPassword.second)}}
+                                                </div>
+
+                                            </div>
+
+                                            <span class="text-danger"> 
+                                                {{ form_errors (form.plainPassword.second) }} 
+                                            </span>
+                                                                                               
+                                    </div>
+                            {# **************************************************************** #}
+                            {# **************************** ACTION ***************************** #}
+                            {# **************************************************************** #}
+                                <div class="btn-group-vertical">
+                                    <button class="btn col-12 btn-dark btn-lg px-4">
+                                       {{ button_label|default('Save') }}
+                                    </button>
+                                </div>
+                        </div> 
+                    {{ form_end(form) }}
+                </form>
+            </main>
+
+        </body>
+    {% endblock %}
