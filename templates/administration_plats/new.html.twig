@@ -12,7 +12,7 @@
      
      {% block body %}
 
-         <main class="Form">  
+         {# <main class="Form">  #}
  
              <section class="text-center">
 
@@ -27,13 +27,13 @@
              <article class="px-3">
              
                  <p class="lead">
-                     <a href="{{ include('administration_plats/_form.html.twig') }}" class="btn btn-lg btn-secondary fw-bold border-white bg-white">  </a>
+                     {{ include('administration_plats/_form.html.twig') }}
                  </p>
 
              </article>
 
                  <p class="">
-                     <a href="{{ path('administration_plats_index') }}" class="btn btn-lg btn-secondary fw-bold border-white bg-white"> Retour à la liste </a>
+                     <a href="{{ path('administration_plats_index') }}" class="btn btn-lg btn-secondary fw-bold"> Retour à la liste </a>
                  </p>
 
           
