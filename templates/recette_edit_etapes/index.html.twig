@@ -6,25 +6,50 @@
      
      {% block body %}
      
-         <div class="example-wrapper">
+         <main class="Form"> 
+
+             <div class="py-5 text-center col-12">
+
+                {# *********************************************** #}
+
+                 <section>
          
-             <h1> édition de l'étape :  {{etapes.name}} de la recette {{recette.0.name}}</h1>
-            
-             {{dump(recette)}}
-           
-             {{dump(etapes)}}
-           
-             {{ form_start(form) }}
-              
-                 {{ form_widget(form) }}
-               
-                     <button class="btn">
-                         {{ button_label|default('Mettre à jour') }}
-                     </button>
-           
-             {{ form_end(form) }}
+                     <h1> édition de l'étape :  {{etapes.name}} de la recette {{recette.0.name}}</h1>
+                    
+                         <hr/>
+
+                             <p> 
+                                 {# <em> Consulter la liste des utlisateurs de votre site et administrer leurs droits. </em>  📇  #}
+                             </p>
+
+                         <hr/>
+
+                 </section>
+
+                 {# *********************************************** #}
+
+                 <article>
+
+                     {{dump(recette)}}
+                    
+                     {{dump(etapes)}}
+                    
+                         {{ form_start(form) }}
+                          
+                             {{ form_widget(form) }}
+                           
+                                 <button class="btn">
+                                     {{ button_label|default('Mettre à jour') }}
+                                 </button>
+                        
+                         {{ form_end(form) }}
          
-             
-         </div>
+                 </article>
+
+                 {# *********************************************** #}
+     
+             </div>
+
+         </main>
 
      {% endblock %}

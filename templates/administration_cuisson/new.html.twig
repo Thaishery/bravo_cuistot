@@ -18,29 +18,27 @@
 
                  {# *********************************************** #}
 
-                 <section class="text-center">
+                 <section>
 
-                     <h1 class="plantFont">
-                         Créer un nouveau type de cuisson 
-                     </h1>
+                     <h1> Créer un nouveau type de cuisson </h1>
                   
-                     <hr style="color:white;"/>
+                         <hr/>
 
-                     <p class="lead"> 
-                         <em> Ajouter un nouveau type de cuisson à votre site! </em> ⏰
-                     </p>
+                             <p> 
+                                 <em> Ajouter un nouveau type de cuisson à votre site! </em> ⏰
+                             </p>
 
-                     <hr style="color:white;"/>
+                         <hr/>
 
                  </section>
                
                  {# *********************************************** #}
 
-                 <article class="px-3">
+                 <article>
 
                      {{ include('administration_cuisson/_form.html.twig') }}
                   
-                     <a href="{{ path('administration_cuisson_index') }}" class="btn btn-lg btn-secondary fw-bold border-white bg-white">
+                     <a href="{{ path('administration_cuisson_index') }}" class="btn btn-lg btn-success col-12">
                          Retour à la liste 
                      </a>
   

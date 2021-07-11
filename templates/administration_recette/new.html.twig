@@ -14,32 +14,52 @@
 
          <main class="Form"> 
 
-             <nav aria-label="breadcrumb">
+             <div  class="py-5 text-center col-12">
 
-                 <ol class="breadcrumb">
-                     <li class="breadcrumb-item active" aria-current="page"> Créer une nouvelle recette </li>
-                 </ol>
+                 {# *********************************************** #}
 
-             </nav>
+                     <nav aria-label="breadcrumb">
 
-             <section class="text-center">
+                         <ol class="breadcrumb">
+                             <li class="breadcrumb-item active" aria-current="page"> Créer une nouvelle recette </li>
+                         </ol>
+
+                     </nav>
+
+                         {# *********************************************** #}
+
+                         <section>
    
-                 <h1 class="h1 mb-3 font-weight-normal"> Créer une nouvelle recette </h1>
+                             <h1> Créer une nouvelle recette </h1>
+ 
+                                 <hr/>
 
-             </section> 
+                                     <p> 
+                                         <em> Vous pouvez créer une nouvelle recette à partir d'ici! </em>  📇 
+                                     </p>
 
-             <article class="btn-group-vertical col-12">
+                                 <hr/> 
 
-                 <div class="text-center col-12">
-                    {{ include('administration_recette/_form.html.twig') }}  
-                 </div>
+                         </section> 
 
-                 <a href="{{ path('administration_recette_index') }}" type="submit" class="btn btn-success  btn-lg px-4 gap-3">                                
-                     Retour à la liste
-                 </a>
+                         {# *********************************************** #}
 
-             </article>
+                         <article>
 
+                             {{ include('administration_recette/_form.html.twig') }}  
+                             
+                             <hr/> 
+
+                             <a href="{{ path('administration_recette_index') }}" type="submit" class="btn btn-success  btn-lg px-4 gap-3">                                
+                                 Retour à la liste
+                             </a>
+
+                         </article>
+
+                         {# *********************************************** #}
+
+             </div>
+  
          </main> 
 
      {% endblock %}

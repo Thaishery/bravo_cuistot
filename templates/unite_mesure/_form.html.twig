@@ -2,6 +2,22 @@
          
      {{ form_start(form) }}
 
+         {# ********** NOM ********** #}
+
+             <section>
+
+                 {# *** LABEL *** #}
+                 {{ form_label(form.name) }}
+             
+                 {# *** INPUT *** #}
+                 {{ form_widget(form.name) }}
+             
+             </section>
+
+             <br/> 
+
+             {# ******************** #}
+
          {{ form_widget(form) }}
      
          <button class="btn col-12 btn-dark btn-lg px-4">

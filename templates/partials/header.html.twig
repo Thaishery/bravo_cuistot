@@ -7,7 +7,7 @@
 
              <header class="row align-items-center justify-content-md-between ">
 
-                 <hr class="dropdown-divider" style="color: black;"/> 
+                 <hr/> 
 
                  <div class="col-4  text-start">
                  {# <div class="col-4 pb-3 mb-0 small lh-sm border-bottom w-10" > #}
@@ -57,45 +57,25 @@
     
                                      <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
 
-                                        
-                                         {# <li> <hr class="dropdown-divider">   </li>   #}
-
-                                         {# ***** Gestion du site ***** #}
-                                         {# <h6> <kbd> Gestion du site </kbd> </h6>
-                                             <li> <hr class="dropdown-divider">   </li> #}
-
-                                        
-                                         
-                                         {# <li> <hr class="dropdown-divider">   </li>   #}
-
                                          {# ***** Gestion des recettes ***** #}
                                          <h6> <kbd> Gestion des recettes </kbd> </h6> 
 
                                              <li> <a class="dropdown-item" href="{{path ('recette_new',{'id': app.user.id})}}"> Créer une nouvelle recette </a> </li> 
-                                             <li> <a class="dropdown-item" href="{{path ('recette_index',{'id': app.user.id})}}"> Gérer mes recettes </a> </li>
-                                             <li> <hr class="dropdown-divider"> </li>                                                                                                 
-
-                                         {# ***** Gestion du site ***** #}
-                                         <h6> <kbd> Gestion du site </kbd> </h6>
-
-                                             <li> <a class="dropdown-item" href="{{path ('user_index') }}"> Gérer les utilisateurs </a> </li>
-                                             {# <li> <a class="dropdown-item" href="#"> Gérer les roles </a> </li> #}
-                                             {# <li> <a class="dropdown-item" href="#"> Gérer les commentaires </a> </li> #}
-                                             {# <li> <a class="dropdown-item" href="#"> Gérer les notes </a> </li> #}
-                                            
-                                             <li> <hr class="dropdown-divider"> </li>
-
+                                             <li> <a class="dropdown-item" href="{{path ('recette_index',{'id': app.user.id})}}"> Gérer mes recettes </a> </li>                     
+                                             <li> <a class="dropdown-item" href="{{path ('interface_administration',{'id': app.user.id})}}"> Interface d'administration </a> </li>
 
                                          {# ***** Gestion du site ***** #}
                                          <h6> <kbd> Gestion du profil </kbd> </h6>
-
+                                         
                                              <li> <a class="dropdown-item" href="{{path ('user_edit',{'id': app.user.id})}}"> Gérer mon compte </a></li>
                                              <li> <a class="dropdown-item" href="{{path ('user_show',{'id': app.user.id})}}"> Mon profil </a></li>
-                                             <li> <a class="dropdown-item" href="#"> Paramètres </a></li>
+                                             {# <li> <a class="dropdown-item" href="#"> Paramètres </a></li> #}
 
-                                             <li> <hr class="dropdown-divider"> </li> 
+                                             <hr>
 
-                                             <li> <a class="dropdown-item" href="{{ path ('app_logout') }}" name="Se déconnecter" alt="Bouton se déconnecter"> 🔘 Se déconnecter</a></li>
+                                         {# ***** Bouton Action: Se déconnecter ***** #}
+
+                                             <li> <a class="dropdown-item" href="{{ path ('app_logout') }}" name="Se déconnecter" alt="Bouton se déconnecter"> Se déconnecter</a></li>
 
 
                                      </ul>

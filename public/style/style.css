@@ -3,53 +3,51 @@
    /* ? Style du corps */   
 
      body {
-      background-image : url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
+       background-image : url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
     }
     
    /* ? Style de police */   
 
-    .textPink {
-      color : #f0626f;
-    }
+     .textPink {
+       color : #f0626f;
+     }
     
    /* ? Style de l'entete */   
 
-    header {
-      background-color : rgb(0 0 0);
-    }
+     header {
+       background-color : rgb(0 0 0);
+     }
     
-    header div.row {
-      padding : 1%;
-      }
+     header div.row {
+       padding : 1%;
+     }
     
    /* ? Style des titres */
 
-    h1 {
-      padding : 5px;
-      border-radius : 3px;
-      background-color : rgb(25, 135, 84, 0.9);
-      background-image : url("../Images/background1.png");
-      background-blend-mode : screen;
-      border : rgb(25, 135, 84, 0.9) groove 1px;
-      box-shadow : 1px 1px 2px rgb(25, 135, 84, 0.9);
+     h1 {    
+       text-align: center; 
+       font-weight: normal;
+       border : rgb(25, 135, 84, 0.9) groove 1px;
+       border-radius : 3px;
+       padding : 5px;
+       background-color : rgb(25, 135, 84, 0.9);
+       box-shadow : 1px 1px 2px rgb(25, 135, 84, 0.9);
+       background-image : url("../Images/background1.png");
+       background-blend-mode : screen;
     }
-     
-   .plantFont {
-      background-image : url("../Images/background1.png");
-      background-blend-mode : screen;
-    }
-   
+ 
+   /* ? Style des divider */
+
+     hr {
+       /* display: none; */
+       color: white;
+     }
+
     .Form {
       margin : 2%;
       padding : 3%;
     }
-    
-    .bloc_page, 
-    .bloc_page1 {
-      width : 80%;
-      margin : auto;
-    }
-    
+ 
     .nav-link {
       display : block;
       padding : 1.5rem;
@@ -104,24 +102,25 @@
     }
     
     @media screen and (max-height: 450px) {
-      .overlay a {
-      font-size : 20px;
-    }
-    
-    .overlay .closebtn {
-      font-size : 40px;
-      top : 15px;
-      right : 35px;
-      }
+   
+       .overlay a {
+         font-size : 20px;
+       }
+       
+       .overlay .closebtn {
+         font-size : 40px;
+         top : 15px;
+         right : 35px;
+       }
+
     }
     
    /* ? Style de nos tableaux ? */ 
 
     table {
-      width : 80%;
+       width : 100%;
       }
     
-
    /* ? Style préview Recette ? */
 
    .previewRecetteBoutonFin{

@@ -18,10 +18,17 @@
 
                      {# *********************************************** #}
 
-                     <section class="text-center">
+                     <section>
 
-                         <h1 class="plantFont mb-3 font-weight-normal"> Créer un nouvel utilisateur </h1>
+                             <h1> Créer un nouvel utilisateur </h1>
                               
+                                 <hr/>
+
+                                     <p> 
+                                         <em> Vous pouvez créer un nouvel utilisateur manuellement! </em>  📇 
+                                     </p>
+
+                                 <hr/> 
 
                      </section>
 
@@ -31,7 +38,9 @@
            
                          {{ include('user/_form.html.twig') }}
 
-                         <a href="{{ path('user_index') }}" type="submit" class="btn btn-success col-12 ">
+                         <hr/> 
+
+                         <a href="{{ path('user_index') }}" type="submit" class="btn btn-success col-12">
                              Retour à la liste
                          </a>
 
