@@ -136,11 +136,13 @@ have noted
                                 {{commentaire.content|nl2br}}
                             </p>
                         </div>
+                        {% if app.user %}
                         <div class="col-12">
                             {% if app.user.id == commentaire.userId.id %}
                                <a href="{{path('commentaires_edit',{'id': commentaire.id})}}" class="btn btn-success btn-lg">Modifier mon commentaire</a>
                             {% endif %} 
                         </div>
+                        {% endif %}
                     {% endfor %}
                 {% else %}
                     <p>
@@ -148,6 +150,7 @@ have noted
                     </p>
                 {% endif %}
             </div>
+            {% if app.user %}
             <div class="col-12">
             Laisser un commentaire : 
             {{ form_start(formCommentaire) }}
@@ -155,6 +158,7 @@ have noted
                 <button class="btn">{{ button_label|default('Save') }}</button>
             {{ form_end(formCommentaire) }}
             </div>
+            {% endif %}
 
     {# {{ include('recette/_delete_form.html.twig') }} #}
 {% endblock %}
