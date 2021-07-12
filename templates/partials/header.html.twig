@@ -1,16 +1,15 @@
  {# ? Partie: Header #}
 
          {# ! Bouton LightMode/ DarkMode: Mache pas Ca m'as fait craqué je dois revenir dessus JC_ #}
-         {# <div class="btn btn-outline-dark btn-toggle btn-sm" >Go Nuit</div> #}
+         {# <div class="btn btn-outline-dark btn-toggle btn-sm" >Go Nuit</div> #}   
 
          <div class="container">
 
              <header class="row align-items-center justify-content-md-between ">
 
+                 <hr/> 
 
-                 <hr class="dropdown-divider" style="color: black;"> 
-
-                 <div class="col-4 mb-0 small lh-1 text-start">
+                 <div class="col-4  text-start">
                  {# <div class="col-4 pb-3 mb-0 small lh-sm border-bottom w-10" > #}
                  {# <div class="col-4 text-start" > #}
                        {# <div class="col-md-3 text-start "> #}
@@ -58,45 +57,27 @@
     
                                      <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
 
-                                        
-                                         {# <li> <hr class="dropdown-divider">   </li>   #}
-
-                                         {# ***** Gestion du site ***** #}
-                                         {# <h6> <kbd> Gestion du site </kbd> </h6>
-                                             <li> <hr class="dropdown-divider">   </li> #}
-
-                                        
-                                         
-                                         {# <li> <hr class="dropdown-divider">   </li>   #}
-
                                          {# ***** Gestion des recettes ***** #}
                                          <h6> <kbd> Gestion des recettes </kbd> </h6> 
 
-                                             <li> <a class="dropdown-item" href="#"> Créer une nouvelle recette </a> </li> 
-                                             <li> <a class="dropdown-item" href="#"> Gérer mes recettes </a> </li>
-                                             <li> <hr class="dropdown-divider"> </li>                                                                                                        
-
-                                         {# ***** Gestion du site ***** #}
-                                         <h6> <kbd> Gestion du site </kbd> </h6>
-
-                                             <li> <a class="dropdown-item" href="{{path ('user_index') }}"> Gérer les utilisateurs </a> </li>
-                                             {# <li> <a class="dropdown-item" href="#"> Gérer les roles </a> </li> #}
-                                             {# <li> <a class="dropdown-item" href="#"> Gérer les commentaires </a> </li> #}
-                                             {# <li> <a class="dropdown-item" href="#"> Gérer les notes </a> </li> #}
-                                            
-                                             <li> <hr class="dropdown-divider"> </li>
-
+                                             <li> <a class="dropdown-item" href="{{path ('recette_new')}}"> Créer une nouvelle recette </a> </li> 
+                                             <li> <a class="dropdown-item" href="{{path ('recette_index')}}"> Gérer mes recettes </a> </li> 
+                                             {% if is_granted ("ROLE_ADMIN") %}                    
+                                             <li> <a class="dropdown-item" href="{{path ('interface_administration')}}"> Interface d'administration </a> </li>
+                                             {% endif %}
 
                                          {# ***** Gestion du site ***** #}
                                          <h6> <kbd> Gestion du profil </kbd> </h6>
-
+                                         
                                              <li> <a class="dropdown-item" href="{{path ('user_edit',{'id': app.user.id})}}"> Gérer mon compte </a></li>
                                              <li> <a class="dropdown-item" href="{{path ('user_show',{'id': app.user.id})}}"> Mon profil </a></li>
-                                             <li> <a class="dropdown-item" href="#"> Paramètres </a></li>
+                                             {# <li> <a class="dropdown-item" href="#"> Paramètres </a></li> #}
 
-                                             <li> <hr class="dropdown-divider">   </li> 
+                                             <hr>
 
-                                             <li> <a class="dropdown-item" href="{{ path ('app_logout') }}"> Se déconnecter </a></li>
+                                         {# ***** Bouton Action: Se déconnecter ***** #}
+
+                                             <li> <a class="dropdown-item" href="{{ path ('app_logout') }}" name="Se déconnecter" alt="Bouton se déconnecter"> Se déconnecter</a></li>
 
 
                                      </ul>
@@ -131,7 +112,7 @@
              
                  {# ********** Partie: SideBar ********** #}
 
-                 <div class="col-4">
+                 <div class="col-4 text-end">
 
                      <div id="myNav" class="sideBar_Cuistot">
 
@@ -145,23 +126,31 @@
 		                    	 <source src="/Sound/MGS_MenuOff1.mp3" type="audio/mpeg"></source>
 		                     </audio>
 
-                             <a href="javascript:void(0)" class="closebtn" preload="auto" onmousedown="SoundFxMenuClose()" onclick="closeNav()"> &times;  </a>
+                             <a href="javascript:void(0)" 
+                                 class="closebtn" 
+                                 preload="auto" 
+                                 onmousedown="SoundFxMenuClose()" 
+                                 onclick="closeNav()" 
+                                 onmouseover="style.color='red'" 
+                                 onmouseout="style.color='rgb(25, 135, 84, 0.9)'" > &times; </a>
                         
                              <script>
+
 		                		 var audioDuBoutonClose = document.getElementById("MenuNavigationClose");
 		                	  	 function SoundFxMenuClose() {
 		                			 audioDuBoutonClose.play ();
 		                		 }
+                                 
 		                	 </script>
                  
 		                 </article>
 
-                         <hr style="color:rgba(25,135,84,0.9);"/>
+                         {# <hr style="color:rgba(25,135,84,0.9);"/> #}
 
                          <div class="overlay-content">
                              
                              {# *** Titre *** #}
-                             <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                             <p href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                                 
                                  <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
                               
@@ -169,9 +158,9 @@
                                          Menu de navigation 💻
                                      </span>
 
-                             </a>
+                             </p>
             
-                                 <hr style="color:rgba(25,135,84,0.9);"/>
+                         {# <hr style="color:rgba(25,135,84,0.9);"/> #}
 
                              <ul class="nav nav-pills flex-column">
 
@@ -181,7 +170,9 @@
 
                                      <a href="/" class="nav-link" >
                
-                                         <i class='fas fa-house-user'></i> &nbsp; Accueil 
+                                         <h2> 
+                                             <i class='fas fa-house-user'> </i> &nbsp; Accueil 
+                                         </h2>
 
                                      </a>
 
@@ -189,26 +180,44 @@
 
                                  {# *** Lien n° 2 *** #}
 
-                                 <li>
+                                 <li >
+
                                      <a href="#" class="nav-link">
-                                         <i class='fas fa-pepper-hot'></i> &nbsp; Actualités
+
+                                         <h2> 
+                                             <i class='fas fa-pepper-hot'></i> &nbsp; Actualités
+                                         </h2>
+
                                      </a>
+
                                  </li>
 
                                  {# *** Lien n° 3 *** #}
 
                                  <li>
+
                                      <a href="#" class="nav-link">
-                                         <i class='fas fa-utensils'></i> &nbsp; Recettes
+
+                                         <h2> 
+                                             <i class='fas fa-utensils'></i> &nbsp; Recettes
+                                         </h2>
+
                                      </a>
+
                                  </li>
 
                                  {# *** Lien n° 4 *** #}
 
                                  <li>
+
                                      <a href="#" class="nav-link">
-                                          <i class='fas fa-hand-sparkles'></i> &nbsp; Astuces
+
+                                         <h2> 
+                                             <i class='fas fa-hand-sparkles'></i> &nbsp; Astuces
+                                         </h2>
+
                                      </a>
+
                                  </li>
 
                                  {# *** Lien n° 5 *** #}
@@ -216,7 +225,11 @@
                                  <li>
 
                                      <a href="#" class="nav-link" >
-                                         <i class='fas fa-address-card'></i> &nbsp;  Contact 
+
+                                         <h2> 
+                                             <i class='fas fa-address-card'></i> &nbsp;  Contact 
+                                         </h2>
+
                                      </a>
                                      
                                  </li>
@@ -235,7 +248,7 @@
 			            	     <source src="/Sound/MGS_MenuOn1.mp3" type="audio/mpeg"></source>
 			                 </audio>
 
-                             <span style="font-size:30px;cursor:pointer" preload="auto" onmousedown="SoundFxMenuOpen()"  onclick="openNav(1)"> &#9776; </span> 
+                             <span style="font-size:30px;cursor:pointer" preload="auto" onmousedown="SoundFxMenuOpen()"  onclick="openNav(1)" onmouseover="style.color='#f0626f'" onmouseout="style.color='white'"> &#9776; </span> 
    
                              <script>
 		            	    	 var audioDuBoutonOpen = document.getElementById("MenuNavigationOpen");
@@ -247,6 +260,8 @@
 		                 </article>
 
                  </div>
+
+                 <hr class="dropdown-divider" style="color: black;"/>    
 
              </header>
 

@@ -1,4 +1,4 @@
-     /* ? 1er style de Card Carousel */  
+ /* ? 1er style de Card Carousel */  
     
     /* article#carousel {
          grid-row: 1 / 2;
@@ -73,7 +73,7 @@
          --position: 3;
      } */
          
-     /* ? 2ème style de Card Carousel */
+ /* ? Feuille de style des Black Card */
 
      .containerCarte {
         /* position: absolute; */

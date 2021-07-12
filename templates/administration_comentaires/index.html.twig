@@ -14,78 +14,104 @@
 
          <main class="Form"> 
 
-             <section class="text-center">
+             <div class="py-5 text-center col-12">
+
+                 {# *********************************************** #}
+
+                 <section>
     
-                 <h1 class=" mb-3 font-weight-normal"> Gestion des commentaires </h1>
+                     <h1> Gestion des commentaires </h1>
+
+                         <hr/>
          
-                     <p class="lead"> 
-                         <em> Consulter la liste des commentaires de votre site et effectuer leurs modération. </em> ✏️
-                     </p>
+                             <p> 
+                                 <em> Consulter la liste des commentaires de votre site et effectuer leurs modération. </em> ✏️
+                             </p>
 
-             </section>  
+                         <hr/>
 
-             <article>
+                 </section>  
+
+                 {# *********************************************** #}
+                
+                 <article>
+
+                     <table class="table table-dark table-hover">
+
+                         <thead>
+
+                             <tr>
+                                 <th> Id </th>
+                                 <th> Contenu </th>
+                                 <th> Date de création </th>
+                                 <th> Date d'édition </th>
+                                 <th> Actions </th>
+                             </tr>
+
+                         </thead>
+
+                         <tbody>
+
+                         {% for commentaire in commentaires %}
+
+                             <tr>
+                                 <td> {{ commentaire.id }} </td>
+                                 <td> {{ commentaire.content }} </td>
+                                 <td> {{ commentaire.createdAt ? commentaire.createdAt|date('Y-m-d H:i:s') : '' }} </td>
+                                 <td> {{ commentaire.editedAt ? commentaire.editedAt|date('Y-m-d H:i:s') : '' }} </td>
+                             
+                                 <td> 
+
+                                     <div class="btn-group">    
+
+                                         <a href="{{ path('administration_comentaires_show', {'id': commentaire.id}) }}" class="btn btn-success btn-lg px-4 gap-3 col-12">
+                                             Voir
+                                         </a>
+
+                                         <a href="{{ path('administration_comentaires_edit', {'id': commentaire.id}) }}" class="btn btn-success btn-lg px-4 gap-3 col-12">
+                                             Modifier
+                                         </a>
+                                      
+                                     </div>   
+
+                                 </td>
+
+                             </tr>
+
+                             {% else %}
+
+                                 <tr>
+                                     <td colspan="5"> Aucun élément ne correspond à votre recherche </td>
+                                 </tr>
+
+                             {% endfor %}
+
+                         </tbody>
+
+                     </table>  
+                   
+                     {# *********************************************** #}
+
+                     <hr/>
+
+                     <section class="btn-group-vertical col-12 ">
+
+                         <a href="{{ path('administration_comentaires_new') }}" class="btn btn-dark col-12 btn-lg px-4 gap-3">
+                             Créer un nouveau commentaire
+                         </a>
+
+                         <a href="{{ path('interface_administration') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">
+                             Retour à l'interface d'administration
+                         </a>    
+
+                     </section>    
+
+                     {# *********************************************** #}
     
-                 <table class="table table-dark table-hover">
+                 </article>
 
-                     <thead>
+             </div>
 
-                         <tr>
-                             <th> Id </th>
-                             <th> Contenu </th>
-                             <th> Date de création </th>
-                             <th> Date d'édition </th>
-                             <th> Actions </th>
-                         </tr>
-
-                     </thead>
-
-                     <tbody>
-
-                     {% for commentaire in commentaires %}
-
-                         <tr>
-                             <td> {{ commentaire.id }} </td>
-                             <td> {{ commentaire.content }} </td>
-                             <td> {{ commentaire.createdAt ? commentaire.createdAt|date('Y-m-d H:i:s') : '' }} </td>
-                             <td> {{ commentaire.editedAt ? commentaire.editedAt|date('Y-m-d H:i:s') : '' }} </td>
-                         
-                             <td> 
-
-                                 <div class="btn-group">    
-
-                                     <a href="{{ path('administration_comentaires_show', {'id': commentaire.id}) }}" class="btn btn-success btn-lg px-4 gap-3 col-12">
-                                         Voir
-                                     </a>
-
-                                     <a href="{{ path('administration_comentaires_edit', {'id': commentaire.id}) }}" class="btn btn-success btn-lg px-4 gap-3 col-12">
-                                         Modifier
-                                     </a>
-                                  
-                                 </div>   
-
-                             </td>
-
-                         </tr>
-
-                     {% else %}
-
-                         <tr>
-                             <td colspan="5"> Aucun élément ne correspond à votre recherche </td>
-                         </tr>
-
-                     {% endfor %}
-
-                     </tbody>
-
-                 </table>
-
-             </article>    
-               
-             <a href="{{ path('administration_comentaires_new') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">
-                 Créer un nouveau commentaire
-             </a>
-    
          </main>
 
      {% endblock %}

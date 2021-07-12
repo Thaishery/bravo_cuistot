@@ -14,27 +14,41 @@
 
          <main class="Form"> 
 
-             <section class="text-center">
+             <div  class="py-5 text-center col-12">
+
+                 {# *********************************************** #}
+
+                 <section class="text-center">
    
-                 <h1 class="h1 mb-3 font-weight-normal"> Créer un nouvel ingrédient </h1>
+                     <h1 class="h1 mb-3 font-weight-normal"> Créer un nouvel ingrédient </h1>
 
-                 <p class="lead"> 
-                     Créer un nouvel ingrédient! 👨‍🍳
-                 </p> 
+                     <hr style="color:white;"/>
 
-             </section> 
+                     <p class="lead"> 
+                         Créer un nouvel ingrédient! 👨‍🍳
+                     </p> 
 
-             <article>
+                     <hr style="color:white;"/>
 
-                 <div class="text-center">
-                     {{ include('administration_ingredients/_form.html.twig') }}
-                 </form> 
+                 </section> 
+
+                 {# *********************************************** #}
+
+                 <article>
+
+                     <div class="text-center">
+                         {{ include('administration_ingredients/_form.html.twig') }}
+                     </form> 
      
-                 <a href="{{ path('administration_ingredients_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
-                     Retour à la liste
-                 </a>
+                     <a href="{{ path('administration_ingredients_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+                         Retour à la liste
+                     </a>
  
-             </article>
+                 </article>
+                 
+                 {# *********************************************** #}
+
+             </div>      
 
          </main>      
 

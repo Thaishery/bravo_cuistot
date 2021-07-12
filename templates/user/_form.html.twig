@@ -4,127 +4,121 @@
      
              <div class="Form">                 
 
-                 {# <article class="text-center"> #}
-
                      <div class="row">
 
-                         {# **************************** LOGIN ***************************** #}
-
-                             <section class="col-6">
+                             {# **************************** LOGIN ***************************** #}
+                     
+                             <section class="col-12">
 
                                  {# *** LABEL *** #}
-                                 {{ form_label(form.login) }}
+                                 {# {{ form_label(form.login) }} #}
+                                 <label> Login/Pseudo </label>
                              
                                  {# *** INPUT *** #}
-                                 {{ form_widget(form.login) }}
+                                 {{ form_widget(form.login,{ 
+                             
+                                     'attr': { 
+                             
+                                     'class':'login',
+                                     'placeholder':'Entrer votre login/pseudo '
+                                     
+                                     }}) }}  
                              
                              </section>
-                         
-                         {# **************************** PASSWORD ************************** #}
 
-                             <section class="col-6">
+                             <br/>
+  
+                             {# **************************** EMAIL ************************** #}
+
+                             <section class="col-12">
                              
-                                 {#{{ form_label(form.plainPassword) }}#}
+                                 {# *** LABEL *** #}
+                                 {# {{ form_label(form.email) }} #}
+                                 <label> Adresse email </label>
                              
+                                 {# *** INPUT *** #}
+                                 {{ form_widget(form.email,{ 
+                             
+                                     'attr': { 
+                             
+                                     'class':'email',
+                                     'placeholder':'Entrer votre adresse email '
+                                     
+                                     }}) }}    
+                             
+                             </section>
+
+                             <br/> 
+
+                             {# **************************** PASSWORD ************************** #}
+
+                             <section class="col-12">
+                             
+                                 {# *** LABEL *** #}
+                                 {# {{ form_label(form.plainPassword) }} #}
                                  <label> Mot de passe </label>
                  
+                                 {# *** INPUT *** #}
                                  {{ form_widget(form.plainPassword,{ 
                              
-                                     'attr':{ 
+                                     'attr': { 
                              
-                                     'class':'inputEmail' }}) }}     
+                                     'class':'plainPassword',
+                                     'placeholder':'Entrer votre mot de passe'
+                                     
+                                     }}) }}     
                              
                              </section>
 
                      </div>         
                          
-                         {# **************************** ROLES ************************** #}
- 
-                     <div class="row">
+                     <br/>   
 
-                             <section class="col-6">
-
-                                 {# <label> Roles </label> #}
-                             
-                                 {# *** LABEL *** #}
-                                 
-                                 <label>
-                                     {{ form_label(form.roles) }}
-                                 </label>
-                             
-                                 {# *** INPUT *** #}
-
-                                         {{ form_widget(form.roles) }}
-                                    
-                             </section>
-                    
-                         {# **************************** PASSWORD ************************** #}
-
-                             <section class="col-6">
-                             
-                                 {# *** LABEL *** #}
-                                 {{ form_label(form.email) }}
-                             
-                                  {# *** INPUT *** #}
-                                 {{ form_widget(form.email) }}
-                             
-                             </section>
- 
-                     </div>  
-
-                         {# **************************** AVATAR ************************** #}
+                     {# **************************** AVATAR ************************** #}
 
                      <div class="row">
 
-                             <section class="col-6">
-                             
-                                 {# *** LABEL *** #}
-                                 {{ form_label(form.avatar) }}
-                             
-                                  {# *** INPUT *** #}
-                                 {{ form_widget(form.avatar) }}
-                             
-                             </section>
+                         <section class="col-12">
+                         
+                             {# *** LABEL *** #}
+                             {# {{ form_label(form.avatar) }} #}
+                             <label> Avatar </label>
+                         
+                              {# *** INPUT *** #}
+                             {{ form_widget(form.avatar) }}
+                         
+                         </section>
 
                      </div> 
+
+                     <br/> 
+
+                     {# **************************** ROLES ************************** #}
+ 
+                     <div class="row">
+
+                         <section class="col-12">
+
+                             {# *** LABEL *** #}                  
+                             {# {{ form_label(form.roles) }} #}
+                             <label> Rôle(s) </label>
+                         
+                             {# *** INPUT *** #}
+                             {{ form_widget(form.roles) }}                      
+
+                         </section>                                       
+ 
+                     </div>  
   
-                     <hr style="color:white;"/>
+                     {# ***************************************************** #}
+
+                     <hr/>
   
-                     <button class="btn btn-success col-12  btn-lg px-4 gap-3">
+                     <button class="btn btn-dark col-12  btn-lg px-4 gap-3">
                          {{ button_label|default('Sauvegarder') }}
                      </button>
           
      {{ form_end(form) }}
 
 
- {#  ? TEST / CODE VRAC #}
                                   
-
-                                    {# <select class="form-control">
-
-                                 {% for choices in form.roles.vars.choices %} 
-
-                                     {{dump(choices)}}  #}
-
-                                     {# {% endfor %} #}
-
-                                     {# {% set selected = '' %} #}
-
-                                         {# {% if (oneSupervisor.fname ~ ' ' ~ oneSupervisor.lname) == user.supervisor %} #}
-
-                                             {# {% set selected = 'selected' %}
-
-                                         {% endif %} 
-                                 
-                               
-                                         <option 
-                                             value="{{oneSupervisor.fname}} 
-                                                     {{oneSupervisor.lname}}"
-                                                     {{ selected }}>
-                                                         {{oneSupervisor.fname}} 
-                                                         {{oneSupervisor.lname}}
-                                         </option>
-                                  
-                                     {% endfor %}
-                                     
-                             </select>    #}

@@ -26,6 +26,7 @@ class PlatsType extends AbstractType
                     ])
                 ],
                 'required' => true,
+                'label' => 'Nom du plat'
             ])
         ;
     }

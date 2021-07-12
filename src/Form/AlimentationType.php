@@ -25,7 +25,8 @@ class AlimentationType extends AbstractType
                         'message' => 'Ce champ ne peut contenir que des caractéres alphabétiques, accentuation incluse.'
                     ])
                 ],
-                'required' => true,
+                 'required' => true,
+                 'label' => 'Nom du type d\'alimentation'
             ])
         ;
     }

@@ -1,32 +1,89 @@
  {# ? Partie : Gestion des recettes #ModeUser #}
  
  {% extends 'base.html.twig' %}
+   
+     {% block metaTitle %}
+         " Gestion des recettes "
+     {% endblock %}
 
+     {% block title %}
+         Gestion des recettes
+     {% endblock %}
+     
+     {% block body %}
 
-{% block title %}Liste des recettes{% endblock %}
+         <main class="Form"> 
 
-{% block body %}
-    <h1>Liste des recettes</h1>
-    <div class="col-12 row">
-        {% for recette in recettes %}
-        <div class="col-6 cardRecette">
-        <a href="{{path("recette_show", {'id': recette.id})}}">
-        {% if recette.image %}
-        <img src="#" />
-        <h2>{{recette.name}}</h2>
-        {% else  %}
-        <h2> {{recette.name}}</h2>
-        {% endif %}
-        </a>
-        {% if is_granted('ROLE_ADMIN') %}
-            <form method="post" action="{{ path('recette_delete', {'id': recette.id}) }}" onsubmit="return confirm('êtes vous sure de vouloir suprimer cette recette? Cette action est iréversible');">
-                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ recette.id) }}">
-                <button class="btn btn-primary">Supprimer la recette</button>
-            </form>
-        {% endif %}
-        </div>
-        {% endfor %}
-    </div>
+             <div class="py-5 text-center col-12">
 
-{% endblock %}
+                {# *********************************************** #}
 
+                 <section> 
+
+                     <h1> Gestion des recettes </h1>
+
+                         <hr/>
+
+                             <p> 
+                                 <em> Consulter la liste des utlisateurs de votre site et administrer leurs droits. </em>  📇 
+                             </p>
+
+                         <hr/>
+
+                 </section>
+
+                 {# *********************************************** #}
+
+                 <article class="col-12 row">
+
+                     {% for recette in recettes %}
+
+                         <div class="col-6 cardRecette">
+
+                             <a href="{{path("recette_show", {'id': recette.id})}}">
+
+                                 {% if recette.image %}
+
+                                     <img src="#" />
+
+                                     <h2> {{recette.name}} </h2>
+
+                                 {% else  %}
+
+                                     <h2> {{recette.name}} </h2>
+
+                                 {% endif %}
+
+                             </a>
+
+                             {# ? Feuille du bouton Delete #ModeAdmin #}
+
+                             {% if is_granted('ROLE_ADMIN') %}
+
+                                 <form method="post" action="{{ path('recette_delete', {'id': recette.id}) }}" onsubmit="return confirm('Voulez vraiment supprimer cette recette ?');">
+                                   
+                                     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ recette.id) }}">
+                                    
+                                     <button class="btn btn-secondary btn-lg px-4 col-12">
+                                         Supprimer 
+                                     </button>
+                              
+                                </form>
+
+                             {% endif %}
+
+                         </div>
+
+                     {% endfor %}
+
+                 </article>
+
+                 {# *********************************************** #}
+
+             <div/>      
+
+         </main>         
+     
+     {% endblock %}
+     
+     

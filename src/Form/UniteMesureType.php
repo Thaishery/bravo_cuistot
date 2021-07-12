@@ -28,6 +28,7 @@ class UniteMesureType extends AbstractType
                     ])
                 ],
                 'required' => true,
+                'label' => 'Nom de l\'unité de mesure'
             ])
         ;
     }
