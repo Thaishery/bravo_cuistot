@@ -124,17 +124,21 @@ have noted
                             <p>
                                 {{commentaire.userId.login}} : <br/>
                                 le : {{commentaire.createdAt|date('d-m-Y')}} à {{commentaire.createdAt|date('h:i:s')}}
+                                {% if commentaire.editedAt %}
+                                <br/>
+                                Modifier le : {{commentaire.editedAt|date('d-m-Y')}} a {{commentaire.editedAt|date('h:i:s')}}
+                                {% endif %}
                             </p>
                         </div>
                         <div class="col-9">
                             <p>
-                                {{commentaire.content}}
+                            {# https://stackoverflow.com/questions/10487855/how-to-replace-break-lines-in-twig #}
+                                {{commentaire.content|nl2br}}
                             </p>
                         </div>
                         <div class="col-12">
                             {% if app.user.id == commentaire.userId.id %}
-                                {{dump(commentaire)}}
-                               <a href="#" class="btn btn-success btn-lg">Modifier mon commentaire</a>
+                               <a href="{{path('commentaires_edit',{'id': commentaire.id})}}" class="btn btn-success btn-lg">Modifier mon commentaire</a>
                             {% endif %} 
                         </div>
                     {% endfor %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CommentairesController!{% endblock %}
+
+{% block body %}
+    <div class="row col-12">
+     {{ form_start(form) }}
+        <div class="col-2">
+        {{form_label (form.content, 'Contenu de votre commentaire:')}}
+        </div>
+        <div class="col-12">
+        {{form_widget (form.content, 
+        {
+            'attr':
+            {
+                'class':'col-12'
+            }
+        })}}
+        </div>
+     
+         <button class="btn col-12 btn-dark btn-lg px-4">
+
+             {{ button_label|default('Sauvegarder') }} 
+             
+         </button>
+     
+     {{ form_end(form) }}
+     </div>
+{% endblock %}
