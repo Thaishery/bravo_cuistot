@@ -60,9 +60,11 @@
                                          {# ***** Gestion des recettes ***** #}
                                          <h6> <kbd> Gestion des recettes </kbd> </h6> 
 
-                                             <li> <a class="dropdown-item" href="{{path ('recette_new',{'id': app.user.id})}}"> Créer une nouvelle recette </a> </li> 
-                                             <li> <a class="dropdown-item" href="{{path ('recette_index',{'id': app.user.id})}}"> Gérer mes recettes </a> </li>                     
-                                             <li> <a class="dropdown-item" href="{{path ('interface_administration',{'id': app.user.id})}}"> Interface d'administration </a> </li>
+                                             <li> <a class="dropdown-item" href="{{path ('recette_new')}}"> Créer une nouvelle recette </a> </li> 
+                                             <li> <a class="dropdown-item" href="{{path ('recette_index')}}"> Gérer mes recettes </a> </li> 
+                                             {% if is_granted ("ROLE_ADMIN") %}                    
+                                             <li> <a class="dropdown-item" href="{{path ('interface_administration')}}"> Interface d'administration </a> </li>
+                                             {% endif %}
 
                                          {# ***** Gestion du site ***** #}
                                          <h6> <kbd> Gestion du profil </kbd> </h6>
