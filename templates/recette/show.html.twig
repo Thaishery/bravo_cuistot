@@ -131,6 +131,12 @@ have noted
                                 {{commentaire.content}}
                             </p>
                         </div>
+                        <div class="col-12">
+                            {% if app.user.id == commentaire.userId.id %}
+                                {{dump(commentaire)}}
+                               <a href="#" class="btn btn-success btn-lg">Modifier mon commentaire</a>
+                            {% endif %} 
+                        </div>
                     {% endfor %}
                 {% else %}
                     <p>
