@@ -1,12 +1,16 @@
  /* ***** Feuille de style CSS > Bravo Cuistot ***** */
 
- 
    /* ? Style du corps */   
 
      body {
        background-image : url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
-    }
-    
+     }
+  
+     .Form {
+       margin : 2%;
+       padding : 3%;
+     }
+
    /* ? Style de police */   
 
      .textPink {
@@ -42,58 +46,61 @@
      hr {
        /* display: none; */
        color: white;
+       /* color: purple; */
      }
 
-    .Form {
-      margin : 2%;
-      padding : 3%;
-    }
- 
+     .dividerMini {
+       margin-left: 39%;
+       margin-right: 39%;
+     }
+
+   /* ? Style menu de navigation */
+
     .nav-link {
-      display : block;
-      padding : 1.5rem;
+       display : block;
+       padding : 1.5rem;
     }
 
    /* ? Style des boutons 'Action'*/
     
     button a {
-      color : #f0626f;
+       color : #f0626f;
     }
 
     a.closebtn {
-      margin : 34px;
-      display : flex;
+       margin : 34px;
+       display : flex;
     }
     
    /* ? Style de la Side Bar */
 
     .sideBar_Cuistot {
-      height : 100%;
-      width : 0;
-      position : fixed;
-      z-index : 1;
-      top : 0;
-      left : 0;
-      background-color : rgb(0, 0, 0, 0.9);
-      overflow-x : hidden;
-      transition : 0.5s;
+       height : 100%;
+       width : 0;
+       position : fixed;
+       z-index : 1;
+       top : 0;
+       left : 0;
+       background-color : rgb(0, 0, 0, 0.9);
+       overflow-x : hidden;
+       transition : 0.5s;
     }
     
     .sideBar_Cuistot-content {
-      position : relative;
-      top : 25%;
-      width : 100%;
-      text-align : center;
-      margin-top : 30px;
+       position : relative;
+       top : 25%;
+       width : 100%;
+       text-align : center;
+       margin-top : 30px;
     }
     
     .overlay a {
-      padding : 8px;
-      text-decoration : none;
-      font-size : 36px;
-      color : #f0626f;
-      display : block;
-      transition : 0.3s;
+       padding : 8px;
+       text-decoration : none;
+       font-size : 36px;
+       color : #f0626f;
+       display : block;
+       transition : 0.3s;
     }
     
     .sideBar_Cuistot a:hover, 
@@ -124,13 +131,70 @@
     
    /* ? Style préview Recette ? */
 
-   .previewRecetteBoutonFin{
-    justify-content: space-around;
-    padding-top: 20px;
-   }
+     .previewRecetteBoutonFin {
+       justify-content: space-around;
+       padding-top: 20px;
+     }
 
-/* *** Style des recettes *** */
-/* impose une taille mini aux miniatures des recette, a voir avec des image comment cela ce comporte (comenter pour le moment) */
-/* .cardRecette{
-    min-height: 200px;
-} */
+   /* ? Style des recettes *** */
+
+   /* impose une taille mini aux miniatures des recette, a voir avec des image comment cela ce comporte (comenter pour le moment) */
+   /* .cardRecette{
+       min-height: 200px;
+   } */
+   
+   /* ? Style retour d'erreur sur les formulaires > required ? */
+
+     :required
+       {
+         background-color: red;
+       }
+
+   /* ? Style des input formulaires  */
+
+     #rechercheInputStyle {
+       justify-content: center;
+       text-align: center;
+     }
+ 
+     /* ? Responsive layout - makes a one column-layout instead of a two-column layout */
+
+     .flex-container {
+       display: flex;
+       flex-direction: row;
+       /* font-size: large; */
+       text-align: center;
+       background-color: rgba(25, 135, 84, 0.1) ;
+     }
+    
+     .flex-item-left {
+       /* background-color: rgba(25, 135, 84, 0.9) ;  */
+       padding: 10px;
+       flex: 50%;
+     }
+    
+     .flex-item-right {
+       /* background-color: rgba(240, 98, 146, 0.7); */
+       padding: 10px;
+       flex: 50%;
+     }
+    
+     /* ? Responsive layout - makes a one column-layout instead of two-column layout */
+
+       @media (max-width: 800px) {
+
+         .flex-container {
+           flex-direction: column;
+         }
+
+       }
+
+     /* ? Responsive layout - makes a one column layout instead of a two-column layout */
+
+       @media (max-width: 800px) {
+
+         .flex-container {
+           flex-direction: column;
+         }
+
+      }
