@@ -180,7 +180,7 @@ class RecetteController extends AbstractController
             // forbiden.html.twig => a modifier (placeholder atm) les paramétres pouront être suprimer par la suite. 
             return $this->render('errors/forbiden.html.twig');
         }
-        // si il y a deja des ingrédients de recette
+        // si il y a deja des étapes de recette
         else if($listeEtapes != null){
             //on définie le numéro de l'etape, pour cela : 
             //on utilise la fonction count() sur notre tableau et ajout 1 

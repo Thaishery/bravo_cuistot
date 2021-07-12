@@ -31,9 +31,10 @@ class RecetteType extends AbstractType
                         'pattern' => '/[^a-zA-ZàâäêéèëîïôöùûüÀÂÄÊËÎÏÔÖÙÛÜŒœÇç0-9 ]+/',
                         'match' => false,
                         'message' => 'Ce champ ne peut contenir que des caractéres alphabétiques, accentuation incluse.',
-                        // 'label' => 'Nom de la recette'
-                     ])
-                ]
+
+                    ])
+                    ],
+                    'label' => 'Nom de la recette'
             ])
 
             ->add('image',

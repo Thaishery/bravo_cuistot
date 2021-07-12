@@ -87,10 +87,8 @@
                 {% endfor %}
             </div>
             <div class="col-12 row previewRecetteBoutonFin">
-                <button class="col-2 btn btn-success btn-lg">Modifier les étapes.</button>
-                <button class="col-2 btn btn-success btn-lg">Modifier la liste des ingrédients</button>
-                <button class="col-3 btn btn-success btn-lg">Modifier les information de la recette</button>
-                <button class="col-2 btn btn-success btn-lg">Valider la recette</button>
+                <a class="col-2 btn btn-success btn-lg" href="{{path("recette_edit",{'id':recette.id} )}}">Modifier / corriger la recette.</a>
+                <a class="col-2 btn btn-success btn-lg" href="{{path("recette_show",{'id':recette.id})}}">Voir la recette</a>
             </div>
         </div>
     </div>

@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+     {% block title %}
+         Cuistot
+     {% endblock %}
+
+     {% block body %}
+       {{dump(listeNotes)}}
+         <header>
+             <h1 class="text-center"> Cuistot </h1>
+         </header>
+
+         <div class="row">
+            {# ***** Carte n°2 ***** #}
+
+                 <article class="col-sm-4">
+    
+                     
+                             <h2> Avatar </h2>
+        
+                                 {% if user.0.avatar %}
+        
+                                     <figure>
+                                         <img id="cardAvatar" class="card-img-top" alt="Image de l'avatar de l'utilisateur" src="{{ asset('uploads/avatar/' ~ user.0.avatar) }}"/>
+                                         {# <img src="{{asset("uploads/avatar")}} "alt="Image de l'avatar de l'utilisateur"> #}
+                                                                                                                  
+                                     </figure>
+        
+                                 {% else %}
+        
+                                     <h2> Pas d'avatar disponible </h2> <br/>
+                                    
+                                 {% endif %}
+                           
+                                
+                
+                 </article>
+
+             {# ***** Carte n°1 ***** #}
+
+                 <article class="col-sm-8">
+
+                    
+                             <section id="login" class="col-12">
+                                 <h2> Vous êtes sur le profil de : {{ user.0.login }} </h2>
+                             </section>
+            
+                             <hr style="color:rgba(25,135,84,0.9)";/>
+
+                             <div class="row justify-content-center">   
+
+                                 <section id="noteMoyenne" class="col-4">       
+                                     <h2> Nombre de recettes : {{ listeRecette|length }} </h2> <br/><br/><br/>
+                                 </section> 
+                              
+                                 <section id="noteMoyenne" class="col-4">       
+                                     <h2> Note moyenne de ses recettes : {{ moyenneActuelle }} </h2>
+                                 </section> 
+
+                             </div>   
+
+                             {# ***** #}
+
+                         </div>
+
+                     </div>
+                 
+                 </article>
+        </div>
+             
+     {# ******** #}
+
+         <hr style="color:rgba(25,135,84,0.9);"/>
+
+         <article class="row ">
+
+             <h1 class="plantFont"> liste des recettes de l'utilisateur : </h1>
+
+                 {% for recettes in listeRecette %}
+
+                     <figure id="imgRecette" class="col-4">
+                         {{recettes.image}}
+                     </figure>
+
+                     <div id="recette" class="row col-8a">
+
+                         <h2> {{ recettes.name }} </h2>
+
+                             <section class="col-4">
+                                 Temps de préparation : {{recettes.tempsPreparation}} minutes
+                             </section>
+
+                             <section class="col-4">
+                                 Difficulté : {{recettes.difficulte}}
+                             </section>
+
+                             <section class="col-4">
+                                 Moyenne des notes de la recette :
+                                 {% if attribute(moyenneRecette, loop.index -1)!= 0 %} 
+                                    {{(attribute(moyenneRecette, loop.index -1))}}
+                                 {% else %}
+                                    Recette non notée
+                                 {% endif %}
+                             </section>
+
+                     </div>
+
+                 {% endfor %}
+
+             </article>
+                {% if app.user.id == user.0.id %} 
+
+                     <a href="{{ path('profile_edit') }}" class="btn btn-success btn-lg"> Editer mon profil </a>
+
+                 {% endif %}
+
+         {% endblock %}
+         
+

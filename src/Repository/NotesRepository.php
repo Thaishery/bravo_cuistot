@@ -29,11 +29,14 @@ class NotesRepository extends ServiceEntityRepository
             ->andWhere('n.user_id = :val')
             ->setParameter('val', $value)
             ->orderBy('n.id', 'ASC')
-            // ->setMaxResults(10)
+
+            //->setMaxResults(10)
+
             ->getQuery()
             ->getResult()
         ;
     }
+
     public function findByRecetteId($value)
     {
         return $this->createQueryBuilder('n')
@@ -45,6 +48,7 @@ class NotesRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
     
 
     /*
