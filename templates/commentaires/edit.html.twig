@@ -1,8 +1,8 @@
-{% extends 'base.html.twig' %}
+{# {% extends 'base.html.twig' %} #}
 
-{% block title %}Hello CommentairesController!{% endblock %}
+{# {% block title %}Modifier vottre commentaire{% endblock %} #}
 
-{% block body %}
+{# {% block body %} #}
     <div class="row col-12">
      {{ form_start(form) }}
         <div class="col-2">
@@ -17,13 +17,11 @@
             }
         })}}
         </div>
-     
-         <button class="btn col-12 btn-dark btn-lg px-4">
-
+         <button class="btn col-12 btn-dark btn-lg px-4 " >
              {{ button_label|default('Sauvegarder') }} 
-             
          </button>
-     
+         {# <a href="{{path('recette_show',{'id': id})}}" id="editComment" class="btn btn-success btn-lg">Retour a la recette</a> #}
+         <script type="text/javascript" src="{{asset('js/modalCommentaire.js')}}"></script>
      {{ form_end(form) }}
      </div>
-{% endblock %}
+{# {% endblock %} #}

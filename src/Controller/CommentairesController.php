@@ -29,19 +29,20 @@ class CommentairesController extends AbstractController
            if($commentaire){
                $commentaires->setContent($commentaire);
                $this->getDoctrine()->getManager()->flush();
-               return $this->redirectToRoute('recette_show',[
-                   'id'=>(string)$recette_id,
+               return $this->redirectToRoute('commentaires_edit',[
+                   'id'=>(string)$commentaires->getId(),
                ]);
            }
            //si il est identique, on redirige juste sans envoie en bdd
            else{
-               return $this->redirectToRoute('recette_show',[
-                'id'=>(string)$recette_id,
+               return $this->redirectToRoute('commentaires_edit',[
+                'id'=>(string)$commentaires->getId(),
             ]);
            }
         }
         return $this->render('commentaires/edit.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'id' => (string)$recette_id,
         ]);
     }
 }

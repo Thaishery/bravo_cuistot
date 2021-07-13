@@ -120,7 +120,7 @@ have noted
                 <h2>commentaires : </h2>
                 {% if listeCommentaires %}
                     {% for commentaire in listeCommentaires %}
-                        <div class="col-3">
+                        <div class="col-4">
                             <p>
                                 {{commentaire.userId.login}} : <br/>
                                 le : {{commentaire.createdAt|date('d-m-Y')}} à {{commentaire.createdAt|date('h:i:s')}}
@@ -130,18 +130,45 @@ have noted
                                 {% endif %}
                             </p>
                         </div>
-                        <div class="col-9">
+                        <div class="col-12">
                             <p>
                             {# https://stackoverflow.com/questions/10487855/how-to-replace-break-lines-in-twig #}
                                 {{commentaire.content|nl2br}}
                             </p>
                         </div>
                         {% if app.user %}
-                        <div class="col-12">
                             {% if app.user.id == commentaire.userId.id %}
+                            <main class="modal_comment_{{commentaire.id}}">
+                                <button type="button" class=" btn btn-success btn-lg login-position" data-bs-toggle="modal" data-bs-target="#Modal_{{commentaire.id}}">
+                                    Modifier mon commentaire
+                                </button>
+                                {# ***** MODAL ***** #}
+	                            <div class="login-box modal fade" id="Modal_{{commentaire.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		                            <div class="modal-dialog modal-dialog-centered">
+			                            <div class="modal-content ">
+                                            <section class="modal-header ">
+                                                <h5 class="modal-title" id="exampleModalLabel">
+                                                    Modifier mon commentaire 
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </section>
+                                            <article class="modal-body">
+                                                <iframe id="ModificationCommentaire"
+                                                        title="Modification Commentaire"
+                                                        width="300"
+                                                        height="200"
+                                                        sandbox="allow-scripts allow-forms allow-same-origin"
+                                                        src="{{path('commentaires_edit',{'id': commentaire.id})}}">
+                                                </iframe>
+                                            </article>              
+                                        </div>
+		                            </div>
+	                            </div>
+                            </main>
+                            {# <div class="col-12">
                                <a href="{{path('commentaires_edit',{'id': commentaire.id})}}" class="btn btn-success btn-lg">Modifier mon commentaire</a>
+                            </div> #}
                             {% endif %} 
-                        </div>
                         {% endif %}
                     {% endfor %}
                 {% else %}
