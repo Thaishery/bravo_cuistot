@@ -31,6 +31,7 @@ class CommentairesController extends AbstractController
                $this->getDoctrine()->getManager()->flush();
                return $this->redirectToRoute('commentaires_edit',[
                    'id'=>(string)$commentaires->getId(),
+                   'recette_id'=>(string)$recette_id,
                ]);
            }
            //si il est identique, on redirige juste sans envoie en bdd

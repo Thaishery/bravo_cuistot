@@ -157,7 +157,7 @@ have noted
                                                         title="Modification Commentaire"
                                                         width="300"
                                                         height="200"
-                                                        sandbox="allow-scripts allow-forms allow-same-origin"
+                                                        sandbox="allow-scripts allow-forms allow-same-origin allow-modals"
                                                         src="{{path('commentaires_edit',{'id': commentaire.id})}}">
                                                 </iframe>
                                             </article>              
@@ -168,7 +168,7 @@ have noted
                             {# <div class="col-12">
                                <a href="{{path('commentaires_edit',{'id': commentaire.id})}}" class="btn btn-success btn-lg">Modifier mon commentaire</a>
                             </div> #}
-                            {% endif %} 
+                            {% endif %}
                         {% endif %}
                     {% endfor %}
                 {% else %}
@@ -186,6 +186,6 @@ have noted
             {{ form_end(formCommentaire) }}
             </div>
             {% endif %}
-
+    <script type="text/javascript" src="{{asset('js/modalCommentaireButton.js')}}"></script> 
     {# {{ include('recette/_delete_form.html.twig') }} #}
 {% endblock %}
