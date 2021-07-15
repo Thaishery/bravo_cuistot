@@ -12,8 +12,10 @@
         <div class="col-6 cardRecette">
         <a href="{{path("recette_show", {'id': recette.id})}}">
         {% if recette.image %}
-        <img src="#" />
         <h2>{{recette.name}}</h2>
+        <div class="col-6">
+        <img src="{{asset('uploads/recettes/'~ recette.image)}}" style="max-width:100%"/>
+        </div>        
         {% else  %}
         <h2> {{recette.name}}</h2>
         {% endif %}
