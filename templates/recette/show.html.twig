@@ -144,7 +144,7 @@ have noted
                                 </button>
                                 {# ***** MODAL ***** #}
 	                            <div class="login-box modal fade" id="Modal_{{commentaire.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		                            <div class="modal-dialog modal-dialog-centered">
+		                            <div class="modal-dialog modal-dialog-centered" style="width:900px;max-width:1200px!important">
 			                            <div class="modal-content ">
                                             <section class="modal-header ">
                                                 <h5 class="modal-title" id="exampleModalLabel">
@@ -155,8 +155,8 @@ have noted
                                             <article class="modal-body">
                                                 <iframe id="ModificationCommentaire"
                                                         title="Modification Commentaire"
-                                                        width="300"
-                                                        height="200"
+                                                        width="800"
+                                                        height="600"
                                                         sandbox="allow-scripts allow-forms allow-same-origin allow-modals"
                                                         src="{{path('commentaires_edit',{'id': commentaire.id})}}">
                                                 </iframe>

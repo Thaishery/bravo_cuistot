@@ -3,6 +3,11 @@
 {# {% block title %}Modifier vottre commentaire{% endblock %} #}
 
 {# {% block body %} #}
+{# *****  Script: Bootstrap ***** #}
+<link rel="stylesheet" href="{{ asset ('bootstrap/css/bootstrap.min.css') }}">
+<script src="{{asset ('bootstrap/js/bootstrap.bundle.min.js')}}" ></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
     <div class="row col-12">
      {{ form_start(form,  {'attr': {'id': 'edit_com'}}) }}
         <div class="col-2">
@@ -13,7 +18,8 @@
         {
             'attr':
             {
-                'class':'col-12'
+                'class':'col-12',
+                'style':'height:480px'
             }
         })}}
         </div>
