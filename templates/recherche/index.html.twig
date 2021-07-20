@@ -37,9 +37,9 @@
                  
                  {# *********************************************** #}         
 
-                 {{ form_label(form) }}
-
                  <article>
+
+                 {{ form_start(form) }}
 
                      <div class="flex-container">
 
@@ -50,7 +50,7 @@
                                  {# <section class="col-12"> #}
                                  <section class="flex-item-left">
 
-                                     <fieldset>
+                                     {# <fieldset> #}
                                  
                                          {# *** LABEL *** #}
                                          <label> Nom de la recette </label>
@@ -67,7 +67,7 @@
 
                                          }) }}     
                                     
-                                     </fieldset>    
+                                     {# </fieldset>     #}
 
                                  </section>
 
@@ -249,59 +249,6 @@
 
      {% endblock %}   
 
-                     {# 
-
-                         <hr class="dividerMini"/>
-
-                     #}
-
-                     {# 
-
-                         <p>
-
-                             <input type="number" 
-                                 name="nombreEtoiles" 
-                                 id="pseudo" 
-                                 placeholder=" Nombre d'étoiles " 
-                                 size="34"
-                                 maxlength="10" /> 
-
-                         </p> 
-
-                     #}
-
-                     {#
-                     
-                         <div class="col-6">
-
-                             <p> Difficulté: 
-
-                                 {% if recette.Difficulte == 1 %}
-
-                                     <img src="{{asset("Images/toqueDificulte.png")}}">
-
-                                 {% elseif recette.Difficulte == 2 %}
-
-                                     <img src="{{asset("Images/toqueDificulte.png")}}">
-                                     <img src="{{asset("Images/toqueDificulte.png")}}">
-
-                                 {% elseif recette.Difficulte == 3 %}
-
-                                     <img src="{{asset("Images/toqueDificulte.png")}}">
-                                     <img src="{{asset("Images/toqueDificulte.png")}}">
-                                     <img src="{{asset("Images/toqueDificulte.png")}}">
-
-                                 {% else %}
-
-                                     something went wrong ! 
-
-                                 {% endif %}
-
-                             </p>
-
-                         </div>
-                         
-                     #}
-
+                    
 
 
