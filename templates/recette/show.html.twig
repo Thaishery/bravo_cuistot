@@ -59,11 +59,6 @@
                     {% else %}
                     {{moyenneNote}}
                     {% endif %}
-
-                    {# a mettre dans un template show_noted ??? #}
-                    {# {% if noteUser %}
-                    Vous avez notez cette recette : {{noteUser}}
-                    {% endif %} #}
                 </p>
             </div>
             <div class="col-6 placeholder">
@@ -89,7 +84,7 @@
                         </div>
                         <div class="col-11">
                         <h3>
-                            {{etapes.name}}
+                            {{etapes.name|capitalize }}
                         </h3>
                         </div>
                     {% if etapes.image %}
@@ -97,11 +92,11 @@
                             <img src="{{asset('/uploads/etapes/'~ etapes.image)}}" alt="image de l'étape" style="max-width:100%"/>
                         </div>
                         <div class="col-6">
-                            {{etapes.description}}
+                            {{etapes.description|capitalize }}
                         </div>
                     {% else %}
                         <div class="col-12">
-                            {{etapes.description}}
+                            {{etapes.description|capitalize }}
                         </div>
                     </div>
                     {% endif %}
@@ -124,7 +119,7 @@
                         <div class="col-12">
                             <p>
                             {# https://stackoverflow.com/questions/10487855/how-to-replace-break-lines-in-twig #}
-                                {{commentaire.content|nl2br}}
+                                {{commentaire.content|capitalize|nl2br}}
                             </p>
                         </div>
                         {% if app.user %}
