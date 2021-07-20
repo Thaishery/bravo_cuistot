@@ -25,25 +25,57 @@ have noted
                 {% if recette.image %}
                     {{recette.image}}
                 {% endif %}
-                <h1>{{recette.name}}</h1>
+                <h2>{{recette.name}}</h2>
             </div>
+            {% if app.user %}
+            {% if recette not in user.getRecettesFavId() %}
+            <div>
+                {{ form_start(formFavori) }}
+                {# {% autoescape 'html' %}
+                {{ form_label(formFavori, '<img src="/Images/heart.png" alt="coeur plein">') }}
+                {{ form_widget(formFavori) }}
+
+                {% endautoescape %}#}
+                <div class="col-2">
+                    <p>Ajouter en favori :</p>
+                    <button type="submit" id="favori_ajoutFavori" name="favori[ajoutFavori]" class="form-control"><img style="width:40px" src="/Images/heartempty.png" alt="coeur vide">
+                        {{ form_row(formFavori.ajoutFavori, {'attr': {'label': ' ', 'style': 'display:none'}}) }}
+                    </button>
+                </div>
+                {{ form_end(formFavori) }}
+                
+            </div>
+            {% else %}
+            <div>
+                {{ form_start(removeFavori) }}
+              
+               <div class="col-2">
+                    <p>Retirer des favoris :</p>
+                    <button type="submit" id="remove_favori_enleverFavori" name="remove_favori[enleverFavori]" class="form-control" label=" "><img style="width:40px" src="/Images/heart.png" alt="coeur plein">
+                     {{ form_row(removeFavori.enleverFavori, {'attr': {'label': ' ', 'style': 'display:none'}}) }}
+                </button>
+                </div>
+                {{ form_end(removeFavori) }}
+            </div>
+                {% endif %}
+                {% endif %}
             <div class="col-12">
-                <h2>pour {{recette.NbPersonnes}} Convives</h2>
+                <h2><dl>pour {{recette.NbPersonnes}} Convives</h2>
             </div>
             <div class="container row col-12">
                 {% for ingredients in listeIngredient %}
                     <div class="col-6">
-                    <p>{{ingredients.IngredientsId.name}} : {{ingredients.Quantite}} {{ingredients.UnitemesureId.name}}</p> 
+                    <p><dt>{{ingredients.IngredientsId.name}} : <dd>{{ingredients.Quantite}} {{ingredients.UnitemesureId.name}}</p> 
                     </div>
                 {% endfor %}
             </div>
             <div class="col-6">
-                <p>
-                    Temps de préparation : {{recette.TempsPreparation}} minutes.
+                <p><dt>
+                    Temps de préparation : <dd>{{recette.TempsPreparation}} minutes.
                 </p>
             </div>
             <div class="col-6">
-                <p>Difficulté: 
+                <p><dt>Difficulté: 
                     {% if recette.Difficulte == 1 %}
                     <img src="{{asset("Images/toqueDificulte.png")}}">
                     {% elseif recette.Difficulte == 2 %}
@@ -59,17 +91,17 @@ have noted
                 </p>
             </div>
             <div class="col-6">
-                <p>
-                    Temps de cuisson : {{recette.TempsCuisson}} minutes.
+                <p><dt>
+                    Temps de cuisson : <dd>{{recette.TempsCuisson}} minutes.
                 </p>
             </div>
             <div class="col-6">
-                <p>
+                <p><dt>
                     Note : 
                     {% if moyenneNote == 0 %} 
-                    Cette recette n'as pas encore reçu de Note
+                    <dd>Cette recette n'as pas encore reçu de Note
                     {% else %}
-                    {{moyenneNote}}
+                    <dd>{{moyenneNote}}
                     {% endif %}
 
                     {# a mettre dans un template show_noted ??? #}
@@ -107,7 +139,7 @@ have noted
                         </div>
                     {% endif %}
                     <div class="col-12 row">
-                        <div class="col-1">
+                        <div class="col-1 text-success">
                             {{etapes.isNumber}} / {{nombreEtapes}}
                         </div>
                         <div class="col-10">
@@ -116,8 +148,8 @@ have noted
                     </div>
                 {% endfor %}
             </div>
-            <div class="col-12">
-                <h2>commentaires : </h2>
+            <div class="col-12 container p-3 my-3 bg-success text-white">
+                <h4>commentaires : </h4>
                 {% if listeCommentaires %}
                     {% for commentaire in listeCommentaires %}
                         <div class="col-3">
@@ -127,14 +159,14 @@ have noted
                             </p>
                         </div>
                         <div class="col-9">
-                            <p>
+                            <p class="text-dark">
                                 {{commentaire.content}}
                             </p>
                         </div>
                     {% endfor %}
                 {% else %}
                     <p>
-                        Il n'y as pas encore de commentaires. 
+                        Il n'y a pas encore de commentaires. 
                     </p>
                 {% endif %}
             </div>
