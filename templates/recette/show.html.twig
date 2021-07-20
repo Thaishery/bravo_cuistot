@@ -8,13 +8,38 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-            <h1>{{recette.name}}</h1>
+            <h2>{{recette.name}}</h2>
             {% if recette.image %}
                 <div class="col-12">
                     <img src="{{asset('uploads/recettes/'~ recette.image)}}" style="max-width:100%"/>
                 </div>
             {% endif %}   
             </div>
+            {% if app.user %}
+                {% if recette not in user.getRecettesFavId() %}
+                <div>
+                    {{ form_start(formFavori) }}
+                    <div class="col-2">
+                        <p>Ajouter en favori :</p>
+                        <button type="submit" id="favori_ajoutFavori" name="favori[ajoutFavori]" class="form-control"><img style="width:40px" src="/Images/heartempty.png" alt="coeur vide">
+                            {{ form_row(formFavori.ajoutFavori, {'attr': {'label': ' ', 'style': 'display:none'}}) }}
+                        </button>
+                    </div>
+                    {{ form_end(formFavori) }}
+                </div>
+                {% else %}
+                <div>
+                    {{ form_start(removeFavori) }}
+                    <div class="col-2">
+                        <p>Retirer des favoris :</p>
+                            <button type="submit" id="remove_favori_enleverFavori" name="remove_favori[enleverFavori]" class="form-control" label=" "><img style="width:40px" src="/Images/heart.png" alt="coeur plein">
+                                {{ form_row(removeFavori.enleverFavori, {'attr': {'label': ' ', 'style': 'display:none'}}) }}
+                            </button>
+                    </div>
+                    {{ form_end(removeFavori) }}
+                </div>
+                {% endif %}
+            {% endif %}
             <div class="col-12">
                 <h2>pour {{recette.NbPersonnes}} Convives</h2>
             </div>
