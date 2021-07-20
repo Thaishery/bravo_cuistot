@@ -1,4 +1,4 @@
-  {# ? Partie : Recherche avancées #}
+ {# ? Partie : Recherche avancées #}
  
  {% extends 'base.html.twig' %}
  
@@ -14,7 +14,6 @@
 
          <main class="Form">  
 
-             {# <div class="py-5 text-center col-12"> #}
              <div class="text-center col-12">
 
                  {# *********************************************** #}
@@ -26,7 +25,10 @@
                          <hr/>
 
                              <p> 
-                                 <em> Effectuer une recherche avancées pour retrouver vos recettes préférées. </em>  <img src="/Images/toqueDificulte.png">
+                             
+                                 <em> Effectuer une recherche avancée pour retrouver vos recettes préférées. </em>                                
+                                 <img src="/Images/iconeRechercheAvancée.png" style="width:21px;height:21px;">
+                                  
                              </p>
 
                          <hr/>
@@ -43,27 +45,25 @@
 
                          <section class="flex-item-left"> 
                
-                             <form method="post" action="traitement.php">
+                             <form method="post" action="traitement.php"> 
 
                                  <fieldset>
 
-                                     <legend for="rechercheParNiveauDifficulté"> 
-                                         Niveau de difficulté 🌟
-                                         
-                                     </legend>  
+                                     {# *** LABEL *** #}
+                                     {# {{ form_label(form.login) }} #}
+                                     <label for="rechercheParNomRecette"> Nom de la recette  </label>
 
+                                     {# *** INPUT *** #}
                                      <input id="rechercheInputStyle" 
-                                             name="rechercheParNiveauDifficulté"  
-                                             placeholder=" Nombre d'étoiles " 
-                                             size="34"
-                                             maxlength=""
-                                             min="0"
-                                             max="3"
-                                             step="" />    
-                                                                       
-                                     <br />  
+                                         type="search" 
+                                         name="rechercheParNomRecette"                                              
+                                         placeholder=" Ex: Tarte au pomme, etc... " 
+                                         size="34"
+                                         maxlength="10"/>
 
-                                 </fieldset>                    
+                                     <br/>
+
+                                 </fieldset>                 
                  
                              </form>      
 
@@ -75,11 +75,11 @@
                
                              <form method="post" action="traitement.php">
 
-                                 <fieldset>
-
-                                     <legend for="rechercheParTypeDePlat"> 
-                                         Type de plat 🍸
-                                     </legend>  
+                                 <fieldset>  
+                                     
+                                     {# *** LABEL *** #}
+                                     {# {{ form_label(form.login) }} #}
+                                     <label for="rechercheParTypeDePlat"> Type de plat 🍸 </label>
 
                                      <input id="rechercheInputStyle" 
                                          type="search" 
@@ -108,20 +108,20 @@
 
                                  <fieldset>
 
-                                     <legend for="rechercheParNomRecette"> 
-                                         Nom de la recette
-                                     </legend>  
+                                     {# *** LABEL *** #}
+                                     {# {{ form_label(form.login) }} #}
+                                     <label for="rechercheParIngrédient"> Ingrédient 🍄 </label>
 
                                      <input id="rechercheInputStyle" 
                                          type="search" 
-                                         name="rechercheParNomRecette"                                              
-                                         placeholder=" Ex: Tarte au pomme, etc... " 
+                                         name="rechercheParIngrédient"                                              
+                                         placeholder=" Ex: Tiramisu, Fraise, etc... " 
                                          size="34"
                                          maxlength="10"/>
 
                                      <br/>
 
-                                 </fieldset>     
+                                 </fieldset>   
 
                              </form>
 
@@ -135,9 +135,9 @@
 
                                  <fieldset>
 
-                                     <legend for="rechercheParTypeAlimentation"> 
-                                         Type d'alimentation 🍲
-                                     </legend>  
+                                     {# *** LABEL *** #}
+                                     {# {{ form_label(form.login) }} #}
+                                     <label for="rechercheParTypeAlimentation"> Type d'alimentation 🍲 </label>
 
                                      <input id="rechercheInputStyle" 
                                          type="search" 
@@ -158,34 +158,7 @@
 
                      <div class="flex-container">
 
-                         {# ***** Bloc du milieu ***** #}  
-                      
-                         <section class="flex-item-left">
-
-                             <form method="post" action="traitement.php">
-
-                                 <fieldset>
-
-                                     <legend for="rechercheParIngrédient"> 
-                                         Ingrédient 🍄
-                                     </legend>  
-
-                                     <input id="rechercheInputStyle" 
-                                         type="search" 
-                                         name="rechercheParIngrédient"                                              
-                                         placeholder=" Ex: Tiramisu, Fraise, etc... " 
-                                         size="34"
-                                         maxlength="10"/>
-
-                                     <br/>
-
-                                 </fieldset>   
-
-                             </form>
-
-                         </section>  
-                         
-                         {# ***** Bloc de Droite ***** #}  
+                         {# ***** Bloc du milieu ***** #}   
 
                          <section class="flex-item-right">
 
@@ -193,9 +166,9 @@
 
                                  <fieldset>
 
-                                     <legend for="rechercheParTypeDeCuisson"> 
-                                         Type de cuisson 🔥
-                                     </legend>  
+                                     {# *** LABEL *** #}
+                                     {# {{ form_label(form.login) }} #}
+                                     <label for="rechercheParTypeDeCuisson"> Type de cuisson 🔥 </label>
 
                                      <input id="rechercheInputStyle" 
                                          type="search" 
@@ -211,20 +184,77 @@
                              </form>
 
                          </section>  
+                         
+                         {# ***** Bloc de Droite ***** #}  
+
+                         <section class="flex-item-left">
+
+                             <form method="post" action="traitement.php">
+
+                                 <fieldset>
+
+                                     {# *** LABEL *** #}
+                                     {# {{ form_label(form.login) }} #}
+                                     <label for="rechercheParNiveauDifficulté">
+                                         Difficulté (entre 0 et 3):
+                                         <img src="/Images/toqueDificulte.png"> 
+                                     </label>
+
+                                     <input type="range"
+                                             id="rechercheInputStyle" 
+                                             name="rechercheParNiveauDifficulté"  
+                                             placeholder=" Nombre d'étoiles " 
+                                             size="34"
+                                             maxlength=""
+                                             min="0"
+                                             max="3"
+                                             step="" />    
+                                                                       
+                                     <br />  
+
+                                 </fieldset>     
+
+                             </form>
+
+                         </section>  
+
+                         
 
                      </div> 
+ 
+                     {# *********************************************** #}   
 
                  </article>
 
-                 {# *********************************************** #}   
+                 <hr/>
 
-                 {# 
+                  {{ form_start (form)}}
+
+                     <div>
+
+                         <button class="btn btn-dark col-12 btn-lg ">
+                             {{ button_label|default('Soumettre') }}
+                         </button>
+                        
+                     </div>
+
+                 {{ form_end (form)}}    
+
+                 {# *********************************************** #}
+
+             <div/>      
+
+         </main>
+
+     {% endblock %}   
+
+                     {# 
 
                          <hr class="dividerMini"/>
 
-                 #}
+                     #}
 
-                 {# 
+                     {# 
 
                          <p>
 
@@ -237,9 +267,9 @@
 
                          </p> 
 
-                 #}
+                     #}
 
-                 {#
+                     {#
                      
                          <div class="col-6">
 
@@ -270,15 +300,9 @@
 
                          </div>
                          
-                 #}
+                     #}
 
-                 {# *********************************************** #}
-
-             <div/>      
-
-         </main>
-
-     {% endblock %} 
+                
 
                  {# *********************************************** #}
          

@@ -1,72 +1,87 @@
 {% extends 'base.html.twig' %}
 
+     {% block metaTitle %}
+         " Cuistot"
+     {% endblock %}
+
      {% block title %}
          Cuistot
      {% endblock %}
 
      {% block body %}
-       {{dump(listeNotes)}}
-         <header>
-             <h1 class="text-center"> Cuistot </h1>
-         </header>
 
-         <div class="row">
-            {# ***** Carte n°2 ***** #}
+         <main class="Form"> 
+     
+             <div  class="py-5 text-center col-12">
+         
+                 {# *********************************************** #}
 
-                 <article class="col-sm-4">
-    
+                 {{dump(listeNotes)}}
+
+                 <header>
+
+                     <h1 class="text-center"> Cuistot </h1>
                      
-                             <h2> Avatar </h2>
-        
-                                 {% if user.0.avatar %}
-        
-                                     <figure>
-                                         <img id="cardAvatar" class="card-img-top" alt="Image de l'avatar de l'utilisateur" src="{{ asset('uploads/avatar/' ~ user.0.avatar) }}"/>
-                                         {# <img src="{{asset("uploads/avatar")}} "alt="Image de l'avatar de l'utilisateur"> #}
-                                                                                                                  
-                                     </figure>
-        
-                                 {% else %}
-        
-                                     <h2> Pas d'avatar disponible </h2> <br/>
-                                    
-                                 {% endif %}
-                           
-                                
+                 </header>
+
+                 <div class="row">
+
+                    {# ***** Carte n°2 ***** #}
+
+                         <article class="col-sm-4">
+    
+                             
+                                     <h2> Avatar </h2>
                 
-                 </article>
+                                         {% if user.0.avatar %}
+                
+                                             <figure>
+                                                 <img id="cardAvatar" class="card-img-top" alt="Image de l'avatar de l'utilisateur" src="{{ asset('uploads/avatar/' ~ user.0.avatar) }}"/>
+                                                 {# <img src="{{asset("uploads/avatar")}} "alt="Image de l'avatar de l'utilisateur"> #}
+                                                                                                                          
+                                             </figure>
+                
+                                         {% else %}
+                
+                                             <h2> Pas d'avatar disponible </h2> <br/>
+                                            
+                                         {% endif %}
+                                   
+                                        
+                        
+                         </article>
 
-             {# ***** Carte n°1 ***** #}
+                     {# ***** Carte n°1 ***** #}
 
-                 <article class="col-sm-8">
+                         <article class="col-sm-8">
 
+                            
+                                     <section id="login" class="col-12">
+                                         <h2> Vous êtes sur le profil de : {{ user.0.login }} </h2>
+                                     </section>
                     
-                             <section id="login" class="col-12">
-                                 <h2> Vous êtes sur le profil de : {{ user.0.login }} </h2>
-                             </section>
-            
-                             <hr style="color:rgba(25,135,84,0.9)";/>
+                                     <hr style="color:rgba(25,135,84,0.9)";/>
 
-                             <div class="row justify-content-center">   
+                                     <div class="row justify-content-center">   
 
-                                 <section id="noteMoyenne" class="col-4">       
-                                     <h2> Nombre de recettes : {{ listeRecette|length }} </h2> <br/><br/><br/>
-                                 </section> 
-                              
-                                 <section id="noteMoyenne" class="col-4">       
-                                     <h2> Note moyenne de ses recettes : {{ moyenneActuelle }} </h2>
-                                 </section> 
+                                         <section id="noteMoyenne" class="col-4">       
+                                             <h2> Nombre de recettes : {{ listeRecette|length }} </h2> <br/><br/><br/>
+                                         </section> 
+                                      
+                                         <section id="noteMoyenne" class="col-4">       
+                                             <h2> Note moyenne de ses recettes : {{ moyenneActuelle }} </h2>
+                                         </section> 
 
-                             </div>   
+                                     </div>   
 
-                             {# ***** #}
+                                     {# ***** #}
 
-                         </div>
+                                 </div>
 
-                     </div>
-                 
-                 </article>
-        </div>
+                             </div>
+                         
+                         </article>
+                </div>
              
      {# ******** #}
 
