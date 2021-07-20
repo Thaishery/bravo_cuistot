@@ -12,159 +12,195 @@
 
          <main class="Form">  
 
-             <article class="text-center">
-             
-                 <h1 class="font-weight-normal text-center"> Gestion des catégories </h1>
+             <div class="py-5 text-center col-12">
 
-                 <p class="lead"> 
-                     <em> Veuillez sélectionnez une catégorie à administrer : </em>  📂
-                 </p>
+                 {# *********************************************** #}
 
-             </article>
+                 <article>
+                 
+                     <h1> Gestion des catégories </h1>
 
-             <article class="containerCarte">
+                         <hr/>
 
-                 <section class="card">
+                             <p> 
+                                 <em> Veuillez sélectionnez un type de catégorie à administrer : </em>  📂
+                             </p>
 
-                     <h3 class="title">Card 1</h3>
+                         <hr/>
 
-                     <ul class="bar">
-                         <li class="emptybar"></li>
-                         <li class="filledbar"></li>
-                     </ul>
+                 </article>
 
-                     <figure class="circle">
+                 <br/>
 
-                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-                             <circle class="stroke" cx="60" cy="60" r="50"/>
-                         </svg>
+                 {# *********************************************** #}  
+                
+                 {# ? Partie: Les dernierès recettes. #}
 
-                     </figure>
+                 <div class="container">
 
-                 </section>
+                     <div class="row">
 
-                 {# ***** ***** *****#}
+                             {# *********************************************** #}  
 
-                 <section class="card">
+                                 <div class="text-center p-4 p-md-5 mb-4 text-white rounded ">                               
+                                   
+                                     <div class="col-md-12 px-0">
+ 
+                                         <div class="row">
 
-                     <h3 class="title">Card 2</h3>
+                                             {# *********************************************** #}  
+                                         
+                                             {# ? Carte n°1: Type de plats #}
 
-                     <ul class="bar">
-                         <li class="emptybar"></li>
-                         <li class="filledbar"></li>
-                     </ul>
+                                             <div class=" col-sm-4">
 
-                     <figure class="circle">
-                     
-                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-                             <circle class="stroke" cx="60" cy="60" r="50"/>
-                        </svg>
+                                                 <div class="carteBg1 card mb-3">
 
-                     </figure>
+                                                     <div class="card-body">
 
-                 </section>
+                                                         <h5 class="card-title">  </h5>
 
-                 {# ***** ***** *****#}
+                                                         <p class="card-text">
+                                                          
+                                                             <b> Exemple: </b>
 
-                 <section class="card">
+                                                             <ul class="text-start" style="list-style:none;">
 
-                     <h3 class="title">Card 3</h3>
+                                                                 <li> Petit-déjeuner</li> 
+                                                                 <li> Apéritif </li>                                                          
+                                                                 <li> Entrées </li> 
+                                                                 <li> Plats de résistance </li>                                                            
+                                                                 <li> Desserts </li> 
+                                                                 <li> Etc ... </li> 
 
-                     <ul class="bar">
-                         <li class="emptybar"></li>
-                         <li class="filledbar"></li>
-                     </ul>
+                                                             </ul>
 
-                     <figure class="circle">
+                                                         </p>
 
-                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-                             <circle class="stroke" cx="60" cy="60" r="50"/>
-                         </svg>
+                                                         <a href="{{ path('administration_plats_index') }}" class="col-12 btn btn-success bg-gradient ">
+                                                             Plats 
+                                                         </a>
 
-                     </figure>
+                                                     </div>
 
-                 </section>
+                                                 </div>
 
-                 {# ***** ***** *****#}
+                                             </div>
+  
+                                             <br/>
 
-                 <section class="card">
+                                             {# *********************************************** #}  
 
-                     <h3 class="title">Card 4</h3>
+                                             {# ? Carte n°2: Types d'alimentations #}
 
-                     <ul class="bar">
-                         <li class="emptybar"></li>
-                         <li class="filledbar"></li>
-                     </ul>
+                                             <div class=" col-sm-4">
 
-                     <figure class="circle">
+                                                 <div class="carteBg1 card mb-3">
 
-                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-                             <circle class="stroke" cx="60" cy="60" r="50"/>
-                         </svg>
+                                                     <div class="card-body">
 
-                     </figure>
+                                                         <h5 class="card-title">  </h5>
 
-                 </section>
+                                                         <p class="card-text">
+                                                          
+                                                             <b> Exemple: </b>
 
-                 {# ***** ***** *****#}
+                                                             <ul class="text-start" style="list-style:none;">
+                                                                 <li> Omnivore </li> 
+                                                                 <li> Végétarisme </li>                                                          
+                                                                 <li> Frugivore </li> 
+                                                                 <li> Casher </li>                                                            
+                                                                 <li> Hallal </li> 
+                                                                 <li> Etc ... </li> 
+                                                             </ul>
 
-             </article>
+                                                         </p>
+
+                                                         <a href="{{ path('administration_alimentation_index') }}" class="col-12 btn btn-success bg-gradient ">
+                                                             Alimentations 
+                                                         </a>
+
+                                                     </div>
+
+                                                 </div>
+
+                                             </div>
+
+                                             <br/>
+
+                                             {# *********************************************** #}  
+
+                                             {# ? Carte n°3: Types de cuissons #}
+
+                                             <div class=" col-sm-4">
+
+                                                 <div class="carteBg1 card mb-3">
+
+                                                     <div class="card-body">
+
+                                                         <h5 class="card-title">  </h5>
+
+                                                         <p class="card-text">
+                                                          
+                                                             <b> Exemple: </b>
+
+                                                             <ul class="text-start" style="list-style:none;">
+                                                                 <li> Griller </li> 
+                                                                 <li> Sauter </li>                                                          
+                                                                 <li> Bouillir </li> 
+                                                                 <li> Vapeur </li>                                                            
+                                                                 <li> Braiser </li> 
+                                                                 <li> Etc ... </li> 
+                                                             </ul>
+
+                                                         </p>
+
+                                                         <a href="{{ path('administration_cuisson_index') }}" class="col-12 btn btn-success bg-gradient ">
+                                                             Cuissons 
+                                                         </a>
+
+                                                     </div>
+
+                                                 </div>
+
+                                             </div>
+
+                                             <br/>
+
+                                             {# *********************************************** #}                                              
+
+                                         </div>
+
+                                     </div>         
+
+                                 </div>
+ 
+                 </div>
+
+                 {# *********************************************** #}
+
+                 <hr/>
+
+                 <article>
+
+                     <a href="{{ path('interface_administration') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">
+                         Retour à l'interface d'administration
+                     </a>  
+ 
+                 </article>
+                 
+                 {# *********************************************** #}
+
+             </div>
 
          </main>
 
      {% endblock %}
-
-
- {# TEST / CODE VRAC , etc... #}
  
  {# ? Carte Carousel Lien SOurce : https://codepen.io/onion2k/pen/xxZYBVj #}
 
- {# ? Autre Style de carte en HTML CSS #}
-
-     {# <div class="column"> 
-  
-         <input type="radio" name="position" />
-         <input type="radio" name="position" checked/>
-         <input type="radio" name="position" />
-        
-         <article id="carousel">
-
-                 <section class="item col-12">
-     
-                     <a href="{{path("administration_plats_index")}}" type="submit" class="btn btn-success bg-gradient col-12 btn-lg px-4 gap-3">                                
-                         Types de plats 
-                     </a>      
-
-                     <figure >
-                         <img class="administrationLogo col-12" src="{{asset ('Images/Nourriture.png')}}" alt="image d'une persone type emoji">
-                     </figure>
-
-                 </section>
  
-                 <section class="item col-12">                  
 
-                     <a href="{{ path("administration_alimentation_index") }}" type="submit" class="btn btn-success bg-gradient col-12 btn-lg px-4 gap-3">                                
-                         Types d'alimentations 
-                     </a>
+        
 
-                     <figure >
-                         <img class="administrationLogo col-12" src="{{asset ('Images/JunkFood.jpg')}}" alt="image d'une persone type emoji">
-                     </figure>
-
-                 </section>
-
-                 <section class="item col-12">
-
-                     <a href="{{path("administration_cuisson_index")}}" type="submit" class="btn btn-success bg-gradient col-12 btn-lg px-4 gap-3">                                
-                         Types de cuissons
-                     </a>
-               
-                     <figure >
-                         <img class="administrationLogo col-12" src="{{asset ('Images/barbecue.jpg')}}" alt="image d'une persone type emoji">
-                     </figure>
-
-                 </section>
-         
-         </article>
-
-     </div> #}
+    

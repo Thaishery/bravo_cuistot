@@ -1,11 +1,37 @@
  
      {{ form_start(form) }}
  
-         {{ form_widget(form) }}
+         {# ********** NOM ********** #}
+
+             <section>
+
+                 {# *** LABEL *** #}
+                 {# {{ form_label(form.content) }} #}
+                 <label> Contenu </label>
+         
+                 {# *** INPUT *** #}
+                 {{ form_widget(form.content,{ 
+                             
+                     'attr': { 
+                             
+                     'class':'content',
+                     'placeholder':'Entrer votre commentaire '
+                     
+                     }}) }}  
+             
+             </section>
+
+             <br/> 
+
+             {# ******************** #}
  
-         <button class="btn">
-             {{ button_label|default('Save') }}
-         </button>
+             {{ form_widget(form) }}
+ 
+             <button class="btn col-12 btn-dark btn-lg px-4">
+
+                 {{ button_label|default('Sauvegarder') }}
+                 
+             </button>
  
      {{ form_end(form) }}
  

@@ -1,13 +1,62 @@
-{% extends 'base.html.twig' %}
+ {# ? Feuille : Modifier un type de cuisson #ModeAdmin #} 
+ 
+ {% extends 'base.html.twig' %}
+ 
+     {% block metaTitle %}
+         " Modifier un type de cuisson "
+     {% endblock %} 
 
-{% block title %}Edit Cuisson{% endblock %}
+     {% block title %}
+         Modifier un type de cuisson
+     {% endblock %}
+     
+     {% block body %}
 
-{% block body %}
-    <h1>Edit Cuisson</h1>
+         <main class="Form"> 
 
-    {{ include('administration_cuisson/_form.html.twig', {'button_label': 'Update'}) }}
+             <div class="py-5 text-center col-12">
 
-    <a href="{{ path('administration_cuisson_index') }}">back to list</a>
+                 {# *********************************************** #}
 
-    {{ include('administration_cuisson/_delete_form.html.twig') }}
-{% endblock %}
+                 <section> 
+
+                     <h1> Modifier un type de cuisson </h1>
+                   
+                         <hr/>
+
+                             <p> 
+                                 <em> Administrer vos types de cuisson </em>  📂
+                             </p>
+
+                         <hr/>
+
+                 </section>  
+
+                 {# *********************************************** #}
+
+                 <article class="col-12">
+
+                     {{ include('administration_cuisson/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+                     
+                     <a href="{{ path('administration_cuisson_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+                         Retour à la liste
+                     </a>
+
+                 </article>   
+
+                 <hr/>
+
+                 <article class="col-12">
+
+                     {{ include('administration_cuisson/_delete_form.html.twig') }}
+         
+                 </article>
+
+                 {# *********************************************** #}
+
+             </div>      
+       
+         </main>
+
+     {% endblock %}
+     

@@ -12,95 +12,112 @@
      
      {% block body %}
 
-
          <main class="Form">
 
+             <div  class="py-5 text-center col-12">  
 
-             <form method="post">
+                 <form method="post">
 
-                 {# *** Partie: Authentification sécurité *** #}
+                     {# *********************************************** #}
 
-                 {% if error %}
+                     {# ! J'ai masquer l'affichage du message d'authentification. JC_ #}
 
-                     <div class="alert alert-danger">
-                         {{ error.messageKey|trans(error.messageData, 'security') }}
-                     </div>
+                     <div style="display:none">
 
-                 {% endif %}
-                 
-                 {% if app.user %}
+                         {% if error %}
 
-                     <div class="mb-3">
-                         Vous etes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}"> Se déconnecter </a>
-                     </div>
+                             <div class="alert alert-danger">
+                                 {{ error.messageKey|trans(error.messageData, 'security') }}
+                             </div>
 
-                 {% endif %}
+                         {% endif %}
+                         
+                         {% if app.user %}
 
-             
-                 {# *** Conteneur du titre du formulaire *** #}
+                             <div class="mb-3">
+                                 Vous etes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}"> Se déconnecter </a>
+                             </div>
 
-                 <article id="bloc_page" class="py-5 text-center col-12">
-                 
-                     <h1 class="mb-3 font-weight-normal">
-                         Formulaire de connection 
-                     </h1>
+                         {% endif %}
 
-                     <p class="lead"> 
-                         Déjà de retour! Merci de vous identifiez 🔏
-                     </p>
-                 
-                     <label for="inputLogin"> Pseudo </label>
-                     <input type="text" value="{{ last_username }}" name="login" id="inputLogin" class="form-control" autocomplete="username" required autofocus>
-                    
-                     <label for="inputPassword"> Mot de passe </label>
-                     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-             
-                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-             
-                     <section class="checkbox mb-3">
-                     
-                     <hr style="color:rgba(25,135,84,0.9);"/>
+                     </div>            
 
-                         <label>
-                             <input type="checkbox" name="_remember_me">
-                             Se souvenir de moi
-                         </label>
-                   
-                     <hr style="color:rgba(25,135,84,0.9);"/>
+                     {# *********************************************** #}
 
-                     </section>
-
-
-                     {#
-                             Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-                             See https://symfony.com/doc/current/security/remember_me.html                 
-                     #}
-
-
-                     <section class="btn-group-vertical col-12">
-
-
-                         <button type="submit" class="btn btn-dark btn-lg px-4 gap-3"> 
-
-                             {# <a href="{{ path('home') }}"> Se connecter </a>  #}
-                             Se connecter 
-                         </button>
-   
-                         {# *** Bouton: S'inscrire *** #}
-                         <a type="submit" href="{{ path('app_register') }}" class="btn btn-success btn-lg px-4 gap-3">                                 
-                             S'inscrire
-                         </a>
+                     <article  class="py-5 text-center col-12">
                       
-                     </section>
+                         {# *********************************************** #}
 
-                 </article>
+                         <section class="text-center">
+
+                             <h1 class="mb-3 font-weight-normal"> Formulaire de connection  </h1>
+
+                             <hr style="color:white;"/>
+
+                             <p class="lead"> 
+                                 Déjà de retour! Merci de vous identifiez 🔏
+                             </p>
+
+                             <hr style="color:white;"/>
+
+                         </section>      
+
+                         {# *********************************************** #}
+
+                         <label for="inputLogin"> Pseudo </label>
+                         <input type="text" value="{{ last_username }}" name="login" id="inputLogin" class="form-control" autocomplete="username" required autofocus>
+                        
+                         <label for="inputPassword"> Mot de passe </label>
+                         <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                 
+                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                 
+                         {# *********************************************** #}
+
+                         <section class="checkbox mb-3">
+
+                         <hr style="color:white;"/>
+
+                             <label>
+                                 <input type="checkbox" name="_remember_me">
+                                 Se souvenir de moi
+                             </label>
+                       
+                         <hr style="color:white;"/>
+
+                         </section>
+
+                         {# *********************************************** #}
+
+                         {#
+                                 Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                                 See https://symfony.com/doc/current/security/remember_me.html                 
+                         #}
+
+                         {# *********************************************** #}
+
+                         <section class="btn-group-vertical col-12">
+
+                             <button type="submit" class="btn btn-dark btn-lg px-4 gap-3"> 
+                                 Se connecter 
+                             </button>
+
+                             <a type="submit" href="{{ path('app_register') }}" class="btn btn-success btn-lg px-4 gap-3">                                 
+                                 S'inscrire
+                             </a>
+                          
+                         </section>
+
+                         {# *********************************************** #}
+
+                     </article>
 
 
-                     {# ******************** #}
+                     </div>  
 
-                 </div>  
+                 </form>
 
-             </form>
+             </div>    
 
          <main>
 

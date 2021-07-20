@@ -31,10 +31,12 @@ class RecetteType extends AbstractType
                         'pattern' => '/[^a-zA-ZàâäêéèëîïôöùûüÀÂÄÊËÎÏÔÖÙÛÜŒœÇç0-9 ]+/',
                         'match' => false,
                         'message' => 'Ce champ ne peut contenir que des caractéres alphabétiques, accentuation incluse.',
+
                     ])
                     ],
                     'label' => 'Nom de la recette'
             ])
+
             ->add('image',
                 FileType::class, [
                     'constraints' => [
@@ -54,6 +56,7 @@ class RecetteType extends AbstractType
                             'required'   => false,
                     'mapped' => false,
             ])
+
             ->add('temps_preparation', NumberType::class,[
                 'constraints' =>[
                     new NotBlank([
@@ -75,6 +78,7 @@ class RecetteType extends AbstractType
                 ],
                 'invalid_message'=>'Ce champ peut contenir uniquement un nombre, comprit entre 1 et 999'
             ])
+
             ->add('temps_cuisson', NumberType::class,[
                 'constraints' =>[
                     new NotBlank([
@@ -90,6 +94,7 @@ class RecetteType extends AbstractType
                 ],
                 'invalid_message'=>'Ce champ peut contenir uniquement un nombre, comprit entre 1 et 999'
             ])
+            
             ->add('nb_personnes', NumberType::class,[
                 'constraints' =>[
                     new NotBlank([

@@ -1,4 +1,4 @@
-  {# ? Feuille : Créer un nouveau plat #ModeAdmin #} 
+ {# ? Feuille : Créer un nouveau plat #ModeAdmin #} 
 
  {% extends 'base.html.twig' %}
 
@@ -14,29 +14,41 @@
 
          {# <main class="Form">  #}
  
-             <section class="text-center">
+             <div class="py-5 text-center col-12">
 
-                 <h1 class="plantFont mb-3 font-weight-normal"> Créer une nouvel utilisateur </h1>
-                      
-                     <p class="lead"> 
-                         <em> Ajouter un nouveau type de plats à votre site! </em> ⏰
-                     </p>
+                 {# *********************************************** #}
 
-             </section>
-           
-             <article class="px-3">
-             
-                 <p class="lead">
+                 <section>
+
+
+                     <h1> Créer un nouveau plat </h1>
+                          
+                         <hr/>
+
+                             <p> 
+                                 <em> Ajouter un nouveau type de plats à votre site! </em> ⏰
+                             </p>
+
+
+                         <hr/>
+
+                 </section>
+               
+                 {# *********************************************** #}
+
+                 <article>
+                        
                      {{ include('administration_plats/_form.html.twig') }}
-                 </p>
+              
+                     <a href="{{ path('administration_plats_index') }}" class="btn btn-lg btn-success col-12">
+                         Retour à la liste 
+                     </a>
+              
+                 </article>
 
-             </article>
+                 {# *********************************************** #}
 
-                 <p class="">
-                     <a href="{{ path('administration_plats_index') }}" class="btn btn-lg btn-secondary fw-bold"> Retour à la liste </a>
-                 </p>
-
-          
+             </div>  
 
          </main> 
          

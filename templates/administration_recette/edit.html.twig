@@ -14,22 +14,43 @@
   
          <main class="Form"> 
 
-             <section class="text-center">
+             <div class="py-5 text-center col-12">
+
+                {# *********************************************** #}
+
+                 <section>
    
-                 <h1 class="h1 mb-3 font-weight-normal"> Modifier une recette </h1>
+                     <h1> Modifier une recette </h1>
 
-             </section>   
+                         <hr/>
 
-             {# <article class="btn-group-vertical"> #}
+                             <p> 
+                                 <em> Consulter la liste des recette de votre site et les administrer. </em>  📇 
+                             </p>
 
-                {{ include('administration_recette/_form.html.twig', {'button_label': 'Update'}) }}
-                {{ include('administration_recette/_delete_form.html.twig') }}
+                         <hr/>
 
-                 <a href="{{ path('administration_recette_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
-                     Retour à la liste
-                 </a>
-               
-             {# </article>  #}
+                 </section>  
+ 
+                 {# *********************************************** #}
+
+                 <article class="col-12">
+                    
+                     {{ include('administration_recette/_form.html.twig', {'button_label': 'Update'}) }}
+                 
+                     <a href="{{ path('administration_recette_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+                         Retour à la liste
+                     </a>
+
+                     <hr/>
+                   
+                     {{ include('administration_recette/_delete_form.html.twig') }}
+
+                 </article> 
+
+                 {# *********************************************** #}
+
+             </div> 
 
          </main>
 
