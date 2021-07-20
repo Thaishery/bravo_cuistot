@@ -37,23 +37,20 @@
                  
                  {# *********************************************** #}   
 
-                 <article>
+                 {# <article> #}
 
-                     <div class="flex-container">
+                     {# <div class="flex-container"> #}
 
                          {# ***** Bloc de Gauche ***** #}  
 
-                         <section class="flex-item-left"> 
-               
+                         {# <section class="flex-item-left"> 
+                    
                              <form method="post" action="traitement.php"> 
 
                                  <fieldset>
 
-                                     {# *** LABEL *** #}
-                                     {# {{ form_label(form.login) }} #}
                                      <label for="rechercheParNomRecette"> Nom de la recette  </label>
 
-                                     {# *** INPUT *** #}
                                      <input id="rechercheInputStyle" 
                                          type="search" 
                                          name="rechercheParNomRecette"                                              
@@ -64,21 +61,19 @@
                                      <br/>
 
                                  </fieldset>                 
-                 
-                             </form>      
 
-                         </section>   
+                             </form>
+
+                         </section>    #}
 
                          {# ***** Bloc du milieu ***** #}   
 
-                         <section class="flex-item-right"> 
+                         {# <section class="flex-item-right"> 
                
                              <form method="post" action="traitement.php">
 
                                  <fieldset>  
-                                     
-                                     {# *** LABEL *** #}
-                                     {# {{ form_label(form.login) }} #}
+            
                                      <label for="rechercheParTypeDePlat"> Type de plat 🍸 </label>
 
                                      <input id="rechercheInputStyle" 
@@ -94,22 +89,20 @@
                  
                              </form>      
 
-                         </section>  
+                         </section>   #}
 
-                     </div> 
+                     {# </div>  #}
                     
-                     <div class="flex-container">
+                     {# <div class="flex-container"> #}
 
                          {# ***** Bloc de Droite ***** #}  
 
-                         <section class="flex-item-left">
+                         {# <section class="flex-item-left">
 
                              <form method="post" action="traitement.php">
 
                                  <fieldset>
 
-                                     {# *** LABEL *** #}
-                                     {# {{ form_label(form.login) }} #}
                                      <label for="rechercheParIngrédient"> Ingrédient 🍄 </label>
 
                                      <input id="rechercheInputStyle" 
@@ -125,18 +118,16 @@
 
                              </form>
 
-                         </section>   
+                         </section>    #}
 
                          {# ***** Bloc de Gauche ***** #}  
                      
-                         <section class="flex-item-right">
+                         {# <section class="flex-item-right">
 
                              <form method="post" action="traitement.php">
 
                                  <fieldset>
 
-                                     {# *** LABEL *** #}
-                                     {# {{ form_label(form.login) }} #}
                                      <label for="rechercheParTypeAlimentation"> Type d'alimentation 🍲 </label>
 
                                      <input id="rechercheInputStyle" 
@@ -152,22 +143,20 @@
 
                              </form>
 
-                         </section> 
+                         </section>  #}
 
-                     </div> 
+                     {# </div>  #}
 
-                     <div class="flex-container">
+                     {# <div class="flex-container"> #}
 
                          {# ***** Bloc du milieu ***** #}   
 
-                         <section class="flex-item-right">
+                         {# <section class="flex-item-right">
 
                              <form method="post" action="traitement.php">
 
                                  <fieldset>
 
-                                     {# *** LABEL *** #}
-                                     {# {{ form_label(form.login) }} #}
                                      <label for="rechercheParTypeDeCuisson"> Type de cuisson 🔥 </label>
 
                                      <input id="rechercheInputStyle" 
@@ -183,18 +172,16 @@
 
                              </form>
 
-                         </section>  
+                         </section>   #}
                          
                          {# ***** Bloc de Droite ***** #}  
 
-                         <section class="flex-item-left">
+                         {# <section class="flex-item-left">
 
                              <form method="post" action="traitement.php">
 
                                  <fieldset>
 
-                                     {# *** LABEL *** #}
-                                     {# {{ form_label(form.login) }} #}
                                      <label for="rechercheParNiveauDifficulté">
                                          Difficulté (entre 0 et 3):
                                          <img src="/Images/toqueDificulte.png"> 
@@ -216,15 +203,21 @@
 
                              </form>
 
-                         </section>  
+                         </section>   #}
 
-                         
-
-                     </div> 
+                     {# </div>  #}
  
-                     {# *********************************************** #}   
+                 {# *********************************************** #}   
 
-                 </article>
+                 {# </article> #}
+
+                 {# *********************************************** #}  
+
+                 {{ form_label(form) }}
+
+                 {{ form_end(form) }}
+
+                 {# *********************************************** #}  
 
                  <hr/>
 
