@@ -3,11 +3,11 @@
  {% extends 'base.html.twig' %}
 
      {% block metaTitle %}
-         " Créer un nouvel ingrédient "
+         " Ajouter un ingrédient "
      {% endblock %}
 
      {% block title %}
-         Créer un nouvel ingrédient
+         Ajouter un ingrédient
      {% endblock %}
      
      {% block body %}
@@ -16,7 +16,7 @@
  
              <section class="text-center">
 
-                 <h1 class="h1 mb-3 font-weight-normal"> Créer un nouvel ingrédient </h1>
+                 <h1 class="h1 mb-3 font-weight-normal"> Ajouter un ingrédient </h1>
 
              </section>      
      
@@ -34,6 +34,7 @@
                  <div class="text-center">
                      {{ include('recette/_form.html.twig') }}
                  </div>
+                 <a href="#" class="btn btn-primary">Mon ingredients n'est pas dans la liste</a>
               
                  <a href="{{ path('recette_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
                      Retour à la liste

@@ -69,12 +69,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $recettes_fav_id;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Ingredients::class, mappedBy="author_id")
+     */
+    private $ingredients;
+
     public function __construct()
     {
         $this->notes = new ArrayCollection();
         $this->commentaires = new ArrayCollection();
         $this->recettes_id = new ArrayCollection();
         $this->recettes_fav_id = new ArrayCollection();
+        $this->ingredients = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -302,6 +308,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if ($this->recettes_fav_id->removeElement($recettesFavId)) {
             $recettesFavId->removeUsersFavId($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Ingredients[]
+     */
+    public function getIngredients(): Collection
+    {
+        return $this->ingredients;
+    }
+
+    public function addIngredient(Ingredients $ingredient): self
+    {
+        if (!$this->ingredients->contains($ingredient)) {
+            $this->ingredients[] = $ingredient;
+            $ingredient->setAuthorId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIngredient(Ingredients $ingredient): self
+    {
+        if ($this->ingredients->removeElement($ingredient)) {
+            // set the owning side to null (unless already changed)
+            if ($ingredient->getAuthorId() === $this) {
+                $ingredient->setAuthorId(null);
+            }
         }
 
         return $this;
