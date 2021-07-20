@@ -35,185 +35,193 @@
 
                  </section>
                  
-                 {# *********************************************** #}   
-
-                 {# <article> #}
-
-                     {# <div class="flex-container"> #}
-
-                         {# ***** Bloc de Gauche ***** #}  
-
-                         {# <section class="flex-item-left"> 
-                    
-                             <form method="post" action="traitement.php"> 
-
-                                 <fieldset>
-
-                                     <label for="rechercheParNomRecette"> Nom de la recette  </label>
-
-                                     <input id="rechercheInputStyle" 
-                                         type="search" 
-                                         name="rechercheParNomRecette"                                              
-                                         placeholder=" Ex: Tarte au pomme, etc... " 
-                                         size="34"
-                                         maxlength="10"/>
-
-                                     <br/>
-
-                                 </fieldset>                 
-
-                             </form>
-
-                         </section>    #}
-
-                         {# ***** Bloc du milieu ***** #}   
-
-                         {# <section class="flex-item-right"> 
-               
-                             <form method="post" action="traitement.php">
-
-                                 <fieldset>  
-            
-                                     <label for="rechercheParTypeDePlat"> Type de plat 🍸 </label>
-
-                                     <input id="rechercheInputStyle" 
-                                         type="search" 
-                                         name="rechercheParTypeDePlat"                                              
-                                         placeholder=" Ex: Entrée, Desserts, etc ... " 
-                                         size="34"
-                                         maxlength="10"/>    
-                                                                       
-                                     <br /> 
-
-                                 </fieldset>
-                 
-                             </form>      
-
-                         </section>   #}
-
-                     {# </div>  #}
-                    
-                     {# <div class="flex-container"> #}
-
-                         {# ***** Bloc de Droite ***** #}  
-
-                         {# <section class="flex-item-left">
-
-                             <form method="post" action="traitement.php">
-
-                                 <fieldset>
-
-                                     <label for="rechercheParIngrédient"> Ingrédient 🍄 </label>
-
-                                     <input id="rechercheInputStyle" 
-                                         type="search" 
-                                         name="rechercheParIngrédient"                                              
-                                         placeholder=" Ex: Tiramisu, Fraise, etc... " 
-                                         size="34"
-                                         maxlength="10"/>
-
-                                     <br/>
-
-                                 </fieldset>   
-
-                             </form>
-
-                         </section>    #}
-
-                         {# ***** Bloc de Gauche ***** #}  
-                     
-                         {# <section class="flex-item-right">
-
-                             <form method="post" action="traitement.php">
-
-                                 <fieldset>
-
-                                     <label for="rechercheParTypeAlimentation"> Type d'alimentation 🍲 </label>
-
-                                     <input id="rechercheInputStyle" 
-                                         type="search" 
-                                         name="rechercheParTypeAlimentation"                                              
-                                         placeholder=" Ex: Omnivore, etc... " 
-                                         size="34"
-                                         maxlength="10"/>
-
-                                     <br/>
-
-                                 </fieldset>   
-
-                             </form>
-
-                         </section>  #}
-
-                     {# </div>  #}
-
-                     {# <div class="flex-container"> #}
-
-                         {# ***** Bloc du milieu ***** #}   
-
-                         {# <section class="flex-item-right">
-
-                             <form method="post" action="traitement.php">
-
-                                 <fieldset>
-
-                                     <label for="rechercheParTypeDeCuisson"> Type de cuisson 🔥 </label>
-
-                                     <input id="rechercheInputStyle" 
-                                         type="search" 
-                                         name="rechercheParTypeDeCuisson"                                              
-                                         placeholder=" Ex: Vapeur, etc... " 
-                                         size="34"
-                                         maxlength="10"/>
-
-                                     <br/>
-
-                                 </fieldset>     
-
-                             </form>
-
-                         </section>   #}
-                         
-                         {# ***** Bloc de Droite ***** #}  
-
-                         {# <section class="flex-item-left">
-
-                             <form method="post" action="traitement.php">
-
-                                 <fieldset>
-
-                                     <label for="rechercheParNiveauDifficulté">
-                                         Difficulté (entre 0 et 3):
-                                         <img src="/Images/toqueDificulte.png"> 
-                                     </label>
-
-                                     <input type="range"
-                                             id="rechercheInputStyle" 
-                                             name="rechercheParNiveauDifficulté"  
-                                             placeholder=" Nombre d'étoiles " 
-                                             size="34"
-                                             maxlength=""
-                                             min="0"
-                                             max="3"
-                                             step="" />    
-                                                                       
-                                     <br />  
-
-                                 </fieldset>     
-
-                             </form>
-
-                         </section>   #}
-
-                     {# </div>  #}
- 
-                 {# *********************************************** #}   
-
-                 {# </article> #}
-
-                 {# *********************************************** #}  
+                 {# *********************************************** #}         
 
                  {{ form_label(form) }}
+
+                 <article>
+
+                     <div class="flex-container">
+
+                         {# ***** Bloc de Gauche ***** #} 
+
+                             {# ? Partie: NOM DE LA RECETTE #}
+
+                                 {# <section class="col-12"> #}
+                                 <section class="flex-item-left">
+
+                                     <fieldset>
+                                 
+                                         {# *** LABEL *** #}
+                                         <label> Nom de la recette </label>
+
+                                         <br/>
+
+                                         {# *** INPUT *** #}
+                                         {{ form_widget(form.recette,{ 
+                                      
+                                             'attr': {                        
+                                                 'class':'recette',
+                                                 'placeholder':'Entrez un nom de recette'          
+                                             }
+
+                                         }) }}     
+                                    
+                                     </fieldset>    
+
+                                 </section>
+
+                         {# ***** Bloc de Droite ***** #}  
+
+                             {# ? Partie: NIVEAU DE DIFFICULTE #}
+
+                                 {# <section class="col-12"> #}
+                                 <section class="flex-item-right">
+
+                                     <fieldset>
+                                 
+                                         {# *** LABEL *** #}
+                                         <label> Niveau de difficulté </label>
+
+                                         <br/>
+                                 
+                                         {# *** INPUT *** #}
+                                         {{ form_widget(form.niveau,{ 
+                                      
+                                             'attr': {                        
+                                                 'class':'niveau',
+                                                 'placeholder':'Entrez un niveau de 1 à 3'       
+                                             }
+
+                                         }) }}     
+                                    
+                                     </fieldset>    
+
+                                 </section>
+
+                     </div>   
+
+                     {# *********************************************** #}  
+
+                     <div class="flex-container">
+
+                         {# ***** Bloc de Gauche ***** #} 
+
+                             {# ? Partie: INGREDIENTS #} 
+
+                                 {# <section class="col-12"> #}
+                                 <section class="flex-item-left">
+
+                                     <fieldset>
+                                 
+                                         {# *** LABEL *** #}
+                                         <label> Choix des ingrédients </label>
+
+                                         <br/>
+                                 
+                                         {# *** INPUT *** #}
+                                         {{ form_widget(form.ingredient,{ 
+                                      
+                                             'attr': {                        
+                                                 'class':'ingredient',
+                                             }
+
+                                         }) }}     
+                                    
+                                     </fieldset>    
+
+                                 </section>     
+
+                         {# ***** Bloc de Droite ***** #}  
+
+                             {# ? Partie: TYPE DE PLATS #}
+
+                                 {# <section class="col-12"> #}
+                                 <section class="flex-item-right">
+
+                                     <fieldset>
+                                 
+                                         {# *** LABEL *** #}
+                                         <label> Type de plats </label>
+
+                                         <br/>
+                                 
+                                         {# *** INPUT *** #}
+                                         {{ form_widget(form.plats,{ 
+                                      
+                                             'attr': {                        
+                                                 'class':'plats',
+                                             }
+
+                                         }) }}     
+                                    
+                                     </fieldset>    
+
+                                 </section>
+
+                     </div>   
+
+                     {# *********************************************** #} 
+       
+                     <div class="flex-container">
+
+                         {# ***** Bloc de Gauche ***** #} 
+
+                             {# ? Partie: TYPE D'ALIMENTATION #} 
+
+                                 {# <section class="col-12"> #}
+                                 <section class="flex-item-left">
+
+                                     <fieldset>
+                                 
+                                         {# *** LABEL *** #}
+                                         <label> Type d'alimentation </label>
+
+                                         <br/>
+                                 
+                                         {# *** INPUT *** #}
+                                         {{ form_widget(form.alimentation,{ 
+                                      
+                                             'attr': {                        
+                                                 'class':'alimentation',
+                                             }
+
+                                         }) }}     
+                                    
+                                     </fieldset>    
+
+                                 </section>     
+
+                         {# ***** Bloc de Droite ***** #}  
+
+                             {# ? Partie: TYPE DE CUISSON #} 
+
+                                 {# <section class="col-12"> #}
+                                 <section class="flex-item-right">
+
+                                     <fieldset>
+                                 
+                                         {# *** LABEL *** #}
+                                         <label> Type de cuisson </label>
+
+                                         <br/>
+                                 
+                                         {# *** INPUT *** #}
+                                         {{ form_widget(form.cuisson,{ 
+                                      
+                                             'attr': {                        
+                                                 'class':'cuisson',
+                                             }
+
+                                         }) }}     
+                                    
+                                     </fieldset>    
+
+                                 </section> 
+
+                     </div> 
+
+                 </article>
 
                  {{ form_end(form) }}
 
@@ -295,40 +303,5 @@
                          
                      #}
 
-                
-
-                 {# *********************************************** #}
-         
-                     {# <input type="number" />         
-
-                     <br/> #}
-
-                     {# <textarea name="ameliorer" id="ameliorer" rows="10" cols="50"> </textarea> #}
-
-                 {# *********************************************** #}
 
 
-         {#
-             <style>
-             .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-             .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-             </style>
-         #}
-         
-
-         {#    
-             <div class="example-wrapper">
-
-                 <h1> Hello {{ controller_name }}! ✅ </h1>
-             
-                 This friendly message is coming from:
-
-                 <ul>
-                     <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/bravo_cuistot/src/Controller/RechercheController.php'|file_link(0) }}">src/Controller/RechercheController.php</a></code></li>
-                     <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/bravo_cuistot/templates/recherche/index.html.twig'|file_link(0) }}">templates/recherche/index.html.twig</a></code></li>
-                 </ul>
-
-             </div> 
-         #}
-
- 
