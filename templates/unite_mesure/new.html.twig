@@ -9,25 +9,42 @@
      {% block body %}
 
          <main class="Form">
+
+             <div class="py-5 text-center col-12">
+
+                 {# *********************************************** #}
                  
-             <section class="text-center">
+                 <section>
      
-                 <h1 class="plantFont h1 mb-3 font-weight-normal"> Créer une nouvelle unité de mesure </h1>
-          
-             </section>   
+                     <h1> Créer une unité de mesure </h1>
+                
+                         <hr/>
 
-             <article>
+                             <p> 
+                                 <em> Ajouter une nouvelle unité de mesure! </em> 👨‍🍳
+                             </p> 
+
+                         <hr/>  
+
+                 </section>   
+
+                 {# *********************************************** #}
+
+                 <article>
       
+                     <div class="text-center">
+                         {{ include('unite_mesure/_form.html.twig') }}
+                     </div>
 
-                 <div class="text-center">
-                     {{ include('unite_mesure/_form.html.twig') }}
-                 </div>
+                     <a type="submit" href="{{ path('unite_mesure_index') }}" class="btn btn-success col-12 btn-lg ">
+                         Retour à la liste
+                     </a>
 
-                 <a type="submit" href="{{ path('unite_mesure_index') }}" class="btn btn-success col-12 btn-lg ">
-                     Retour à la liste
-                 </a>
+                 </article>
 
-             </article>
+                 {# *********************************************** #}
+ 
+             </div>
 
          </main>
 

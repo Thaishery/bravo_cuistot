@@ -5,17 +5,17 @@
 {% block title %}Préview Recette{% endblock %}
 
 {% block body %}
-{{dump(recette)}}
-{{dump(listeIngredient)}}
-{{dump(listeEtapes)}}
-{{dump(nombreEtapes)}}
     <div class="container">
         <div class="row">
             <div class="col-12">
+            <h1>{{recette.name}} Prévisualisation</h1>
                 {% if recette.image %}
-                    {{recette.image}}
+                <div class="col-12">
+                <img src="{{asset('uploads/recettes/'~ recette.image)}}" style="max-width:100%"/>
+                </div>
+                    {# {{recette.image}} #}
                 {% endif %}
-                <h1>{{recette.name}} Prévisualisation</h1>
+                
             </div>
             <div class="col-12">
                 <h2>pour {{recette.NbPersonnes}} Convives</h2>
@@ -63,27 +63,30 @@
             </div>
             <div class="col-12">
                 {% for etapes in listeEtapes %}
+                    <div class="col-12 row">
+                        <div class="col-1">
+                        <h3>
+                            {{etapes.isNumber}} / {{nombreEtapes}}
+                        </h3>
+                        </div>
+                        <div class="col-11">
+                        <h3>
+                            {{etapes.name}}
+                        </h3>
+                        </div>
                     {% if etapes.image %}
                         <div class ="col-6">
-                            <img src="#" alt="image de l'étape"/>
-                            image de l'étapes
+                            <img src="{{asset('/uploads/etapes/'~ etapes.image)}}" alt="image de l'étape" style="max-width:100%"/>
                         </div>
                         <div class="col-6">
-                            <h2>{{etapes.name}}</h2>
+                            {{etapes.description}}
                         </div>
                     {% else %}
                         <div class="col-12">
-                            <h2>{{etapes.name}}</h2>
-                        </div>
-                    {% endif %}
-                    <div class="col-12 row">
-                        <div class="col-1">
-                            {{etapes.isNumber}} / {{nombreEtapes}}
-                        </div>
-                        <div class="col-10">
                             {{etapes.description}}
                         </div>
                     </div>
+                    {% endif %}
                 {% endfor %}
             </div>
             <div class="col-12 row previewRecetteBoutonFin">

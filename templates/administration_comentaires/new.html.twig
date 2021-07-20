@@ -14,27 +14,39 @@
 
          <main class="Form"> 
 
-             <section class="text-center">
+             <div  class="py-5 text-center col-12">
+
+                 {# *********************************************** #}
+
+                 <section>
     
-                 <h1 class="mb-3 font-weight-normal"> Créer un nouveau commentaire  </h1>
+                     <h1> Créer un nouveau commentaire </h1>
+
+                         <hr/>
          
-                     <p class="lead"> 
-                         <em> Rédiger un nouveau commentaire </em>  ✍️
-                     </p>
+                             <p> 
+                                 <em> Rédiger un nouveau commentaire </em> ✍️
+                             </p>
 
-             </section>  
+                         <hr/>
 
-             <article class="btn-group-vertical col-12">
+                 </section>  
+
+                 {# *********************************************** #}
+
+                 <article>
       
-                 <div class="text-center">
                      {{ include('administration_comentaires/_form.html.twig') }}
-                 </div>
-
-                 <a href="{{ path('administration_comentaires_index') }}" type="submit" class="btn btn-success col-12 btn-lg">                                
-                     Retour à la liste
-                 </a>
+                    
+                     <a href="{{ path('administration_comentaires_index') }}" type="submit" class="btn btn-success col-12 btn-lg">                                
+                         Retour à la liste
+                     </a>
  
-             </article>
+                 </article>
+
+                 {# *********************************************** #}
+          
+             </div>
 
          <main>
 

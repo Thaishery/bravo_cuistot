@@ -1,26 +1,89 @@
-{% extends 'base.html.twig' %}
+  {# ? Feuille : Gestion des Types de cuissons #ModeAdmin #} 
+ 
+ {% extends 'base.html.twig' %}
+     
+     {% block metaTitle %}
+         " Type de cuissons "
+     {% endblock %}
 
-{% block title %}Cuisson{% endblock %}
+     {% block title %}
+         Type de cuissons
+     {% endblock %}
+     
+     {% block body %}
 
-{% block body %}
-    <h1>Cuisson</h1>
+        <main class="Form"> 
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ cuisson.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ cuisson.name }}</td>
-            </tr>
-        </tbody>
-    </table>
+             <div class="py-5 text-center col-12">
 
-    <a href="{{ path('administration_cuisson_index') }}">back to list</a>
+                 {# *********************************************** #}
+     
+                 <section>
 
-    <a href="{{ path('administration_cuisson_edit', {'id': cuisson.id}) }}">edit</a>
+                     <h1> Type de cuissons </h1>
+                   
+                         <hr/>
 
-    {{ include('administration_cuisson/_delete_form.html.twig') }}
-{% endblock %}
+                             <p> 
+                                 <em> Informations sur le type de cuisson ! </em> 👾
+                             </p>
+
+                         <hr/>
+
+                 </section>
+      
+                 {# *********************************************** #}
+
+                 <article>
+
+                     <table class="table table-dark table-hover">
+
+                         <tbody>
+
+                             <tr>
+                                 <th> Id </th>
+                                 <td> {{ cuisson.id }} </td>
+                             </tr>
+
+                             <tr>
+                                 <th> Nom du type de cuisson </th>
+                                 <td> {{ cuisson.name }} </td>
+                             </tr>
+
+                         </tbody>
+
+                     </table>
+
+                     </article>  
+
+                     {# *********************************************** #}      
+                   
+                     <hr/>
+
+                     <article class="btn-group-vertical col-12">
+
+                         <a href="{{ path('administration_cuisson_edit', {'id': cuisson.id}) }}"  type="submit" class="btn btn-dark col-12 btn-lg px-4 gap-3">
+                             Modifier
+                         </a>
+
+                         <a href="{{ path('administration_cuisson_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">
+                             Retour à la liste 
+                         </a>      
+                        
+                     </article>
+
+                     <hr/> 
+
+                     <article class="col-12"> 
+
+                         {{ include('administration_cuisson/_delete_form.html.twig') }}
+ 
+                     </article>
+
+                     {# *********************************************** #}
+
+             </div>
+
+         </main>   
+
+     {% endblock %}

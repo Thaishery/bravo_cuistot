@@ -1,13 +1,59 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Commentaires{% endblock %}
+     {% block metaTitle %}
+         " Modifier un commentaire "
+     {% endblock %} 
 
-{% block body %}
-    <h1>Edit Commentaires</h1>
+     {% block title %}
+         Modifier un commentaire 
+     {% endblock %}
+     
+     {% block body %}
 
-    {{ include('administration_comentaires/_form.html.twig', {'button_label': 'Update'}) }}
+         <main class="Form"> 
 
-    <a href="{{ path('administration_comentaires_index') }}">back to list</a>
+             <div  class="py-5 text-center col-12">
 
-    {{ include('administration_comentaires/_delete_form.html.twig') }}
-{% endblock %}
+                 {# *********************************************** #}
+
+                 <section>
+
+                     <h1> Modifier un commentaire </h1>
+
+                     <hr/>
+
+                         <p> 
+                             <em> Modifier les commentaires des visiteurs de votre site! </em> 📂
+                         </p>
+
+                     <hr/>
+
+                 </section>  
+
+                 {# *********************************************** #}
+
+                 <article class="col-12">
+                   
+                     {{ include('administration_comentaires/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+                   
+                     <a href="{{ path('administration_comentaires_index') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">
+                         Retour à la liste 
+                     </a>
+
+                 </article> 
+
+                 <hr/>
+
+                 <article class="col-12">   
+
+                     {{ include('administration_comentaires/_delete_form.html.twig') }}
+   
+                 </article>
+
+                 {# *********************************************** #}
+
+             </div>      
+       
+         </main>
+
+     {% endblock %}

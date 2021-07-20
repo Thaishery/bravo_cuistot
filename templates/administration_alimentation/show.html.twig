@@ -1,26 +1,85 @@
-{% extends 'base.html.twig' %}
+ {# ? Feuille : Gestion des Types de plats #ModeAdmin #} 
 
-{% block title %}Alimentation{% endblock %}
+ {% extends 'base.html.twig' %}
+     
+     {% block metaTitle %}
+         " Type d'alimentations "
+     {% endblock %}
 
-{% block body %}
-    <h1>Alimentation</h1>
+     {% block title %}
+         Type d'alimentations
+     {% endblock %}
+     
+     {% block body %}
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ alimentation.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ alimentation.name }}</td>
-            </tr>
-        </tbody>
-    </table>
+         <main class="Form"> 
 
-    <a href="{{ path('administration_alimentation_index') }}">back to list</a>
+             <div class="py-5 text-center col-12">
 
-    <a href="{{ path('administration_alimentation_edit', {'id': alimentation.id}) }}">edit</a>
+                 {# *********************************************** #}
+     
+                 <section>
 
-    {{ include('administration_alimentation/_delete_form.html.twig') }}
-{% endblock %}
+                     <h1> Type d'alimentations </h1>
+
+                         <hr/>
+
+                             <p> 
+                                 <em> Informations sur le type d'alimentation! </em> 👾
+                             </p>
+
+                         <hr/>
+
+                 </section>       
+
+                 {# *********************************************** #}
+     
+                     <table class="table table-dark table-hover">
+
+                         <tbody>
+
+                             <tr>
+                                 <th> Id </th>
+                                 <td> {{ alimentation.id }} </td>
+                             </tr>
+
+                             <tr>
+                                 <th> Nom du type d'alimentation </th>
+                                 <td> {{ alimentation.name }} </td>
+                             </tr>
+
+                         </tbody>
+
+                     </table>
+
+                     {# *********************************************** #}
+
+                     <hr/>
+
+                     <article class="btn-group-vertical col-12">
+     
+                         <a href="{{ path('administration_alimentation_edit', {'id': alimentation.id}) }}" type="submit" class="btn btn-dark col-12 btn-lg px-4 gap-3">
+                             Modifier
+                         </a>
+
+                         <a href="{{ path('administration_alimentation_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">
+                             Retour à la liste 
+                         </a>
+          
+                     </article>
+
+                     <hr/> 
+
+                     <article class="col-12"> 
+
+                         {{ include('administration_alimentation/_delete_form.html.twig') }}
+  
+                     </article>
+
+                     {# *********************************************** #}
+
+                 </div>
+
+             </main>        
+
+     {% endblock %}

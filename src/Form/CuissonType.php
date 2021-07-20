@@ -26,6 +26,7 @@ class CuissonType extends AbstractType
                     ])
                 ],
                 'required' => true,
+                'label' => 'Nom du type de cuisson'
             ])
         ;
     }

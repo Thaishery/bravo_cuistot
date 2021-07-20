@@ -14,45 +14,73 @@
 
          <main class="Form">
                  
-             <section class="text-center">
+             <div class="py-5 text-center col-12">
+
+                 {# *********************************************** #}
+
+                 <section>
      
-                 <h1 class="plantFont h1 mb-3 font-weight-normal"> Unités de mesures </h1>
+                     <h1> Unités de mesures </h1>
           
-             </section>   
+                         <hr/>
 
-             <article>
+                             <p> 
+                                 <em> Informations de l'unité de mesure ! </em>  👾
+                             </p>
+
+                         <hr/>
+
+                 </section>   
+
+                 {# *********************************************** #}
+
+                 <article>
      
-                 <table class="table table-dark table-hover">
+                     <table class="table table-dark table-hover">
 
-                     <tbody>
+                         <tbody>
 
-                         <tr>
-                             <th> Id </th>
-                             <td> {{ unite_mesure.id }} </td>
-                         </tr>
+                             <tr>
+                                 <th> Id </th>
+                                 <td> {{ unite_mesure.id }} </td>
+                             </tr>
 
-                         <tr>
-                             <th> Nom </th>
-                             <td> {{ unite_mesure.name }} </td>
-                         </tr>
+                             <tr>
+                                 <th> Nom </th>
+                                 <td> {{ unite_mesure.name }} </td>
+                             </tr>
 
-                     </tbody>
+                         </tbody>
 
-                 </table>
+                     </table>
      
-                 {# <article class="btn-group-vertical"> #}
+                     {# *********************************************** #}
 
-                     <a href="{{ path('unite_mesure_edit', {'id': unite_mesure.id}) }}"  class="btn col-12 btn-dark btn-lg px-4">                                
-                         Modifier 
-                     </a>     
+                     <hr/>
 
-                     {{ include('unite_mesure/_delete_form.html.twig') }}    
+                     <article class="btn-group-vertical col-12">
+
+                         <a href="{{ path('unite_mesure_edit', {'id': unite_mesure.id}) }}"  class="btn col-12 btn-dark btn-lg px-4">                                
+                             Modifier 
+                         </a>     
      
-                     <a href="{{ path('unite_mesure_index') }}"  class="btn btn-success col-12 btn-lg px-4 gap-3">                                
-                         Retour à la liste
-                     </a>     
+                         <a href="{{ path('unite_mesure_index') }}"  class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+                             Retour à la liste
+                         </a>     
+                     
+                     </article>
+    
+                     <hr/>
 
-                 {# </article> #}
+                     <article class="col-12">
+
+                        {{ include('unite_mesure/_delete_form.html.twig') }}    
+
+                     </article>
+
+                     {# *********************************************** #}
+
+                 </div>   
 
              </main>     
   
