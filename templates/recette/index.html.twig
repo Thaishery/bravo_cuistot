@@ -6,19 +6,43 @@
          " Gestion des recettes "
      {% endblock %}
 
-     {% block title %}
-         Gestion des recettes
-     {% endblock %}
-     
-     {% block body %}
+{% block title %}Liste des recettes{% endblock %}
 
-         <main class="Form"> 
+{% block body %}
+    <h1>Liste des recettes</h1>
+    <div class="col-12 row">
+        {% for recette in recettes %}
+        <div class="col-6 cardRecette">
+        <a href="{{path("recette_show", {'id': recette.id})}}">
+        {% if recette.image %}
+        <h2>{{recette.name}}</h2>
+        <div class="col-6">
+        <img src="{{asset('uploads/recettes/'~ recette.image)}}" style="max-width:100%"/>
+        </div>        
+        {% else  %}
+        <h2> {{recette.name}}</h2>
+        {% endif %}
+        </a>
+        {% if is_granted('ROLE_ADMIN') %}
+            <form method="post" action="{{ path('recette_delete', {'id': recette.id}) }}" onsubmit="return confirm('êtes vous sure de vouloir suprimer cette recette? Cette action est iréversible');">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ recette.id) }}">
+                <button class="btn btn-primary">Supprimer la recette</button>
+            </form>
+        {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+         {# <main class="Form"> 
+
 
              <div class="py-5 text-center col-12">
 
                 {# *********************************************** #}
 
-                 <section> 
+                 {#<section> 
 
                      <h1> Gestion des recettes </h1>
 
@@ -34,7 +58,7 @@
 
                  {# *********************************************** #}
 
-                 <article class="col-12 row">
+                 {#<article class="col-12 row">
 
                      {% for recette in recettes %}
 
@@ -58,7 +82,7 @@
 
                              {# ? Feuille du bouton Delete #ModeAdmin #}
 
-                             {% if is_granted('ROLE_ADMIN') %}
+                             {#{% if is_granted('ROLE_ADMIN') %}
 
                                  <form method="post" action="{{ path('recette_delete', {'id': recette.id}) }}" onsubmit="return confirm('Voulez vraiment supprimer cette recette ?');">
                                    
@@ -80,10 +104,10 @@
 
                  {# *********************************************** #}
 
-             <div/>      
+             {#<div/>      
 
          </main>         
      
-     {% endblock %}
+     {% endblock %}#}
      
      

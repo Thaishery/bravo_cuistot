@@ -10,6 +10,8 @@ use App\Entity\Recette;
 // use App\Entity\User;
 use App\Form\CommentairesType;
 use App\Form\EtapesType;
+use App\Form\FavoriType;
+use App\Form\RemoveFavoriType;
 use App\Form\IngredientsRecetteType;
 use App\Form\NotesType;
 use App\Form\RecetteType;
@@ -59,7 +61,7 @@ class RecetteController extends AbstractController
         
 
         if ($form->isSubmitted() && $form->isValid()) {
-            //on récupére l'image de recette si il y en as une : 
+            //on récupére l'image de recette si il y en a une : 
             $imageRecette= $form->get('image')->getData();
             if($imageRecette){
                 $imageName = $recetteFileUploader->upload($imageRecette);
@@ -95,15 +97,15 @@ class RecetteController extends AbstractController
         $user = $this->getUser();
         // initialise l'objet Ingrédients
         $ingredients = new IngredientsRecette();
-        // initialise le formulaire depuis le modéle IngredientsRecetteType.
+        // initialise le formulaire depuis le modèle IngredientsRecetteType.
         $form = $this->createForm(IngredientsRecetteType::class, $ingredients);
         $form->handleRequest($request);
-        // ajoute l'id de la recette a la class IngredientsRecette. (via l'injection de dépendances)
+        // ajoute l'id de la recette à la class IngredientsRecette. (via l'injection de dépendances)
         $ingredients->setRecetteId($recette);
         // on récupére la liste des ingrédients de la recette pour vérifier si elle est vide ou non
         $listeIngredient = $ingredientsRecetteRepository->findByRecetteId($id);
 
-        //si la recette a modifier a un auteur différent de l'utilisateur actuel, ne pas permetre la modification de la liste d'ingrédients:
+        //si la recette à modifier a un auteur différent de l'utilisateur actuel, ne pas permetre la modification de la liste d'ingrédients:
         if ($recette->getAuthorId()->getId() !== $user->getId()){
             // forbiden.html.twig => a modifier (placeholder atm)
             return $this->render('errors/forbiden.html.twig');
@@ -138,7 +140,7 @@ class RecetteController extends AbstractController
                     'id' => $id,
                 ]);
             }
-            //il n'y as pas encore d'ingrédients a la recette, on affiche donc le template initiale. 
+            //il n'y a pas encore d'ingrédients à la recette, on affiche donc le template initial. 
             return $this->render('recette/new_ingredients.html.twig', [
                 'id'=> $id,
                 'ingredients' => $ingredients,
@@ -167,17 +169,17 @@ class RecetteController extends AbstractController
         $user = $this->getUser();
         // initialise l'objet Etapes
         $etape = new Etapes();
-        // initialise le formulaire depuis le modéle EtapesType.
+        // initialise le formulaire depuis le modèle EtapesType.
         $form = $this->createForm(EtapesType::class, $etape);
         $form->handleRequest($request);
         // on récupére la liste des étapes de la recette pour vérifier si elle est vide ou non
         $listeEtapes = $etapesRepository->findByRecetteId($recette);
-        // ajout de l'id de la recette a la class Etapes. (via l'injection de dépendances)
+        // ajout de l'id de la recette à la class Etapes. (via l'injection de dépendances)
         $etape->setRecetteId($recette);
 
-        //si la recette a modifier a un auteur différent de l'utilisateur actuel, ne pas permetre la modification de la liste d'étape:
+        //si la recette à modifier a un auteur différent de l'utilisateur actuel, ne pas permetre la modification de la liste d'étape:
         if ($recette->getAuthorId()->getId() !== $user->getId()){
-            // forbiden.html.twig => a modifier (placeholder atm) les paramétres pouront être suprimer par la suite. 
+            // forbiden.html.twig => a modifier (placeholder atm) les paramétres pouront être suprimés par la suite. 
             return $this->render('errors/forbiden.html.twig');
         }
         // si il y a deja des étapes de recette
@@ -187,7 +189,7 @@ class RecetteController extends AbstractController
             $etape->setIsNumber(count($listeEtapes)+1);
             //traitement formulaire 
             if ($form->isSubmitted() && $form->isValid()) {
-                //on récupére les donées du champ image (null si il n'y en a pas.)
+                //on récupére les données du champ image (null si il n'y en a pas.)
                 $etapeImage = $form->get('image')->getData();
                 //si !null on traite l'image
                 if($etapeImage){
@@ -202,7 +204,7 @@ class RecetteController extends AbstractController
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($etape);
                 $entityManager->flush();
-                //on redirige sur le même formulaire pour pouvoir ajouter des étapes suplaimentaire si besoin : 
+                //on redirige sur le même formulaire pour pouvoir ajouter des étapes supplémentaires si besoin : 
                 return $this->redirectToRoute('recette_new_etapes',[
                     'id' => $id,
                 ]);
@@ -216,7 +218,7 @@ class RecetteController extends AbstractController
         }
         //listeEtape est null => il n'y a donc pas encore d'étape! 
         else {
-            //listeEtape est vide, on peut donc passer is_number a 1 .
+            //listeEtape est vide, on peut donc passer is_number à 1 .
             $etape->setIsNumber(1);
             //traitement formulaire
             if ($form->isSubmitted() && $form->isValid()) {
@@ -239,7 +241,7 @@ class RecetteController extends AbstractController
                     'id' => $id,
                 ]);
             }
-            //il n'y as pas encore d'étapes a la recette, on affiche donc le template initiale. 
+            //il n'y a pas encore d'étapes à la recette, on affiche donc le template initial. 
             return $this->render('recette/new_etapes.html.twig', [
                 'etape' => $etape,
                 'form' => $form->createView(),
@@ -252,17 +254,17 @@ class RecetteController extends AbstractController
      * @Route("/new/{id}/preview", name="recette_new_preview", methods={"GET","POST"})
      */
     public function preview(Recette $recette,int $id, EtapesRepository $etapesRepository, IngredientsRecetteRepository $ingredientsRecetteRepository): Response{
-        //on récupére la liste des Etapes trié par numéro d'etape. 
+        //on récupére la liste des Etapes triées par numéro d'étape. 
         $listeEtapes = $etapesRepository->findByRecetteIdOrderByIsNumber($id);
-        //on récupére la listre des ingrédients de la recette. 
+        //on récupère la liste des ingrédients de la recette. 
         $listeIngredient = $ingredientsRecetteRepository->findByRecetteId($id);
-        // on compte les étape pour l'envoyer a la vue.
+        // on compte les étapes pour l'envoyer à la vue.
         $nomberEtapes = count($listeEtapes);
         // on récupére l'utilisateur pour vérification Id (recette toujour en création même si preview)
         $user = $this->getUser();
-        //si la recette a modifier a un auteur différent de l'utilisateur actuel, ne pas permetre la modification de la liste d'étape:
+        //si la recette à modifier a un auteur différent de l'utilisateur actuel, ne pas permetre la modification de la liste d'étape:
             if ($recette->getAuthorId()->getId() !== $user->getId()){
-                // forbiden.html.twig => a modifier (placeholder atm) les paramétres pouront être suprimer par la suite. 
+                // forbiden.html.twig => a modifier (placeholder atm) les paramètres pouront être suprimés par la suite. 
                 return $this->render('errors/forbiden.html.twig');
             }
         
@@ -282,15 +284,17 @@ class RecetteController extends AbstractController
         Request $request,
         Recette $recette,
         int $id,
+        RecetteRepository $recetteRepository,
         EtapesRepository $etapesRepository,
         IngredientsRecetteRepository $ingredientsRecetteRepository,
         CommentairesRepository $commentairesRepository,
-        NotesRepository $notesRepository
+        NotesRepository $notesRepository,
+        RemoveFavoriType $removeFavori
     ): Response
     {
-        //on récupére la liste des Etapes trié par numéro d'etape. 
+        //on récupére la liste des Etapes triées par numéro d'étape. 
         $listeEtapes = $etapesRepository->findByRecetteIdOrderByIsNumber($id);
-        //on récupére la listre des ingrédients de la recette. 
+        //on récupére la liste des ingrédients de la recette. 
         $listeIngredient = $ingredientsRecetteRepository->findByRecetteId($id);
         //on récupére la liste des commentaires .
         $listeCommentaires = $commentairesRepository->findByRecetteId($id);
@@ -306,11 +310,14 @@ class RecetteController extends AbstractController
         $formCommentaire->handleRequest($request);
         //on définie la date de creation du commentaire via un objet DateTimeImmutable.
         $commentaire->setCreatedAt(new DateTimeImmutable());
-        //on définie l'utilisateur qui a poster le commentaire
+        //on définie l'utilisateur qui a posté le commentaire
         $commentaire->setUserId($user);
-        //on définie la recette a laquel le commentaire est atribuer : 
+        //on définie la recette a laquelle le commentaire est attribué : 
         $commentaire->setRecetteId($recette);
 
+        
+        
+        //si on choisit d'envoyer un commentaire (on clique sur save)
         if ($formCommentaire->isSubmitted() && $formCommentaire->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($commentaire);
@@ -321,7 +328,45 @@ class RecetteController extends AbstractController
             ]);
         }
 
-        // on gére la notation : 
+        //on "contruit le bouton "ajouter en favori" à partir de FavoriType.php
+        $formFavori=$this->createForm(FavoriType::class,$user);
+        $formFavori->handleRequest($request);
+        //on récupère la recette affichée
+        $recetteChoisie = $recetteRepository->find($id);
+        
+        //si on clique sur "ajouter en favori" :
+        if ($formFavori->isSubmitted() && $formFavori->isValid()) {
+            //on utilise les fonction addRecettesFavId() de l'entity User et addUsersFavId() de l'entity Recette pour renseigner la table recette-user
+            $user->addRecettesFavId($recetteChoisie);
+            $recetteChoisie->addUsersFavId($user);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->flush();
+            
+            return $this->redirectToRoute('recette_show',[
+                'id' => $id,
+            ]);
+        }
+            //on "contruit le bouton "retirer des favoris" à partir de RemoveFavoriType.php
+            $removeFavori=$this->createForm(RemoveFavoriType::class,$user);
+            $removeFavori->handleRequest($request);
+            //on récupère la recette affichée
+            $recetteChoisie = $recetteRepository->find($id);
+
+            //si on clique sur "retirer des favoris" à partir de RemoveFavoriType.php
+        if ($removeFavori->isSubmitted() && $removeFavori->isValid()) {
+            //on utilise les fonction addRecettesFavId() de l'entity User et addUsersFavId() de l'entity Recette pour renseigner la table recette-user
+            $user->RemoveRecettesFavId($recetteChoisie);
+            $recetteChoisie->RemoveUsersFavId($user);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->flush();
+        
+            return $this->redirectToRoute('recette_show',[
+                'id' => $id,
+            ]);
+        }        
+        
+
+        // on gère la notation : 
         // 1. on gére les notes deja présente : 
         // 1.1 on récupére la liste des notes de la recettes : 
         $listeNotes = $notesRepository->findByRecetteId($id);
@@ -362,6 +407,10 @@ class RecetteController extends AbstractController
                 'noteUser' => $noteUser,
                 'haveNoted' =>$haveNoted,
                 'formCommentaire' => $formCommentaire->createView(),
+                'formFavori' => $formFavori->createView(),
+                'removeFavori' => $removeFavori->createView(),
+                'user' => $user,
+
             ]);
         }   
         // 2.1.3Bis sinon on initialise le formulaire d'ajout de note dans cette vue. 
@@ -396,6 +445,10 @@ class RecetteController extends AbstractController
             'haveNoted' =>$haveNoted,
             'formNote' => $formNote->createView(),
             'formCommentaire' => $formCommentaire->createView(),
+            'formFavori' => $formFavori->createView(),
+            'removeFavori' => $removeFavori->createView(),
+            'user' => $user,
+
         ]);
     }
 
@@ -403,7 +456,7 @@ class RecetteController extends AbstractController
     /**
      * @Route("/{id}/edit", name="recette_edit", methods={"GET","POST"})
      */
-    //todo : gestion image recette + dans RecetteEditEtapes => gestion image etape. 
+    //todo : gestion image recette + dans RecetteEditEtapes => gestion image etape.
     public function edit(
         Request $request,
         Recette $recette,

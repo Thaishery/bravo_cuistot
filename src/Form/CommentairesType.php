@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Commentaires;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,7 +16,7 @@ class CommentairesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('content', TextType::class,[
+            ->add('content', TextareaType::class,[
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Votre commentaire ne peut pas être vide.'
@@ -30,10 +31,6 @@ class CommentairesType extends AbstractType
                 ],
                 'required' => true,
             ])
-            // ->add('created_at')
-            // ->add('edited_at')
-            // ->add('user_id')
-            // ->add('recette_id')
         ;
     }
 
