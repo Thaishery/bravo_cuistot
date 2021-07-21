@@ -1,11 +1,10 @@
  {# ? MODAL CONNEXION #}
 
-
      <main class="modal_Cuistot">
+         {# <main class="Form"> #}
 
          <button type="button" class=" btn btn-success btn-lg login-position" data-bs-toggle="modal" data-bs-target="#exampleModal">
              <i id="house1" class="bi bi-house "> </i>
-             {# <span class="mobileHide"> Connection </span> #}
          </button>
 
          {# ***** MODAL ***** #}
@@ -15,17 +14,12 @@
              <div class="modal-dialog modal-dialog-centered">
 
                  <div class="modal-content ">
-                 {# ? div pour second modal #}
-                 {# <div class="login-box">  #}
+                     {# ? div pour second modal #}
+                     {# <div class="login-box">  #}
 
                      <section class="modal-header ">
 
-                         <h5 class="modal-title" id="exampleModalLabel">
-                             <i class="bi bi-house-door"> </i> 
-                             Menu de connection 
-
-                         </h5>
-
+                         <h5 class="modal-title" id="exampleModalLabel"> <i class="bi bi-house-door"> </i> Menu de connection </h5>
                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
 
@@ -56,7 +50,7 @@
 
                                          <label for="inputLogin" class="visually-hidden"> Pseudo </label>
                                          <input  type="text"  name="login" id="inputLogin" class="form-control"  placeholder="Login" required autofocus>        
-                                                            
+
                                          <label for="inputPassword" class="visually-hidden"> Mot de passe </label>
                                          <input  type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required=""> 
 
@@ -66,15 +60,9 @@
  
                                          <section class="checkbox mb-3">
                      
-                                             {# <hr style="color:rgba(25,135,84,0.9);"/> #}
-
-                                                 <label>
-                                                     <input type="checkbox" name="_remember_me">
-                                                     Se souvenir de moi
-                                                 </label>
+                                             <label> Se souvenir de moi </label>
+                                             <input type="checkbox" name="_remember_me">
                                            
-                                             {# <hr style="color:rgba(25,135,84,0.9);"/> #}
-
                                          </section>
 
                                          <section class="btn-group col-12">
@@ -87,7 +75,7 @@
                                                  S'inscrire
                                              </a>
 
-                                         <section>   
+                                         </section>   
                                       
                                  </form>
 
@@ -101,7 +89,7 @@
                  </div>
 
 
-                 </div>
+             </div>
 
 
          </div>

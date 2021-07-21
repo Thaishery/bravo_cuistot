@@ -18,17 +18,17 @@
 
                  {# *********************************************** #}  
 
-                 <section class="text-center">
+                 <section>
 
                      <h1> Créer un nouveau type d'alimentation </h1>
                    
-                     <hr style="color:white;"/>
+                         <hr/>
 
-                     <p class="lead"> 
-                         <em> Ajouter un nouveau type d'alimentation à votre site! </em> ⏰
-                     </p>
+                             <p> 
+                                 <em> Ajouter un nouveau type d'alimentation à votre site! </em> ⏰
+                             </p>
 
-                     <hr style="color:white;"/>
+                         <hr/>
 
                  </section>
                
@@ -36,11 +36,9 @@
 
                  <article>
 
-                     {# ! Problèmes bouton delete, se valide sans confirmation ?  #}
-
                      {{ include('administration_alimentation/_form.html.twig') }}
                    
-                     <a href="{{ path('administration_alimentation_index') }}" class="btn btn-lg btn-success col-12">
+                     <a href="{{ path('administration_alimentation_index') }}" class="btn btn-success btn-lg col-12">
                          Retour à la liste 
                      </a>
  

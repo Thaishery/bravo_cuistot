@@ -1,0 +1,254 @@
+ {# ? Partie : Recherche avancées #}
+ 
+ {% extends 'base.html.twig' %}
+ 
+     {% block metaTitle %}
+         " Recherche avancées "
+     {% endblock %}
+
+     {% block title %}
+         Recherche avancées
+     {% endblock %}
+     
+     {% block body %}
+
+         <main class="Form">  
+
+             <div class="text-center col-12">
+
+                 {# *********************************************** #}
+
+                 <section>
+    
+                     <h1> Recherche Avancées </h1>
+         
+                         <hr/>
+
+                             <p> 
+                             
+                                 <em> Effectuer une recherche avancée pour retrouver vos recettes préférées. </em>                                
+                                 <img src="/Images/iconeRechercheAvancée.png" style="width:21px;height:21px;">
+                                  
+                             </p>
+
+                         <hr/>
+
+                 </section>
+                 
+                 {# *********************************************** #}         
+
+                 <article>
+
+                 {{ form_start(form) }}
+
+                     <div class="flex-container">
+
+                         {# ***** Bloc de Gauche ***** #} 
+
+                             {# ? Partie: NOM DE LA RECETTE #}
+
+                                 {# <section class="col-12"> #}
+                                 <section class="flex-item-left">
+
+                                     {# <fieldset> #}
+                                 
+                                         {# *** LABEL *** #}
+                                         <label> Nom de la recette </label>
+
+                                         <br/>
+
+                                         {# *** INPUT *** #}
+                                         {{ form_widget(form.recette,{ 
+                                      
+                                             'attr': {                        
+                                                 'class':'recette',
+                                                 'placeholder':'Entrez un nom de recette'          
+                                             }
+
+                                         }) }}     
+                                    
+                                     {# </fieldset>     #}
+
+                                 </section>
+
+                         {# ***** Bloc de Droite ***** #}  
+
+                             {# ? Partie: NIVEAU DE DIFFICULTE #}
+
+                                 {# <section class="col-12"> #}
+                                 <section class="flex-item-right">
+
+                                     <fieldset>
+                                 
+                                         {# *** LABEL *** #}
+                                         <label> Niveau de difficulté </label>
+
+                                         <br/>
+                                 
+                                         {# *** INPUT *** #}
+                                         {{ form_widget(form.niveau,{ 
+                                      
+                                             'attr': {                        
+                                                 'class':'niveau',
+                                                 'placeholder':'Entrez un niveau de 1 à 3'       
+                                             }
+
+                                         }) }}     
+                                    
+                                     </fieldset>    
+
+                                 </section>
+
+                     </div>   
+
+                     {# *********************************************** #}  
+
+                     <div class="flex-container">
+
+                         {# ***** Bloc de Gauche ***** #} 
+
+                             {# ? Partie: INGREDIENTS #} 
+
+                                 {# <section class="col-12"> #}
+                                 <section class="flex-item-left">
+
+                                     <fieldset>
+                                 
+                                         {# *** LABEL *** #}
+                                         <label> Choix des ingrédients </label>
+
+                                         <br/>
+                                 
+                                         {# *** INPUT *** #}
+                                         {{ form_widget(form.ingredient,{ 
+                                      
+                                             'attr': {                        
+                                                 'class':'ingredient',
+                                             }
+
+                                         }) }}     
+                                    
+                                     </fieldset>    
+
+                                 </section>     
+
+                         {# ***** Bloc de Droite ***** #}  
+
+                             {# ? Partie: TYPE DE PLATS #}
+
+                                 {# <section class="col-12"> #}
+                                 <section class="flex-item-right">
+
+                                     <fieldset>
+                                 
+                                         {# *** LABEL *** #}
+                                         <label> Type de plats </label>
+
+                                         <br/>
+                                 
+                                         {# *** INPUT *** #}
+                                         {{ form_widget(form.plats,{ 
+                                      
+                                             'attr': {                        
+                                                 'class':'plats',
+                                             }
+
+                                         }) }}     
+                                    
+                                     </fieldset>
+
+                                 </section>
+
+                     </div>   
+
+                     {# *********************************************** #} 
+       
+                     <div class="flex-container">
+
+                         {# ***** Bloc de Gauche ***** #} 
+
+                             {# ? Partie: TYPE D'ALIMENTATION #} 
+
+                                 {# <section class="col-12"> #}
+                                 <section class="flex-item-left">
+
+                                     <fieldset>
+                                 
+                                         {# *** LABEL *** #}
+                                         <label> Type d'alimentation </label>
+
+                                         <br/>
+                                 
+                                         {# *** INPUT *** #}
+                                         {{ form_widget(form.alimentation,{ 
+                                      
+                                             'attr': {                        
+                                                 'class':'alimentation',
+                                             }
+
+                                         }) }}     
+                                    
+                                     </fieldset>    
+
+                                 </section>     
+
+                         {# ***** Bloc de Droite ***** #}  
+
+                             {# ? Partie: TYPE DE CUISSON #} 
+
+                                 {# <section class="col-12"> #}
+                                 <section class="flex-item-right">
+
+                                     <fieldset>
+                                 
+                                         {# *** LABEL *** #}
+                                         <label> Type de cuisson </label>
+
+                                         <br/>
+                                 
+                                         {# *** INPUT *** #}
+                                         {{ form_widget(form.cuisson,{ 
+                                      
+                                             'attr': {                        
+                                                 'class':'cuisson',
+                                             }
+
+                                         }) }}     
+                                    
+                                     </fieldset>    
+
+                                 </section> 
+
+                     </div> 
+
+                 </article>
+
+                 {# {{ form_end(form) }} #}
+
+                 {# *********************************************** #}  
+
+                 <hr/>
+
+                  {# {{ form_start (form)}} #}
+
+                     <div>
+
+                         <button class="btn btn-dark col-12 btn-lg ">
+                             {{ button_label|default('Soumettre') }}
+                         </button>
+                        
+                     </div>
+
+                 {{ form_end (form)}}    
+
+                 {# *********************************************** #}
+
+             <div/>      
+
+         </main>
+
+     {% endblock %}   
+
+                    
+
+

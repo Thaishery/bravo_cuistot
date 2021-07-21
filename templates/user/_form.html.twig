@@ -2,122 +2,123 @@
       
      {{ form_start(form) }}
      
-             <div class="Form">                 
+         <div class="Form">                 
 
-                     <div class="row">
+             <div class="row">
 
-                             {# **************************** LOGIN ***************************** #}
-                     
-                             <section class="col-12">
+                 {# **************************** LOGIN ***************************** #}
+             
+                 <section class="col-12">
 
-                                 {# *** LABEL *** #}
-                                 {# {{ form_label(form.login) }} #}
-                                 <label> Login/Pseudo </label>
-                             
-                                 {# *** INPUT *** #}
-                                 {{ form_widget(form.login,{ 
-                             
-                                     'attr': { 
-                             
-                                     'class':'login',
-                                     'placeholder':'Entrer votre login/pseudo '
-                                     
-                                     }}) }}  
-                             
-                             </section>
-
-                             <br/>
-  
-                             {# **************************** EMAIL ************************** #}
-
-                             <section class="col-12">
-                             
-                                 {# *** LABEL *** #}
-                                 {# {{ form_label(form.email) }} #}
-                                 <label> Adresse email </label>
-                             
-                                 {# *** INPUT *** #}
-                                 {{ form_widget(form.email,{ 
-                             
-                                     'attr': { 
-                             
-                                     'class':'email',
-                                     'placeholder':'Entrer votre adresse email '
-                                     
-                                     }}) }}    
-                             
-                             </section>
-
-                             <br/> 
-
-                             {# **************************** PASSWORD ************************** #}
-
-                             <section class="col-12">
-                             
-                                 {# *** LABEL *** #}
-                                 {# {{ form_label(form.plainPassword) }} #}
-                                 <label> Mot de passe </label>
+                     {# *** LABEL *** #}
+                     {# {{ form_label(form.login) }} #}
+                     <label> Login/Pseudo </label>
                  
-                                 {# *** INPUT *** #}
-                                 {{ form_widget(form.plainPassword,{ 
-                             
-                                     'attr': { 
-                             
-                                     'class':'plainPassword',
-                                     'placeholder':'Entrer votre mot de passe'
-                                     
-                                     }}) }}     
-                             
-                             </section>
-
-                     </div>         
+                     {# *** INPUT *** #}
+                     {{ form_widget(form.login,{ 
+                 
+                         'attr': { 
+                 
+                         'class':'login',
+                         'placeholder':'Entrer votre login/pseudo '
                          
-                     <br/>   
+                         }}) }}  
+                 
+                 </section>
 
-                     {# **************************** AVATAR ************************** #}
-
-                     <div class="row">
-
-                         <section class="col-12">
-                         
-                             {# *** LABEL *** #}
-                             {# {{ form_label(form.avatar) }} #}
-                             <label> Avatar </label>
-                         
-                              {# *** INPUT *** #}
-                             {{ form_widget(form.avatar) }}
-                         
-                         </section>
-
-                     </div> 
-
-                     <br/> 
-
-                     {# **************************** ROLES ************************** #}
- 
-                     <div class="row">
-
-                         <section class="col-12">
-
-                             {# *** LABEL *** #}                  
-                             {# {{ form_label(form.roles) }} #}
-                             <label> Rôle(s) </label>
-                         
-                             {# *** INPUT *** #}
-                             {{ form_widget(form.roles) }}                      
-
-                         </section>                                       
- 
-                     </div>  
+                 <br/>
   
-                     {# ***************************************************** #}
+                 {# **************************** EMAIL ************************** #}
 
-                     <hr/>
+                 <section class="col-12">
+                 
+                     {# *** LABEL *** #}
+                     {# {{ form_label(form.email) }} #}
+                     <label> Adresse email </label>
+                 
+                     {# *** INPUT *** #}
+                     {{ form_widget(form.email,{ 
+                 
+                         'attr': { 
+                 
+                         'class':'email',
+                         'placeholder':'Entrer votre adresse email '
+                         
+                         }}) }}    
+                 
+                 </section>
+
+                 <br/> 
+
+                 {# **************************** PASSWORD ************************** #}
+
+                 <section class="col-12">
+                 
+                     {# *** LABEL *** #}
+                     {# {{ form_label(form.plainPassword) }} #}
+                     <label> Mot de passe </label>
+             
+                     {# *** INPUT *** #}
+                     {{ form_widget(form.plainPassword,{ 
+                 
+                         'attr': { 
+                 
+                         'class':'plainPassword',
+                         'placeholder':'Entrer votre mot de passe'
+                         
+                         }}) }}     
+                 
+                 </section>
+
+             </div>         
+                 
+             <br/>   
+
+             {# **************************** AVATAR ************************** #}
+
+             <div class="row">
+
+                 <section class="col-12">
+                 
+                     {# *** LABEL *** #}
+                     {# {{ form_label(form.avatar) }} #}
+                     <label> Avatar </label>
+                 
+                      {# *** INPUT *** #}
+                     {{ form_widget(form.avatar) }}
+                 
+                 </section>
+
+             </div> 
+
+             <br/> 
+
+             {# **************************** ROLES ************************** #}
+ 
+             <div class="row">
+
+                 <section class="col-12">
+
+                     {# *** LABEL *** #}                  
+                     {# {{ form_label(form.roles) }} #}
+                     <label> Rôle(s) </label>
+                 
+                     {# *** INPUT *** #}
+                     {{ form_widget(form.roles) }}                      
+
+                 </section>                                       
+ 
+             </div>  
   
-                     <button class="btn btn-dark col-12  btn-lg px-4 gap-3">
-                         {{ button_label|default('Sauvegarder') }}
-                     </button>
+             {# ***************************************************** #}
+
+             <hr/>
+  
+             <button class="btn btn-dark col-12 btn-lg ">
+                 {{ button_label|default('Sauvegarder') }}
+             </button>
           
+
      {{ form_end(form) }}
 
 

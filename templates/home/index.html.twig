@@ -1,76 +1,298 @@
 {% extends 'base.html.twig' %}
 
+     {% block metaTitle %}
+         " Accueil "
+     {% endblock %}
+
      {% block title %}
          Accueil
      {% endblock %}
      
      {% block body %}
-           
-         <main class="Form">
 
-             <div  class="py-5 text-center col-12">
+         {% if not app.user%}
 
-                 {# *********************************************** #}
-                 
-                 <section class="text-center">
-     
-                     <h1 class="mb-3 font-weight-normal"> 
-                         Accueil
-                     </h1>
+             {# ? Partie 1 de l'accueil du site: Bienvenue #}
 
-                     <hr style="color:white;"/>
+              <div id="bg1">
 
-                     <p class="lead">
+                 {# ? Breadcrums n°1 #}
+                 <a id="bienvenue"></a>	   
 
-                         <em>
+                 <br/>
 
-                              Bienvenue sur Bravo Cuistot 
+                 {# <nav id="homePageSommaire">
+
+                     <ul> 				 
+                         <li><a href="#bienvenue"> Bienvenue </a></li>
+                         <li><a href="#presentation"> Présentation </a></li>
+                         <li><a href="#credits"> Crédits </a></li>						
+                     </ul>
+
+                 </nav> #}
+
+                     <section id="ctaButtonConteneur1" class="presentation first">
+
+                     {# ? Conteneur de gauche #}
+
+                         <div class="product-presentation"> 
+
+                             {# ? Titre #}
+                             {# <h1> Accueil </h1>
+                             
+                             <hr id="homeDivider1"/>
+
+                                 <p class="text-center col-12">
+                                     
+                                     <em> Bienvenue sur Bravo Cuistot 
+    
+                                         {% if app.user %}
+                                             {{ app.user.username }} ! 
+                                         {% endif %}  
+
+                                     </em> 🏡 
+
+                                 </p>   
+
+                             <hr id="homeDivider2"/> #}
+
+                             {# ? Titre d'accroche #}
                          
-                             {% if app.user %}
+                             <h2 class"phraseAccroche"> 
 
-                                 {{ app.user.username }} 
+                                 {# <em> Créer vos propres recettes de cuisine <em> #}
+                                 <em> 
+                                     Vos recettes préférées <br/> 
+                                     sont à l'affiche 
+                                 <em>
 
-                             {% endif %}  
+                             </h2> 
 
-                         ! </em> 🏡     
-                           
-                     </p>
+                             <br/>
 
-                     <hr style="color:white;"/>
-                   
-                 </section>   
+                             {# ? Bouton Call-To-Action CTA #}
 
-             </div>     
+                             <a name="callToActionButton1" href="{{path("app_register")}}" class="btn btn-success btn-lg px-4 gap-3" >                                
+                                 S'inscrire maintenant 
+                             </a> 
 
-         </main>
+                             <br/>
 
-         {# **************************************************************************************** #}
+                             {# ? Phrase accroche #}
 
-         {# ? Partie: Les dernierès recettes. #}
-
-         <div class="container">
-
-             <div class="row">
-
-                 <div class="text-center">
-
-                         {# ******************** #}
-
-                             <div class="text-center p-4 p-md-5 mb-4 text-white rounded bg-dark">                               
-                               
-                                 <div class="col-md-12 px-0">
+                             <p>
+                                 0.00€ / par mois. Essayez c'est gratuit!            
+                             </p>
  
-                                     <h2 class="mb-3 rounded"> 
-                                         Les dernierès recettes 🌆 
-                                     </h2>
-                                   
-                                     <div class="row">
+                         </div>   
 
+                         {# ? Conteneur de droite #}
+
+                             {# 
+                                 <div class="image-presentation">  
+                                 </div>
+                             #}
+
+                     <section>  
+                
+             </div>
+
+         {% endif %}     
+
+         {# ? Partie 2 de l'accueil du site: Présentation #}
+
+             <div id="bg2">
+
+                 {# ? Breadcrums n°2 #}
+                 <a id="presentation"></a>	
+
+                 <br/>
+
+                 {# <nav id="homePageSommaire">
+
+                     <ul> 				 
+                         <li><a href="#bienvenue"> Bienvenue </a></li>
+                         <li><a href="#presentation"> Présentation </a></li>
+                         <li><a href="#credits"> Crédits </a></li>						
+                     </ul>
+
+                 </nav> #}
+
+                 <br/>
+
+                 <div class="text-center col-12">
+
+                     {# **************************************************************************************** #}
+     
+                     {# ? Partie: Logo #}
+
+                     {# <br/> #}
+
+                     {# <div class="col-12 text-center "> 
+                         <img id="avatarUser"src="/logo.png" alt="Logo du site" >
+                     </div> #}
+
+                     <hr id="homeDivider3"/>
+
+                     {# ************************************** #} 
+
+                     {# ? Partie: Description brève du site #}
+
+                     <article class="flex-container2">
+
+                         <div class="row">
+
+                             {# ************************************** #} 
+                         
+                             {# ? Bloc n°1 #} 
+
+                             <div class="col-md-4 col-sm-6 col-xs-12">
+
+                                 <div class="service-item">
+                                 
+                                     🍝
+
+                                     {# <i class="fa fa-database"></i> #}
+ 
+                                     <h4> 10 x Plus Appétissant </h4>
+
+                                     <p>
+                                         Rechercher ou concever vos propres recettes.<br/>
+                                         Créer un compte gratuitement et accéder à des tonnes de recettes et plats du monde entier. <br/>
+                                     </p>
+                                
+                                 </div>
+
+                             </div>
+
+                             {# ************************************** #} 
+
+                             {# ? Bloc n°2 #} 
+
+                             <div class="col-md-4 col-sm-6 col-xs-12">
+                             
+                                 <div class="service-item">
+                                 
+                                     👨‍🍳
+
+                                     {# <i class="fa fa-database"></i> #}
+                                 
+                                     <h4> Manager votre profil </h4>
+                                 
+                                     <p>
+                                         Intéragissez avec les autres <i> Cuistot </i>. <br/>
+                                         Ajouter de nouvelles recettes en favoris, noter, commenter des plats et faites vous de nouveaux ami(e)s.
+                                     </p>
+                               
+                                 </div>
+
+                             </div>
+
+                             {# ************************************** #} 
+
+                             {# ? Bloc n°3 #} 
+
+                             <div class="col-md-4 col-sm-6 col-xs-12">
+
+                                 <div class="service-item">
+
+                                     {# <i class="fa fa-database"></i> #}
+        
+                                     📡
+
+                                     <h4> Plateforme dédié </h4>
+                                      
+                                     <p>
+                                         Bravo Cuistot à été concu pour les gourmets. <br/>
+                                         Nous restons à votre service afin d'améliorer votre expérience de navigation sur notre plateforme.  
+                                     </p>
+
+                                 </div>
+
+                             </div>
+
+                         </div>
+
+                     </article>
+
+                     {# ************************************** #} 
+
+                     <hr id="homeDivider4"/>
+
+                 </div> 
+  
+             </div> 
+
+         {% if not app.user%}
+
+         {# ? Partie 3 de l'accueil du site: Pied de page (FOOTER) #}
+
+             <div id="bg3">
+
+                 {# ? Breadcrums n°3 #}
+                 <a id="credits"></a>
+
+                 <br/>
+
+                 {# <nav id="homePageSommaire">
+
+                     <ul> 				 
+                         <li><a href="#bienvenue"> Bienvenue </a></li>
+                         <li><a href="#presentation"> Présentation </a></li>
+                         <li><a href="#credits"> Crédits </a></li>						
+                     </ul>
+
+                 </nav> #}
+
+                 {% include 'partials/footer.html.twig' %}
+
+                 <footer class="text-center">
+
+                     {# ? Bouton Call-To-Action CTA #}
+
+                     <a name="callToActionButton1" href="{{path("app_register")}}" class=" col-6 text-center btn btn-success " >                                
+                         Nous rejoindre
+                     </a> 
+               
+                 </footer>
+ 
+             </div>
+
+         {% endif %}    
+
+         {# ****************************** #}
+
+                 {# ? Partie: Les dernierès recettes. #}
+
+                 {# 
+                 <article class="flex-container">
+
+                     <div class="row">
+
+                         <div class="text-center"> #}
+
+                             {# ******************** #}
+
+                                 {# <div class="text-center p-4 p-md-5 mb-4 text-white rounded bg-dark">                                #}
+                                 {# <div class="text-center p-4 rounded ">                               
+   
+                                     <div class="col-md-12">
+ 
+                                         <hr/> 
+
+                                             <h2 class="mb-3 rounded"> 
+                                                 Les dernierès recettes 🌆 
+                                             </h2>
+                                     
+                                         <hr/> #}
+                                        
                                          {# ******************** #}
+
+                                         {# <div class="row"> #}
                                      
                                          {# ? Carte n°1 #}
 
-                                         <div class=" col-sm-3 ">
+                                         {# <div class=" col-sm-3 ">
 
                                              <div class="carteBg1 card mb-3">
 
@@ -84,13 +306,13 @@
 
                                              </div>
 
-                                         </div>
+                                         </div> #}
 
                                          {# ******************** #}
 
                                          {# ? Carte n°2 #}
 
-                                         <div class="col-sm-3">
+                                         {# <div class="col-sm-3">
     
                                              <div class="carteBg2 card mb-3">
 
@@ -104,18 +326,18 @@
     
                                              </div>
     
-                                         </div>
+                                         </div> #}
 
                                          {# ******************** #}
 
                                          {# ? Carte n°3 #}
 
-                                         <div class="col-sm-3">
+                                         {# <div class="col-sm-3">
 
                                              <div class="carteBg3 card mb-3">
                                              {# <div class="card text-white bg-success bg-gradient mb-3"> #}
 
-                                                 <div class="card-body">
+                                                 {# <div class="card-body">
 
                                                      <h5 class="card-title"> Titre exemple </h5>
                                                      <p class="card-text"> Article exemple </p>
@@ -125,18 +347,18 @@
 
                                              </div>
 
-                                         </div>
+                                         </div>  #}
 
                                          {# ******************** #}
  
                                          {# ? Carte n°4 #}
 
-                                         <div class="col-sm-3">
+                                         {# <div class="col-sm-3">
 
                                              <div class="carteBg4 card mb-3">
                                              {# <div class="card text-white bg-success bg-gradient mb-3"> #}
 
-                                                 <div class="card-body">
+                                                 {# <div class="card-body">
 
                                                      <h5 class="card-title"> Titre exemple </h5>
                                                      <p class="card-text"> Article exemple </p>
@@ -146,27 +368,32 @@
 
                                              </div>
 
-                                         </div>
+                                         </div> #} 
                                       
                                          {# ******************** #}
 
-                                     </div>
+                                         {# </div>
 
-                                 </div>         
+                                     </div>         
 
-                             </div>
+                                 </div> #}
 
-             </div>
+                             {# ******************** #}   
+
+                         {# </div>
  
-         </div>
+                     </div>
 
-             {# **************************************************************************************** #}
+                 </article> 
 
+                 <hr/>  #}
 
-             {# </main> #}
-  
-         {# </div>  #}
+                 {# **************************************************************************************** #}
 
+             {# </div> 
+             
+         </main> #}
+ 
      {% endblock %}
 
  {# ? CODE VRAC / TEST #}
@@ -177,30 +404,7 @@
 
  {# 
 
-     <article class="blog-post">
-
-         <h2 class="blog-post-title"> New feature </h2>
-
-             <p class="blog-post-meta"> December 14, 2020 by <a href="#"> Chris </a> </p>
-                  
-             <p>
-                 This is some additional paragraph placeholder content. 
-                 It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. 
-                 We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.
-             </p>
-
-             <ul>
-               <li>First list item</li>
-               <li>Second list item with a longer description</li>
-               <li>Third list item to close it out</li>
-             </ul>
-
-             <p>
-                 This is some additional paragraph placeholder content.
-                 It's a slightly shorter version of the other highly repetitive body text used throughout.
-             </p>
-   
-     </article> 
+     
 
  #}
 
@@ -364,4 +568,27 @@
     
      {# {% endblock %} #}
 
+            {# <div id="about" class="about">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="titlepage">
+                                <h2>About Pcoint</h2>
+                                <span>d to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum gener</span></div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-8 offset-md-2">
+                              <div class="about_box">
+                                <figure>
+                                  <img src="/Images/backgroundFont1.jpg" style="width: 100%; height:100%"  alt="website template image">   
+                                </figure>
+                                <a class="read_more" >Read more</a></div>
+                            </div>
+                          </div>
+                        </div>
+                     </div> #}
 
+
+   
+     

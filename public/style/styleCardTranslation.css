@@ -85,16 +85,12 @@
       }
       
       .card {
-        display: flex;
-        height: 280px;
-        width: 200px;
+        height: 96%;
+        width: 100%;
         background-color: #17141d;
-        border-radius: 10px;
-        box-shadow: -1rem 0 5rem rgb(25, 135, 84, 0.9);
-      /*   margin-left: -50px; */
-        transition: 0.4s ease-out;
-        position: relative;
-        left: 10%;
+        box-shadow: -1rem 0 5rem rgb(25, 135, 84, 0.4);
+        transition: 0.4s linear;
+        position: relative;    
       }
       
       .card:not(:first-child) {
@@ -177,7 +173,6 @@
           width: 100%;
      }
 
-     .card-body {
-      
+     .card-body {     
         padding: 0;
     }
