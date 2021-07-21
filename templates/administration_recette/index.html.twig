@@ -60,7 +60,7 @@
                                  <tr>
                                      <td> {{ recette.id }} </td>
                                      <td> {{ recette.name }} </td>
-                                     <td> {{ recette.image }} </td>
+                                     <td> {{ recette.image ? 'oui' : 'non' }}  </td>
                                      <td> {{ recette.tempsPreparation }} </td>
                                      <td> {{ recette.tempsCuisson }} </td>
                                      <td> {{ recette.nbPersonnes }} </td>
@@ -70,11 +70,11 @@
 
                                          <section class="btn-group">
                                          
-                                             <a href="{{ path('administration_recette_show', {'id': recette.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12">
+                                             <a href="{{ path('administration_recette_show', {'id': recette.id}) }}" type="submit" class="btn btn-success btn-lg col-12">
                                                  Voir
                                              </a>
 
-                                             <a href="{{ path('administration_recette_edit', {'id': recette.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12"> 
+                                             <a href="{{ path('administration_recette_edit', {'id': recette.id}) }}" type="submit" class="btn btn-success btn-lg col-12"> 
                                                  Modifier 
                                              </a>
                                   

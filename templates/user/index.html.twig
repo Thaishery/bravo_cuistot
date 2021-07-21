@@ -60,20 +60,32 @@
 
                                  <td> {{ user.id }} </td>
                                  <td> {{ user.login }} </td>
-                                 <td> {{ user.roles ? user.roles|json_encode : '' }} </td>
-                                 <td> {{ user.password }} </td>
-                                 <td> {{ user.avatar }} </td>
+
+                                 <td>
+
+                                     {% autoescape false %} 
+                                     {# {{ user.roles ? user.roles|json_encode : '' }} #}
+                                     {{user.roles|json_encode() ? user.roles|json_encode|replace({',':', <br/>', 'ROLE_USER':'User', 'ROLE_ADMIN':'Admin', '[':'','"':'',']':''}) : ''}}
+                                     {% endautoescape %}
+                                 
+                                 </td>
+                            
+                                 {# <td> {{ user.password }} </td> #}
+                                 <td> {{ user.password |length > 10 ? user.password |slice(0,10)~'...' : user.password }} </td>
+
+
+                                 <td> {{ user.avatar ? 'oui' : 'non' }} </td>
                                  <td> {{ user.email }} </td>
 
                                  <td>
                                 
                                      <section class="btn-group">
 
-                                         <a href="{{ path('user_show', {'id': user.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12">                                
+                                         <a href="{{ path('user_show', {'id': user.id}) }}" type="submit" class="btn btn-success btn-lg col-12">                                
                                              Voir
                                          </a>  
     
-                                         <a href="{{ path('user_edit', {'id': user.id}) }}" type="submit" class="btn btn-success btn-lg px-4 gap-3 col-12">                                
+                                         <a href="{{ path('user_edit', {'id': user.id}) }}" type="submit" class="btn btn-success btn-lg col-12">                                
                                              Modifier
                                          </a>   
 
@@ -112,8 +124,6 @@
                      </a>
 
                  </section>    
-          
-      
 
                  {# *********************************************** #}
 
