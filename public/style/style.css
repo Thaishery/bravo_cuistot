@@ -469,3 +469,15 @@
 
 
 
+      /* ? bordure avatar + show_recette */
+      .container-fluid,
+      #recette,
+      #right_element,
+      #noteMoyenne,
+      #avatar,
+      #cardAvatar,
+      #login {
+        border: 20px groove rgba(25, 135, 84, 0.9) ;
+        border-radius: 20px;
+        box-shadow: -3px 3px 10px #f0626f;
+    }  
