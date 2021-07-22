@@ -3,111 +3,114 @@
  {% extends 'base.html.twig' %}
    
      {% block metaTitle %}
-         " Gestion des recettes "
+         " Liste des recettes "
+     {% endblock %}   
+
+     {% block title %}
+         Liste des recettes
      {% endblock %}
+         
+     {% block body %}
 
-{% block title %}Liste des recettes{% endblock %}
+         <main class="Form"> 
 
-{% block body %}
-    <h1>Liste des recettes</h1>
-    <div class="col-12 row">
-        {% for recette in recettes %}
-        <div class="col-6 cardRecette">
-        <a href="{{path("recette_show", {'id': recette.id})}}">
-        {% if recette.image %}
-        <h2>{{recette.name}}</h2>
-        <div class="col-6">
-        <img src="{{asset('uploads/recettes/'~ recette.image)}}" style="max-width:100%"/>
-        </div>        
-        {% else  %}
-        <h2> {{recette.name}}</h2>
-        {% endif %}
-        </a>
-        {% if is_granted('ROLE_ADMIN') %}
-            <form method="post" action="{{ path('recette_delete', {'id': recette.id}) }}" onsubmit="return confirm('êtes vous sure de vouloir suprimer cette recette? Cette action est iréversible');">
-                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ recette.id) }}">
-                <button class="btn btn-primary">Supprimer la recette</button>
-            </form>
-        {% endif %}
-        </div>
-        {% endfor %}
-    </div>
+             <div class="text-center">
 
-{% endblock %}
+                 {# *** *** *** **** *** *** #}
 
-         {# <main class="Form"> 
-
-
-             <div class="py-5 text-center col-12">
-
-                {# *********************************************** #}
-
-                 {#<section> 
-
-                     <h1> Gestion des recettes </h1>
-
+                 <section>     
+     
+                     <h1> Liste des recettes </h1>
+                     
                          <hr/>
 
                              <p> 
-                                 <em> Consulter la liste des utlisateurs de votre site et administrer leurs droits. </em>  📇 
+                                 <em> Consultez et gérez vos recettes ! </em> 📇
                              </p>
 
-                         <hr/>
+                         <hr/>                   
+     
+                 </section>  
 
-                 </section>
+                 {# *** *** *** **** *** *** #}  
 
-                 {# *********************************************** #}
+                 {# ? Partie: Liste des recettes. #}
 
-                 {#<article class="col-12 row">
+                 <article class="container">
 
-                     {% for recette in recettes %}
+                     <div class="text-center p-4 text-white rounded bg-dark">                               
+       
+                         <div class="row">
 
-                         <div class="col-6 cardRecette">
+                             {# *** *** *** **** *** *** #}
 
-                             <a href="{{path("recette_show", {'id': recette.id})}}">
+                             {% for recette in recettes %}
 
-                                 {% if recette.image %}
+                                 <div class="col-4 cardRecette">
 
-                                     <img src="#" />
+                                     <div class="carteBg1 card mb-3">
 
-                                     <h2> {{recette.name}} </h2>
+                                         {# *** *** *** **** *** *** #}
 
-                                 {% else  %}
+                                         <section class="card-body">
 
-                                     <h2> {{recette.name}} </h2>
+                                             {% if recette.image %}
+  
+                                                 <h2> {{recette.name}} </h2>
 
-                                 {% endif %}
+                                                 <figure class="cardImage col-12">
+                                                     <img src="{{asset('uploads/recettes/'~ recette.image)}}" style="max-width:100%"/>
+                                                 </figure>  
 
-                             </a>
+                                             {% else  %}
 
-                             {# ? Feuille du bouton Delete #ModeAdmin #}
+                                                 <h2> {{recette.name}} </h2>
+                          
+                                             {% endif %}
 
-                             {#{% if is_granted('ROLE_ADMIN') %}
+                                         </section>
 
-                                 <form method="post" action="{{ path('recette_delete', {'id': recette.id}) }}" onsubmit="return confirm('Voulez vraiment supprimer cette recette ?');">
-                                   
-                                     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ recette.id) }}">
-                                    
-                                     <button class="btn btn-secondary btn-lg px-4 col-12">
-                                         Supprimer 
-                                     </button>
-                              
-                                </form>
+                                         {# *** *** *** **** *** *** #}
 
-                             {% endif %}
+                                         {% if is_granted('ROLE_ADMIN') %}
 
+                                             <section class="btn-group-vertical col-12">
+
+                                                 <a href="{{path("recette_show", {'id': recette.id})}}" type="submit" class="btn btn-success btn-lg col-6">                                
+                                                     Voir 👀
+                                                 </a>  
+                                            
+                                                 <a href="{{path("recette_edit", {'id': recette.id})}}" class="btn btn-secondary btn-lg col-6"> 
+                                                     Modifier 🔧
+                                                 </a>
+
+                                             </section>                                
+                           
+                                         {% endif %}
+
+                                         {# *** *** *** **** *** *** #}
+
+                                     </div>
+
+                                 </div>    
+                          
+                             {% endfor %}
+
+                             {# *** *** *** **** *** *** #}
+                         
                          </div>
 
-                     {% endfor %}
+                     </div>
 
                  </article>
 
-                 {# *********************************************** #}
+                 {# *** *** *** **** *** *** #}    
 
-             {#<div/>      
+             <div/>      
+         
+         </main>              
 
-         </main>         
-     
-     {% endblock %}#}
-     
-     
+     {% endblock %}
+
+              
+              
