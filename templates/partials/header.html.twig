@@ -1,140 +1,140 @@
  {# ? Partie: Header #}
 
-         <div class="container">
+     <div class="container">
 
-             <header class="row align-items-center justify-content-md-between">
+         <header class="row align-items-center justify-content-md-between">
 
-                 <hr style="color: black;"/> 
+             <hr style="color: black;"/> 
 
-                 <div class="col-4 text-start">
+             <div class="col-4 text-start">
 
-                     {% if app.user %}
+                 {% if app.user %}
 
-                         <div>
+                     <div>
 
-                             {# *********************************** #}
-                             {# * Gestion de l'utilisateur actuel * #}
-                             {# *********************************** #}
+                         {# *********************************** #}
+                         {# * Gestion de l'utilisateur actuel * #}
+                         {# *********************************** #}
 
-                             <div class="dropdown">
+                         <div class="dropdown">
     
-                                 <div class="d-flex justify-content-between">
+                             <div class="d-flex justify-content-between">
     
-                                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    
-                                         <img src="/uploads/avatar/{{app.user.avatar}} " alt="" width="32" height="32" class="rounded-circle me-2">
+                                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                
+                                     <img src="/uploads/avatar/{{app.user.avatar}} " alt="" width="32" height="32" class="rounded-circle me-2">
 
-                                             <div class="d-flex justify-content-between">
-                                                            
-                                                 <strong class="text-gray-dark">
+                                         <div class="d-flex justify-content-between">
+                                                        
+                                             <strong class="text-gray-dark">
 
-                                                     {% if app.user.login %} 
+                                                 {% if app.user.login %} 
 
-                                                          {{app.user.username}} 
+                                                      {{app.user.username}} 
 
-                                                     {% else %}
+                                                 {% else %}
 
-                                                         Bienvenue
-                                                         <i class="bi bi-caret-down"></i>
+                                                     Bienvenue
+                                                     <i class="bi bi-caret-down"></i>
 
-                                                     {% endif %}
+                                                 {% endif %}
 
-                                                 </strong>
+                                             </strong>
     
-                                             </div>
-                                         
-                                     </a>
+                                         </div>
+                                     
+                                 </a>
     
-                                     <ul class="dropdown-menu dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
+                                 <ul class="dropdown-menu dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
 
-                                         {# ***** Gestion des recettes ***** #}
-                                         <h6> <kbd> Gestion des recettes </kbd> </h6> 
+                                     {# ***** Gestion des recettes ***** #}
+                                     <h6> <kbd> Gestion des recettes </kbd> </h6> 
 
-                                             <li>
+                                         <li>
 
-                                                 <a class="dropdown-item" href="{{path ('recette_new')}}"> 
-                                                     Créer une nouvelle recette 
-                                                 </a>
+                                             <a class="dropdown-item" href="{{path ('recette_new')}}"> 
+                                                 Créer une nouvelle recette 
+                                             </a>
 
-                                             </li> 
+                                         </li> 
 
-                                             <li>
+                                         <li>
 
-                                                 <a class="dropdown-item" href="{{path ('recette_index')}}">
-                                                     Gérer mes recettes 
+                                             <a class="dropdown-item" href="{{path ('recette_index')}}">
+                                                 Gérer mes recettes 
+                                             </a> 
+
+                                         </li> 
+                                       
+                                         {% if is_granted ("ROLE_ADMIN") %}    
+
+                                             <li> 
+
+                                                 <a class="dropdown-item" href="{{path ('interface_administration')}}"> 
+                                                     Interface d'administration 
                                                  </a> 
 
-                                             </li> 
-                                           
-                                             {% if is_granted ("ROLE_ADMIN") %}    
+                                             </li>
+                                      
+                                         {% endif %}
 
-                                                 <li> 
+                                     {# ***** Gestion du site ***** #}
+                                     <h6> <kbd> Gestion du profil </kbd> </h6>
+                                     
+                                         <li> 
 
-                                                     <a class="dropdown-item" href="{{path ('interface_administration')}}"> 
-                                                         Interface d'administration 
-                                                     </a> 
+                                             <a class="dropdown-item" href="{{path ('user_edit',{'id': app.user.id})}}"> 
+                                                 Gérer mon compte 
+                                             </a>
 
-                                                 </li>
-                                          
-                                             {% endif %}
-
-                                         {# ***** Gestion du site ***** #}
-                                         <h6> <kbd> Gestion du profil </kbd> </h6>
+                                         </li>
                                          
-                                             <li> 
+                                         <li> 
 
-                                                 <a class="dropdown-item" href="{{path ('user_edit',{'id': app.user.id})}}"> 
-                                                     Gérer mon compte 
-                                                 </a>
+                                             <a class="dropdown-item" href="{{path ('user_show',{'id': app.user.id})}}"> 
+                                                 Mon profil 
+                                             </a>
 
-                                             </li>
-                                             
-                                             <li> 
+                                         </li>
 
-                                                 <a class="dropdown-item" href="{{path ('user_show',{'id': app.user.id})}}"> 
-                                                     Mon profil 
-                                                 </a>
+                                         <hr style="color:grey;"/>
 
-                                             </li>
+                                     {# ***** Bouton Action: Se déconnecter ***** #}
 
-                                             <hr style="color:grey;"/>
+                                         <li>
 
-                                         {# ***** Bouton Action: Se déconnecter ***** #}
+                                             <a class="dropdown-item" href="{{ path ('app_logout') }}" name="Se déconnecter" alt="Bouton se déconnecter"> 
+                                                 Se déconnecter
+                                             </a>
 
-                                             <li>
+                                         </li>
 
-                                                 <a class="dropdown-item" href="{{ path ('app_logout') }}" name="Se déconnecter" alt="Bouton se déconnecter"> 
-                                                     Se déconnecter
-                                                 </a>
-
-                                             </li>
-
-                                     </ul>
+                                 </ul>
      
-                                 </div> 
+                             </div> 
     
-                             </div>  
+                         </div>  
 
-                         </div>
+                     </div>
 
-                     {% else %}
-                         
-                         {# * Si pas utilisateur => modal de connection * #}
-                         {% include 'partials/loginModal.html.twig' %}
+                 {% else %}
+                     
+                     {# * Si pas utilisateur => modal de connection * #}
+                     {% include 'partials/loginModal.html.twig' %}
 
-                     {% endif %}
-       
-                 </div>
+                 {% endif %}
+ 
+             </div>
 
-                 {# ********** Partie: Logo ********** #}
+             {# ********** Partie: Logo ********** #}
 
-                 <div class="col-4 text-center "> 
-                     <img id="avatarUser"src="/logo.png" alt="Logo du site" >
-                 </div>
-             
-                 {# ********** Partie: SideBar ********** #}
+             <div class="col-4 text-center "> 
+                 <img id="avatarUser"src="/logo.png" alt="Logo du site" >
+             </div>
+         
+             {# ********** Partie: SideBar ********** #}
 
-                 <div class="col-4 text-end">
+             <div class="col-4 text-end">
 
                      <div id="myNav" class="sideBar_Cuistot">
 
@@ -305,34 +305,48 @@
 
 		             </article>
 
-                 </div>
+             </div>
 
-                 
-                 {# ********** Partie: Barre de recherche ********** #} 
+             {# ********** Partie: Barre de recherche ********** #} 
 
-                 <hr style="color: black;"/> 
-         
-                     <article class="p-3 text-white">
+             <hr style="color: black;"/> 
+     
+                 <article class="p-3 text-white">
 
-                         <div class="container">
+                     <div class="container">
 
-                             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
-                                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                                     <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-                                 </form>
-                             
-                             </div>
+                             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
 
+                                 {# ? Partie: CHAMP RECHERCHE SIMPLE #}
+
+                                 {# <fieldset> #}
+
+                                 <input type="search" class="form-control form-control-dark" placeholder="Rechercher une recette" aria-label="Recherche">
+                                 {# *** INPUT *** #}
+                                     {# {{ form_widget(form.recette,{ 
+                                  
+                                         'attr': {                        
+                                             'class':'recette',
+                                             'placeholder':'Entrez un nom de recette'          
+                                         }
+
+                                     }) }}  #}
+
+                                 {# </fieldset> #}
+
+                             </form>
+                         
                          </div>
 
-                     </article>
+                     </div>
 
-                 <hr style="color: black;"/>   
+                 </article>
 
-             </header>
+         </header>
 
-         </div>
+     </div>
            
 
 

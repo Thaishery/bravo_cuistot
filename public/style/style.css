@@ -328,10 +328,6 @@
        background-color : #F3EED9;
        overflow-x : hidden;
        transition : 0.5s;
-       /* background-image: url("https://www.transparenttextures.com/patterns/xv.png"); */
-       /* background-image: url("/Images/backgroundFont6.jpg");  */
-       /* background-image: linear-gradient(to bottom, #f06292, #af4b6c, #713448, #3a1e26, #000000); */
-       /* background-image: linear-gradient(to bottom, #00ac5c, #00c5b9, #6fd7f1, #cee7ff, #ffffff); */
     }
     
     .sideBar_Cuistot-content {
@@ -394,7 +390,7 @@
      /* ? Responsive layout - makes a one column-layout instead of a two-column layout */
 
      .flex-container {
-       display: flex;
+       /* display: flex; */
        flex-direction: row;
        text-align: center;
        background-color: rgba(0, 172, 92, 0.1); /* style initial carte transparente */
@@ -410,8 +406,17 @@
       /* background-color: rgba(255, 255, 255, 0.9);  */  
       /* style initial carte transparente */
       /* box-shadow :  rgb(25, 135, 84, 0.9); */     
-    }
+     }
     
+     .flex-container3 {
+      border-radius: 8px;  
+      background-image: url("https://www.transparenttextures.com/patterns/xv.png");
+       /* background-image: url("/Images/backgroundFont6.jpg");  */
+       /* background-image: linear-gradient(to bottom, #f06292, #af4b6c, #713448, #3a1e26, #000000); */
+       /* background-image: linear-gradient(to bottom, #00ac5c, #00c5b9, #6fd7f1, #cee7ff, #ffffff); */
+     } 
+
+
      .flex-item-left {
        padding: 10px;
        flex: 50%;
@@ -443,6 +448,7 @@
       }
 
       /* ? bordure avatar + show_recette */
+
       .container-fluid,
       #recette,
       #right_element,
@@ -455,3 +461,9 @@
         box-shadow: -3px 3px 10px #f0626f;
     }  
 
+     /* ? Style des émoji */
+
+       #emojiRecette {
+           width:21px;
+           height:21px;
+       }

@@ -2,6 +2,10 @@
      
      {{ form_start(form) }}
 
+     <article class="flex-container3">
+
+         <hr/>
+
          {# ********** NOM ********** #}
 
              <section>
@@ -14,16 +18,16 @@
              
              </section>
 
-             <br/> 
+         <hr/>    
 
-             {# ******************** #}
-     
+     </article> 
+
+     {# ******************** #}
+
          {{ form_widget(form) }}
        
              <button class="btn col-12 btn-dark btn-lg px-4">
-
                  {{ button_label|default('Sauvegarder') }} 
-                 
              </button>
      
      {{ form_end(form) }}

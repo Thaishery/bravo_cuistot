@@ -1,201 +1,571 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Recette{% endblock %}
+     {% block metaTitle %}
+         " Recette "
+     {% endblock %}
 
-{% block body %}
-    <h1>Recette</h1>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-            <h2>{{recette.name}}</h2>
-            {% if recette.image %}
-                <div class="col-12">
-                    <img src="{{asset('uploads/recettes/'~ recette.image)}}" style="max-width:100%"/>
-                </div>
-            {% endif %}   
-            </div>
-            {% if app.user %}
-                {% if recette not in user.getRecettesFavId() %}
-                <div>
-                    {{ form_start(formFavori) }}
-                    <div class="col-2">
-                        <p>Ajouter en favori :</p>
-                        <button type="submit" id="favori_ajoutFavori" name="favori[ajoutFavori]" class="form-control"><img style="width:40px" src="/Images/heartempty.png" alt="coeur vide">
-                            {{ form_row(formFavori.ajoutFavori, {'attr': {'label': ' ', 'style': 'display:none'}}) }}
-                        </button>
-                    </div>
-                    {{ form_end(formFavori) }}
-                </div>
-                {% else %}
-                <div>
-                    {{ form_start(removeFavori) }}
-                    <div class="col-2">
-                        <p>Retirer des favoris :</p>
-                            <button type="submit" id="remove_favori_enleverFavori" name="remove_favori[enleverFavori]" class="form-control" label=" "><img style="width:40px" src="/Images/heart.png" alt="coeur plein">
-                                {{ form_row(removeFavori.enleverFavori, {'attr': {'label': ' ', 'style': 'display:none'}}) }}
-                            </button>
-                    </div>
-                    {{ form_end(removeFavori) }}
-                </div>
-                {% endif %}
-            {% endif %}
-            <div class="col-12">
-                <h2>pour {{recette.NbPersonnes}} Convives</h2>
-            </div>
-            <div class="container row col-12">
-                {% for ingredients in listeIngredient %}
-                    <div class="col-6">
-                    <p>{{ingredients.IngredientsId.name}} : {{ingredients.Quantite}} {{ingredients.UnitemesureId.name}}</p> 
-                    </div>
-                {% endfor %}
-            </div>
-            <div class="col-6">
-                <p>
-                    Temps de préparation : {{recette.TempsPreparation}} minutes.
-                </p>
-            </div>
-            <div class="col-6">
-                <p>Difficulté: 
-                    {% if recette.Difficulte == 1 %}
-                    <img src="{{asset("Images/toqueDificulte.png")}}">
-                    {% elseif recette.Difficulte == 2 %}
-                    <img src="{{asset("Images/toqueDificulte.png")}}">
-                    <img src="{{asset("Images/toqueDificulte.png")}}">
-                    {% elseif recette.Difficulte == 3 %}
-                    <img src="{{asset("Images/toqueDificulte.png")}}">
-                    <img src="{{asset("Images/toqueDificulte.png")}}">
-                    <img src="{{asset("Images/toqueDificulte.png")}}">
-                    {% else %}
-                    something went wrong ! 
-                    {% endif %}
-                </p>
-            </div>
-            <div class="col-6">
-                <p>
-                    Temps de cuisson : {{recette.TempsCuisson}} minutes.
-                </p>
-            </div>
-            <div class="col-6">
-                <p>
-                    Note : 
-                    {% if moyenneNote == 0 %} 
-                    Cette recette n'as pas encore reçu de Note
-                    {% else %}
-                    {{moyenneNote}}
-                    {% endif %}
-                </p>
-            </div>
-            <div class="col-6 placeholder">
-            </div>
-            {% if haveNoted == false %}
-            <div class="col-6">
-            {{ form_start(formNote) }}
-                 {{ form_widget(formNote) }}
-                <button class="btn">{{ button_label|default('Save') }}</button>
-            {{ form_end(formNote) }}
-            </div>
-            {% endif %}
-            <div class="col-12">
-            <button class="col-12 btn btn-success btn-lg px-4 gap-3"> passer en mode slideshow. </button>
-            </div>
-            <div class="col-12">
-                {% for etapes in listeEtapes %}
-                    <div class="col-12 row">
-                        <div class="col-1">
-                        <h3>
-                            {{etapes.isNumber}} / {{nombreEtapes}}
-                        </h3>
-                        </div>
-                        <div class="col-11">
-                        <h3>
-                            {{etapes.name|capitalize }}
-                        </h3>
-                        </div>
-                    {% if etapes.image %}
-                        <div class ="col-6">
-                            <img src="{{asset('/uploads/etapes/'~ etapes.image)}}" alt="image de l'étape" style="max-width:100%"/>
-                        </div>
-                        <div class="col-6">
-                            {{etapes.description|capitalize }}
-                        </div>
-                    {% else %}
-                        <div class="col-12">
-                            {{etapes.description|capitalize }}
-                        </div>
-                    </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-            <div class="col-12">
-                <h2>commentaires : </h2>
-                {% if listeCommentaires %}
-                    {% for commentaire in listeCommentaires %}
-                        <div class="col-4">
-                            <p>
-                                {{commentaire.userId.login}} : <br/>
-                                le : {{commentaire.createdAt|date('d-m-Y')}} à {{commentaire.createdAt|date('h:i:s')}}
-                                {% if commentaire.editedAt %}
-                                <br/>
-                                Modifier le : {{commentaire.editedAt|date('d-m-Y')}} a {{commentaire.editedAt|date('h:i:s')}}
-                                {% endif %}
-                            </p>
-                        </div>
-                        <div class="col-12">
-                            <p>
-                            {# https://stackoverflow.com/questions/10487855/how-to-replace-break-lines-in-twig #}
-                                {{commentaire.content|capitalize|nl2br}}
-                            </p>
-                        </div>
-                        {% if app.user %}
-                            {% if app.user.id == commentaire.userId.id %}
-                            <main class="modal_comment_{{commentaire.id}}">
-                                <button type="button" class=" btn btn-success btn-lg login-position" data-bs-toggle="modal" data-bs-target="#Modal_{{commentaire.id}}">
-                                    Modifier mon commentaire
-                                </button>
-                                {# ***** MODAL ***** #}
-	                            <div class="login-box modal fade" id="Modal_{{commentaire.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		                            <div class="modal-dialog modal-dialog-centered" style="width:900px;max-width:1200px!important">
-			                            <div class="modal-content ">
-                                            <section class="modal-header ">
-                                                <h5 class="modal-title" id="exampleModalLabel">
-                                                    Modifier mon commentaire 
-                                                </h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </section>
-                                            <article class="modal-body">
-                                                <iframe id="ModificationCommentaire"
-                                                        title="Modification Commentaire"
-                                                        width="800"
-                                                        height="600"
-                                                        sandbox="allow-scripts allow-forms allow-same-origin allow-modals"
-                                                        src="{{path('commentaires_edit',{'id': commentaire.id})}}">
-                                                </iframe>
-                                            </article>              
-                                        </div>
-		                            </div>
-	                            </div>
-                            </main>
-                            {# <div class="col-12">
-                               <a href="{{path('commentaires_edit',{'id': commentaire.id})}}" class="btn btn-success btn-lg">Modifier mon commentaire</a>
-                            </div> #}
-                            {% endif %}
-                        {% endif %}
-                    {% endfor %}
-                {% else %}
-                    <p>
-                        Il n'y as pas encore de commentaires. 
-                    </p>
-                {% endif %}
-            </div>
-            {% if app.user %}
-            <div class="col-12">
-            Laisser un commentaire : 
-            {{ form_start(formCommentaire) }}
-                 {{ form_widget(formCommentaire) }}
-                <button class="btn">{{ button_label|default('Save') }}</button>
-            {{ form_end(formCommentaire) }}
-            </div>
-            {% endif %}
-    <script type="text/javascript" src="{{asset('js/modalCommentaireButton.js')}}"></script> 
-    {# {{ include('recette/_delete_form.html.twig') }} #}
-{% endblock %}
+     {% block title %}
+         Recette
+     {% endblock %}
+     
+     {% block body %}
+
+         <main class="Form">  
+
+             <div class="text-center">  
+
+                 {# ************************* #} 
+
+                 {# ! Partie n°0: Titre de la page #}
+  
+                 <section>
+    
+                     <h1> Recette </h1>
+         
+                         <hr/>
+
+                             <p> 
+                                 <em> Consulter la liste des recettes de votre site et les administrés. </em>  📓
+                             </p>
+
+                         <hr/>
+
+                 </section>
+
+                 {# ************************************************** #} 
+
+                 {# ! Partie n°1: Carte de la recette > Titre/Image/Favoris #}
+
+                 <article class="flex-container">
+
+                     <div class="text-center p-4 text-white rounded bg-dark">    
+
+                         <div class="row">
+
+                             {# ? Partie: Titre de la recette #}
+         
+                              <section class="col-md-12">
+
+                                  <hr id="homeDivider3"/>
+
+                                      <h2 class=" card-title mb-3 rounded"> {{recette.name}} 🍴 </h2>
+
+                                  <hr id="homeDivider4"/>   
+
+                              </section>   
+
+                             {# ************************* #}
+
+                             {# ? Partie: Image de la recette #}     
+
+                             <section class="col-12 card-body"> 
+
+                                 {% if recette.image %}
+
+                                     <figure class="cardImage col-12 ">
+                                         <img src="{{asset('uploads/recettes/'~ recette.image)}}" style="max-width:100%"/>
+                                     </figure>
+
+                                 {% endif %}                       
+
+                             </section>
+
+                             <hr id="homeDivider1"/>
+
+                         </div>    
+
+                         {# ************************* #}
+
+                         <div class="row">    
+
+                             {# ? Partie: Note de la recette #}
+
+                             <div class="col-12 text-center">
+
+                                 <legend> ⭐⭐⭐⭐⭐ </legend> 
+
+                                 <p>
+
+                                     Note : 
+
+                                         {% if moyenneNote == 0 %} 
+
+                                             Cette recette n'as pas encore reçu de Note
+
+                                         {% else %}
+
+                                            {{moyenneNote}}
+
+                                         {% endif %}
+
+                                 </p>
+
+                                 <span> 8,201+ reviews </span>
+
+                                 {# <p>  #}
+
+                                     {# {% if recette.Difficulte == 1 %}
+
+                                         <p> Facile </p>
+
+                                     {% elseif recette.Difficulte == 2 %}
+
+                                         <p> Intermédiaire </p>
+
+                                     {% elseif recette.Difficulte == 3 %}
+
+                                         <p> Difficile </p>
+
+                                     {% else %}
+
+                                         Oups ! Quelque chose ne s'est pas bien déroulé. 
+
+                                     {% endif %} #}
+
+                                 {# </p> #}
+
+                             </div>
+
+                             {# ? Partie: Bouton Sauvegarder la note #}
+
+                             {% if haveNoted == false %}
+
+                                 <div class="col-6">
+
+                                     {{ form_start(formNote) }}
+
+                                          {{ form_widget(formNote) }}
+
+                                         <button class="col-12 btn btn-success bg-gradient">
+                                             {{ button_label|default('Sauvegarder') }}
+                                         </button>
+
+                                     {{ form_end(formNote) }}
+
+                                 </div>
+
+                             {% endif %}
+
+                         </div>  
+
+                         <hr id="homeDivider2"/>  
+
+                         {# ************************* #} 
+
+                         <div class="row">        
+
+                             {# ? Partie: Temps de préparation #}
+
+                             <section class="col-4">
+
+                                 {# <p> Temps de préparation ⏰ : {{recette.TempsPreparation}} minutes. </p> #}
+                                 <p> 
+                                     <abbr title="Temps de préparation"> 
+                                         <span id="emojiRecette"> ⏰ </span>
+                                     </abbr> 
+                                     
+                                     {{recette.TempsPreparation}} minutes. 
+
+                                </p>
+
+                             </section>
+
+                             {# ************************* #} 
+
+                             {# ? Partie: Temps de cuisson #}
+
+                             <section class="col-4">
+
+                                 <abbr title="Temps de cuisson"> 
+                                     <img id="emojiRecette" src="{{asset("Images/iconeFour.png")}}">
+                                  </abbr>
+
+                                 {{recette.TempsCuisson}} minutes. 
+
+                             </section> 
+
+                             {# ************************* #} 
+ 
+                             {# ? Partie: Niveau de difficulté #}
+
+                             <section class="col-4">
+
+                                 {# <p>  #}
+
+                                     <abbr title="Difficulté"> 
+
+                                         <img id="emojiRecette" src="{{asset("Images/toqueDificulte.png")}}"> 
+
+                                         {% if recette.Difficulte == 1 %}
+
+                                             {# <img src="{{asset("Images/toqueDificulte.png")}}"> #}
+                                             {# <p>  #}
+                                                 Facile 
+                                             {# </p> #}
+
+                                         {% elseif recette.Difficulte == 2 %}
+
+                                             {# <img src="{{asset("Images/toqueDificulte.png")}}">
+                                             <img src="{{asset("Images/toqueDificulte.png")}}"> #}
+                                             {# <p>  #}
+                                                 Intermédiaire
+                                             {# </p> #}
+
+                                         {% elseif recette.Difficulte == 3 %}
+
+                                             {# <img src="{{asset("Images/toqueDificulte.png")}}">
+                                             <img src="{{asset("Images/toqueDificulte.png")}}">
+                                             <img src="{{asset("Images/toqueDificulte.png")}}"> #}
+                                             {# <p>  #}
+                                                 Difficile 
+                                             {# </p> #}
+
+                                         {% else %}
+
+                                             Oups ! Quelque chose ne s'est pas bien déroulé. 
+
+                                         {% endif %}
+
+                                     </abbr>    
+
+                                 {# </p> #}
+
+                             </section>
+
+                         </div>        
+
+                         {# ************************* #}
+    
+                         <hr id="homeDivider2"/>
+
+                         <div class="row">        
+ 
+                             {# ? Partie: Favoris #}    
+
+                             {% if app.user %}
+
+                                 {# ************************* #} 
+
+                                 {# ? Partie: Ajouter la recette en Favoris #} 
+                                
+                                 {% if recette not in user.getRecettesFavId() %}
+
+                                     {{ form_start(formFavori) }}
+
+                                         <section class="col-12">
+
+                                             {# <p> Ajouter en favori : </p> #}
+                                           
+                                             <button type="submit" id="favori_ajoutFavori" name="favori[ajoutFavori]" class="form-control"><img style="width:40px" src="/Images/heartempty.png" alt="coeur vide">
+                                                 {{ form_row(formFavori.ajoutFavori, {'attr': {'label': ' Ajouter en favori :', 'style': 'display:none'}}) }}
+                                             </button>
+                                         
+                                         </section>
+                                         
+                                     {{ form_end(formFavori) }}
+
+                                 {# ************************* #}  
+                                   
+                                 {# ? Partie: Retirer la recette des Favoris #}
+
+                                 {% else %}
+
+                                     {{ form_start(removeFavori) }}
+
+                                         <div class="btn-group col-12">
+
+                                             <p> Retirer des favoris : </p>
+
+                                             <button type="submit" id="remove_favori_enleverFavori" name="remove_favori[enleverFavori]" class="form-control" label=" ">
+                                           
+                                                 <img style="width:40px" src="/Images/heart.png" alt="coeur plein">
+                                                 {{ form_row(removeFavori.enleverFavori, {'attr': {'label': ' ', 'style': 'display:none'}}) }}
+
+                                             </button>
+                                       
+                                         </section>
+                                    
+                                     {{ form_end(removeFavori) }}
+
+                                 {% endif %}
+
+                                 {# ************************* #}
+                            
+                             {% endif %}
+
+                         </div>
+
+                     </div>
+
+                 </article>    
+
+                 {# ************************************************** #}      
+
+                 {# ! Partie n°2: Détails de la recette/commmentaires #}
+
+                 {# <hr id="homeDivider3"/> #}
+                 <br/>
+
+                     <div class="flex-container3 row"> 
+
+                         {# ? Partie: Nombre de personnes #}
+
+                         <div class="col-12">
+                      
+                             {# <hr id="homeDivider3"/>   #}
+                             <hr/> 
+
+                             <h2> Pour {{recette.NbPersonnes}} Convives </h2>
+                            
+                         </div>
+
+                         {# ? Partie: Nom de l'ingrédient #}
+
+                         <div class="container row col-12">
+
+                             {% for ingredients in listeIngredient %}
+                             
+                                 <div class="col-6">
+                                     <p>{{ingredients.IngredientsId.name}} : {{ingredients.Quantite}} {{ingredients.UnitemesureId.name}} </p> 
+                                 </div>
+
+                                 {# <hr id="homeDivider4"/> #}
+                                 <hr/> 
+
+                             {% endfor %}
+
+                         </div>
+
+                     </div>
+
+                 <br/>   
+
+                 {# ************************* #}   
+ 
+                     <div class="row"> 
+
+                         {# ! Partie n°3: SlideShow #}
+
+                         <section class="col-12">
+
+                             <button class="col-12 btn btn-success btn-lg px-4 gap-3">
+                                 Passer en mode " Slideshow ". 
+                             </button>
+
+                         </section>
+
+                     </div> 
+
+                 <hr id="homeDivider3"/>       
+
+                 {# ************************* #}
+
+                 {# ? Partie: Contenu de Slideshow #}
+
+                 {% for etapes in listeEtapes %}
+
+                     <div class="col-12 row">
+
+                         {# ************************* #}
+
+                         {# ? Partie: Numéro de l'étape #}
+                     
+                         <div class="col-1">
+
+                                     <h3> {{etapes.isNumber}} / {{nombreEtapes}} </h3>
+
+                         </div>
+
+                         {# ************************* #}
+
+                         {# ? Partie: Nom de l'étape #}
+
+                         <div class="col-11">
+
+                                     <h3> {{etapes.name|capitalize }} </h3>
+
+                         </div>
+
+                         {# ************************* #}
+
+                         {# ? Partie: Image de l'étape #}
+
+                         {% if etapes.image %}
+
+                                     <div class ="col-6">
+                                         <img src="{{asset('/uploads/etapes/'~ etapes.image)}}" alt="image de l'étape" style="max-width:100%"/>
+                                     </div>
+
+                                     <div class="col-6">
+                                         {{etapes.description|capitalize }}
+                                     </div>
+
+                                     {% else %}
+
+                                         <div class="col-12">
+                                             {{etapes.description|capitalize }}
+                                         </div>
+
+                                     </div>
+
+                         {% endif %}
+
+                     </div>
+
+                 {% endfor %}     
+
+                 {# ************************* #}
+
+                 {# ? Partie: Commentaires #}
+                
+                 <div class="col-12">
+
+                     <h2> Commentaires : </h2>
+                     
+                     {% if listeCommentaires %}
+
+                         {% for commentaire in listeCommentaires %}
+
+                             {# ************************* #}
+
+                             {# ? Partie: Information sur le commentaire #}
+
+                             <div class="col-4">
+
+                                         <p>
+
+                                             {{commentaire.userId.login}} : <br/>
+
+                                             le : {{commentaire.createdAt|date('d-m-Y')}} à {{commentaire.createdAt|date('h:i:s')}}
+
+                                             {% if commentaire.editedAt %}
+
+                                                 <br/>
+                                                 Modifier le : {{commentaire.editedAt|date('d-m-Y')}} a {{commentaire.editedAt|date('h:i:s')}}
+                                            
+                                             {% endif %}
+
+                                         </p>
+
+                             </div>
+
+                             {# ************************* #}
+
+                             {# ? Partie: Contenu du commentaire #}
+  
+                             <div class="col-12">
+
+                                         <p>
+                                         {# https://stackoverflow.com/questions/10487855/how-to-replace-break-lines-in-twig #}
+                                             {{commentaire.content|capitalize|nl2br}}
+                                         </p>
+
+                             </div>
+                             
+                             {# *** *** *** **** *** *** #}
+
+                             {% if app.user %}
+
+                                 {% if app.user.id == commentaire.userId.id %}
+
+                                 <main class="modal_comment_{{commentaire.id}}">
+
+                                     <button type="button" class=" btn btn-success btn-lg login-position" data-bs-toggle="modal" data-bs-target="#Modal_{{commentaire.id}}">
+                                         Modifier mon commentaire
+                                     </button>
+
+                                     {# ***** MODAL ***** #}
+
+                                     <div class="login-box modal fade" id="Modal_{{commentaire.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                   
+                                         <div class="modal-dialog modal-dialog-centered" style="width:900px;max-width:1200px!important">
+                                    
+                                             <div class="modal-content ">
+
+                                                 {# ************************* #}
+
+                                                 <section class="modal-header ">
+
+                                                     <h5 class="modal-title" id="exampleModalLabel">
+                                                         Modifier mon commentaire 
+                                                     </h5>
+                                                   
+                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                               
+                                                 </section>
+
+                                                 {# ************************* #}
+
+                                                 <article class="modal-body">
+ 
+                                                     <iframe id="ModificationCommentaire"
+                                                             title="Modification Commentaire"
+                                                             width="800"
+                                                             height="600"
+                                                             sandbox="allow-scripts allow-forms allow-same-origin allow-modals"
+                                                             src="{{path('commentaires_edit',{'id': commentaire.id})}}">
+                                                     </iframe>
+                                              
+                                                 </article>  
+
+                                                 {# ************************* #}
+                                                           
+                                             </div>
+
+                                         </div>
+
+                                     </div>
+
+                                 </main>
+
+                                 {# *** *** *** **** *** *** #}
+
+                                 {# <div class="col-12">
+                                    <a href="{{path('commentaires_edit',{'id': commentaire.id})}}" class="btn btn-success btn-lg">Modifier mon commentaire</a>
+                                 </div> #}
+                                 
+                                 {% endif %}
+
+                             {% endif %}
+
+                         {% endfor %}
+
+                     {% else %}
+
+                     <p>
+                         Il n'y as pas encore de commentaires. 
+                     </p>
+
+                 {% endif %}
+
+                 {# </div> #}
+
+                 {# *** *** *** **** *** *** #}
+
+                 {% if app.user %}
+
+                     <div class="col-12">
+
+                         Laisser un commentaire : 
+
+                         {{ form_start(formCommentaire) }}
+
+                             {{ form_widget(formCommentaire) }}
+
+                             <button class="btn">
+                                 {{ button_label|default('Sauvegarder') }}
+                             </button>
+
+                         {{ form_end(formCommentaire) }}
+
+                     </div>
+
+                 {% endif %}
+
+                 {# *** *** *** **** *** *** #}
+
+                 <script type="text/javascript" src="{{asset('js/modalCommentaireButton.js')}}"></script> 
+                 
+                 {# {{ include('recette/_delete_form.html.twig') }} #}
+
+     {% endblock %}
