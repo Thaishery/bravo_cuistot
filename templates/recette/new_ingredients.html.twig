@@ -29,7 +29,7 @@
 
              </nav>
 
-             <article class="btn-group-vertical">
+             <article class="btn-group-vertical col-12">
 
                  <div class="text-center col-12">
                  {{form_start(form)}}
@@ -45,12 +45,17 @@
                             {{form_row(form.unitemesure_id, {'attr':{'class':'col-4'}})}}
                         </div>
                     </div>
+                    <button class="btn col-12 btn-dark btn-lg px-4">
+
+                        {{ button_label|default('Sauvegarder') }} 
+             
+                    </button>
                     {{form_end(form)}}
                  </div>
                  {# <a href="#" class="btn btn-primary">Mon ingredients n'est pas dans la liste</a> #}
 
-                 <main class="modal_ajout_ingredient">
-                     <button type="button" class=" btn btn-success btn-lg login-position" data-bs-toggle="modal" data-bs-target="#Modal_ajout_ingredient">  
+                 <main class="modal_ajout_ingredient col-12">
+                     <button type="button" class="col-12 btn btn-success btn-lg login-position" data-bs-toggle="modal" data-bs-target="#Modal_ajout_ingredient">  
                          Mon ingredient n'est pas dans la liste
                      </button>
                      {# ***** MODAL ***** #}
