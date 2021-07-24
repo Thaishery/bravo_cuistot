@@ -30,14 +30,58 @@
              </nav>
 
              <article>
-
-                 {{dump(listeIngredients)}}
                
              </article>    
 
-             <article class="btn-group-vertical">
+             <article class="btn-group-vertical col-12">
+             
+                 <div class="text-center col-12">
+                 {{form_start(form)}}
+                 <div class="col-12 row">
+                     {# {{ include('recette/_form.html.twig') }} #}
+                        <div class="col-4">
+                            {{form_row(form.ingredients_id, {'attr':{'class':'col-4'}})}}
+                        </div>
+                        <div class="col-4">
+                            {{form_row(form.quantite, {'attr':{'class':'col-4'}})}}
+                        </div>
+                        <div class="col-4">
+                            {{form_row(form.unitemesure_id, {'attr':{'class':'col-4'}})}}
+                        </div>
+                    </div>
+                    {{form_end(form)}}
+                 </div>
+                 
+                 {# <a href="#" class="btn btn-primary">Mon ingredients n'est pas dans la liste</a> #}
 
-                     {{ include('recette/_form.html.twig') }}
+                 <main class="modal_ajout_ingredient col-12">
+                     <button type="button" class="col-12 btn btn-success btn-lg login-position" data-bs-toggle="modal" data-bs-target="#Modal_ajout_ingredient">  
+                         Mon ingredient n'est pas dans la liste
+                     </button>
+                     {# ***** MODAL ***** #}
+	                 <div class="login-box modal fade" id="Modal_ajout_ingredient" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		                 <div class="modal-dialog modal-dialog-centered" style="width:900px;max-width:1200px!important">
+			                 <div class="modal-content ">
+                                 <section class="modal-header ">
+                                     <h5 class="modal-title" id="exampleModalLabel">
+                                         Ajouter un ingredient ne figurant pas dans la liste :  
+                                     </h5>
+                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                 </section>
+                                 <article class="modal-body">
+                                     <iframe id="ModificationCommentaire"
+                                             title="Modification Commentaire"
+                                             width="800"
+                                             height="600"
+                                             sandbox="allow-scripts allow-forms allow-same-origin allow-modals"
+                                             src="{{path('user_ingredient_new',{'recette_id': id })}}">
+                                     </iframe>
+                                 </article>              
+                             </div>
+		                 </div>
+	                 </div>
+                 </main>
+
 
                  <a href="{{ path('recette_new_etapes',{'id': app.request.get('id')})}}" type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
                      Passer a l'ajout des étapes
@@ -50,7 +94,7 @@
              </article>
 
          </main>
-
+<script type="text/javascript" src="{{asset('js/modalCommentaireButton.js')}}"></script> 
      {% endblock %}
 
 

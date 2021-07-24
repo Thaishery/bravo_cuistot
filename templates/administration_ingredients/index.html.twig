@@ -43,6 +43,7 @@
                              <tr>
                                  <th> Id </th>
                                  <th> Nom </th>
+                                 <th> Auteur </th>
                                  <th> Actions </th>
                              </tr>
 
@@ -55,7 +56,11 @@
                                  <tr>
                                      <td> {{ ingredient.id }} </td>
                                      <td> {{ ingredient.name }} </td>
-
+                                     {% if ingredient.authorId %}
+                                     <td> {{ ingredient.authorId.login}} </td>
+                                     {% else %}
+                                     <td> pas d'auteur </td>
+                                     {% endif %}
                                      <td>
   
                                          <section class="btn-group">

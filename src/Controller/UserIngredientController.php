@@ -22,9 +22,8 @@ class UserIngredientController extends AbstractController
      */
     public function index(IngredientsRepository $ingredientsRepository): Response
     {
-        //todo : n'afficher que la liste des ingredient de l'utilisateur actuel. 
         return $this->render('user_ingredient/index.html.twig', [
-            'ingredients' => $ingredientsRepository->findAll(),
+            'ingredients' => $ingredientsRepository->findByUserId($this->getUser()),
         ]);
     }
 

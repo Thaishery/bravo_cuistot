@@ -25,11 +25,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Vous n'avez pas encore ajouter d'ingédients! </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('user_ingredient_new') }}">Create new</a>
+    <a href="{{ path('user_ingredient_new') }}">Créer un ingredient</a>
 {% endblock %}
