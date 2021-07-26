@@ -86,10 +86,11 @@ class IngredientsRecette
         return $this->recette_id;
     }
 
-    public function setRecetteId(?Recette $recette_id): self
-    {
-        $this->recette_id = $recette_id;
+    public function setRecetteId(?Recette $recette_id): self {
 
-        return $this;
-    }
-}
+         $this->recette_id = $recette_id;
+
+         return $this;
+     }
+
+ }

@@ -108,9 +108,11 @@ $avatar = $form->get('avatar')->getData();
             }
             $moyenneActuelle = $moyenneActuelle + $moyenneRecette[$i];
         }
+        
         if ($compteurDeNotes != 0){
         $moyenneActuelle = $moyenneActuelle/$compteurDeNotes;
         }
+
         if($user){
         return $this->render('user/profile_show.html.twig', [
             'user' => $user,
@@ -121,6 +123,7 @@ $avatar = $form->get('avatar')->getData();
 
         ]);
         }
+
         else{
             return $this->render('home/index.html.twig');
         }

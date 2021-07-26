@@ -49,7 +49,7 @@ use Symfony\Component\Validator\Constraints\File;
                              'message' => 'Email invalide'
                          ])
                      ],
-                     'invalid_message' => 'Les champs email doivent correspondre.',
+                     'invalid_message' => 'Les champs emails doivent correspondre.',
                      'options' => ['attr' => ['class' => 'email-field']],
                      'required' => true,
                      'first_options'  => ['label' => 'email','label_attr' => ['class' => 'form-label']],

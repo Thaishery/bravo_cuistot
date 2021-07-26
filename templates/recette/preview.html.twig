@@ -1,68 +1,121 @@
+ {# ? Partie : Prévisualisation recette #ModeUser #}
+ 
+ {% extends 'base.html.twig' %}
+ 
+     {% block metaTitle %}
+         " Prévisualisation de recette "
+     {% endblock %}
 
+     {% block title %}
+         Prévisualisation de recette
+     {% endblock %}
+     
+     {% block body %}
 
-{% extends 'base.html.twig' %}
+         <main class="Form"> 
 
-{% block title %}Préview Recette{% endblock %}
+             <div class="py-5 text-center col-12">
 
-{% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-            <h1>{{recette.name}} Prévisualisation</h1>
-                {% if recette.image %}
+                {# *********************************************** #}
+
+                 <div class="container">
+
+                     <div class="row">
+
+                           <div class="col-12">
+                              <h1>{{recette.name}} Prévisualisation</h1>
+                             {% if recette.image %}
                 <div class="col-12">
                 <img src="{{asset('uploads/recettes/'~ recette.image)}}" style="max-width:100%"/>
                 </div>
                     {# {{recette.image}} #}
                 {% endif %}
-                
             </div>
-            <div class="col-12">
-                <h2>pour {{recette.NbPersonnes}} Convives</h2>
-            </div>
-            <div class="container row col-12">
-                {% for ingredients in listeIngredient %}
-                    <div class="col-6">
-                    <p>{{ingredients.IngredientsId.name}} : {{ingredients.Quantite}} {{ingredients.UnitemesureId.name}}</p> 
-                    </div>
-                {% endfor %}
-            </div>
-            <div class="col-6">
-                <p>
-                    Temps de préparation : {{recette.TempsPreparation}} minutes.
-                </p>
-            </div>
-            <div class="col-6">
-                <p>Difficulté: 
-                    {% if recette.Difficulte == 1 %}
-                    <img src="{{asset("Images/toqueDificulte.png")}}">
-                    {% elseif recette.Difficulte == 2 %}
-                    <img src="{{asset("Images/toqueDificulte.png")}}">
-                    <img src="{{asset("Images/toqueDificulte.png")}}">
-                    {% elseif recette.Difficulte == 3 %}
-                    <img src="{{asset("Images/toqueDificulte.png")}}">
-                    <img src="{{asset("Images/toqueDificulte.png")}}">
-                    <img src="{{asset("Images/toqueDificulte.png")}}">
-                    {% else %}
-                    something went wrong ! 
-                    {% endif %}
-                </p>
-            </div>
-            <div class="col-6">
-                <p>
-                    Temps de cuisson : {{recette.TempsCuisson}} minutes.
-                </p>
-            </div>
-            <div class="col-6">
-                <p>
-                    Note : Votre recette n'est pas encore publié, elle n'a donc pas de note pour le moment.
-                </p>
-            </div>
-            <div class="col-12">
-            <button class="col-12 btn btn-success btn-lg px-4 gap-3"> passer en mode slideshow. </button>
-            </div>
-            <div class="col-12">
-                {% for etapes in listeEtapes %}
+
+                         <div class="col-12">
+
+                             <h2>pour {{recette.NbPersonnes}} Convives</h2>
+
+                         </div>
+
+                         <div class="container row col-12">
+
+                             {% for ingredients in listeIngredient %}
+
+                                 <div class="col-6">
+
+                                     <p>
+                                         {{ingredients.IngredientsId.name}} : {{ingredients.Quantite}} {{ingredients.UnitemesureId.name}} 
+                                     </p> 
+                               
+                                 </div>
+
+                             {% endfor %}
+
+                         </div>
+
+                         <div class="col-6">
+
+                             <p>
+                                 Temps de préparation : {{recette.TempsPreparation}} minutes.
+                             </p>
+
+                         </div>
+
+                         <div class="col-6">
+
+                             <p>Difficulté: 
+
+                                 {% if recette.Difficulte == 1 %}
+
+                                 <img src="{{asset("Images/toqueDificulte.png")}}">
+
+                                 {% elseif recette.Difficulte == 2 %}
+
+                                 <img src="{{asset("Images/toqueDificulte.png")}}">
+                                 <img src="{{asset("Images/toqueDificulte.png")}}">
+
+                                 {% elseif recette.Difficulte == 3 %}
+
+                                 <img src="{{asset("Images/toqueDificulte.png")}}">
+                                 <img src="{{asset("Images/toqueDificulte.png")}}">
+                                 <img src="{{asset("Images/toqueDificulte.png")}}">
+
+                                 {% else %}
+
+                                 something went wrong ! 
+
+                                 {% endif %}
+
+                             </p>
+
+                         </div>
+
+                         <div class="col-6">
+
+                             <p>
+                                 Temps de cuisson : {{recette.TempsCuisson}} minutes.
+                             </p>
+
+                         </div>
+
+                         <div class="col-6">
+
+                             <p>
+                                 Note : Votre recette n'est pas encore publié, elle n'a donc pas de note pour le moment.
+                             </p>
+
+                         </div>
+
+                         <div class="col-12">
+
+                         <button class="col-12 btn btn-success btn-lg px-4 gap-3"> passer en mode slideshow. </button>
+                      
+                         </div>
+
+                         <div class="col-12">
+
+                                             {% for etapes in listeEtapes %}
                     <div class="col-12 row">
                         <div class="col-1">
                         <h3>
@@ -88,11 +141,18 @@
                     </div>
                     {% endif %}
                 {% endfor %}
-            </div>
-            <div class="col-12 row previewRecetteBoutonFin">
-                <a class="col-2 btn btn-success btn-lg" href="{{path("recette_edit",{'id':recette.id} )}}">Modifier / corriger la recette.</a>
-                <a class="col-2 btn btn-success btn-lg" href="{{path("recette_show",{'id':recette.id})}}">Voir la recette</a>
-            </div>
-        </div>
-    </div>
-{% endblock %}
+
+                         </div>
+
+                         <div class="col-12 row previewRecetteBoutonFin">
+
+                             <a class="col-2 btn btn-success btn-lg" href="{{path("recette_edit",{'id':recette.id} )}}">Modifier / corriger la recette.</a>
+                             <a class="col-2 btn btn-success btn-lg" href="{{path("recette_show",{'id':recette.id})}}">Voir la recette</a>
+                     
+                         </div>
+
+                     </div>
+
+                 </div>
+         
+     {% endblock %}

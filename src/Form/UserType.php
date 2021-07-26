@@ -20,6 +20,7 @@ class UserType extends AbstractType
     {
         $builder
             ->add('login')
+            
             ->add('roles', ChoiceType::class, [
                 'choices' => [
                     'administrateur' => 'ROLE_ADMIN',
