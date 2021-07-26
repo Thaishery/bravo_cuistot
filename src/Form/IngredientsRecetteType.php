@@ -21,8 +21,9 @@ class IngredientsRecetteType extends AbstractType
             ->add('ingredients_id', EntityType::class,[
                 'class' => Ingredients::class,
                 'multiple' => false,
-                'expanded' => true,
-                'choice_label' =>'name'
+                'expanded' => false,
+                'choice_label' =>'name',
+                'label' => 'Ingredient : '
             ])
             ->add('quantite', NumberType::class,[
                 'constraints' =>[
@@ -43,13 +44,15 @@ class IngredientsRecetteType extends AbstractType
                     ]),
                     //uniquement des chiffre (le NumberType s'en charge deja): 
                 ],
-                'invalid_message'=>'Ce champ peut contenir uniquement un nombre, comprit entre 1 et 999'
+                'invalid_message'=>'Ce champ peut contenir uniquement un nombre, comprit entre 1 et 999',
+                'label' => 'Quantitée : '
             ])
             ->add('unitemesure_id', EntityType::class,[
                 'class' => UniteMesure::class,
                 'multiple' => false,
-                'expanded' => true,
-                'choice_label' =>'name'
+                'expanded' => false,
+                'choice_label' =>'name',
+                'label' => 'unitée de mesure : '
             ])
 
         ;

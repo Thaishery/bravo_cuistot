@@ -29,6 +29,11 @@ class Ingredients
      */
     private $ingredientsRecettes;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="ingredients")
+     */
+    private $author_id;
+
     public function __construct()
     {
         $this->ingredientsRecettes = new ArrayCollection();
@@ -77,6 +82,18 @@ class Ingredients
                 $ingredientsRecette->setIngredientsId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAuthorId(): ?User
+    {
+        return $this->author_id;
+    }
+
+    public function setAuthorId(?User $author_id): self
+    {
+        $this->author_id = $author_id;
 
         return $this;
     }

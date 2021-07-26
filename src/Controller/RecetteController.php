@@ -7,7 +7,6 @@ use App\Entity\Etapes;
 use App\Entity\IngredientsRecette;
 use App\Entity\Notes;
 use App\Entity\Recette;
-// use App\Entity\User;
 use App\Form\CommentairesType;
 use App\Form\EtapesType;
 use App\Form\FavoriType;
@@ -27,9 +26,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Service\RecettesFileUploader;
-// use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-// use Symfony\Component\Validator\Constraints\Length;
 
 /**
  * @Route("/recette")
