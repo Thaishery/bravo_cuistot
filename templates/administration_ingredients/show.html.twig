@@ -50,6 +50,13 @@
                                  <td> {{ ingredient.name }} </td>
                              </tr>
 
+                             <tr>
+                                <th> Autheur </th>
+                                {% if ingredient.authorId %}
+                                <td> {{ingredient.authorId.login}}</td>
+                                {% else  %}
+                                <td> pas d'auteur </td>
+                                {% endif %}
                          </tbody>
 
                      </table>

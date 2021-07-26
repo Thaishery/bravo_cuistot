@@ -94,7 +94,8 @@ class RecetteType extends AbstractType
 
                     //uniquement des chiffre (le NumberType s'en charge deja): 
                 ],
-                'invalid_message'=>'Ce champ peut contenir uniquement un nombre, comprit entre 1 et 999'
+                'invalid_message'=>'Ce champ peut contenir uniquement un nombre, comprit entre 1 et 999',
+                'required'=> false,
             ])
             
             ->add('nb_personnes', NumberType::class,[
