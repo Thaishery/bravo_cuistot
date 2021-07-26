@@ -31,6 +31,10 @@ class CommentairesType extends AbstractType
                 ],
                 'required' => true,
                 'label' => 'Ajouter un commentaire',
+                'attr' =>[
+                    'class'=>'col-12',
+                    'style'=>'width: 100%'
+                ]
                 
             ])
         ;

@@ -100,12 +100,13 @@
 
                                  {# <p> Temps de préparation ⏰ : {{recette.TempsPreparation}} minutes. </p> #}
                                  <p> 
-                                     <abbr title="Temps de préparation"> 
+                                 Temps de préparation: 
+                                     <legend title="Temps de préparation"> 
                                          <span id="emojiRecette"> ⏰ </span>
-                                     </abbr> 
+                                      
                                      
                                      {{recette.TempsPreparation}} minutes. 
-
+                                    </legend>
                                 </p>
 
                              </section>
@@ -113,22 +114,25 @@
                              {# ? Partie: Temps de cuisson #}
 
                              <section class="col-4">
-
-                                 <abbr title="Temps de cuisson"> 
+                            <p>
+                            Temps de cuisson: 
+                                 <legend title="Temps de cuisson"> 
                                      <img id="emojiRecette" src="{{asset("Images/iconeFour.png")}}">
-                                  </abbr>
+                                  
 
                                  {{recette.TempsCuisson}} minutes. 
-
+                                 </legend>
+                            </p>
                              </section> 
 
                              {# ? Partie: Niveau de difficulté #}
 
                              <section class="col-4">
 
-                                 {# <p>  #}
+                                 <p> 
+                                 Difficulté: 
 
-                                     <abbr title="Difficulté"> 
+                                     <legend title="Difficulté"> 
 
                                          <img id="emojiRecette" src="{{asset("Images/toqueDificulte.png")}}"> 
 
@@ -162,9 +166,9 @@
 
                                          {% endif %}
 
-                                     </abbr>    
+                                     </legend>    
 
-                                 {# </p> #}
+                                 </p>
 
                              </section>
 
@@ -185,12 +189,13 @@
                                      {{ form_start(formNote) }}
 
                                           {{ form_widget(formNote) }}
-
+                                            <br/>
                                          <button class="col-12 btn btn-success bg-gradient">
                                              {{ button_label|default('Sauvegarder') }}
                                          </button>
 
                                      {{ form_end(formNote) }}
+                                     <br/>
 
                                  </div>
 
@@ -280,14 +285,14 @@
 
                      <div class="container row col-12 text-center">
 
+                     <h6> Ingrédient(s) de la recette<h6> 
+
                          {% for ingredients in listeIngredient %}
                          
                              {# <div class="col-6"> #}
                              <div>
 
                                  <p> 
-
-                                     <h6> Ingrédient(s) de la recette<h6> 
 
                                      <br/>
                                  
