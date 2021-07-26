@@ -22,7 +22,11 @@ class IngredientsRecetteType extends AbstractType
                 'class' => Ingredients::class,
                 'multiple' => false,
                 'expanded' => true,
-                'choice_label' =>'name'
+                'choice_label' =>'name',     
+                'placeholder' => '_',
+                'required' => true,
+                'label' => 'Liste des ingrédients' 
+                
             ])
             ->add('quantite', NumberType::class,[
                 'constraints' =>[

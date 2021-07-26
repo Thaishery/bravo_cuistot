@@ -14,40 +14,55 @@
 
          <main class="Form">  
 
-             <section class="text-center">
+             <div class="text-center">
 
-                 <h1 class="h1 mb-3 font-weight-normal"> Créer un nouvel ingrédients (suite) </h1>
+                 {# ********************* #}
 
-             </section>    
+                 <section>
 
-             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                     <h1> Gestion des recettes </h1>
 
-                 <ol class="breadcrumb">
-                     <li class="breadcrumb-item" name="Etape n°1" alt="Etape n°1: Créer une nouvelle recette"> Etape n°1: Créer une nouvelle recette </li>
-                     <li class="breadcrumb-item active" aria-current="page" name="Etape n°1" alt="Etape n°2 bis: Ajout d'ingrédient" aria-current="page"> Etape n°2 bis: Ajout d'ingrédient </li>    
-                 </ol>
+                 </section>   
 
-             </nav>
+                 {# ********************* #}
 
-             <article>
+                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
 
-                 {{dump(listeIngredients)}}
-               
-             </article>    
+                     <ol class="breadcrumb">
+                         <li class="breadcrumb-item" name="Etape n°1" alt="Etape n°1: Créer une nouvelle recette"> Etape n°1: Créer une nouvelle recette </li>
+                         <li class="breadcrumb-item active" aria-current="page" name="Etape n°1" alt="Etape n°2 bis: Ajout d'ingrédient" aria-current="page"> Etape n°2 bis: Ajout d'ingrédient </li>    
+                     </ol>
 
-             <article class="btn-group-vertical">
+                 </nav>
+
+                 {# ********************* #}
+
+                 <article>
+
+                     {{dump(listeIngredients)}}
+                   
+                 </article> 
+
+                 {# ********************* #}   
+
+                 {# <article class="btn-group-vertical"> #}
+                 <article>
 
                      {{ include('recette/_form.html.twig') }}
 
-                 <a href="{{ path('recette_new_etapes',{'id': app.request.get('id')})}}" type="submit" class="btn btn-success btn-lg px-4 gap-3">                                
-                     Passer a l'ajout des étapes
-                 </a>            
+                     <a href="{{ path('recette_new_etapes',{'id': app.request.get('id')})}}" type="submit" class="btn btn-success btn-lg">                                
+                         Passer a l'ajout des étapes
+                     </a>            
 
-                 <a href="{{ path('recette_index') }}" type="submit" class="btn col-12 btn-dark btn-lg px-4">                                
-                     Retour à la liste 
-                 </a>   
+                     <a href="{{ path('recette_index') }}" type="submit" class="btn col-12 btn-dark btn-lg px-4">                                
+                         Retour à la liste 
+                     </a>   
 
-             </article>
+                 </article>
+
+                 {# ********************* #}
+
+             </div>    
 
          </main>
 

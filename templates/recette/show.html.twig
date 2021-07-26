@@ -14,9 +14,7 @@
 
              <div class="text-center">  
 
-                 {# ************************* #} 
-
-                 {# ! Partie n°0: Titre de la page #}
+                 {# ? Partie n°0: Titre de la page #}
   
                  <section>
     
@@ -25,7 +23,7 @@
                          <hr/>
 
                              <p> 
-                                 <em> Consulter la liste des recettes de votre site et les administrés. </em>  📓
+                                 <em> Consulter la liste de nos recettes </em>  📓
                              </p>
 
                          <hr/>
@@ -34,7 +32,7 @@
 
                  {# ************************************************** #} 
 
-                 {# ! Partie n°1: Carte de la recette > Titre/Image/Favoris #}
+                 {# ? Partie n°1: Carte de la recette > Titre/Image/Favoris #}
 
                  <article class="flex-container">
 
@@ -46,23 +44,41 @@
          
                               <section class="col-md-12">
 
-                                  <hr id="homeDivider3"/>
+                                 <hr id="homeDivider3"/>
 
-                                      <h2 class=" card-title mb-3 rounded"> {{recette.name}} 🍴 </h2>
+                                     {# ? Partie: Titre de la recette #}
+
+                                     <h2 class=" card-title mb-3 rounded"> {{recette.name}} 🍴 </h2>
+
+                                     {# ? Partie: Note de la recette #}
+
+                                     <legend> ⭐⭐⭐⭐⭐ </legend> 
+
+                                     <h6 class="card-subtitle mb-2 text-muted">
+                                         
+                                         Note : 
+
+                                             {% if moyenneNote == 0 %} 
+                                                 Cette recette n'as pas encore reçu de Note
+                                             {% else %}
+                                                 {{moyenneNote}}
+                                             {% endif %}
+
+                                             {# <span> 8,201+ reviews </span>  #}
+
+                                     </h6>
 
                                   <hr id="homeDivider4"/>   
 
                               </section>   
 
-                             {# ************************* #}
-
                              {# ? Partie: Image de la recette #}     
 
-                             <section class="col-12 card-body"> 
+                             <section class="col-md-12 card-body"> 
 
                                  {% if recette.image %}
 
-                                     <figure class="cardImage col-12 ">
+                                     <figure class="cardImage col-12">
                                          <img src="{{asset('uploads/recettes/'~ recette.image)}}" style="max-width:100%"/>
                                      </figure>
 
@@ -73,82 +89,6 @@
                              <hr id="homeDivider1"/>
 
                          </div>    
-
-                         {# ************************* #}
-
-                         <div class="row">    
-
-                             {# ? Partie: Note de la recette #}
-
-                             <div class="col-12 text-center">
-
-                                 <legend> ⭐⭐⭐⭐⭐ </legend> 
-
-                                 <p>
-
-                                     Note : 
-
-                                         {% if moyenneNote == 0 %} 
-
-                                             Cette recette n'as pas encore reçu de Note
-
-                                         {% else %}
-
-                                            {{moyenneNote}}
-
-                                         {% endif %}
-
-                                 </p>
-
-                                 <span> 8,201+ reviews </span>
-
-                                 {# <p>  #}
-
-                                     {# {% if recette.Difficulte == 1 %}
-
-                                         <p> Facile </p>
-
-                                     {% elseif recette.Difficulte == 2 %}
-
-                                         <p> Intermédiaire </p>
-
-                                     {% elseif recette.Difficulte == 3 %}
-
-                                         <p> Difficile </p>
-
-                                     {% else %}
-
-                                         Oups ! Quelque chose ne s'est pas bien déroulé. 
-
-                                     {% endif %} #}
-
-                                 {# </p> #}
-
-                             </div>
-
-                             {# ? Partie: Bouton Sauvegarder la note #}
-
-                             {% if haveNoted == false %}
-
-                                 <div class="col-6">
-
-                                     {{ form_start(formNote) }}
-
-                                          {{ form_widget(formNote) }}
-
-                                         <button class="col-12 btn btn-success bg-gradient">
-                                             {{ button_label|default('Sauvegarder') }}
-                                         </button>
-
-                                     {{ form_end(formNote) }}
-
-                                 </div>
-
-                             {% endif %}
-
-                         </div>  
-
-                         <hr id="homeDivider2"/>  
 
                          {# ************************* #} 
 
@@ -170,8 +110,6 @@
 
                              </section>
 
-                             {# ************************* #} 
-
                              {# ? Partie: Temps de cuisson #}
 
                              <section class="col-4">
@@ -184,8 +122,6 @@
 
                              </section> 
 
-                             {# ************************* #} 
- 
                              {# ? Partie: Niveau de difficulté #}
 
                              <section class="col-4">
@@ -234,13 +170,39 @@
 
                          </div>        
 
-                         {# ************************* #}
-    
                          <hr id="homeDivider2"/>
 
-                         <div class="row">        
- 
-                             {# ? Partie: Favoris #}    
+                         {# ************************* #}
+                        
+                         {# ? Partie: Bouton Sauvegarder la note #}
+
+                         <div class="row">    
+
+                             {% if haveNoted == false %}
+
+                                 <div class="col-12">
+
+                                     {{ form_start(formNote) }}
+
+                                          {{ form_widget(formNote) }}
+
+                                         <button class="col-12 btn btn-success bg-gradient">
+                                             {{ button_label|default('Sauvegarder') }}
+                                         </button>
+
+                                     {{ form_end(formNote) }}
+
+                                 </div>
+
+                             {% endif %}
+
+                         </div>  
+
+                         {# ************************* #}
+
+                         {# ? Partie: Favoris #}    
+
+                         <div class="row">          
 
                              {% if app.user %}
 
@@ -254,10 +216,8 @@
 
                                          <section class="col-12">
 
-                                             {# <p> Ajouter en favori : </p> #}
-                                           
                                              <button type="submit" id="favori_ajoutFavori" name="favori[ajoutFavori]" class="form-control"><img style="width:40px" src="/Images/heartempty.png" alt="coeur vide">
-                                                 {{ form_row(formFavori.ajoutFavori, {'attr': {'label': ' Ajouter en favori :', 'style': 'display:none'}}) }}
+                                                 Ajouter la recette en favori {{ form_row(formFavori.ajoutFavori, {'attr': {'label': ' Ajouter en favori :', 'style': 'display:none'}}) }}
                                              </button>
                                          
                                          </section>
@@ -272,13 +232,12 @@
 
                                      {{ form_start(removeFavori) }}
 
-                                         <div class="btn-group col-12">
-
-                                             <p> Retirer des favoris : </p>
+                                         <section class="btn-group col-12">
 
                                              <button type="submit" id="remove_favori_enleverFavori" name="remove_favori[enleverFavori]" class="form-control" label=" ">
                                            
                                                  <img style="width:40px" src="/Images/heart.png" alt="coeur plein">
+                                                 Retirer la recette des favoris
                                                  {{ form_row(removeFavori.enleverFavori, {'attr': {'label': ' ', 'style': 'display:none'}}) }}
 
                                              </button>
@@ -297,67 +256,75 @@
 
                      </div>
 
-                 </article>    
+                 </article>   
+
+                 <hr/> 
 
                  {# ************************************************** #}      
 
-                 {# ! Partie n°2: Détails de la recette/commmentaires #}
+                 {# ? Partie n°2: Détails de la recette/commmentaires #}
 
-                 {# <hr id="homeDivider3"/> #}
-                 <br/>
+                 <div class="flex-container3 row p-5"> 
 
-                     <div class="flex-container3 row"> 
+                     {# ? Partie: Nombre de personnes #}
 
-                         {# ? Partie: Nombre de personnes #}
+                     <div class="col-12 text-center">
 
-                         <div class="col-12">
-                      
-                             {# <hr id="homeDivider3"/>   #}
-                             <hr/> 
+                         {# <hr/>  #}
 
-                             <h2> Pour {{recette.NbPersonnes}} Convives </h2>
+                         <h2> Pour {{recette.NbPersonnes}} Convives </h2>
                             
-                         </div>
+                     </div>
 
-                         {# ? Partie: Nom de l'ingrédient #}
+                     {# ? Partie: Nom de l'ingrédient #}
 
-                         <div class="container row col-12">
+                     <div class="container row col-12 text-center">
 
-                             {% for ingredients in listeIngredient %}
-                             
-                                 <div class="col-6">
-                                     <p>{{ingredients.IngredientsId.name}} : {{ingredients.Quantite}} {{ingredients.UnitemesureId.name}} </p> 
-                                 </div>
+                         {% for ingredients in listeIngredient %}
+                         
+                             {# <div class="col-6"> #}
+                             <div>
 
-                                 <hr/> 
+                                 <p> 
 
-                             {% endfor %}
+                                     <h6> Ingrédient(s) de la recette<h6> 
 
-                         </div>
+                                     <br/>
+                                 
+                                         <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                                             {{ingredients.IngredientsId.name}} : 
+                                             {{ingredients.Quantite}} 
+                                             {{ingredients.UnitemesureId.name}}
+                                
+                                 </p> 
+                           
+                             </div>
+
+                             {# <hr/>  #}
+
+                         {% endfor %}
 
                      </div>
 
-                 <br/>   
+                 </div>
 
                  {# ************************* #}   
  
-                     <div class="row"> 
+                 {# ? Partie n°3: SlideShow #}
 
-                         {# ! Partie n°3: SlideShow #}
+                 <article class="row">              
 
-                         <section class="col-12">
+                     <section class="col-12">
 
-                             <button class="col-12 btn btn-success btn-lg px-4 gap-3">
-                                 Passer en mode " Slideshow ". 
-                             </button>
+                         <button class="col-12 btn btn-success btn-lg px-4 gap-3">
+                             Passer en mode " Slideshow ". 
+                         </button>
 
-                         </section>
+                     </section>
 
-                     </div> 
+                 </article> 
 
-                 <hr id="homeDivider3"/>       
-
-                 {# ************************* #}
+                 <hr/>      
 
                  {# ? Partie: Contenu de Slideshow #}
 
@@ -371,7 +338,7 @@
                      
                          <div class="col-1">
 
-                                     <h3> {{etapes.isNumber}} / {{nombreEtapes}} </h3>
+                             <h3> {{etapes.isNumber}} / {{nombreEtapes}} </h3>
 
                          </div>
 
@@ -381,7 +348,7 @@
 
                          <div class="col-11">
 
-                                     <h3> {{etapes.name|capitalize }} </h3>
+                             <h3> {{etapes.name|capitalize }} </h3>
 
                          </div>
 
@@ -391,21 +358,21 @@
 
                          {% if etapes.image %}
 
-                                     <div class ="col-6">
-                                         <img src="{{asset('/uploads/etapes/'~ etapes.image)}}" alt="image de l'étape" style="max-width:100%"/>
-                                     </div>
+                             <div class ="col-6">
+                                 <img src="{{asset('/uploads/etapes/'~ etapes.image)}}" alt="image de l'étape" style="max-width:100%"/>
+                             </div>
 
-                                     <div class="col-6">
-                                         {{etapes.description|capitalize }}
-                                     </div>
+                             <div class="col-6">
+                                 {{etapes.description|capitalize }}
+                             </div>
 
-                                     {% else %}
+                             {% else %}
 
-                                         <div class="col-12">
-                                             {{etapes.description|capitalize }}
-                                         </div>
+                                 <div class="col-12">
+                                     {{etapes.description|capitalize }}
+                                 </div>
 
-                                     </div>
+                             </div>
 
                          {% endif %}
 
@@ -416,10 +383,52 @@
                  {# ************************* #}
 
                  {# ? Partie: Commentaires #}
-                
-                 <div class="col-12">
 
-                     <h2> Commentaires : </h2>
+                 <div class="bg-dark text-white p-5 rounded">
+
+                     {# ? Partie: Laisser un commentaire #}
+
+                     {% if app.user %}
+
+                         <div class="col-12">
+
+                             {# ************************* #}
+
+                             <hr id="homeDivider1"/>
+
+                                 <h2 class=" mb-4"> Laisser un commentaire </h2>
+
+                             <hr id="homeDivider2"/>
+
+                             {# ************************* #}
+
+                             {{ form_start(formCommentaire) }}
+
+                                 {# ? Bouton action: Sauvegarder mon commentaire #}
+
+                                 {{ form_widget(formCommentaire) }}
+
+                                     <br/>
+
+                                     <button type="button" class="btn btn-success btn-lg bg-gradient col-12 text-white">
+                                         {{ button_label|default('Sauvegarder') }}
+                                     </button>
+
+                             {{ form_end(formCommentaire) }}
+
+                         </div>
+
+                     {% endif %}
+
+                     {# ? Partie: Titre de la section #}
+
+                     <hr id="homeDivider1"/>      
+
+                         <h2 class="col 12 mb-4"> Commentaires : </h2>
+
+                     <hr id="homeDivider2"/>   
+
+                     {# ************************* #}
                      
                      {% if listeCommentaires %}
 
@@ -427,144 +436,194 @@
 
                              {# ************************* #}
 
-                             {# ? Partie: Information sur le commentaire #}
+                             {# ! todo: j'ai zjouter l'avatar à la partie commentaire mais je ne suis pas sur ca fonctionne. a corriger #}
 
-                             <div class="col-4">
+                             <div class="d-flex text-muted pt-3">                          
 
-                                         <p>
+                                 {# {% if user.0.avatar %} #}
+                                 {% if user.avatar %}
 
-                                             {{commentaire.userId.login}} : <br/>
+                                     <figure>
+                                         <img id="cardAvatar" class="card-img-top" alt="Image de l'avatar de l'utilisateur" src="{{ asset('uploads/avatar/' ~ user.avatar) }}"/>
+                                         {# <img src="{{asset("uploads/avatar")}} "alt="Image de l'avatar de l'utilisateur"> #}
+                                     </figure>
 
-                                             le : {{commentaire.createdAt|date('d-m-Y')}} à {{commentaire.createdAt|date('h:i:s')}}
-
-                                             {% if commentaire.editedAt %}
-
-                                                 <br/>
-                                                 Modifier le : {{commentaire.editedAt|date('d-m-Y')}} a {{commentaire.editedAt|date('h:i:s')}}
-                                            
-                                             {% endif %}
-
-                                         </p>
-
-                             </div>
-
-                             {# ************************* #}
-
-                             {# ? Partie: Contenu du commentaire #}
-  
-                             <div class="col-12">
-
-                                         <p>
-                                         {# https://stackoverflow.com/questions/10487855/how-to-replace-break-lines-in-twig #}
-                                             {{commentaire.content|capitalize|nl2br}}
-                                         </p>
-
-                             </div>
-                             
-                             {# *** *** *** **** *** *** #}
-
-                             {% if app.user %}
-
-                                 {% if app.user.id == commentaire.userId.id %}
-
-                                 <main class="modal_comment_{{commentaire.id}}">
-
-                                     <button type="button" class=" btn btn-success btn-lg login-position" data-bs-toggle="modal" data-bs-target="#Modal_{{commentaire.id}}">
-                                         Modifier mon commentaire
-                                     </button>
-
-                                     {# ***** MODAL ***** #}
-
-                                     <div class="login-box modal fade" id="Modal_{{commentaire.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                   
-                                         <div class="modal-dialog modal-dialog-centered" style="width:900px;max-width:1200px!important">
+                                 {% else %}
+                                     
+                                     <div class="col-4 text-center "> 
+                                         <img id="avatarUser"src="/logo.png" alt="Logo du site" >
+                                     </div>
+                
+                                     {# <h2> Pas d'avatar disponible </h2> <br/> #}
+                                     {# <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                         <title>Placeholder</title>
+                                         <rect width="100%" height="100%" fill="#007bff"></rect>
+                                         <text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text>
+                                     </svg> #}
                                     
-                                             <div class="modal-content ">
+                                 {% endif %}
 
-                                                 {# ************************* #}
+                                 <div class="pb-0 mb-0 small lh-sm border-bottom w-100">
 
-                                                 <section class="modal-header ">
+                                     <div class="d-flex justify-content-between">
 
-                                                     <h5 class="modal-title" id="exampleModalLabel">
-                                                         Modifier mon commentaire 
-                                                     </h5>
-                                                   
-                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                               
-                                                 </section>
+                                         <strong class="text-white">
 
-                                                 {# ************************* #}
+                                             {{commentaire.userId.login}} :
 
-                                                 <article class="modal-body">
+                                         </strong>
+
+                                         {# ? Partie: Modifier commentaire #}
+
+                                         <div class="col-md-0 themed-grid-col">
+                                                
+                                             {% if app.user %}
+
+                                                 {% if app.user.id == commentaire.userId.id %}
+
+                                                     <main class="modal_comment_{{commentaire.id}}">
+
+                                                         {# ? Bouton action: Modifier mon commentaire #}
+
+                                                         <button type="button" class=" btn btn-primary btn-lg login-position" data-bs-toggle="modal" data-bs-target="#Modal_{{commentaire.id}}">
+                                                             {# Modifier mon commentaire #}
+                                                             {# <i class="fa fa-ellipsis-v" aria-hidden="true"></i> #}
+
+                                                             <abbr title="Modifier"> 
+                                                                 <i class="fa fa-indent" aria-hidden="true"></i>
+                                                             </abbr>    
+
+                                                         </button>                              
+
+                                                         {# ! todo: il nous manque la fonction "supprimer un commentaire". j'ai essayer mais j'ai pas réussi à l'implémenter #}                                                                                                                                              
+                                                         {# ! todo: j'ai pas réussi à modifier, replacer la partie " laisser un commentaire ainsi que le frame. faudrait les re-centrer, je dois revenir dessus. CJ_ #}
+
+                                                         {# ***** MODAL ***** #}
+
+                                                         <div class="login-box modal fade" id="Modal_{{commentaire.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        
+                                                             <div class="modal-dialog modal-dialog-centered" style="width:900px;max-width:1200px!important">
+                                                        
+                                                                 <div class="modal-content ">
+
+                                                                     {# ************************* #}
+
+                                                                     <section class="modal-header ">
+
+                                                                         <h5 class="modal-title" id="exampleModalLabel">
+                                                                             Modifier mon commentaire 
+                                                                         </h5>
+                                                                       
+                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                   
+                                                                     </section>
+
+                                                                     {# ************************* #}
+
+                                                                     <article class="modal-body">
  
-                                                     <iframe id="ModificationCommentaire"
-                                                             title="Modification Commentaire"
-                                                             width="800"
-                                                             height="600"
-                                                             sandbox="allow-scripts allow-forms allow-same-origin allow-modals"
-                                                             src="{{path('commentaires_edit',{'id': commentaire.id})}}">
-                                                     </iframe>
-                                              
-                                                 </article>  
+                                                                         <iframe id="ModificationCommentaire"
+                                                                                 title="Modification Commentaire"
+                                                                                 width="800"
+                                                                                 height="600"
+                                                                                 sandbox="allow-scripts allow-forms allow-same-origin allow-modals"
+                                                                                 src="{{path('commentaires_edit',{'id': commentaire.id})}}">
+                                                                         </iframe>
+                                                                  
+                                                                     </article>  
 
-                                                 {# ************************* #}
-                                                           
-                                             </div>
+                                                                     {# ************************* #}
+                                                                               
+                                                                 </div>
+
+                                                             </div>
+
+                                                         </div>
+
+                                                         {# ************************* #}
+
+                                                     </main>
+                                             
+                                                 {% endif %}
+
+                                             {% endif %}
 
                                          </div>
 
+                                         {# ************************* #}
+
+                                     </div>
+                                  
+                                     <span class="d-block text-white ">
+
+                                         <p>
+                                             @{{commentaire.content|capitalize|nl2br}}
+                                         </p>
+
+                                     </span>
+
+                                     {# ************************* #}
+
+                                     {# ? Partie: Information sur le commentaire #}
+
+                                     <div class="col-md-4 themed-grid-col">
+
+                                         <p>
+                                             Le {{commentaire.createdAt|date('d-m-Y')}} à {{commentaire.createdAt|date('h:i:s')}}
+                                         </p>    
+
+                                         <br/>
+
+                                         {% if commentaire.editedAt %}
+
+                                             Modifier le :
+                                             {{commentaire.editedAt|date('d-m-Y')}} a {{commentaire.editedAt|date('h:i:s')}}
+                                    
+                                         {% endif %}
+
                                      </div>
 
-                                 </main>
+                                 </div>
 
-                                 {# *** *** *** **** *** *** #}
-
-                                 {# <div class="col-12">
-                                    <a href="{{path('commentaires_edit',{'id': commentaire.id})}}" class="btn btn-success btn-lg">Modifier mon commentaire</a>
-                                 </div> #}
-                                 
-                                 {% endif %}
-
-                             {% endif %}
+                             </div>
 
                          {% endfor %}
 
                      {% else %}
 
-                     <p>
-                         Il n'y as pas encore de commentaires. 
-                     </p>
+                         <p>
+                             Il n'y as pas encore de commentaires. 
+                         </p>
 
-                 {% endif %}
+                     {% endif %}
 
-                 {# </div> #}
+                 </div> 
 
-                 {# *** *** *** **** *** *** #}
+                 {# ************************* #}
 
-                 {% if app.user %}
+                 <br/>
 
-                     <div class="col-12">
+                 {# ? Bouton action: Retour à la liste #}
 
-                         Laisser un commentaire : 
+                 <div>
 
-                         {{ form_start(formCommentaire) }}
+                     <a href="{{ path('recette_index') }}" type="submit" class="btn btn-success col-12 btn-lg">                                
+                          Retour à la liste
+                     </a>    
 
-                             {{ form_widget(formCommentaire) }}
+                 </div>
 
-                             <button class="btn">
-                                 {{ button_label|default('Sauvegarder') }}
-                             </button>
+                 {# ************************* #}
+ 
+             </div>
 
-                         {{ form_end(formCommentaire) }}
+         </main>     
 
-                     </div>
+         {# *** *** *** **** *** *** #}
 
-                 {% endif %}
-
-                 {# *** *** *** **** *** *** #}
-
-                 <script type="text/javascript" src="{{asset('js/modalCommentaireButton.js')}}"></script> 
-                 
-                 {# {{ include('recette/_delete_form.html.twig') }} #}
+         <script type="text/javascript" src="{{asset('js/modalCommentaireButton.js')}}"></script> 
+         
+         {# {{ include('recette/_delete_form.html.twig') }} #}
 
      {% endblock %}
+     

@@ -12,34 +12,47 @@
      
      {% block body %}
 
-         <main class="Form">  
+         <main class="Form"> 
+
+             <div class="text-center"> 
+
+                 {# ********************* #}
  
-             <section class="text-center">
+                 <section>
 
-                 <h1 class="h1 mb-3 font-weight-normal"> Créer un nouvel ingrédient </h1>
+                     <h1> Créer un nouvel ingrédient </h1>
 
-             </section>      
+                 </section>    
+
+                 {# ********************* #}  
      
-             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
 
-                 <ol class="breadcrumb">
-                     <li class="breadcrumb-item" name="Etape n°1" alt="Etape n°1: Créer une nouvelle recette"> Etape n°1: Créer une nouvelle recette </li>
-                     <li class="breadcrumb-item active" aria-current="page" name="Etape n°1" alt="Etape n°2: Ajout d'ingrédient" aria-current="page"> Etape n°2: Ajout d'ingrédient </li>    
-                 </ol>
+                     <ol class="breadcrumb">
+                         <li class="breadcrumb-item" name="Etape n°1" alt="Etape n°1: Créer une nouvelle recette"> Etape n°1: Créer une nouvelle recette </li>
+                         <li class="breadcrumb-item active" aria-current="page" name="Etape n°1" alt="Etape n°2: Ajout d'ingrédient" aria-current="page"> Etape n°2: Ajout d'ingrédient </li>    
+                     </ol>
 
-             </nav>
+                 </nav>
 
-             <article class="btn-group-vertical">
+                 {# ********************* #}
 
-                 <div class="text-center">
-                     {{ include('recette/_form.html.twig') }}
-                 </div>
-              
-                 <a href="{{ path('recette_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
-                     Retour à la liste
-                 </a>
+                 {# <article class="btn-group-vertical"> #}
+                 <article>
 
-             </article>
+                     <div class="text-center">
+                         {{ include('recette/_form.html.twig') }}
+                     </div>
+                  
+                     <a href="{{ path('recette_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+                         Retour à la liste
+                     </a>
+
+                 </article>
+
+                 {# ********************* #}
+
+             </div>    
 
          </main>
 

@@ -30,6 +30,8 @@ class CommentairesType extends AbstractType
                     ])
                 ],
                 'required' => true,
+                'label' => 'Ajouter un commentaire',
+                
             ])
         ;
     }

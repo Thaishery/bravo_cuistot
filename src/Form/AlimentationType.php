@@ -18,7 +18,7 @@ class AlimentationType extends AbstractType
             ->add('name', TextType::class,[
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Veuillez entrer un nom.'
+                        'message' => 'Veuillez entrer un type d\'alimentation'
                     ]),
                     new Assert\Regex([
                         'pattern' => '/^[a-zA-ZàâäêéèëîïôöùûüÀÂÄÊËÎÏÔÖÙÛÜŒœÇç ]+/',

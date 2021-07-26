@@ -410,6 +410,7 @@
     
      .flex-container3 {
       border-radius: 8px;  
+      margin: 1px;
       background-image: url("https://www.transparenttextures.com/patterns/xv.png");
        /* background-image: url("/Images/backgroundFont6.jpg");  */
        /* background-image: linear-gradient(to bottom, #f06292, #af4b6c, #713448, #3a1e26, #000000); */
@@ -449,8 +450,8 @@
 
       /* ? bordure avatar + show_recette */
 
-      .container-fluid,
-      #recette,
+     
+      /* #recette,
       #right_element,
       #noteMoyenne,
       #avatar,
@@ -459,7 +460,7 @@
         border: 20px groove rgba(25, 135, 84, 0.9) ;
         border-radius: 20px;
         box-shadow: -3px 3px 10px #f0626f;
-    }  
+    }   */
 
      /* ? Style des émoji */
 

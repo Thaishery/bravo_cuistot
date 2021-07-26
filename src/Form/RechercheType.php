@@ -48,7 +48,8 @@ class RechercheType extends AbstractType
                 'choice_label' =>'name',   
                 'placeholder' => 'Ne pas rechercher',
                 'required' => false,          
-                'label' => 'Alimentation' ])
+                'label' => 'Alimentation' 
+             ])
 
              ->add ('ingredient', EntityType::class,[
                  'class' => Ingredients::class,
