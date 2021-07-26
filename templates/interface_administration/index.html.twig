@@ -1,4 +1,3 @@
-
  {# ? Partie: Interface d'administration  #}
 
  {% extends 'base.html.twig' %}
@@ -39,7 +38,7 @@
      
                          {# ? Partie: Les dernierès recettes. #}
      
-                         <article class="container">
+                         <article class="flex-container">
      
                              {# ******************** #}
      
@@ -59,13 +58,13 @@
      
                                                  <div class="card-body">
      
-                                                     <figure class="cardImage">
+                                                     <div class="cardImage">
      
                                                          <img class="administrationLogo carteSpeciale rounded" 
                                                              src="{{asset ('Images/avatar.png')}}"
                                                              alt="Image de type emoji, d'une personne. Cette image représente la section utilisateur.S">
                                                     
-                                                     </figure>
+                                                     </div>
                                                      
                                                      <a href="{{path("user_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12 ">                                
                                                          Utilisateurs
@@ -87,9 +86,9 @@
      
                                                  <div class="card-body"> 
      
-                                                     <figure class="cardImage">
+                                                     <div class="cardImage">
                                                          <img class="administrationLogo carteSpeciale rounded" src="{{asset ('Images/Nourriture.png')}}" alt="Cette image représente la section Recettes">
-                                                     </figure>
+                                                     </div>
                                                      
                                                      <a href="{{path("administration_recette_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12 ">                                
                                                          Recettes
@@ -111,9 +110,9 @@
      
                                                  <div class="card-body">
      
-                                                     <figure class="cardImage">
+                                                     <div class="cardImage">
                                                          <img class="administrationLogo carteSpeciale rounded" src="{{asset ('Images/Galerie(3).png')}}" alt="Cette image représente la section Commentaires">
-                                                     </figure>
+                                                     </div>
                                                      
                                                      <a href="{{path("administration_comentaires_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12">                                
                                                          Commentaires
@@ -135,9 +134,9 @@
      
                                                  <div class="card-body">
      
-                                                     <figure class="cardImage">
+                                                     <div class="cardImage">
                                                          <img class="administrationLogo carteSpeciale rounded" src="{{asset ('Images/beverage.jpg')}}" alt="Cette image représente la section Catégories">
-                                                     </figure>
+                                                     </div>
                                                      
                                                      <a href="{{path("categories")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12">                                
                                                          Catégories
@@ -159,9 +158,9 @@
      
                                                  <div class="card-body">
      
-                                                     <figure class="cardImage">
+                                                     <div class="cardImage">
                                                          <img class="administrationLogo carteSpeciale rounded" src="{{asset ('Images/JunkFood.jpg')}}" alt="Cette image représente la section Ingrédients">
-                                                     </figure>
+                                                     </div>
                                                      
                                                      <a href="{{path("administration_ingredients_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12">                                
                                                          Ingrédients
@@ -183,9 +182,9 @@
      
                                                  <div class="card-body">
      
-                                                     <figure class="cardImage">
+                                                     <div class="cardImage">
                                                          <img class="administrationLogo carteSpeciale rounded" src="{{asset ('Images/mesure2.jpg')}}" alt="Cette image représente la section Mesures">
-                                                     </figure>
+                                                     </div>
                                                      
                                                      <a href="{{path("unite_mesure_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12 ">                                
                                                          Mesures
@@ -210,9 +209,6 @@
                  </div>      
 
              </main>
-
-         {# </div> #}
-
   
      {% endblock %}
 

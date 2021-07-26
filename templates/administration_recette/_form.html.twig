@@ -1,13 +1,197 @@
- {# ? Feuille du bouton Sauvegarder #ModeAdmin #} 
 
      {{ form_start(form) }}
-     
-         {{ form_widget(form) }}
-     
-             <button class="btn col-12 btn-dark btn-lg px-4 gap-3"> 
+
+         <article class="flex-container3 text-center">
+
+             <div class="row">
+
+                 {# ********** NOM DE LA RECETTE ********** #}     
+
+                 <section class="col-sm-4">  
+
+                     {# *** LABEL *** #}
+                     <legend> Nom de la recette </legend>
+                 
+                     {# *** INPUT *** #}
+                     {{ form_widget(form.name,{ 
+                 
+                         'attr': { 
+                 
+                         'class':'name',
+                         'placeholder':'Entrer un nom de recette'
+                         
+                         }}) }}  
+                 
+                 </section>
+
+                 {# ********** Niveau de difficulté ********** #}     
+
+                 <section class="col-sm-4">  
+
+                     {# *** LABEL *** #}
+                     <legend> Niveau de difficulté </legend>
+                   
+                     {# *** INPUT *** #}
+                     {{ form_widget(form.difficulte,{ 
+                   
+                         'attr': {                        
+                             'class':'difficulte',
+                             'placeholder':'Entrez un niveau de 1 à 3'       
+                         }
+
+                     }) }} 
+                 
+                 </section>
+
+                 {# ********** Temps de préparation ********** #} 
+
+                 <section class="col-sm-4">  
+
+                     {# *** LABEL *** #}
+                     <legend> Temps de préparation </legend>
+                    
+                     {# *** INPUT *** #}
+                     {{ form_widget(form.temps_preparation,{ 
+                    
+                         'attr': {                        
+                             'class':'temps_preparation',
+                             'placeholder':'Entrez un temps de préparation'       
+                         }
+
+                     }) }} 
+                 
+                 </section>
+
+             </div>  
+
+             <div class="row">      
+
+                 {# ********** Temps de cuisson ********** #} 
+   
+                 <section class="col-sm-4">  
+
+                     {# *** LABEL *** #}
+                     <legend> Temps de cuisson </legend>
+                      
+                     {# *** INPUT *** #}
+                     {{ form_widget(form.temps_cuisson,{ 
+                
+                         'attr': {                        
+                             'class':'temps_cuisson',
+                             'placeholder':'Entrez un temps de cuisson'       
+                         }
+
+                     }) }} 
+
+                 </section>
+
+                 {# ********** Nombre de personnes ********** #} 
+   
+                 <section class="col-sm-4"> 
+
+                     {# *** LABEL *** #}
+                     <legend> Nombre de personnes </legend>
+                 
+                     {# *** INPUT *** #}
+                     {{ form_widget(form.nb_personnes,{ 
+                    
+                         'attr': {                        
+                             'class':'nb_personnes',
+                             'placeholder':'Entrez un nombre de personnes'       
+                         }
+
+                     }) }} 
+
+                 </section>
+
+                  {# ********** Type d'alimentation ********** #} 
+
+                 <section class="col-sm-4"> 
+
+                     {# *** LABEL *** #}
+                     <legend> Type d'alimentation </legend>
+                   
+                     {# *** INPUT *** #}
+                     {{ form_widget(form.alimentation_id,{ 
+                   
+                         'attr': {                        
+                             'class':'alimentation_id',
+                             'placeholder':'Entrez un type d_alimentation'       
+                         }
+
+                     }) }} 
+
+                 </section>  
+
+             </div> 
+
+             <div class="row">       
+
+                 {# ********** Type de plat ********** #} 
+
+                 <section class="col-sm-4"> 
+
+                     {# *** LABEL *** #}
+                     <legend> Type de plat </legend>
+                   
+                     {# *** INPUT *** #}
+                     {{ form_widget(form.plats_id,{ 
+                   
+                         'attr': {                        
+                             'class':'plats_id',
+                             'placeholder':'Entrez un type de plat'       
+                         }
+
+                     }) }} 
+
+                 </section>
+
+                 {# ********** Type de cuisson ********** #} 
+
+                 <section class="col-sm-4"> 
+
+                     {# *** LABEL *** #}
+                     <legend> Type de cuisson </legend>
+                 
+                     {# *** INPUT *** #}
+                     {{ form_widget(form.cuisson_id,{ 
+                   
+                         'attr': {                        
+                             'class':'cuisson_id',
+                             'placeholder':'Entrez un type de cuisson'       
+                         }
+
+                     }) }} 
+
+                 </section>
+                 
+                 {# ********** Image de la recette ********** #} 
+
+                 <section class="col-sm-4"> 
+
+                     {# *** LABEL *** #}
+                     <legend> Image </legend>
+                 
+                     {# *** INPUT *** #}
+                     {{ form_widget(form.image,{ 
+                    
+                         'attr': {                        
+                             'class':'image',
+                             'placeholder':''       
+                         }
+
+                     }) }} 
+
+                 </section> 
              
-                 {{ button_label|default('Sauvegarder') }} 
-             
-             </button>
+             </div>  
+
+             <hr/>
+
+          </article> 
+        
+         <button class="btn col-12 btn-dark btn-lg px-4 gap-3"> 
+             {{ button_label|default('Sauvegarder') }} 
+         </button>
      
      {{ form_end(form) }}

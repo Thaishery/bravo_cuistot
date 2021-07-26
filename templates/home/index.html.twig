@@ -21,46 +21,16 @@
 
                  <br/>
 
-                 {# <nav id="homePageSommaire">
-
-                     <ul> 				 
-                         <li><a href="#bienvenue"> Bienvenue </a></li>
-                         <li><a href="#presentation"> Présentation </a></li>
-                         <li><a href="#credits"> Crédits </a></li>						
-                     </ul>
-
-                 </nav> #}
-
                      <section id="ctaButtonConteneur1" class="presentation first">
 
                      {# ? Conteneur de gauche #}
 
                          <div class="product-presentation"> 
 
-                             {# ? Titre #}
-                             {# <h1> Accueil </h1>
-                             
-                             <hr id="homeDivider1"/>
-
-                                 <p class="text-center col-12">
-                                     
-                                     <em> Bienvenue sur Bravo Cuistot 
-    
-                                         {% if app.user %}
-                                             {{ app.user.username }} ! 
-                                         {% endif %}  
-
-                                     </em> 🏡 
-
-                                 </p>   
-
-                             <hr id="homeDivider2"/> #}
-
                              {# ? Titre d'accroche #}
                          
                              <h2 class"phraseAccroche"> 
 
-                                 {# <em> Créer vos propres recettes de cuisine <em> #}
                                  <em> 
                                      Vos recettes préférées <br/> 
                                      sont à l'affiche 
@@ -97,7 +67,9 @@
                 
              </div>
 
-         {% endif %}     
+         {% endif %} 
+
+         {% if app.user%}    
 
          {# ? Partie 2 de l'accueil du site: Présentation #}
 
@@ -107,30 +79,26 @@
                  <a id="presentation"></a>	
 
                  <br/>
+                                          
+                 {# ************************************** #} 
 
-                 {# <nav id="homePageSommaire">
+                 {# ? Phrase d'accueil du visiteur #} 
 
-                     <ul> 				 
-                         <li><a href="#bienvenue"> Bienvenue </a></li>
-                         <li><a href="#presentation"> Présentation </a></li>
-                         <li><a href="#credits"> Crédits </a></li>						
-                     </ul>
+                     <p class="text-center col-12">
+                         
+                         <em> Bienvenue sur Bravo Cuistot 
+    
+                             {% if app.user %}
+                                 {{ app.user.username }} ! 
+                             {% endif %}  
 
-                 </nav> #}
+                         </em> 🏡 
 
-                 <br/>
+                     </p> 
+
+                 {# ************************************** #} 
 
                  <div class="text-center col-12">
-
-                     {# **************************************************************************************** #}
-     
-                     {# ? Partie: Logo #}
-
-                     {# <br/> #}
-
-                     {# <div class="col-12 text-center "> 
-                         <img id="avatarUser"src="/logo.png" alt="Logo du site" >
-                     </div> #}
 
                      <hr id="homeDivider3"/>
 
@@ -143,8 +111,8 @@
                          <div class="row">
 
                              {# ************************************** #} 
-                         
-                             {# ? Bloc n°1 #} 
+
+                             {# ? Bloc n°1: 10 x Plus Appétissant #} 
 
                              <div class="col-md-4 col-sm-6 col-xs-12">
 
@@ -152,12 +120,10 @@
                                  
                                      🍝
 
-                                     {# <i class="fa fa-database"></i> #}
- 
                                      <h4> 10 x Plus Appétissant </h4>
 
                                      <p>
-                                         Rechercher ou concever vos propres recettes.<br/>
+                                         Rechercher ou concever vos propres recettes. <br/>
                                          Créer un compte gratuitement et accéder à des tonnes de recettes et plats du monde entier. <br/>
                                      </p>
                                 
@@ -167,15 +133,13 @@
 
                              {# ************************************** #} 
 
-                             {# ? Bloc n°2 #} 
+                             {# ? Bloc n°2: Manager votre profil #} 
 
                              <div class="col-md-4 col-sm-6 col-xs-12">
                              
                                  <div class="service-item">
                                  
                                      👨‍🍳
-
-                                     {# <i class="fa fa-database"></i> #}
                                  
                                      <h4> Manager votre profil </h4>
                                  
@@ -190,13 +154,11 @@
 
                              {# ************************************** #} 
 
-                             {# ? Bloc n°3 #} 
+                             {# ? Bloc n°3: Plateforme dédié #} 
 
                              <div class="col-md-4 col-sm-6 col-xs-12">
 
                                  <div class="service-item">
-
-                                     {# <i class="fa fa-database"></i> #}
         
                                      📡
 
@@ -223,372 +185,6 @@
   
              </div> 
 
-         {% if not app.user%}
-
-         {# ? Partie 3 de l'accueil du site: Pied de page (FOOTER) #}
-
-             <div id="bg3">
-
-                 {# ? Breadcrums n°3 #}
-                 <a id="credits"></a>
-
-                 <br/>
-
-                 {# <nav id="homePageSommaire">
-
-                     <ul> 				 
-                         <li><a href="#bienvenue"> Bienvenue </a></li>
-                         <li><a href="#presentation"> Présentation </a></li>
-                         <li><a href="#credits"> Crédits </a></li>						
-                     </ul>
-
-                 </nav> #}
-
-                 {% include 'partials/footer.html.twig' %}
-
-                 <footer class="text-center">
-
-                     {# ? Bouton Call-To-Action CTA #}
-
-                     <a name="callToActionButton1" href="{{path("app_register")}}" class=" col-6 text-center btn btn-success " >                                
-                         Nous rejoindre
-                     </a> 
-               
-                 </footer>
- 
-             </div>
-
-         {% endif %}    
-
-         {# ****************************** #}
-
-                 {# ? Partie: Les dernierès recettes. #}
-
-                 {# 
-                 <article class="flex-container">
-
-                     <div class="row">
-
-                         <div class="text-center"> #}
-
-                             {# ******************** #}
-
-                                 {# <div class="text-center p-4 p-md-5 mb-4 text-white rounded bg-dark">                                #}
-                                 {# <div class="text-center p-4 rounded ">                               
-   
-                                     <div class="col-md-12">
- 
-                                         <hr/> 
-
-                                             <h2 class="mb-3 rounded"> 
-                                                 Les dernierès recettes 🌆 
-                                             </h2>
-                                     
-                                         <hr/> #}
-                                        
-                                         {# ******************** #}
-
-                                         {# <div class="row"> #}
-                                     
-                                         {# ? Carte n°1 #}
-
-                                         {# <div class=" col-sm-3 ">
-
-                                             <div class="carteBg1 card mb-3">
-
-                                                 <div class="card-body">
-
-                                                     <h5 class="card-title"> Titre exemple </h5>
-                                                     <p class="card-text"> Article exemple </p>
-                                                     <a href="#" class="col-12 btn btn-success bg-gradient "> Petit-Déjeuner </a>
-
-                                                 </div>
-
-                                             </div>
-
-                                         </div> #}
-
-                                         {# ******************** #}
-
-                                         {# ? Carte n°2 #}
-
-                                         {# <div class="col-sm-3">
-    
-                                             <div class="carteBg2 card mb-3">
-
-                                                 <div class="card-body">
-    
-                                                     <h5 class="card-title"> Titre exemple </h5>
-                                                     <p class="card-text"> Article exemple </p>
-                                                     <a href="#" class="col-12 btn btn-success bg-gradient"> Entrées </a>
-                                                     
-                                                 </div>
-    
-                                             </div>
-    
-                                         </div> #}
-
-                                         {# ******************** #}
-
-                                         {# ? Carte n°3 #}
-
-                                         {# <div class="col-sm-3">
-
-                                             <div class="carteBg3 card mb-3">
-                                             {# <div class="card text-white bg-success bg-gradient mb-3"> #}
-
-                                                 {# <div class="card-body">
-
-                                                     <h5 class="card-title"> Titre exemple </h5>
-                                                     <p class="card-text"> Article exemple </p>
-                                                     <a href="#" class="col-12 btn btn-success bg-gradient"> Plats </a>
-                                                     
-                                                 </div>
-
-                                             </div>
-
-                                         </div>  #}
-
-                                         {# ******************** #}
- 
-                                         {# ? Carte n°4 #}
-
-                                         {# <div class="col-sm-3">
-
-                                             <div class="carteBg4 card mb-3">
-                                             {# <div class="card text-white bg-success bg-gradient mb-3"> #}
-
-                                                 {# <div class="card-body">
-
-                                                     <h5 class="card-title"> Titre exemple </h5>
-                                                     <p class="card-text"> Article exemple </p>
-                                                     <a href="#" class="col-12 btn btn-success "> Desserts </a>
-                                                     
-                                                 </div>
-
-                                             </div>
-
-                                         </div> #} 
-                                      
-                                         {# ******************** #}
-
-                                         {# </div>
-
-                                     </div>         
-
-                                 </div> #}
-
-                             {# ******************** #}   
-
-                         {# </div>
- 
-                     </div>
-
-                 </article> 
-
-                 <hr/>  #}
-
-                 {# **************************************************************************************** #}
-
-             {# </div> 
-             
-         </main> #}
- 
-     {% endblock %}
-
- {# ? CODE VRAC / TEST #}
-
- {# *************************** #}
- {# * Partie: Exemple article * #}
- {# *************************** #}
-
- {# 
-
-     
-
- #}
-
- {# ********************************* #}
- {# * Partie: Autre Exemple article * #}
- {# ********************************* #}
-
-  {# 
-  
-      <h3> Example lists </h3>
-
-      <p> And this is a definiton list: </p>
-
-      <dl>
-
-          <dt> HyperText Markup Language (HTML) </dt>
-          <dd> The language used to describe and define the content of a Web page</dd>
-          <dt> Cascading Style Sheets (CSS)</dt>
-          <dd> Used to describe the appearance of Web content</dd>
-          <dt> JavaScript (JS)</dt>
-          <dd> The programming language used to build advanced Web sites and applications</dd>
-  
-      </dl> 
-
-  #}
-
- {# ************************* #}
- {# ***** Partie: Aside ***** #}
- {# ************************* #}
-
- {# 
- 
- <div class="col-md-4">
-
-     <div class="position-sticky" style="top: 2rem;"> #}
-                      
-         {# ******************** #}
-
-         {# <hr style="color:white;"/>  #}
-
-         {# ? Partie: About #}
-
-         {# <div class="p-4 mb-3 bg-light rounded">
-
-             <h4 class="fst-italic"> Exemple Aside </h4>
-
-                 <p class="mb-0">
-                     Customize this section to tell your visitors a little bit about your publication,
-                      writers, content, or something else entirely. Totally up to you.
-                 </p>
-
-         </div> #}
-                 
-         {# ******************** #}
-
-         {# <hr style="color:white;"/>   #}
-
-         {# ******************** #}
-
-         {# <div class="card text-center">
-
-             <div class="card-header">
-                 Featured
-             </div>
-
-             <div class="card-body">
-                 <h5 class="card-title">Special title treatment</h5>
-                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                 <a href="#" class="btn btn-primary">Go somewhere</a>
-             </div>
-
-             <div class="card-footer text-muted">
-                 2 days ago
-             </div>
-
-         </div> #}
-       
-         {# ******************** #} 
-
-         {# ? Partie: Archives #}
- 
-             {# <div class="p-4">
-
-                 <h4 class="fst-italic"> Autre exemple Aside </h4>
-
-                     <ol class="list-unstyled mb-0">
-
-                         <li> 
-                             <a href="#"> A personnaliser </a> 
-                         </li>
-
-                         <li>
-                             <a href="#"> A personnaliser </a> 
-                         </li>
-
-                         <li>
-                             <a href="#"> A personnaliser </a>
-                         </li>
-
-                         <li>
-                             <a href="#"> A personnaliser </a>
-                         </li>
-
-                         <li>
-                             <a href="#"> A personnaliser </a> 
-                         </li>
-
-                         <li>
-                             <a href="#"> A personnaliser </a> 
-                         </li>
-
-                         <li>
-                             <a href="#"> A personnaliser </a>
-                         </li>
-
-                         <li>
-                             <a href="#"> A personnaliser </a>
-                         </li>
-
-                         <li>
-                             <a href="#"> A personnaliser </a>
-                         </li>
-
-                         <li>
-                             <a href="#"> A personnaliser </a>
-                         </li>
-
-                         <li> 
-                             <a href="#"> A personnaliser </a>
-                         </li>
-
-                         <li>
-                             <a href="#"> A personnaliser </a>
-                         </li>
-
-                     </ol>
-
-             </div> #}
-
-             {# ? Partie: ElseWhere / Réseaux Sociaux #}
-
-             {# <div class="p-4">
-    
-                 <h4 class="fst-italic"> Encore un exemple Aside </h4>
-    
-                     <ol class="list-unstyled">
-    
-                         <li><a href="#"> A personnaliser </a></li>
-                         <li><a href="#"> A personnaliser </a></li>
-                         <li><a href="#"> A personnaliser </a></li>
-                         
-                     </ol>
-    
-             </div> #}
-
-     {# </div>
-
- </div> 
- 
- #}
-    
-     {# {% endblock %} #}
-
-            {# <div id="about" class="about">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-md-12">
-                              <div class="titlepage">
-                                <h2>About Pcoint</h2>
-                                <span>d to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum gener</span></div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-md-8 offset-md-2">
-                              <div class="about_box">
-                                <figure>
-                                  <img src="/Images/backgroundFont1.jpg" style="width: 100%; height:100%"  alt="website template image">   
-                                </figure>
-                                <a class="read_more" >Read more</a></div>
-                            </div>
-                          </div>
-                        </div>
-                     </div> #}
-
-
-   
-     
+         {% endif %}      
+         
+  {% endblock %}  

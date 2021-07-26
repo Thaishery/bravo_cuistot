@@ -14,29 +14,45 @@
 
          <main class="Form"> 
 
-             <div class="py-5 text-center col-12">
+             <div class="text-center">
 
-                {# *********************************************** #}
+                 {# ********************* #}
 
                  <div class="container">
 
                      <div class="row">
 
-                           <div class="col-12">
-                              <h1>{{recette.name}} Prévisualisation</h1>
-                             {% if recette.image %}
-                <div class="col-12">
-                <img src="{{asset('uploads/recettes/'~ recette.image)}}" style="max-width:100%"/>
-                </div>
-                    {# {{recette.image}} #}
-                {% endif %}
-            </div>
+                         {# ********************* #}
+
+                         {# ? Partie: Titre & Image #}
 
                          <div class="col-12">
 
-                             <h2>pour {{recette.NbPersonnes}} Convives</h2>
+                             <h1> {{recette.name}} Prévisualisation </h1>
+                           
+                                 {% if recette.image %}
+
+                                     <div class="col-12">
+                                         <img src="{{asset('uploads/recettes/'~ recette.image)}}" style="max-width:100%"/>
+                                     </div>
+
+                                 {% endif %}
 
                          </div>
+
+                         {# ********************* #}
+
+                         {# ? Partie: Nombre de convives #}
+
+                         <div class="col-12">
+
+                             <h2> pour {{recette.NbPersonnes}} Convives </h2>
+
+                         </div>
+
+                         {# ********************* #}
+
+                         {# ? Partie: Liste des ingrédients #}
 
                          <div class="container row col-12">
 
@@ -54,6 +70,10 @@
 
                          </div>
 
+                         {# ********************* #}
+
+                         {# ? Partie: Temps de préparation #}
+
                          <div class="col-6">
 
                              <p>
@@ -62,34 +82,42 @@
 
                          </div>
 
+                         {# ********************* #}
+
+                         {# ? Partie: Niveau de difficulté #}
+
                          <div class="col-6">
 
-                             <p>Difficulté: 
+                             <p> Difficulté: 
 
                                  {% if recette.Difficulte == 1 %}
 
-                                 <img src="{{asset("Images/toqueDificulte.png")}}">
+                                     <img src="{{asset("Images/toqueDificulte.png")}}">
 
                                  {% elseif recette.Difficulte == 2 %}
 
-                                 <img src="{{asset("Images/toqueDificulte.png")}}">
-                                 <img src="{{asset("Images/toqueDificulte.png")}}">
+                                     <img src="{{asset("Images/toqueDificulte.png")}}">
+                                     <img src="{{asset("Images/toqueDificulte.png")}}">
 
                                  {% elseif recette.Difficulte == 3 %}
 
-                                 <img src="{{asset("Images/toqueDificulte.png")}}">
-                                 <img src="{{asset("Images/toqueDificulte.png")}}">
-                                 <img src="{{asset("Images/toqueDificulte.png")}}">
+                                     <img src="{{asset("Images/toqueDificulte.png")}}">
+                                     <img src="{{asset("Images/toqueDificulte.png")}}">
+                                     <img src="{{asset("Images/toqueDificulte.png")}}">
 
                                  {% else %}
 
-                                 something went wrong ! 
+                                     Oups ! Quelque chose d'imprévu s'est produit. 
 
                                  {% endif %}
 
                              </p>
 
                          </div>
+
+                         {# ********************* #}
+
+                         {# ? Partie: Temps de cuisson #}
 
                          <div class="col-6">
 
@@ -99,6 +127,10 @@
 
                          </div>
 
+                         {# ********************* #}
+
+                         {# ? Partie: Note de la recette #}
+
                          <div class="col-6">
 
                              <p>
@@ -107,49 +139,101 @@
 
                          </div>
 
+                         {# ********************* #}
+
+                         {# ? Partie: Slideshow #}
+
                          <div class="col-12">
 
-                         <button class="col-12 btn btn-success btn-lg px-4 gap-3"> passer en mode slideshow. </button>
+                             <button class="col-12 btn btn-success btn-lg px-4 gap-3"> 
+                                 Passer en mode Slideshow.
+                             </button>
                       
                          </div>
 
+                         {# ********************* #}
+
+                         {# ? Partie: Liste des étapes #}
+
                          <div class="col-12">
 
-                                             {% for etapes in listeEtapes %}
-                    <div class="col-12 row">
-                        <div class="col-1">
-                        <h3>
-                            {{etapes.isNumber}} / {{nombreEtapes}}
-                        </h3>
-                        </div>
-                        <div class="col-11">
-                        <h3>
-                            {{etapes.name}}
-                        </h3>
-                        </div>
-                    {% if etapes.image %}
-                        <div class ="col-6">
-                            <img src="{{asset('/uploads/etapes/'~ etapes.image)}}" alt="image de l'étape" style="max-width:100%"/>
-                        </div>
-                        <div class="col-6">
-                            {{etapes.description}}
-                        </div>
-                    {% else %}
-                        <div class="col-12">
-                            {{etapes.description}}
-                        </div>
-                    </div>
-                    {% endif %}
-                {% endfor %}
+                             {% for etapes in listeEtapes %}
+
+                                 <div class="col-12 row">
+
+                                     {# ? Partie: Numéro de l'étape #}
+
+                                     <div class="col-1">
+
+                                         <h3>
+                                             {{etapes.isNumber}} / {{nombreEtapes}}
+                                         </h3>
+
+                                     </div>
+
+                                     {# **************** #}
+
+                                     {# ? Partie: Nom de l'étape #}
+
+                                     <div class="col-11">
+
+                                         <h3>
+                                             {{etapes.name}}
+                                         </h3>
+
+                                     </div>
+
+                                     {# **************** #}
+
+                                     {% if etapes.image %}
+                   
+                                         {# ? Partie: Image de l'étape #}
+
+                                         <div class ="col-6">
+                                             <img src="{{asset('/uploads/etapes/'~ etapes.image)}}" alt="image de l'étape" style="max-width:100%"/>
+                                         </div>
+ 
+                                         {# ? Partie: Description de l'étape1 #}
+
+                                         <div class="col-6">
+                                             {{etapes.description}}
+                                         </div>
+
+                                     {% else %}
+
+                                         {# ? Partie: Description de l'étape2 #}
+
+                                         <div class="col-12">
+                                             {{etapes.description}}
+                                         </div>                                   
+
+                                     {% endif %}
+
+                                     {# **************** #}
+
+                                 </div>    
+
+                             {% endfor %}
 
                          </div>
+
+                         {# **************** #}
+
+                         {# ? Partie: Bouton d'action #}
 
                          <div class="col-12 row previewRecetteBoutonFin">
 
-                             <a class="col-2 btn btn-success btn-lg" href="{{path("recette_edit",{'id':recette.id} )}}">Modifier / corriger la recette.</a>
-                             <a class="col-2 btn btn-success btn-lg" href="{{path("recette_show",{'id':recette.id})}}">Voir la recette</a>
+                             <a class="col-2 btn btn-success btn-lg" href="{{path("recette_edit",{'id':recette.id} )}}">
+                                 Modifier / corriger la recette.
+                             </a>
+
+                             <a class="col-2 btn btn-success btn-lg" href="{{path("recette_show",{'id':recette.id})}}">
+                                 Voir la recette
+                             </a>
                      
                          </div>
+
+                         {# **************** #}
 
                      </div>
 

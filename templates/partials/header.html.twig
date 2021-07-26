@@ -1,161 +1,141 @@
  {# ? Partie: Header #}
 
-         {# ! Bouton LightMode/ DarkMode: Mache pas Ca m'as fait craqué je dois revenir dessus JC_ #}
-         {# <div class="btn btn-outline-dark btn-toggle btn-sm" >Go Nuit</div> #}   
+     <div class="container">
 
-         <div class="container">
+         <header class="row align-items-center justify-content-md-between">
 
-             <header class="row align-items-center justify-content-md-between">
+             <hr style="color: black;"/> 
 
+             <div class="col-4 text-start">
 
-                 {# <hr/>  #}
-
-                 <hr style="color: black;"/> 
+                 {% if app.user %}
 
 
-                 <div class="col-4  text-start">
+                     <div>
 
-                     {% if app.user %}
-                        
-                         {# {% if app.user.avatar %} #}
+                         {# *********************************** #}
+                         {# * Gestion de l'utilisateur actuel * #}
+                         {# *********************************** #}
 
-                         {# <div style="display:flex; justify-content:space-around;"> #}
-                         <div>
-
-                             {# *********************************** #}
-                             {# * Gestion de l'utilisateur actuel * #}
-                             {# *********************************** #}
-
-                             <div class="dropdown">
-                             {# {% if user.avatar %} #}
+                         <div class="dropdown">
     
-                                 <div class="d-flex justify-content-between">
+                             <div class="d-flex justify-content-between">
     
-                                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    
-                                         <img src="/uploads/avatar/{{app.user.avatar}} " alt="" width="32" height="32" class="rounded-circle me-2">
+                                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                
+                                     <img src="/uploads/avatar/{{app.user.avatar}} " alt="" width="32" height="32" class="rounded-circle me-2">
 
-                                             <div class="d-flex justify-content-between">
-                                                            
-                                                 <strong class="text-gray-dark">
+                                         <div class="d-flex justify-content-between">
+                                                        
+                                             <strong class="text-gray-dark">
 
-                                                     {% if app.user.login %} 
+                                                 {% if app.user.login %} 
 
-                                                         {# @ #}
-                                                          {{app.user.username}} 
+                                                      {{app.user.username}} 
 
-                                                     {% else %}
+                                                 {% else %}
 
-                                                         Bienvenue
-                                                         <i class="bi bi-caret-down"></i>
+                                                     Bienvenue
+                                                     <i class="bi bi-caret-down"></i>
 
-                                                     {% endif %}
+                                                 {% endif %}
 
-                                                 </strong>
+                                             </strong>
     
-                                             </div>
-                                         
-                                     </a>
+                                         </div>
+                                     
+                                 </a>
     
-                                     <ul class="dropdown-menu dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
+                                 <ul class="dropdown-menu dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
 
-                                         {# ***** Gestion des recettes ***** #}
-                                         <h6> <kbd> Gestion des recettes </kbd> </h6> 
+                                     {# ***** Gestion des recettes ***** #}
+                                     <h6> <kbd> Gestion des recettes </kbd> </h6> 
 
-                                             <li>
+                                         <li>
 
-                                                 <a class="dropdown-item" href="{{path ('recette_new')}}"> 
-                                                     Créer une nouvelle recette 
-                                                 </a>
+                                             <a class="dropdown-item" href="{{path ('recette_new')}}"> 
+                                                 Créer une nouvelle recette 
+                                             </a>
 
-                                             </li> 
+                                         </li> 
 
-                                             <li>
+                                         <li>
 
-                                                 <a class="dropdown-item" href="{{path ('recette_index')}}">
-                                                     Gérer mes recettes 
+                                             <a class="dropdown-item" href="{{path ('recette_index')}}">
+                                                 Gérer mes recettes 
+                                             </a> 
+
+                                         </li> 
+                                       
+                                         {% if is_granted ("ROLE_ADMIN") %}    
+
+                                             <li> 
+
+                                                 <a class="dropdown-item" href="{{path ('interface_administration')}}"> 
+                                                     Interface d'administration 
                                                  </a> 
 
-                                             </li> 
-                                           
-                                             {% if is_granted ("ROLE_ADMIN") %}    
+                                             </li>
+                                      
+                                         {% endif %}
 
-                                                 <li> 
+                                     {# ***** Gestion du site ***** #}
+                                     <h6> <kbd> Gestion du profil </kbd> </h6>
+                                     
+                                         <li> 
 
-                                                     <a class="dropdown-item" href="{{path ('interface_administration')}}"> 
-                                                         Interface d'administration 
-                                                     </a> 
+                                             <a class="dropdown-item" href="{{path ('user_edit',{'id': app.user.id})}}"> 
+                                                 Gérer mon compte 
+                                             </a>
 
-                                                 </li>
-                                          
-                                             {% endif %}
-
-                                         {# ***** Gestion du site ***** #}
-                                         <h6> <kbd> Gestion du profil </kbd> </h6>
+                                         </li>
                                          
-                                             <li> 
+                                         <li> 
 
-                                                 <a class="dropdown-item" href="{{path ('user_edit',{'id': app.user.id})}}"> 
-                                                     Gérer mon compte 
-                                                 </a>
+                                             <a class="dropdown-item" href="{{path ('user_show',{'id': app.user.id})}}"> 
+                                                 Mon profil 
+                                             </a>
 
-                                             </li>
-                                             
-                                             <li> 
+                                         </li>
 
-                                                 <a class="dropdown-item" href="{{path ('user_show',{'id': app.user.id})}}"> 
-                                                     Mon profil 
-                                                 </a>
+                                         <hr style="color:grey;"/>
 
-                                             </li>
-                                             {# <li> <a class="dropdown-item" href="#"> Paramètres </a></li> #}
+                                     {# ***** Bouton Action: Se déconnecter ***** #}
 
-                                             <hr style="color:grey;"/>
+                                         <li>
 
-                                         {# ***** Bouton Action: Se déconnecter ***** #}
+                                             <a class="dropdown-item" href="{{ path ('app_logout') }}" name="Se déconnecter" alt="Bouton se déconnecter"> 
+                                                 Se déconnecter
+                                             </a>
 
-                                             <li>
+                                         </li>
 
-                                                 <a class="dropdown-item" href="{{ path ('app_logout') }}" name="Se déconnecter" alt="Bouton se déconnecter"> 
-                                                     Se déconnecter
-                                                 </a>
-
-                                             </li>
-
-
-                                     </ul>
+                                 </ul>
      
-                                 </div> 
+                             </div> 
     
-                             </div>  
+                         </div>  
 
-                         </div>
+                     </div>
 
-                     {# <p> avatar de l'utilisateur  </p> #}
+                 {% else %}
+                     
+                     {# * Si pas utilisateur => modal de connection * #}
+                     {% include 'partials/loginModal.html.twig' %}
 
-                     {# {% else %} #}
+                 {% endif %}
+ 
+             </div>
 
-                     {# {% endif %} #}
+             {# ********** Partie: Logo ********** #}
 
+             <div class="col-4 text-center "> 
+                 <img id="avatarUser"src="/logo.png" alt="Logo du site" >
+             </div>
+         
+             {# ********** Partie: SideBar ********** #}
 
-                     {% else %}
-                         
-                         {# * Si pas utilisateur => modal de connection * #}
-                         {% include 'partials/loginModal.html.twig' %}
-
-                     {% endif %}
-       
-                 </div>
-
-                 {# ********** Partie: Logo ********** #}
-
-                 <div class="col-4 text-center "> 
-                     <img id="avatarUser"src="/logo.png" alt="Logo du site" >
-                 </div>
-             
-                 {# ********** Partie: SideBar ********** #}
-
-                 <div class="col-4 text-end">
+             <div class="col-4 text-end">
 
                      <div id="myNav" class="sideBar_Cuistot">
 
@@ -188,6 +168,8 @@
                  
 		                 </article>
 
+                         {# ? Menu de droite #}
+
                          <div class="overlay-content">
                              
                              {# *** Titre *** #}
@@ -202,7 +184,6 @@
                                      </p>
 
                              </p>
-
 
                              <ul class="nav nav-pills flex-column">
 
@@ -301,65 +282,76 @@
 
                      </div>
 
-                         {# ? Animation Bouton " Close " du Menu de navigation #}
+                     {# ? Animation Bouton " Close " du Menu de navigation #}
 
-                         <article>
+                     <article>
 		
-		                     <audio id="MenuNavigationOpen" onclick="SoundAnimationBoutonOpen()">
-			            	     <source src="/Sound/MGS_MenuOn1.mp3" type="audio/mpeg"></source>
-			                 </audio>
+		                 <audio id="MenuNavigationOpen" onclick="SoundAnimationBoutonOpen()">
+			        	     <source src="/Sound/MGS_MenuOn1.mp3" type="audio/mpeg"></source>
+			             </audio>
 
-                             <span id="boutonOpenMenuNav"
-                                 style="font-size:2em;"
-                                 preload="auto" 
-                                 onmousedown="SoundFxMenuOpen()" 
-                                 onclick="openNav(1)"> 
-                                 &#9776; </span> 
+                         <span id="boutonOpenMenuNav"
+                             style="font-size:2em;"
+                             preload="auto" 
+                             onmousedown="SoundFxMenuOpen()" 
+                             onclick="openNav(1)"> 
+                             &#9776; </span> 
    
-                             <script>
-		            	    	 var audioDuBoutonOpen = document.getElementById("MenuNavigationOpen");
-		            	      	 function SoundFxMenuOpen() {
-		            	    		 audioDuBoutonOpen.play ();
-		            	    	 }
-		                    </script>
+                         <script>
+		            	 var audioDuBoutonOpen = document.getElementById("MenuNavigationOpen");
+		              	 function SoundFxMenuOpen() {
+		            		 audioDuBoutonOpen.play ();
+		            	 }
+		                </script>
 
-		                 </article>
+		             </article>
 
-                 </div>
+             </div>
 
-                 <hr style="color: black;"/>    
+             {# ********** Partie: Barre de recherche ********** #} 
 
-             </header>
-
-         </div>
-           
-         {# ***** ***** ***** ***** ***** #}
-
-         {# <p>
-             <a href="http://jigsaw.w3.org/css-validator/check/referer">
-             
-                 <img style="border:0;width:88px;height:31px"
-                     src="http://jigsaw.w3.org/css-validator/images/vcss"
-                     alt="CSS Valide !" />
-            
-             </a>
-             
-         </p> #}
-                     
-         {# CSS Valide ! #}
-         {# ? Code CSS Validé Par W3.org #}
-
-         {# <p>
-             <a href="http://jigsaw.w3.org/css-validator/check/referer">
-               
-                 <img style="border:0;width:88px;height:31px"
-                     src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
-                     alt="CSS Valide !" />
-                 </a>
-          
-             </p> #}
+             <hr style="color: black;"/> 
      
-         {# ***** ***** ***** ***** ***** #}
+                 <article class="p-3 text-white">
+
+                     <div class="container">
+
+                         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+                             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+
+                                 {# ? Partie: CHAMP RECHERCHE SIMPLE #}
+
+                                 {# <fieldset> #}
+
+                                 <input type="search" class="form-control form-control-dark" placeholder="Rechercher une recette" aria-label="Recherche">
+                                 {# *** INPUT *** #}
+                                     {# {{ form_widget(form.recette,{ 
+                                  
+                                         'attr': {                        
+                                             'class':'recette',
+                                             'placeholder':'Entrez un nom de recette'          
+                                         }
+
+                                     }) }}  #}
+
+                                 {# </fieldset> #}
+
+                             </form>
+                         
+                         </div>
+
+                     </div>
+
+                 </article>
+
+         </header>
+
+     </div>
+           
+
+
+         
 
 
 

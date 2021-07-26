@@ -1,9 +1,9 @@
- {# ? Feuille du bouton Sauvegarder #ModeAdmin #} 
+ {{ form_start(form) }}
 
-     {{ form_start(form) }}
+     <article class="flex-container3">
 
-         {# ********** NOM ********** #}
-                     
+         <hr/>
+           
              <section>
 
                  {# *** LABEL *** #}
@@ -14,18 +14,16 @@
              
              </section>
 
-             <br/> 
+         <hr/>    
 
-             {# ******************** #}
+     </article> 
 
-             {{ form_widget(form) }}
+     {{ form_widget(form) }}
 
-             <button class="btn col-12 btn-dark btn-lg px-4">
+         <button class="btn col-12 btn-dark btn-lg px-4">
+             {{ button_label|default('Sauvegarder') }}
+         </button>
 
-                 {{ button_label|default('Sauvegarder') }}
-                 
-             </button>
-
-     {{ form_end(form) }}
+ {{ form_end(form) }}
 
      

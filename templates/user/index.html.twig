@@ -65,7 +65,7 @@
 
                                      {% autoescape false %} 
                                      {# {{ user.roles ? user.roles|json_encode : '' }} #}
-                                     {{user.roles|json_encode() ? user.roles|json_encode|replace({',':', <br/>', 'ROLE_USER':'User', 'ROLE_ADMIN':'Admin', '[':'','"':'',']':''}) : ''}}
+                                         {{user.roles|json_encode() ? user.roles|json_encode|replace({',':', <br/>', 'ROLE_USER':'User', 'ROLE_ADMIN':'Admin', '[':'','"':'',']':''}) : ''}}
                                      {% endautoescape %}
                                  
                                  </td>

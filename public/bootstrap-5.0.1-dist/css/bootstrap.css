@@ -621,6 +621,7 @@ progress {
 @media (min-width: 1200px) {
   .container-xl, .container-lg, .container-md, .container-sm, .container {
     max-width: 1140px;
+     
   }
 }
 @media (min-width: 1400px) {
@@ -629,7 +630,7 @@ progress {
   }
 }
 .row {
-  --bs-gutter-x: 1.5rem;
+  /* --bs-gutter-x: 1.5rem; */
   --bs-gutter-y: 0;
   display: flex;
   flex-wrap: wrap;
