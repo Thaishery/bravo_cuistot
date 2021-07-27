@@ -517,29 +517,26 @@
 
                              <div class="d-flex text-muted pt-3">                          
 
-                                 {# {% if user.0.avatar %} #}
-                                 {% if user.avatar %}
+                                 {# {% if user.avatar %}
 
                                      <figure>
                                          <img id="cardAvatar" class="card-img-top" alt="Image de l'avatar de l'utilisateur" src="{{ asset('uploads/avatar/' ~ user.avatar) }}"/>
-                                         {# <img src="{{asset("uploads/avatar")}} "alt="Image de l'avatar de l'utilisateur"> #}
                                      </figure>
 
                                  {% else %}
                                      
                                      <div class="col-4 text-center "> 
                                          <img id="avatarUser"src="/logo.png" alt="Logo du site" >
-                                     </div>
-                
-                                     {# <h2> Pas d'avatar disponible </h2> <br/> #}
-                                     {# <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                         <title>Placeholder</title>
-                                         <rect width="100%" height="100%" fill="#007bff"></rect>
-                                         <text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text>
-                                     </svg> #}
-                                    
-                                 {% endif %}
+                                     </div> #}
 
+                                 {# {% endif %} #}
+
+                                 <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                     <title>Placeholder</title>
+                                     <rect width="100%" height="100%" fill="#007bff"></rect>
+                                     <text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text>
+                                 </svg>
+  
                                  <div class="pb-0 mb-0 small lh-sm border-bottom w-100">
 
                                      <div class="d-flex justify-content-between">
@@ -563,8 +560,6 @@
                                                          {# ? Bouton action: Modifier mon commentaire #}
 
                                                          <button type="button" class=" btn btn-primary btn-lg login-position" data-bs-toggle="modal" data-bs-target="#Modal_{{commentaire.id}}">
-                                                             {# Modifier mon commentaire #}
-                                                             {# <i class="fa fa-ellipsis-v" aria-hidden="true"></i> #}
 
                                                              <abbr title="Modifier"> 
                                                                  <i class="fa fa-indent" aria-hidden="true"></i>
@@ -579,7 +574,8 @@
 
                                                          <div class="login-box modal fade" id="Modal_{{commentaire.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         
-                                                             <div class="modal-dialog modal-dialog-centered" style="width:900px;max-width:1200px!important">
+                                                             {# <div class="modal-dialog modal-dialog-centered" style="width:900px;max-width:1200px!important"> #}
+                                                             <div class="modal-dialog modal-dialog-centered">
                                                         
                                                                  <div class="modal-content ">
 
@@ -588,7 +584,7 @@
                                                                      <section class="modal-header ">
 
                                                                          <h5 class="modal-title" id="exampleModalLabel">
-                                                                             Modifier mon commentaire 
+                                                                             🏡 &nbsp Modifier mon commentaire 
                                                                          </h5>
                                                                        
                                                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -601,8 +597,8 @@
  
                                                                          <iframe id="ModificationCommentaire"
                                                                                  title="Modification Commentaire"
-                                                                                 width="800"
-                                                                                 height="600"
+                                                                                 width="480"
+                                                                                 height="350"
                                                                                  sandbox="allow-scripts allow-forms allow-same-origin allow-modals"
                                                                                  src="{{path('commentaires_edit',{'id': commentaire.id})}}">
                                                                          </iframe>

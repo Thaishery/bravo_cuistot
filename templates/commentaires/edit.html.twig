@@ -1,32 +1,61 @@
-{# {% extends 'base.html.twig' %} #}
+ {# {% extends 'base.html.twig' %} #}
+ 
+     {# {% block title %}
+         Modifier vottre commentaire
+     {% endblock %} #}
+     
+     {# {% block body %} #}
 
-{# {% block title %}Modifier vottre commentaire{% endblock %} #}
+     <div class="example-wrapper">
 
-{# {% block body %} #}
-{# *****  Script: Bootstrap ***** #}
-<link rel="stylesheet" href="{{ asset ('bootstrap/css/bootstrap.min.css') }}">
-<script src="{{asset ('bootstrap/js/bootstrap.bundle.min.js')}}" ></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+         {# *****  Script: Bootstrap ***** #}
+         <link rel="stylesheet" href="{{ asset ('bootstrap/css/bootstrap.min.css') }}">
+         <script src="{{asset ('bootstrap/js/bootstrap.bundle.min.js')}}" ></script>
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+     
+         <div class="row col-12">
 
-    <div class="row col-12">
-     {{ form_start(form,  {'attr': {'id': 'edit_com'}}) }}
-        <div class="col-12">
-        {{form_label (form.content, 'Contenu de votre commentaire:')}}
-        </div>
-        <div class="col-12">
-        {{form_widget (form.content, 
-        {
-            'attr':
-            {
-                'class':'col-12',
-                'style':'height:480px'
-            }
-        })}}
-        </div>
-         <button class="{{id}} btn col-12 btn-dark btn-lg px-4 com_bouton" type="submit" id="bouton" >
-             {{ button_label|default('Sauvegarder') }} 
-         </button>
-         {# <a href="{{path('recette_show',{'id': id})}}" id="editComment" class="btn btn-success btn-lg">Retour a la recette</a> #}
-     {{ form_end(form) }}
-     </div>
-{# {% endblock %} #}
+             {{ form_start(form, { 
+
+                 'attr': {
+                     'id': 'edit_com'
+                 }
+                 
+             }) }}
+
+                 <div class="col-12">
+
+                     {{form_label (form.content, 'Modifier le contenu de votre commentaire:')}}
+               
+                 </div>
+
+                 <br/>
+
+                 <div class="col-12">
+               
+                     {{form_widget (form.content, {
+
+                         'attr': {
+                             'class':'col-12',
+                             'style':'height:210px'
+                         }
+
+                     })}}
+
+                 </div>
+
+                 <br/>
+
+                 <button class="{{id}} btn btn-dark btn-lg col-12 px-4 com_bouton" type="submit" id="bouton" >
+                     {{ button_label|default('Sauvegarder ✅') }} 
+                 </button>
+
+             {{ form_end(form) }}
+        
+         </div>
+
+     </div>     
+
+
+     {# {% endblock %} #}
+     
