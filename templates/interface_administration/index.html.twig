@@ -12,203 +12,175 @@
      
      {% block body %}
 
-         {# <div class="bg1"> #}
+         <main class="Form"> 
 
-             <main class="Form"> 
+             <div class="text-center col-12">
 
-                 <div class="text-center col-12">
+                 {# ? Partie: Titre #}
 
-                     {# ******************************************** #}
+                 <section>     
+     
+                         <h1> Interface d'administration </h1>
+                     
+                             <hr/>
 
-                         <section>     
-     
-                             <h1> Interface d'administration </h1>
-                         
-                                 <hr/>
+                                 <p> 
+                                     <em> Choisissez la section que vous voulez gérer ! </em> 📇
+                                 </p>
 
-                                     <p> 
-                                         <em> Choisissez la section que vous voulez gérer ! </em> 📇
-                                     </p>
+                             <hr/>                   
+     
+                 </section>      
+ 
+                 {# ? Partie: Les dernierès recettes. #}
+     
+                 <article class="flex-container">
+ 
+                         <div class="p-4 text-white rounded bg-dark">                               
+                                
+                             <div class="row">
 
-                                 <hr/>                   
+                                 {# ? Carte n°1: Gérer les utilisateurs  #}
+                                 <section class="col-6 col-sm-4">
      
-                         </section>      
+                                     <div class="card mb-3">
      
-                         {# ******************************************** #}
+                                         <div class="card-body">
      
-                         {# ? Partie: Les dernierès recettes. #}
+                                             <div>
      
-                         <article class="flex-container">
-     
-                             {# ******************** #}
-     
-                             <div class="text-center p-4 text-white rounded bg-dark">                               
-                               
-                                 <div class="col-md-12 px-0">                       
-                                    
-                                     <div class="row">
-     
-                                         {# ******************** #}
-     
-                                         {# ? Carte n°1: Gérer les utilisateurs  #}
-     
-                                         <section class="col-sm-4 administrationCard">
-     
-                                             <div class="carteBg1 card mb-3">
-     
-                                                 <div class="card-body">
-     
-                                                     <div class="cardImage">
-     
-                                                         <img class="administrationLogo carteSpeciale rounded" 
-                                                             src="{{asset ('Images/avatar.png')}}"
-                                                             alt="Image de type emoji, d'une personne. Cette image représente la section utilisateur.S">
-                                                    
-                                                     </div>
-                                                     
-                                                     <a href="{{path("user_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12 ">                                
-                                                         Utilisateurs
-                                                     </a> 
+                                                 <img class="administrationLogo carteSpeciale rounded" 
+                                                     src="{{asset ('Images/avatar.png')}}"
+                                                     alt="Image de type emoji, d'une personne. Cette image représente la section utilisateur.">
                                             
-                                                 </div>
-     
                                              </div>
-     
-                                         </section>
-     
-                                         {# ******************** #}
-     
-                                         {# ? Carte n°2: Gérer les recettes  #}
-     
-                                         <section class="col-sm-4 administrationCard">
-     
-                                             <div class="carteBg1 card mb-3">
-     
-                                                 <div class="card-body"> 
-     
-                                                     <div class="cardImage">
-                                                         <img class="administrationLogo carteSpeciale rounded" src="{{asset ('Images/Nourriture.png')}}" alt="Cette image représente la section Recettes">
-                                                     </div>
-                                                     
-                                                     <a href="{{path("administration_recette_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12 ">                                
-                                                         Recettes
-                                                     </a> 
-                                            
-                                                 </div>
-     
-                                             </div>
-     
-                                         </section>
-     
-                                         {# ******************** #}
-     
-                                         {# ? Carte n°3: Gérer les commentaires #}
-     
-                                         <section class="col-sm-4 administrationCard">
-     
-                                             <div class="carteBg1 card mb-3">
-     
-                                                 <div class="card-body">
-     
-                                                     <div class="cardImage">
-                                                         <img class="administrationLogo carteSpeciale rounded" src="{{asset ('Images/Galerie(3).png')}}" alt="Cette image représente la section Commentaires">
-                                                     </div>
-                                                     
-                                                     <a href="{{path("administration_comentaires_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12">                                
-                                                         Commentaires
-                                                     </a> 
-                                            
-                                                 </div>
-     
-                                             </div>
-     
-                                         </section>
-     
-                                         {# ******************** #}
-     
-                                         {# ? Carte n°4: Gérer les catégories #}
-     
-                                         <section class="col-sm-4 administrationCard">
-     
-                                             <div class="carteBg1 card mb-3">
-     
-                                                 <div class="card-body">
-     
-                                                     <div class="cardImage">
-                                                         <img class="administrationLogo carteSpeciale rounded" src="{{asset ('Images/beverage.jpg')}}" alt="Cette image représente la section Catégories">
-                                                     </div>
-                                                     
-                                                     <a href="{{path("categories")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12">                                
-                                                         Catégories
-                                                     </a> 
-                                            
-                                                 </div>
-     
-                                             </div>
-     
-                                         </section>
-                                      
-                                         {# ******************** #}
-     
-                                         {# ? Carte n°5: Gérer les ingrédients #}
-     
-                                         <section class="col-sm-4 administrationCard">
-     
-                                             <div class="carteBg1 card mb-3">
-     
-                                                 <div class="card-body">
-     
-                                                     <div class="cardImage">
-                                                         <img class="administrationLogo carteSpeciale rounded" src="{{asset ('Images/JunkFood.jpg')}}" alt="Cette image représente la section Ingrédients">
-                                                     </div>
-                                                     
-                                                     <a href="{{path("administration_ingredients_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12">                                
-                                                         Ingrédients
-                                                     </a> 
-                                            
-                                                 </div>
-     
-                                             </div>
-     
-                                         </section>
-     
-                                         {# ******************** #}
-     
-                                         {# ? Carte n°6: Gérer les unités de mesures #}
-     
-                                         <section class="col-sm-4 administrationCard">
-     
-                                             <div class="carteBg1 card mb-3">
-     
-                                                 <div class="card-body">
-     
-                                                     <div class="cardImage">
-                                                         <img class="administrationLogo carteSpeciale rounded" src="{{asset ('Images/mesure2.jpg')}}" alt="Cette image représente la section Mesures">
-                                                     </div>
-                                                     
-                                                     <a href="{{path("unite_mesure_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12 ">                                
-                                                         Mesures
-                                                     </a> 
-                                            
-                                                 </div>
-     
-                                             </div>
-     
-                                         </section>
-                                      
-                                         {# ******************** #}
+                                             
+                                             <a href="{{path("user_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12 ">                                
+                                                 Utilisateurs
+                                             </a> 
+                                     
+                                         </div>
      
                                      </div>
      
-                                 </div>         
+                                 </section>
      
+                                 {# ? Carte n°2: Gérer les recettes  #}
+                                 <section class="col-6 col-sm-4">
+     
+                                     <div class="card mb-3">
+     
+                                         <div class="card-body"> 
+     
+                                             <div>
+                                                 <img class="administrationLogo carteSpeciale rounded" src="{{asset ('Images/Nourriture.png')}}" alt="Cette image représente la section Recettes">
+                                             </div>
+                                             
+                                             <a href="{{path("administration_recette_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12 ">                                
+                                                 Recettes
+                                             </a> 
+                                    
+                                         </div>
+     
+                                     </div>
+     
+                                 </section>
+     
+                                 {# ? Carte n°3: Gérer les commentaires #}
+                                 <section class="col-6 col-sm-4">
+     
+                                     <div class="card mb-3">
+     
+                                         <div class="card-body">
+     
+                                             <div>
+                                                 <img class="administrationLogo carteSpeciale rounded" src="{{asset ('Images/Galerie(3).png')}}" alt="Cette image représente la section Commentaires">
+                                             </div>
+                                             
+                                             <a href="{{path("administration_comentaires_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12">                                
+                                                 Commentaires
+                                             </a> 
+                                    
+                                         </div>
+     
+                                     </div>
+     
+                                 </section>
+     
+                                 {# ? Carte n°4: Gérer les catégories #}
+                                 <section class="col-6 col-sm-4">
+     
+                                     <div class="card mb-3">
+     
+                                         <div class="card-body">
+     
+                                             <div>
+                                                 <img class="administrationLogo carteSpeciale rounded" src="{{asset ('Images/beverage.jpg')}}" alt="Cette image représente la section Catégories">
+                                             </div>
+                                             
+                                             <a href="{{path("categories")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12">                                
+                                                 Catégories
+                                             </a> 
+                                     
+                                         </div>
+     
+                                     </div>
+     
+                                 </section>
+                              
+                                 {# ? Carte n°5: Gérer les ingrédients #}
+                                 <section class="col-6 col-sm-4">
+     
+                                     <div class="card mb-3">
+     
+                                         <div class="card-body">
+     
+                                             <div>
+                                                 <img class="administrationLogo carteSpeciale rounded" src="{{asset ('Images/JunkFood.jpg')}}" alt="Cette image représente la section Ingrédients">
+                                             </div>
+                                             
+                                             <a href="{{path("administration_ingredients_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12">                                
+                                                 Ingrédients
+                                             </a> 
+                                     
+                                         </div>
+     
+                                     </div>
+     
+                                 </section>
+     
+                                 {# ? Carte n°6: Gérer les unités de mesures #}
+                                 <section class="col-6 col-sm-4">
+     
+                                     <div class="card mb-3">
+     
+                                         <div class="card-body">
+     
+                                             <div>
+                                                 <img class="administrationLogo carteSpeciale rounded" src="{{asset ('Images/mesure2.jpg')}}" alt="Cette image représente la section Mesures">
+                                             </div>
+                                             
+                                             <a href="{{path("unite_mesure_index")}}" type="submit" class="btn btn-success bg-gradient btn-lg col-12 ">                                
+                                                 Mesures
+                                             </a> 
+                                    
+                                         </div>
+     
+                                     </div>
+     
+                                 </section>
+                              
                              </div>
+
+                             {# ******************** #}
+     
+                         </div>
               
-                         </article>
+                 </article>
 
-                 </div>      
+             </div>      
 
-             </main>
+         </main>
   
      {% endblock %}
 

@@ -356,11 +356,9 @@
     /* ? Style de la barre verticale du Menu */
 
      .barreVerticaleMenu {
-       border-left: 4px solid rgb(123, 132, 255);
-       /* border-left: 4px solid rgb(0, 172, 92); */
-       height: 39px;
+       border-left: 3px solid rgb(123, 132, 255);
+       height: 34px;
        left: 50%;
-       /* margin-left: -3px; */
        top: 0;
        position: relative;
      }
