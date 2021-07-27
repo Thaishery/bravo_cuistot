@@ -1,10 +1,52 @@
-{% extends 'base.html.twig' %}
+ {% extends 'base.html.twig' %}
 
      {% block title %}
-         C'est interdit! 
+         Accès interdit! 
      {% endblock %}
      
      {% block body %}
-        L'action que vous avez tentez est interdite, il est probable que l'erreur vienne de nous, Désole!
-        <a href="{{path("home")}}">Vous pouvez cependant retourner a l'acceuil du site en cliquant sur cette phrases.</a>
+
+         <main class="Form"> 
+
+             <div class="text-center col-12">
+
+                 {# ? Partie: Titre #}
+
+                 <section>     
+     
+                     <h1> Accès interdit! ⚠️ </h1> 
+               
+                         <hr/>
+
+                             <p> 
+                                 <em> Choisissez la section que vous voulez gérer ! </em> 📇
+                             </p>
+
+                         <hr/>                   
+     
+                 </section>  
+
+                 {# ? Partie: Contenus de la page #}
+     
+                 <article class="flex-container">
+
+                     <div class="p-4 text-white rounded bg-dark"> 
+
+                         <p>
+
+                             L'action que vous avez tenté est interdite. Il est probable que l'erreur vienne de nous!
+                             <a href="{{path("home")}}"> Vous pouvez cependant retourner a l'accueil du site en cliquant sur cette phrases. </a>
+ 
+                         <p>
+
+                     </div>
+
+                 </article>
+
+                 {# ******************** #}
+
+             </div>      
+
+         </main>
+
      {% endblock %}
