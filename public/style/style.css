@@ -172,7 +172,7 @@
          color:e9e9e9;
        }
 
-     /* * Style du bouton */
+     /* ? Style du bouton */
 
        .presentation .product-presentation button {
          margin-top: 8px;
@@ -184,6 +184,27 @@
          cursor:pointer;
        }
   
+     /* ?  Style animation bouton s'incrire > Effet brillant */
+       
+       .glow {
+         /* font-size: 80px; */
+         color: #fff;
+         text-align: center;
+         animation: glow 1s ease-in-out infinite alternate;
+        }
+      
+       @-webkit-keyframes glow {
+
+         from {
+           text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #f0626f, 0 0 40px #f7858b, 0 0 50px #fda5a8, 0 0 60px #ffc5c6, 0 0 70px #ffe4e4;
+         }
+         
+         to {
+           text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #a8eb12, 0 0 50px #82dd34, 0 0 60px #5ecd47, 0 0 70px #3abd53, 0 0 80px #00ac5c;
+         }
+       
+       }
+
      /* * Style conteneur image */
 
        .presentation .image-presentation img {
