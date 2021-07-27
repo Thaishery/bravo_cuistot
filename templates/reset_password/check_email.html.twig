@@ -1,11 +1,57 @@
-{% extends 'base.html.twig' %}
+ {% extends 'base.html.twig' %}
+ 
+     {% block metaTitle %}
+         " Réinitialisation du mot de passe par email "
+     {% endblock %}
 
-{% block title %}Password Reset Email Sent{% endblock %}
+     {% block title %}
+         Réinitialisation du mot de passe par email
+     {% endblock %}
+     
+     {% block body %}
 
-{% block body %}
-    <p>
-        If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.
-        This link will expire in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
-    </p>
-    <p>If you don't receive an email please check your spam folder or <a href="{{ path('app_forgot_password_request') }}">try again</a>.</p>
-{% endblock %}
+         <main class="Form"> 
+
+             <div class="text-center col-12">
+
+                 {# ? Partie: Titre #}
+
+                 <section>     
+     
+                     <h1> Réinitialisation du mot de passe! </h1> 
+               
+                         <hr/>
+
+                             <p> 
+                                 <em> Formulaire de réinitialisation du mot de passe par email! </em> 📇
+                             </p>
+
+                         <hr/>                   
+     
+                 </section>  
+
+                 {# ? Partie: Contenus de la page #}
+     
+                 <article class="flex-container">
+
+                     <div class="p-4 text-white rounded bg-dark"> 
+
+                         <p>
+                             If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.
+                             This link will expire in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+                         </p>
+                   
+                         <p>
+                             If you don't receive an email please check your spam folder or <a href="{{ path('app_forgot_password_request') }}"> try again </a>.
+                         </p>
+
+                     </div>
+
+                 </article>
+
+             </div>      
+
+         </main>
+
+     {% endblock %}
+  
