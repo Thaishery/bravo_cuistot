@@ -356,12 +356,13 @@
     /* ? Style de la barre verticale du Menu */
 
      .barreVerticaleMenu {
-       border-left: 6px solid green;
-       height: 500px;
-       position: absolute;
+       border-left: 4px solid rgb(123, 132, 255);
+       /* border-left: 4px solid rgb(0, 172, 92); */
+       height: 39px;
        left: 50%;
-       margin-left: -3px;
+       /* margin-left: -3px; */
        top: 0;
+       position: relative;
      }
 
     @media screen and (max-height: 450px) {
