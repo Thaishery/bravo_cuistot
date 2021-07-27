@@ -1,13 +1,53 @@
-{% extends 'base.html.twig' %}
+ {% extends 'base.html.twig' %}
+ 
+     {% block metaTitle %}
+         " Modifier un ingrédient "
+     {% endblock %}
 
-{% block title %}Edit Ingredients{% endblock %}
+     {% block title %}
+         Modifier un ingrédient
+     {% endblock %}
+     
+     {% block body %}
 
-{% block body %}
-    <h1>Edit Ingredients</h1>
+         <main class="Form">  
 
-    {{ include('user_ingredient/_form.html.twig', {'button_label': 'Update'}) }}
+             <div class="py-5 text-center col-12">
 
-    <a href="{{ path('user_ingredient_index') }}">back to list</a>
+                 {# *********************************************** #}
 
-    {{ include('user_ingredient/_delete_form.html.twig') }}
-{% endblock %}
+                 <section>
+
+                     <h1> Modifier un ingrédient </h1>
+                      
+                         <hr/>
+
+                             <p> 
+                                 <em> Modifier un ingrédient de votre recette </em> 🐱‍💻
+                             </p>
+
+                         <hr/>
+
+                 </section>   
+
+                 {# *********************************************** #}
+
+                 <article class="col-12">
+     
+                     {{ include('user_ingredient/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+     
+                     <a href="{{ path('user_ingredient_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">
+                         Retour à la liste
+                     </a>
+     
+                     <hr/> 
+
+                     {# ! todo: le form du bouton "delete" était commenté donc je ne l'ai pas remis. Voir avec l'équipe, si on doit l'intégrer #}
+                     {{ include('user_ingredient/_delete_form.html.twig') }}
+   
+                 </article> 
+
+                 {# *********************************************** #}
+
+     {% endblock %}
+ 

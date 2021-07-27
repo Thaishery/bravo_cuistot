@@ -16,7 +16,7 @@
 
              <div class="text-center col-12">
 
-                 {# *********************************************** #}
+                 {# ******************** #}
 
                  <section>
     
@@ -33,46 +33,42 @@
 
                  </section>
                  
-                 {# *********************************************** #}         
-
-                 <article>
+                 {# ******************** #}         
 
                  {{ form_start(form) }}
 
-                     <div class="flex-container">
+                     <article class="flex-container4">
 
-                         {# ***** Bloc de Gauche ***** #} 
+                         <div class="row">
 
                              {# ? Partie: NOM DE LA RECETTE #}
 
-                                 <section class="flex-item-left">
+                             <section class="col-sm-4">
 
-                                     <fieldset>
-                                 
-                                         {# *** LABEL *** #}
-                                         <label> Nom de la recette </label>
+                                 <fieldset>
+                             
+                                     {# *** LABEL *** #}
+                                     <label> Nom de la recette </label>
 
-                                         <br/>
+                                     <br/>
 
-                                         {# *** INPUT *** #}
-                                         {{ form_widget(form.recette,{ 
-                                      
-                                             'attr': {                        
-                                                 'class':'recette',
-                                                 'placeholder':'Entrez un nom de recette'          
-                                             }
+                                     {# *** INPUT *** #}
+                                     {{ form_widget(form.recette,{ 
+                                  
+                                         'attr': {                        
+                                             'class':'recette',
+                                             'placeholder':'Entrez un nom de recette'          
+                                         }
 
-                                         }) }}     
-                                    
-                                     </fieldset>    
+                                     }) }}     
+                                
+                                 </fieldset>    
 
-                                 </section>
-
-                         {# ***** Bloc de Droite ***** #}  
+                             </section>
 
                              {# ? Partie: NIVEAU DE DIFFICULTE #}
 
-                             <section class="flex-item-right">
+                             <section class="col-sm-4">
 
                                  <fieldset>
                              
@@ -95,17 +91,9 @@
 
                              </section>
 
-                     </div>   
-
-                     {# *********************************************** #}  
-
-                     <div class="flex-container">
-
-                         {# ***** Bloc de Gauche ***** #} 
-
                              {# ? Partie: INGREDIENTS #} 
 
-                             <section class="flex-item-left">
+                             <section class="col-sm-4">
 
                                  <fieldset>
                              
@@ -125,13 +113,19 @@
                                 
                                  </fieldset>    
 
-                             </section>     
+                             </section>  
 
-                         {# ***** Bloc de Droite ***** #}  
+                         </div>   
+
+                         <br/>
+
+                         {# ******************** #}  
+
+                         <div class="row">
 
                              {# ? Partie: TYPE DE PLATS #}
 
-                             <section class="flex-item-right">
+                             <section class="col-sm-4">
 
                                  <fieldset>
                              
@@ -153,17 +147,9 @@
 
                              </section>
 
-                     </div>   
+                             {# ? Partie: TYPE D'ALIMENTATION #} 
 
-                     {# *********************************************** #} 
-       
-                     <div class="flex-container">
-
-                         {# ***** Bloc de Gauche ***** #} 
-
-                         {# ? Partie: TYPE D'ALIMENTATION #} 
-
-                             <section class="flex-item-left">
+                             <section class="col-sm-4">
 
                                  <fieldset>
                              
@@ -185,11 +171,9 @@
 
                              </section>     
 
-                         {# ***** Bloc de Droite ***** #}  
+                             {# ? Partie: TYPE DE CUISSON #} 
 
-                         {# ? Partie: TYPE DE CUISSON #} 
-
-                             <section class="flex-item-right">
+                             <section class="col-sm-4">
 
                                  <fieldset>
                              
@@ -211,25 +195,28 @@
 
                              </section> 
 
-                     </div> 
+                         </div>   
 
-                 </article>
+                     </article>
 
-                 {# *********************************************** #}  
+                     {# ******************** #}  
 
-                 <hr/>
+                     <hr/>
 
                      <div>
 
-                         <button class="btn btn-dark col-12 btn-lg ">
-                             {{ button_label|default('Soumettre') }}
+                         <button class="btn btn-success col-12 btn-lg ">
+                             {{ button_label|default('Rechercher') }} &nbsp
+                                 {# <img src="https://img.icons8.com/fluent/50/000000/search-property.png"/> #}
+                                 {# <img src="https://img.icons8.com/fluent/50/000000/search-in-cloud.png"/> #}
+                                 <img src="https://img.icons8.com/officel/40/000000/search--v2.png"/>    
                          </button>
                         
                      </div>
 
                  {{ form_end (form)}}    
 
-                 {# *********************************************** #}
+                 {# ******************** #}
 
              <div/>      
 

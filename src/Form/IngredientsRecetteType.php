@@ -48,14 +48,14 @@ class IngredientsRecetteType extends AbstractType
                     //uniquement des chiffre (le NumberType s'en charge deja): 
                 ],
                 'invalid_message'=>'Ce champ peut contenir uniquement un nombre, comprit entre 1 et 999',
-                'label' => 'Quantitée : '
+                'label' => 'Quantité '
             ])
             ->add('unitemesure_id', EntityType::class,[
                 'class' => UniteMesure::class,
                 'multiple' => false,
                 'expanded' => false,
                 'choice_label' =>'name',
-                'label' => 'unitée de mesure : '
+                'label' => 'Unité de mesure '
             ])
 
         ;

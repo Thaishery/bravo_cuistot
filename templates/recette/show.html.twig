@@ -44,7 +44,7 @@
          
                               <section class="col-md-12">
 
-                                 <hr id="homeDivider3"/>
+                                 <hr class="homeDivider3"/>
 
                                      {# ? Partie: Titre de la recette #}
 
@@ -68,7 +68,7 @@
 
                                      </h6>
 
-                                  <hr id="homeDivider4"/>   
+                                  <hr class="homeDivider4"/>   
 
                               </section>   
 
@@ -86,7 +86,7 @@
 
                              </section>
 
-                             <hr id="homeDivider1"/>
+                             <hr class="homeDivider1"/>
 
                          </div>    
 
@@ -114,15 +114,18 @@
                              {# ? Partie: Temps de cuisson #}
 
                              <section class="col-4">
-                            <p>
-                            Temps de cuisson: 
-                                 <legend title="Temps de cuisson"> 
-                                     <img id="emojiRecette" src="{{asset("Images/iconeFour.png")}}">
-                                  
 
-                                 {{recette.TempsCuisson}} minutes. 
-                                 </legend>
-                            </p>
+                                 <p>
+
+                                 Temps de cuisson: 
+
+                                     <legend title="Temps de cuisson"> 
+                                         <img id="emojiRecette" src="{{asset("Images/iconeFour.png")}}">
+                                         {{recette.TempsCuisson}} minutes. 
+                                     </legend>
+
+                                 </p>
+
                              </section> 
 
                              {# ? Partie: Niveau de difficulté #}
@@ -174,7 +177,7 @@
 
                          </div>        
 
-                         <hr id="homeDivider2"/>
+                         <hr class="homeDivider2"/>
 
                          {# ************************* #}
                         
@@ -329,6 +332,66 @@
 
                  </article> 
 
+                 {# ? MODAL > SlideShow #}
+           
+                 {# créer une variable
+                 - au moment ou la personne clic sur le bouton
+                 mettre un evnt listener
+                 au moment ou la personne clic 
+                 créer / modifier l'inner html 
+                 soit ajouter un modal  #}
+
+                 {# <div class="login-box modal fade" id="Modal_{{commentaire.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> #}
+                 <div class="login-box modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                     <div class="modal-dialog modal-dialog-centered" style="width:900px;max-width:1200px!important">
+                
+                         <div class="modal-content ">
+
+                             {# ************************* #}
+
+                             <section class="modal-header ">
+
+                                 <h5 class="modal-title" id="exampleModalLabel">
+                                     La recette étapes-par-étapes !
+                                 </h5>
+                               
+                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                   
+                             </section>
+
+                             {# ************************* #}
+
+                             {# ? Partie: SlideShow #}
+
+                             <article class="modal-body">      
+
+                                 <form id="formSlideShow">
+
+                                     <input class="inputSlideShow" type="radio" name="SlideShowBravoCuistot" autofocus value="Etape1" id="Etape1" />
+                                     <input class="inputSlideShow" type="radio" name="SlideShowBravoCuistot" value="Etape2" id="Etape2" />
+                                     <input class="inputSlideShow" type="radio" name="SlideShowBravoCuistot" value="Etape3" id="Etape3" />
+                                     <input class="inputSlideShow" type="radio" name="SlideShowBravoCuistot" value="Etape4" id="Etape4" />
+                                    
+                                     <label class="labelSlideShow" for="Etape1"> &#9827; Etape n°1 </label>
+                                     <label class="labelSlideShow" for="Etape2"> &#9829; Etape n°2 </label>
+                                     <label class="labelSlideShow" for="Etape3"> &#9824; Etape n°3 </label>
+                                     <label class="labelSlideShow" for="Etape4"> &#9830; Etape n°4 </label>
+                                  
+                                  	 <div class="flechesDirectionnelles"> Utiliser les flèches directionnelles pour naviguer </div>
+                                  
+                                 </form>
+                                                                  
+                             </article>  
+
+                             {# ************************* #}
+                                       
+                         </div>
+
+                     </div>
+
+                 </div>
+
                  <hr/>      
 
                  {# ? Partie: Contenu de Slideshow #}
@@ -399,11 +462,11 @@
 
                              {# ************************* #}
 
-                             <hr id="homeDivider1"/>
+                             <hr class="homeDivider1"/>
 
                                  <h2 class=" mb-4"> Laisser un commentaire </h2>
 
-                             <hr id="homeDivider2"/>
+                             <hr class="homeDivider2"/>
 
                              {# ************************* #}
 
@@ -427,11 +490,11 @@
 
                      {# ? Partie: Titre de la section #}
 
-                     <hr id="homeDivider1"/>      
+                     <hr class="homeDivider1"/>      
 
                          <h2 class="col 12 mb-4"> Commentaires : </h2>
 
-                     <hr id="homeDivider2"/>   
+                     <hr class="homeDivider2"/>   
 
                      {# ************************* #}
                      

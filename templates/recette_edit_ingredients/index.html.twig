@@ -1,7 +1,11 @@
  {% extends 'base.html.twig' %}
+
+     {% block metaTitle %}
+         " Modifier un ingrédient "
+     {% endblock %}
      
      {% block title %}
-         Hello RecetteEditIngredientsController!
+         Modifier un ingrédient
      {% endblock %}
      
      {% block body %}
@@ -14,12 +18,12 @@
 
                  <section>
     
-                     <h1> édition de l'ingrédient :  {{ingredient.ingredientsId.name}} de la recette {{recette.0.name}}</h1>
+                     <h1> Modifier l'ingrédient : {{ingredient.ingredientsId.name}} de la recette {{recette.0.name}}</h1>
                
                          <hr/>
 
                              <p> 
-                                 {# <em> Consulter la liste des utlisateurs de votre site et administrer leurs droits. </em>  📇  #}
+                                 <em> Modifier un ingrédient de votre recette. </em> 📇 
                              </p>
 
                          <hr/>
@@ -28,23 +32,86 @@
 
                  {# *********************************************** #}
 
-                 <article>
+                 {{ form_start(form) }}    
 
-                     {# {{dump(recette)}} #}
-                    
+                     {# {{dump(recette)}} #}    
                      {# {{dump(ingredient)}} #}
                     
-                         {{ form_start(form) }}
-                        
-                             {{ form_widget(form) }}
-                        
-                                 <button class="btn">
-                                     {{ button_label|default('Mettre à jour') }}
-                                 </button>
-                        
-                         {{ form_end(form) }}
+                     <article class="flex-container4 text-center">
 
-                 </article>
+                         <div class="row">
+
+                             {# ? LISTE DES INGREDIENTS #}     
+
+                             <section class="col-sm-4">  
+
+                                 {# *** LABEL *** #}
+                                 <legend> Liste des ingrédients </legend>
+                             
+                                 {# *** INPUT *** #}
+                                 {{ form_widget(form.ingredients_id,{ 
+                             
+                                     'attr': { 
+                             
+                                         'class':'ingredients_id',
+                                     
+                                     }}) }}  
+                             
+                             </section>
+
+                             {# ? NIVEAU DE DIFFICULTE #}   
+
+                             <section class="col-sm-4">  
+
+                                 {# *** LABEL *** #}
+                                 <legend> Quantité </legend>
+                               
+                                 {# *** INPUT *** #}
+                                 {{ form_widget(form.quantite,{ 
+                               
+                                     'attr': {                        
+                                         'class':'quantite',
+                                         'placeholder':'Entrez un niveau de 1 à 3'       
+                                     }
+
+                                 }) }} 
+                             
+                             </section>
+
+                             {# ? UNITE DE MESURE #} 
+
+                             <section class="col-sm-4">  
+
+                                 {# *** LABEL *** #}
+                                 <legend> Unité de mesure </legend>
+                                
+                                 {# *** INPUT *** #}
+                                 {{ form_widget(form.unitemesure_id,{ 
+                                
+                                     'attr': {                        
+                                         'class':'unitemesure_id',
+                                         'placeholder':'Entrez un temps de préparation'       
+                                     }
+
+                                 }) }} 
+                             
+                             </section>
+
+                         </div> 
+
+                         <hr/>
+
+                     </article> 
+           
+                     {{ form_widget(form) }}
+
+                         <br/>
+                    
+                         <button type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">
+                             {{ button_label|default('Mettre à jour') }}
+                         </button>
+
+                 {{ form_end(form) }}
                  
                  {# *********************************************** #}
          

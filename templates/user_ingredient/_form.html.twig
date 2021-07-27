@@ -1,4 +1,48 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+ {# ? Feuille du Show > UserIngrédient #}
+
+     {{ form_start(form) }}
+
+         <article class="flex-container4">
+
+             <div class="Form">                 
+
+                 <div class="row">
+
+                     {# ? NOM DE L'INGREDIENT #}
+                         
+                     <section class="col-12">
+
+                         {# *** LABEL *** #}
+                         <label> Nom de l'ingrédient </label>
+                     
+                         {# *** INPUT *** #}
+                         {{ form_widget(form.name,{ 
+                     
+                             'attr': { 
+                     
+                             'class':'name',
+                             'placeholder':'Entrer le nom de votre ingrédient '
+                             
+                             }}) }}  
+                     
+                     </section>
+
+                     <br/>
+
+                 </div> 
+
+             </div> 
+        
+         </article>  
+
+         {# ***************************************************** #}
+
+         {# <hr/>    #}
+ 
+         <button class="btn btn-dark col-12 btn-lg">
+             {{ button_label|default('Sauvegarder') }}
+         </button>
+ 
+     {{ form_end(form) }}
+ 
+     

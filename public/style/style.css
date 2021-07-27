@@ -92,25 +92,25 @@
      /* ? Personnalisation des dividers de la home page */
      /* ! Lien du site pour faire les gradients: https://mycolor.space */
 
-     #homeDivider1 {
+     .homeDivider1 {
        background-image: linear-gradient(to right, #a8eb12, #82dd34, #5ecd47, #3abd53, #00ac5c);
      }
 
-     #homeDivider2 {
+     .homeDivider2 {
        background-image: linear-gradient(to left, #a8eb12, #82dd34, #5ecd47, #3abd53, #00ac5c);
      }
 
-     #homeDivider3 {
+     .homeDivider3 {
        background-image: linear-gradient(to right top, #f0626f, #f7858b, #fda5a8, #ffc5c6, #ffe4e4);
      }
 
-     #homeDivider4 {
+     .homeDivider4 {
        background-image: linear-gradient(to left, #f0626f, #f7858b, #fda5a8, #ffc5c6, #ffe4e4);
      }
 
    /* ? Style des backgrounds de la home page */ 
 
-     #bg1, #bg2, #bg3 {
+     .bg1, .bg2, .bg3 {
        height: 100%; /* Hauteur Max */
        background-position: center;
        background-repeat: no-repeat;
@@ -119,19 +119,19 @@
 
    /* ? Style du 1er background de la home page */ 
 
-     #bg1 {
+     .bg1 {
          background-image: url("/Images/backgroundFont4.jpg"); 
      }
 
    /* ? Style du 2ème background de la home page */   
 
-     #bg2 {
+     .bg2 {
        background-image: url("/Images/backgroundFont6.jpg");
      }
 
    /* ? Style du 3ème background de la home page */   
 
-     #bg3 {
+     .bg3 {
        background-image: url("/Images/backgroundFont2.jpg"); 
      }
 
@@ -416,6 +416,12 @@
        /* background-image: linear-gradient(to bottom, #f06292, #af4b6c, #713448, #3a1e26, #000000); */
        /* background-image: linear-gradient(to bottom, #00ac5c, #00c5b9, #6fd7f1, #cee7ff, #ffffff); */
      } 
+          
+       .flex-container4 {
+         border-radius: 8px;  
+         margin: 1px;
+         background-image : url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
+        } 
 
 
      .flex-item-left {

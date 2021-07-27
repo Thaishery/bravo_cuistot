@@ -13,83 +13,146 @@
      {% block body %}
 
          <main class="Form">  
+
+             <div class="text-center col-12">
+
+                 {# ? Partie: Titre #} 
  
-             <section class="text-center">
+                 <section>
+    
+                         <h1> Ajouter un ingrédient </h1>
+         
+                             <hr/>
 
-                 <h1 class="h1 mb-3 font-weight-normal"> Ajouter un ingrédient </h1>
+                                 <p> 
+                                     <em> Ajouter un ingrédient à votre recette. </em>  📇 
+                                 </p>
 
-             </section>      
+                             <hr/>
+
+                 </section>    
+
+                 {# ? Partie: Breadcrumb  #} 
      
-             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
 
-                 <ol class="breadcrumb">
-                     <li class="breadcrumb-item" name="Etape n°1" alt="Etape n°1: Créer une nouvelle recette"> Etape n°1: Créer une nouvelle recette </li>
-                     <li class="breadcrumb-item active" aria-current="page" name="Etape n°1" alt="Etape n°2: Ajout d'ingrédient" aria-current="page"> Etape n°2: Ajout d'ingrédient </li>    
-                 </ol>
+                         <ol class="breadcrumb">
+                             <li class="breadcrumb-item" name="Etape n°1" alt="Etape n°1: Créer une nouvelle recette"> Etape n°1: Créer une nouvelle recette </li>
+                             <li class="breadcrumb-item active" aria-current="page" name="Etape n°1" alt="Etape n°2: Ajout d'ingrédient" aria-current="page"> Etape n°2: Ajout d'ingrédient </li>    
+                         </ol>
 
-             </nav>
+                 </nav>
+ 
+                 <br/>
 
-             <article class="btn-group-vertical col-12">
+                 {# ? Partie: Formulaire ajout d'ingrédient #}
 
-                 <div class="text-center col-12">
-                 {{form_start(form)}}
-                 <div class="col-12 row">
-                     {# {{ include('recette/_form.html.twig') }} #}
-                        <div class="col-4">
-                            {{form_row(form.ingredients_id, {'attr':{'class':'col-4'}})}}
-                        </div>
-                        <div class="col-4">
-                            {{form_row(form.quantite, {'attr':{'class':'col-4'}})}}
-                        </div>
-                        <div class="col-4">
-                            {{form_row(form.unitemesure_id, {'attr':{'class':'col-4'}})}}
-                        </div>
-                    </div>
-                    <button class="btn col-12 btn-dark btn-lg px-4">
+                 <article class="flex-container4 col-12">
 
-                        {{ button_label|default('Sauvegarder') }} 
-             
-                    </button>
-                    {{form_end(form)}}
-                 </div>
-                 {# <a href="#" class="btn btn-primary">Mon ingredients n'est pas dans la liste</a> #}
+                         {{form_start(form)}}
 
-                 <main class="modal_ajout_ingredient col-12">
-                     <button type="button" class="col-12 btn btn-success btn-lg login-position" data-bs-toggle="modal" data-bs-target="#Modal_ajout_ingredient">  
-                         Mon ingredient n'est pas dans la liste
-                     </button>
-                     {# ***** MODAL ***** #}
-	                 <div class="login-box modal fade" id="Modal_ajout_ingredient" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		                 <div class="modal-dialog modal-dialog-centered" style="width:900px;max-width:1200px!important">
-			                 <div class="modal-content ">
-                                 <section class="modal-header ">
-                                     <h5 class="modal-title" id="exampleModalLabel">
-                                         Ajouter un ingredient ne figurant pas dans la liste :  
-                                     </h5>
-                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                             <div class="text-center col-12">
+
+                                 {# {{ include('recette/_form.html.twig') }} #}
+                                 <section class="col-12 row">
+
+                                     <div class="col-4">
+                                         {{form_row(form.ingredients_id, {'attr':{'class':'col-4'}})}}
+                                     </div>
+
+                                     <div class="col-4">
+                                         {{form_row(form.quantite, {'attr':{'class':'col-4'}})}}
+                                     </div>
+
+                                     <div class="col-4">
+                                         {{form_row(form.unitemesure_id, {'attr':{'class':'col-4'}})}}
+                                     </div>
+                                     
                                  </section>
-                                 <article class="modal-body">
-                                     <iframe id="ModificationCommentaire"
-                                             title="Modification Commentaire"
-                                             width="800"
-                                             height="600"
-                                             sandbox="allow-scripts allow-forms allow-same-origin allow-modals"
-                                             src="{{path('user_ingredient_new',{'recette_id': id })}}">
-                                     </iframe>
-                                 </article>              
-                             </div>
-		                 </div>
-	                 </div>
-                 </main>
-              
-                 {# <a href="{{ path('recette_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
-                     Retour à la liste
-                 </a> #}
 
-             </article>
+                                 <br/>
+
+                                 <button class="btn col-12 btn-dark btn-lg px-4">
+                                     {{ button_label|default('Sauvegarder') }} 
+                                 </button>
+
+                             </div>
+
+                         {{form_end(form)}}    
+
+                         {# ******************** #} 
+
+                         {# <a href="#" class="btn btn-primary">Mon ingredients n'est pas dans la liste</a> #}
+
+                         <main class="modal_ajout_ingredient col-12">
+                            
+                             <button type="button" class="col-12 btn btn-success btn-lg login-position" data-bs-toggle="modal" data-bs-target="#Modal_ajout_ingredient">  
+                                 Mon ingredient n'est pas dans la liste
+                             </button>
+                           
+                             {# ? MODAL #}
+	                        
+                             <div class="login-box modal fade" id="Modal_ajout_ingredient" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		                   
+                                 <div class="modal-dialog modal-dialog-centered" style="width:900px;max-width:1200px!important">
+			               
+                                      <div class="modal-content ">
+
+                                         {# ? Header du Modal #}
+                          
+                                         <section class="modal-header ">
+                           
+                                             <h5 class="modal-title" id="exampleModalLabel">
+                                                 Ajouter un ingredient ne figurant pas dans la liste :  
+                                             </h5>
+                          
+                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                           
+                                         </section>
+
+                                         {# ? Corps du Modal #}
+                           
+                                         <article class="modal-body">
+                         
+                                             <iframe id="ModificationCommentaire"
+                                                     title="Modification Commentaire"
+                                                     width="800"
+                                                     height="600"
+                                                     sandbox="allow-scripts allow-forms allow-same-origin allow-modals"
+                                                     src="{{path('user_ingredient_new',{'recette_id': id })}}">
+                               
+                                             </iframe>
+                             
+                                         </article>      
+
+                                         {# ******************** #}        
+                            
+                                     </div>
+		                    
+                                 </div>
+	                       
+                             </div>
+                        
+                         </main>
+
+                         {# ******************** #}
+
+                         {# ? Partie: Bouton Action #}
+
+                         {# ! todo: Les boutons d'actions étaient comméntés. Voir si on les remets ou non ? #}
+                      
+                         {# <a href="{{ path('recette_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">                                
+                             Retour à la liste
+                         </a> #}
+
+                 </article>
+
+             </div>
 
          </main>
-<script type="text/javascript" src="{{asset('js/modalCommentaireButton.js')}}"></script> 
+
+         <script type="text/javascript" src="{{asset('js/modalCommentaireButton.js')}}"></script> 
+   
      {% endblock %}
 
         
