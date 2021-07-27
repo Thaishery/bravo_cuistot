@@ -309,10 +309,10 @@
        }
 
   /* ? Style bouton action " Close " Menu Navigation */
-
+ 
      #boutonCloseMenuNav:hover{
-      color:  rgb(233,28,47);
-        transition: color 0.5s, background-color 0.5s;
+       color:  rgb(233,28,47);
+       transition: color 0.5s, background-color 0.5s;
      }
 
    /* ? Style de la Side Bar */
@@ -352,6 +352,17 @@
       color : #f1f1f1;
       background-color :rgb(0, 172, 92, 0.9);
     }
+
+    /* ? Style de la barre verticale du Menu */
+
+     .barreVerticaleMenu {
+       border-left: 6px solid green;
+       height: 500px;
+       position: absolute;
+       left: 50%;
+       margin-left: -3px;
+       top: 0;
+     }
 
     @media screen and (max-height: 450px) {
    
@@ -474,3 +485,38 @@
            width:21px;
            height:21px;
        }
+
+     /* ? Barre de recherche > Gestion des Utilisateurs */
+
+     #myInput {
+      background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+      background-position: 10px 12px; /* Position the search icon */
+      background-repeat: no-repeat; /* Do not repeat the icon image */
+      width: 100%; /* Full-width */
+      font-size: 16px; /* Increase font-size */
+      padding: 12px 20px 12px 40px; /* Add some padding */
+      border: 1px solid #ddd; /* Add a grey border */
+      margin-bottom: 12px; /* Add some space below the input */
+    }
+    
+    #myTable {
+      border-collapse: collapse; /* Collapse borders */
+      width: 100%; /* Full-width */
+      border: 1px solid #ddd; /* Add a grey border */
+      font-size: 18px; /* Increase font-size */
+    }
+    
+    #myTable th, #myTable th {
+      text-align: left; /* Left-align text */
+      padding: 12px; /* Add padding */
+    }
+    
+    #myTable tr {
+      /* Add a bottom border to all table rows */
+      border-bottom: 1px solid #ddd;
+    }
+    
+    #myTable tr.header, #myTable tr:hover {
+      /* Add a grey background color to the table header and on hover */
+      background-color: #f1f1f1;
+    }

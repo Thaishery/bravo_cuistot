@@ -30,7 +30,7 @@
                                  <hr/>
 
                                      <p> 
-                                         <em> Consultez et gérez vos recettes ! </em> 📇
+                                         <em> Consulter et gérer vos recettes ! </em> 📇
                                      </p>
 
                                  <hr/>                
@@ -54,6 +54,23 @@
                          </section> 
 
                      {% endif %}
+
+                     {# ! todo: Ne marche pas encore. Voir comment on implémente la fonctionnalité #}
+                 
+                     {# ? Partie: Barre de recherche #}
+       
+                     <form> 
+
+                         <kbd> WPS: la barre de recherche ne marche pas encore </kbd>
+
+                         <input class="form-control border-dark text-center"
+                                 type="text" 
+                                 placeholder="Entrer un mot clé ou le nom d'une recette (Exemple: Salade, Pate, Tiramisu, Mojito, etc...)"
+                                 aria-label="Search">
+                    
+                     </form>
+
+                     <br/>
 
                      {# ? Partie: Liste des recettes. #}
 
@@ -91,7 +108,9 @@
                                                      {% if recette.image %}
 
                                                          <figure>
-                                                             <img src="{{asset('uploads/recettes/'~ recette.image)}}" style="max-width:100%" alt="Image de la recette"/>
+                                                             <img src="{{asset('uploads/recettes/'~ recette.image)}}" 
+                                                                 style="max-width: 20vw; max-height:20vh;"
+                                                                 alt="Image de la recette"/>
                                                          </figure>
 
                                                      {% else  %}

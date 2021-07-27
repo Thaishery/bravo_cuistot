@@ -48,7 +48,6 @@
     
                                  <ul class="dropdown-menu dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
 
-                                     {# ***** Gestion des recettes ***** #}
                                      <h6> <kbd> Gestion des recettes </kbd> </h6> 
 
                                          <li>
@@ -79,7 +78,6 @@
                                       
                                          {% endif %}
 
-                                     {# ***** Gestion du site ***** #}
                                      <h6> <kbd> Gestion du profil </kbd> </h6>
                                      
                                          <li> 
@@ -99,8 +97,6 @@
                                          </li>
 
                                          <hr style="color:grey;"/>
-
-                                     {# ***** Bouton Action: Se déconnecter ***** #}
 
                                          <li>
 
@@ -147,24 +143,18 @@
 		                    	 <source src="/Sound/MGS_MenuOff1.mp3" type="audio/mpeg"></source>
 		                     </audio>
 
-                             <a id="boutonCloseMenuNav" href="javascript:void(0)" 
+                             <a id="boutonCloseMenuNav" 
+                                 href="javascript:void(0)" 
                                  class="closebtn" 
                                  preload="auto" 
                                  onmousedown="SoundFxMenuClose()" 
                                  onclick="closeNav()" 
                                  onmouseover="style.color='red'" 
                                  onmouseout="style.color='rgb(123, 132, 255, 0.9)'" >
-                                 &times; 
-                             </a>
-              
-                             <script>
 
-		                		 var audioDuBoutonClose = document.getElementById("MenuNavigationClose");
-		                	  	 function SoundFxMenuClose() {
-		                			 audioDuBoutonClose.play ();
-		                		 }
-                                 
-		                	 </script>
+                                 <i class="fa fa-times" aria-hidden="true"></i>
+
+                             </a>               
                  
 		                 </article>
 
@@ -178,6 +168,8 @@
                                 
                                  <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
                               
+                                     <div class="barreVerticaleMenu"></div>
+
                                      <p id="titreMenuNavigation"> 
                                          Menu 
                                          {# 💻 #}
@@ -296,13 +288,6 @@
                              onmousedown="SoundFxMenuOpen()" 
                              onclick="openNav(1)"> 
                              &#9776; </span> 
-   
-                         <script>
-		            	 var audioDuBoutonOpen = document.getElementById("MenuNavigationOpen");
-		              	 function SoundFxMenuOpen() {
-		            		 audioDuBoutonOpen.play ();
-		            	 }
-		                </script>
 
 		             </article>
 
@@ -312,7 +297,7 @@
 
              <hr style="color: black;"/> 
      
-                 {# <article class="p-3 text-white">
+             {# <article class="p-3 text-white">
 
                      <div class="container">
 
@@ -343,9 +328,26 @@
 
                      </div>
 
-                 </article> #}
+             </article> #}
 
          </header>
+
+
+         {# ? Partie: Animation Bouton Open #}
+         <script>
+		  	 var audioDuBoutonOpen = document.getElementById("MenuNavigationOpen");
+		   	 function SoundFxMenuOpen() {
+		  		 audioDuBoutonOpen.play ();
+		  	 }
+		 </script>
+
+         {# ? Partie: Animation Bouton Close #}
+         <script>
+			 var audioDuBoutonClose = document.getElementById("MenuNavigationClose");
+		  	 function SoundFxMenuClose() {
+				 audioDuBoutonClose.play ();
+			 }
+		 </script>
 
      </div>
            

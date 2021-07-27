@@ -32,100 +32,144 @@
 
                  </section>
                  
-                 {# *********************************************** #}
-  
-                 <article>
+                 {# ? Partie: Barre de recherche User #}
+
+                 <h6> <kbd> Barre de recherche par filtre en cours d'intégration: Work In Progress ⚠️ </kbd> </h6>
+                 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Entrer un mot clé pour effectuer une recherche rapide...">
+
+                     <article>
     
-                     <table class="table table-dark table-hover">
+                         <table id="myTable" class="table table-dark table-hover">
 
-                         <thead>
+                             <thead>
 
-                             <tr>
-                                 <th> Id </th>
-                                 <th> Pseudo </th>
-                                 <th> Roles </th>
-                                 <th> Mot de passe </th>
-                                 <th> Avatar </th>
-                                 <th> Email </th>
-                                 <th> Actions </th>
-                             </tr>
-
-                         </thead>
-
-                         <tbody>
-
-                         {% for user in users %}
-
-                             <tr>
-
-                                 <td> {{ user.id }} </td>
-                                 <td> {{ user.login }} </td>
-
-                                 <td>
-
-                                     {% autoescape false %} 
-                                     {# {{ user.roles ? user.roles|json_encode : '' }} #}
-                                         {{user.roles|json_encode() ? user.roles|json_encode|replace({',':', <br/>', 'ROLE_USER':'User', 'ROLE_ADMIN':'Admin', '[':'','"':'',']':''}) : ''}}
-                                     {% endautoescape %}
-                                 
-                                 </td>
-                            
-                                 {# <td> {{ user.password }} </td> #}
-                                 <td> {{ user.password |length > 10 ? user.password |slice(0,10)~'...' : user.password }} </td>
-
-
-                                 <td> {{ user.avatar ? 'oui' : 'non' }} </td>
-                                 <td> {{ user.email }} </td>
-
-                                 <td>
-                                
-                                     <section class="btn-group">
-
-                                         <a href="{{ path('user_show', {'id': user.id}) }}" type="submit" class="btn btn-success btn-lg col-12">                                
-                                             Voir
-                                         </a>  
-    
-                                         <a href="{{ path('user_edit', {'id': user.id}) }}" type="submit" class="btn btn-success btn-lg col-12">                                
-                                             Modifier
-                                         </a>   
-
-                                     </section>    
-
-                                 </td>
-
-                             </tr>
-
-                             {% else %}
-
-                                 <tr>
-                                     <td colspan="7"> Aucun élément ne correspond à votre recherche </td>
+                                 <tr class="header">
+                                     <th> Id </th>
+                                     <th> Pseudo </th>
+                                     <th> Roles </th>
+                                     <th> Mot de passe </th>
+                                     <th> Avatar </th>
+                                     <th> Email </th>
+                                     <th> Actions </th>
                                  </tr>
 
-                             {% endfor %}
+                             </thead>
 
-                         </tbody>
+                             {# ! todo: La fonction " Barre de recherche ne fonctionne pas encore. #}
+                             {# ! Je voudrais intégrer une barre de recherche > qui appplique un filtre sur nos champs #}
+                             {# !  Table filtre > Source: https://www.w3schools.com/howto/howto_js_filter_table.asp #}
 
-                     </table>
+                             <script>
 
-                 </article>
-                 
-                 {# *********************************************** #}
+                                 function myFunction() {
 
-                 <hr/>
+                                     // Declare variables
+                                     var input, filter, table, tr, th, i, txtValue;
+                                     input = document.getElementById("myInput");
+                                     filter = input.value.toUpperCase();
+                                     table = document.getElementById("myTable");
+                                     tr = table.getElementsByTagName("tr");
+                                 
+                                     // Loop through all table rows, and hide those who don't match the search query
+                                     for (i = 0; i < tr.length; i++) {
 
-                 <section class="btn-group-vertical col-12">
+                                         th = tr[i].getElementsByTagName("th")[0];
 
-                     <a href="{{ path('user_new') }}" class="btn btn-dark col-12 btn-lg px-4 gap-3">
-                         Créer un nouvel utilisateur
-                     </a>
+                                         if (th) {
 
-                     <a href="{{ path('interface_administration') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">
-                         Retour à l'interface d'administration
-                     </a>
+                                             txtValue = th.textContent || th.innerText;
 
-                 </section>    
+                                             if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                                 tr[i].style.display = "";
+                                             } 
+                                             
+                                             else {
+                                                 tr[i].style.display = "none";
+                                             }
 
-                 {# *********************************************** #}
+                                         }
+
+                                     }
+
+
+                                 }
+
+                             </script>
+                             
+                             <tbody>
+
+                             {% for user in users %}
+
+                                 <tr>
+
+                                     <td> {{ user.id }} </td>
+                                     <td> {{ user.login }} </td>
+
+                                     <td>
+
+                                         {% autoescape false %} 
+                                         {# {{ user.roles ? user.roles|json_encode : '' }} #}
+                                             {{user.roles|json_encode() ? user.roles|json_encode|replace({',':', <br/>', 'ROLE_USER':'User', 'ROLE_ADMIN':'Admin', '[':'','"':'',']':''}) : ''}}
+                                         {% endautoescape %}
+                                     
+                                     </td>
+                                
+                                     {# <td> {{ user.password }} </td> #}
+                                     <td> {{ user.password |length > 10 ? user.password |slice(0,10)~'...' : user.password }} </td>
+
+
+                                     <td> {{ user.avatar ? 'oui' : 'non' }} </td>
+                                     <td> {{ user.email }} </td>
+
+                                     <td>
+                                    
+                                         <section class="btn-group">
+
+                                             <a href="{{ path('user_show', {'id': user.id}) }}" type="submit" class="btn btn-success btn-lg col-12">                                
+                                                 Voir
+                                             </a>  
+    
+                                             <a href="{{ path('user_edit', {'id': user.id}) }}" type="submit" class="btn btn-success btn-lg col-12">                                
+                                                 Modifier
+                                             </a>   
+
+                                         </section>    
+
+                                     </td>
+
+                                 </tr>
+
+                                 {% else %}
+
+                                     <tr>
+                                         <td colspan="7"> Aucun élément ne correspond à votre recherche </td>
+                                     </tr>
+
+                                 {% endfor %}
+
+                             </tbody>
+
+                         </table>
+
+                     </article>
+                     
+                     {# *********************************************** #}
+
+                     <hr/>
+
+                     <section class="btn-group-vertical col-12">
+
+                         <a href="{{ path('user_new') }}" class="btn btn-dark col-12 btn-lg px-4 gap-3">
+                             Créer un nouvel utilisateur
+                         </a>
+
+                         <a href="{{ path('interface_administration') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">
+                             Retour à l'interface d'administration
+                         </a>
+
+                     </section>    
+
+                     {# *********************************************** #}
 
              <div/>      
 

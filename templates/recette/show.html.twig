@@ -191,13 +191,16 @@
 
                                      {{ form_start(formNote) }}
 
-                                          {{ form_widget(formNote) }}
-                                            <br/>
+                                         {{ form_widget(formNote) }}
+
+                                         <br/>
+
                                          <button class="col-12 btn btn-success bg-gradient">
                                              {{ button_label|default('Sauvegarder') }}
                                          </button>
 
                                      {{ form_end(formNote) }}
+
                                      <br/>
 
                                  </div>
@@ -317,12 +320,16 @@
                  </div>
 
                  {# ************************* #}   
+
+                 {# ! todo: Ne marche pas encore. Voir comment on implémente la fonctionnalité #}
  
                  {# ? Partie n°3: SlideShow #}
 
                  <article class="row">              
 
                      <section class="col-12">
+
+                         <kbd> WPS: Le Slideshow ne marche pas encore </kbd>
 
                          <button class="col-12 btn btn-success btn-lg px-4 gap-3">
                              Passer en mode " Slideshow ". 
@@ -342,15 +349,17 @@
                  soit ajouter un modal  #}
 
                  {# <div class="login-box modal fade" id="Modal_{{commentaire.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> #}
-                 <div class="login-box modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                 {# <div class="login-box modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
                      <div class="modal-dialog modal-dialog-centered" style="width:900px;max-width:1200px!important">
                 
-                         <div class="modal-content ">
+                         <div class="modal-content "> #}
 
                              {# ************************* #}
 
-                             <section class="modal-header ">
+                             {# ? Partie: Titre #}
+
+                             {# <section class="modal-header ">
 
                                  <h5 class="modal-title" id="exampleModalLabel">
                                      La recette étapes-par-étapes !
@@ -358,13 +367,13 @@
                                
                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                    
-                             </section>
+                             </section> #}
 
                              {# ************************* #}
 
                              {# ? Partie: SlideShow #}
 
-                             <article class="modal-body">      
+                             {# <article class="modal-body">      
 
                                  <form id="formSlideShow">
 
@@ -382,15 +391,15 @@
                                   
                                  </form>
                                                                   
-                             </article>  
+                             </article> #}
 
                              {# ************************* #}
                                        
-                         </div>
+                         {# </div>
 
                      </div>
 
-                 </div>
+                 </div> #}
 
                  <hr/>      
 

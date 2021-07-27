@@ -41,7 +41,7 @@ class RecetteType extends AbstractType
                 FileType::class, [
                     'constraints' => [
                         new File([
-                            'maxSize' => '10024k',
+                            'maxSize' => '1024k',
                             'mimeTypes' => [
                                 'image/jpeg',
                                 'image/bmp',
