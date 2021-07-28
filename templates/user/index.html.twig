@@ -16,19 +16,17 @@
 
              <div class="text-center col-12">
 
-                {# *********************************************** #}
-
                  <section>
     
                      <h1> Gestion des utilisateurs </h1>
          
-                         <hr/>
+                     <hr/>
 
-                             <p> 
-                                 <em> Consulter la liste des utlisateurs de votre site et administrer leurs droits. </em>  📇 
-                             </p>
+                         <p> 
+                             <em> Consulter la liste des utlisateurs de votre site et administrer leurs droits. </em>  📇 
+                         </p>
 
-                         <hr/>
+                     <hr/>
 
                  </section>
                  
@@ -37,29 +35,29 @@
                  <h6> <kbd> Barre de recherche par filtre en cours d'intégration: Work In Progress ⚠️ </kbd> </h6>
                  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Entrer un mot clé pour effectuer une recherche rapide...">
 
-                     <article>
+                 <article>
     
-                         <table id="myTable" class="table table-dark table-hover">
+                     <table id="myTable" class="table table-dark table-hover">
 
-                             <thead>
+                         <thead>
 
-                                 <tr class="header">
-                                     <th> Id </th>
-                                     <th> Pseudo </th>
-                                     <th> Roles </th>
-                                     <th> Mot de passe </th>
-                                     <th> Avatar </th>
-                                     <th> Email </th>
-                                     <th> Actions </th>
-                                 </tr>
+                             <tr class="header">
+                                 <th> Id </th>
+                                 <th> Pseudo </th>
+                                 <th> Roles </th>
+                                 <th> Mot de passe </th>
+                                 <th> Avatar </th>
+                                 <th> Email </th>
+                                 <th> Actions </th>
+                             </tr>
 
-                             </thead>
+                         </thead>
 
-                             {# ! todo: La fonction " Barre de recherche ne fonctionne pas encore. #}
-                             {# ! Je voudrais intégrer une barre de recherche > qui appplique un filtre sur nos champs #}
-                             {# !  Table filtre > Source: https://www.w3schools.com/howto/howto_js_filter_table.asp #}
+                         {# ! todo: La fonction " Barre de recherche ne fonctionne pas encore. #}
+                         {# ! Je voudrais intégrer une barre de recherche > qui appplique un filtre sur nos champs #}
+                         {# !  Table filtre > Source: https://www.w3schools.com/howto/howto_js_filter_table.asp #}
 
-                             <script>
+                         <script>
 
                                  function myFunction() {
 
@@ -94,82 +92,77 @@
 
                                  }
 
-                             </script>
-                             
-                             <tbody>
+                         </script>
+                         
+                         <tbody>
 
-                             {% for user in users %}
+                         {% for user in users %}
+
+                             <tr>
+
+                                 <td> {{ user.id }} </td>
+                                 <td> {{ user.login }} </td>
+
+                                 <td>
+
+                                     {% autoescape false %} 
+                                         {{user.roles|json_encode() ? user.roles|json_encode|replace({',':', <br/>', 'ROLE_USER':'User', 'ROLE_ADMIN':'Admin', '[':'','"':'',']':''}) : ''}}
+                                     {% endautoescape %}
+                                 
+                                 </td>
+                            
+                                 {# <td> {{ user.password }} </td> #}
+                                 <td> {{ user.password |length > 10 ? user.password |slice(0,10)~'...' : user.password }} </td>
+
+
+                                 <td> {{ user.avatar ? 'oui' : 'non' }} </td>
+                                 <td> {{ user.email }} </td>
+
+                                 <td>
+                                
+                                     <section class="btn-group">
+
+                                         <a href="{{ path('user_show', {'id': user.id}) }}" type="submit" class="btn btn-success btn-lg col-12">                                
+                                             Voir
+                                         </a>  
+    
+                                         <a href="{{ path('user_edit', {'id': user.id}) }}" type="submit" class="btn btn-success btn-lg col-12">                                
+                                             Modifier
+                                         </a>   
+
+                                     </section>    
+
+                                 </td>
+
+                             </tr>
+
+                             {% else %}
 
                                  <tr>
-
-                                     <td> {{ user.id }} </td>
-                                     <td> {{ user.login }} </td>
-
-                                     <td>
-
-                                         {% autoescape false %} 
-                                         {# {{ user.roles ? user.roles|json_encode : '' }} #}
-                                             {{user.roles|json_encode() ? user.roles|json_encode|replace({',':', <br/>', 'ROLE_USER':'User', 'ROLE_ADMIN':'Admin', '[':'','"':'',']':''}) : ''}}
-                                         {% endautoescape %}
-                                     
-                                     </td>
-                                
-                                     {# <td> {{ user.password }} </td> #}
-                                     <td> {{ user.password |length > 10 ? user.password |slice(0,10)~'...' : user.password }} </td>
-
-
-                                     <td> {{ user.avatar ? 'oui' : 'non' }} </td>
-                                     <td> {{ user.email }} </td>
-
-                                     <td>
-                                    
-                                         <section class="btn-group">
-
-                                             <a href="{{ path('user_show', {'id': user.id}) }}" type="submit" class="btn btn-success btn-lg col-12">                                
-                                                 Voir
-                                             </a>  
-    
-                                             <a href="{{ path('user_edit', {'id': user.id}) }}" type="submit" class="btn btn-success btn-lg col-12">                                
-                                                 Modifier
-                                             </a>   
-
-                                         </section>    
-
-                                     </td>
-
+                                     <td colspan="7"> Aucun élément ne correspond à votre recherche </td>
                                  </tr>
 
-                                 {% else %}
+                             {% endfor %}
 
-                                     <tr>
-                                         <td colspan="7"> Aucun élément ne correspond à votre recherche </td>
-                                     </tr>
+                         </tbody>
 
-                                 {% endfor %}
+                     </table>
 
-                             </tbody>
+                 </article>
 
-                         </table>
+                 <hr/>
 
-                     </article>
-                     
-                     {# *********************************************** #}
+                 <section class="btn-group-vertical col-12">
 
-                     <hr/>
+                     <a href="{{ path('user_new') }}" class="btn btn-dark col-12 btn-lg px-4 gap-3">
+                         Créer un nouvel utilisateur
+                     </a>
 
-                     <section class="btn-group-vertical col-12">
+                     <a href="{{ path('interface_administration') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">
+                         Retour à l'interface d'administration
+                     </a>
 
-                         <a href="{{ path('user_new') }}" class="btn btn-dark col-12 btn-lg px-4 gap-3">
-                             Créer un nouvel utilisateur
-                         </a>
-
-                         <a href="{{ path('interface_administration') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">
-                             Retour à l'interface d'administration
-                         </a>
-
-                     </section>    
-
-                     {# *********************************************** #}
+                 </section>    
 
              <div/>      
 

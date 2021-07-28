@@ -8,8 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class FavoriType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
+    public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
             ->add('ajoutFavori', SubmitType::class, [
                 'validation_groups' => false, //dit au form de ne pas faire le submit de l'autre formulaire

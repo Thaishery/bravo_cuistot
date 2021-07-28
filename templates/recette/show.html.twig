@@ -321,23 +321,94 @@
 
                  {# ************************* #}   
 
-                 {# ! todo: Ne marche pas encore. Voir comment on implémente la fonctionnalité #}
+                 {# ? Modal Slideshow #}
+
+                 <main class="modalSlideShow">
+   
+                     <button class="col-12 btn btn-success btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#modalSlideShow">
+
+                         Passer en mode " Slideshow ". 
+                      
+                         <abbr title="Modifier"> 
+                             <i class="fa fa-indent" aria-hidden="true"></i>
+                         </abbr>   
+                 
+                     </button>
+
+                     {# ***** MODAL ***** #}
+
+                     <div class="login-box modal fade" id="modalSlideShow" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    
+                         <div class="modal-dialog modal-dialog-centered">
+                    
+                             <div class="modal-content">
+
+                                 {# ************************* #}
+
+                                 <section class="modal-header ">
+
+                                     <h5 class="modal-title text-center" id="exampleModalLabel">
+                                         🏡 &nbsp Mode SlideShow
+                                     </h5>
+                                   
+                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                               
+                                 </section>
+
+                                 <article class="modal-body">
+
+                                     <div class="col-12 row">
+
+                                         {% if listeEtapes %}
+
+                                             {# ? Partie: Numéro de l'étape #}
+                                             <div class="col-1">
+                                                 <h3> {{listeEtapes.0.isNumber}} / {{nombreEtapes}} </h3>
+                                             </div>
+
+                                             {# ? Partie: Nom de l'étape #}
+                                             <div class="col-11">
+                                                 <h3> {{listeEtapes.0.name|capitalize }} </h3>
+                                             </div>
+
+                                             {# ? Partie: Image de l'étape #}
+                                             {% if listeEtapes.0.image %}
+
+                                                 <div class ="col-6">
+                                                     <img src="{{asset('/uploads/etapes/'~ listeEtapes.0.image)}}" alt="image de l'étape" style="max-width:100%"/>
+                                                 </div>
+
+                                                 <div class="col-6">
+                                                     {{listeEtapes.0.description|capitalize }}
+                                                 </div>
+
+                                                 {% else %}
+
+                                                     <div class="col-12">
+                                                         {{listeEtapes.0.description|capitalize }}
+                                                     </div>
+
+                                                 </div>
+
+                                             {% endif %}
+
+                                         {% endif %}
+
+                                     </div>
  
-                 {# ? Partie n°3: SlideShow #}
+                                 </article>  
 
-                 <article class="row">              
+                                 {# ************************* #}
+                                           
+                             </div>
 
-                     <section class="col-12">
+                         </div>
 
-                         <kbd> WPS: Le Slideshow ne marche pas encore </kbd>
+                     </div>
 
-                         <button class="col-12 btn btn-success btn-lg px-4 gap-3">
-                             Passer en mode " Slideshow ". 
-                         </button>
+                     {# ************************* #}
 
-                     </section>
-
-                 </article> 
+                 </main>
 
                  {# ? MODAL > SlideShow #}
            
@@ -349,17 +420,17 @@
                  soit ajouter un modal  #}
 
                  {# <div class="login-box modal fade" id="Modal_{{commentaire.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> #}
-                 {# <div class="login-box modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                 {# {# <div class="login-box modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> #}
 
-                     <div class="modal-dialog modal-dialog-centered" style="width:900px;max-width:1200px!important">
+                     {# <div class="modal-dialog modal-dialog-centered" style="width:900px;max-width:1200px!important">
                 
-                         <div class="modal-content "> #}
+                         <div class="modal-content ">  #}
 
                              {# ************************* #}
 
                              {# ? Partie: Titre #}
 
-                             {# <section class="modal-header ">
+                              {# <section class="modal-header ">
 
                                  <h5 class="modal-title" id="exampleModalLabel">
                                      La recette étapes-par-étapes !
@@ -367,7 +438,7 @@
                                
                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                    
-                             </section> #}
+                             </section>  #}
 
                              {# ************************* #}
 
@@ -395,11 +466,11 @@
 
                              {# ************************* #}
                                        
-                         {# </div>
+                          {# </div>
 
                      </div>
 
-                 </div> #}
+                 </div>  #}
 
                  <hr/>      
 
