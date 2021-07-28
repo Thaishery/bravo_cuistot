@@ -1,0 +1,118 @@
+ {% extends 'base.html.twig' %}
+
+     {% block metaTitle %}
+         " Contact "
+     {% endblock %}
+     
+     {% block title %}
+         Contact
+     {% endblock %}
+     
+     {% block body %}
+
+       <main class="Form"> 
+
+         <div class="text-center"> 
+
+           {# ? Partie: Titre #}
+
+           <section>
+   
+             <h1> Contact </h1>
+
+               <hr/>
+
+                 <h6> 
+                   <em> A propos de l'équipe Bravo Cuistot. </em> 👨‍🍳
+                 </h6>
+
+               <hr/>
+
+           </section> 
+
+           <br/>
+
+           <div class="container">
+
+             {# ? Partie: Carte n°1 #}
+             <div class="column">
+
+               <div class="card">
+
+                 <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
+
+                 <div class="container">
+
+                   <h2> Jane Doe </h2>
+
+                     <p class="title"> CEO & Founder </p>
+                     <p> Some text that describes me lorem ipsum ipsum lorem. </p>
+                     <p> jane@example.com </p>
+                     <p>
+                       <button class="btn btn-success bg-gradient col-8"> Contact </button>
+                     </p>
+                
+                 </div>
+
+               </div>
+
+             </div>
+
+             <br/>         
+ 
+             {# ? Partie: Carte n°2 #}        
+             <div class="column">
+
+               <div class="card">
+
+                 <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
+
+                 <div class="container">
+
+                   <h2> Mike Ross </h2>
+
+                     <p class="title"> Art Director </p>
+                     <p> Some text that describes me lorem ipsum ipsum lorem. </p>
+                     <p> mike@example.com </p>
+                     <p>
+                       <button class="btn btn-success bg-gradient col-8"> Contact </button>
+                     </p>
+
+                 </div>
+
+               </div>
+
+             </div>
+
+             <br/>   
+
+             {# ? Partie: Carte n°3 #}       
+             <div class="column">
+
+               <div class="card">
+
+                 <img src="/w3images/team3.jpg" alt="John" style="width:100%">
+
+                 <div class="container">
+                 
+                   <h2> John Doe </h2>
+                   <p class="title"> Designer </p>
+                   <p> Some text that describes me lorem ipsum ipsum lorem. </p>
+                   <p> john@example.com </p>
+                   <p>
+                     <button class="btn btn-success bg-gradient col-8"> Contact </button>
+                   </p>
+               
+                 </div>
+              
+               </div>
+            
+             </div>
+         
+           </div>
+ 
+         </div> 
+
+       </main>
+
+     {% endblock %}
