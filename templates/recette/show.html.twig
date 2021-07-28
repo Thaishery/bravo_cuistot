@@ -415,7 +415,7 @@
 
                                      <br/>
 
-                                     <button type="button" class="btn btn-success btn-lg bg-gradient col-12 text-white">
+                                     <button class="btn btn-success btn-lg bg-gradient col-12 text-white">
                                          {{ button_label|default('Sauvegarder') }}
                                      </button>
 
@@ -449,7 +449,7 @@
                                  {% if user.avatar %}
 
                                      <figure>
-                                         <img id="cardAvatar" class="card-img-top" alt="Image de l'avatar de l'utilisateur" src="{{ asset('uploads/avatar/' ~ user.avatar) }}"/>
+                                         <img id="cardAvatar" class="card-img-top" alt="Image de l'avatar de l'utilisateur" src="{{ asset('uploads/avatar/' ~ commentaire.userId.avatar) }}"/>
                                          {# <img src="{{asset("uploads/avatar")}} "alt="Image de l'avatar de l'utilisateur"> #}
                                      </figure>
 
