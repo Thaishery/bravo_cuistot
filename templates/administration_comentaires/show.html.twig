@@ -15,9 +15,7 @@
          <main class="Form">  
 
              <div  class="py-5 text-center col-12">
-         
-                 {# *********************************************** #}
-
+ 
                  <section>
 
                      <h1> Commentaires </h1>
@@ -31,8 +29,6 @@
                          <hr/>
 
                  </section>
-
-                 {# *********************************************** #}
 
                  <article>
 
@@ -66,35 +62,29 @@
 
                  </article>
 
-                 {# *********************************************** #}
-     
                  <hr/>
 
-                     <article class="btn-group-vertical col-12">
+                 <article class="btn-group-vertical col-12">
      
-                         <a href="{{ path('administration_comentaires_edit', {'id': commentaire.id}) }}" type="submit" class="btn col-12 btn-dark btn-lg px-4">
-                             Modifier
-                         </a>
+                     <a href="{{ path('administration_comentaires_edit', {'id': commentaire.id}) }}" type="submit" class="btn col-12 btn-dark btn-lg px-4">
+                         Modifier
+                     </a>
        
-                         <a href="{{ path('administration_comentaires_index') }}" type="submit" class="btn btn-success btn-lg px-4 gap-3">
-                             Retour à la liste
-                         </a>
+                     <a href="{{ path('administration_comentaires_index') }}" type="submit" class="btn btn-success btn-lg px-4 gap-3">
+                         Retour à la liste
+                     </a>
 
-                     </article>
+                 </article>
     
-                     <hr/>
+                 <hr/>
 
-                     <article class="col-12">
+                 <article class="col-12">
+                     {{ include('administration_comentaires/_delete_form.html.twig') }}
+                 </article>
+                 
+             </div>         
 
-                         {{ include('administration_comentaires/_delete_form.html.twig') }}
-
-                     </article>
-
-                     {# *********************************************** #}
-           
-                 </div>         
-
-             </main>  
+         </main>  
 
      {% endblock %}
      

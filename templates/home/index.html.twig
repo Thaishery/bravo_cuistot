@@ -12,58 +12,40 @@
 
          {% if not app.user%}
 
-             {# ? Partie 1 de l'accueil du site: Bienvenue #}
-
               <div class="bg1">
 
-                 {# ? Breadcrums n°1 #}
                  <a id="bienvenue"></a>	   
 
                  <br/>
 
-                     <section id="ctaButtonConteneur1" class="presentation first">
+                 <section id="ctaButtonConteneur1" class="presentation first">
 
-                     {# ? Conteneur de gauche #}
+                     <div class="product-presentation"> 
+                    
+                         <h2 class"phraseAccroche"> 
 
-                         <div class="product-presentation"> 
+                             <em> 
+                                 Vos recettes préférées <br/> 
+                                 sont à l'affiche 
+                             <em>
 
-                             {# ? Titre d'accroche #}
-                         
-                             <h2 class"phraseAccroche"> 
+                         </h2> 
 
-                                 <em> 
-                                     Vos recettes préférées <br/> 
-                                     sont à l'affiche 
-                                 <em>
+                         <br/>
 
-                             </h2> 
+                         <a name="callToActionButton1" href="{{path("app_register")}}" class="btn btn-success btn-lg px-4 gap-3 glow" >                            
+                             S'inscrire maintenant 
+                         </a> 
 
-                             <br/>
+                         <br/>
 
-                             {# ? Bouton Call-To-Action CTA #}
-
-                             <a name="callToActionButton1" href="{{path("app_register")}}" class="btn btn-success btn-lg px-4 gap-3 glow" >                            
-                                 S'inscrire maintenant 
-                             </a> 
-
-                             <br/>
-
-                             {# ? Phrase accroche #}
-
-                             <p>
-                                 0.00€ / par mois. Essayez c'est gratuit!            
-                             </p>
+                         <p>
+                             0.00€ / par mois. Essayez c'est gratuit!            
+                         </p>
  
-                         </div>   
+                     </div>   
 
-                         {# ? Conteneur de droite #}
-
-                             {# 
-                                 <div class="image-presentation">  
-                                 </div>
-                             #}
-
-                     <section>  
+                 <section>  
                 
              </div>
 
@@ -71,49 +53,33 @@
 
          {% if app.user%}    
 
-         {# ? Partie 2 de l'accueil du site: Présentation #}
-
              <div class="bg2">
 
-                 {# ? Breadcrums n°2 #}
                  <a id="presentation"></a>	
 
                  <br/>
-                                          
-                 {# ************************************** #} 
 
-                 {# ? Phrase d'accueil du visiteur #} 
-
-                     <p class="text-center col-12">
-                         
-                         <em> Bienvenue sur Bravo Cuistot 
+                 <p class="text-center col-12">
+                     
+                     <em> Bienvenue sur Bravo Cuistot 
     
-                             {% if app.user %}
-                                 {{ app.user.username }} ! 
-                             {% endif %}  
+                         {% if app.user %}
+                             {{ app.user.username }} ! 
+                         {% endif %}  
 
-                         </em> 🏡 
+                     </em> 🏡 
 
-                     </p> 
-
-                 {# ************************************** #} 
+                 </p> 
 
                  <div class="text-center col-12">
 
                      <hr class="homeDivider3"/>
 
-                     {# ************************************** #} 
-
-                     {# ? Partie: Description brève du site #}
-
                      <article class="flex-container2">
 
                          <div class="row">
 
-                             {# ************************************** #} 
-
                              {# ? Bloc n°1: 10 x Plus Appétissant #} 
-
                              <div class="col-md-4 col-sm-6 col-xs-12">
 
                                  <div class="service-item">
@@ -131,10 +97,7 @@
 
                              </div>
 
-                             {# ************************************** #} 
-
                              {# ? Bloc n°2: Manager votre profil #} 
-
                              <div class="col-md-4 col-sm-6 col-xs-12">
                              
                                  <div class="service-item">
@@ -152,10 +115,7 @@
 
                              </div>
 
-                             {# ************************************** #} 
-
                              {# ? Bloc n°3: Plateforme dédié #} 
-
                              <div class="col-md-4 col-sm-6 col-xs-12">
 
                                  <div class="service-item">
@@ -176,8 +136,6 @@
                          </div>
 
                      </article>
-
-                     {# ******************** #} 
 
                      <hr class="homeDivider4"/>
 

@@ -1,18 +1,18 @@
  
      {{ form_start(form) }}
 
-     <article class="flex-container3">
+         <article class="flex-container3">
 
-         <hr/>
+             <hr/>
  
-         {# ********** NOM ********** #}
+             {# ********** NOM ********** #}
 
              <section>
 
                  {# *** LABEL *** #}
                  {# {{ form_label(form.content) }} #}
                  <label> Contenu </label>
-         
+             
                  {# *** INPUT *** #}
                  {{ form_widget(form.content,{ 
                              
@@ -25,17 +25,15 @@
              
              </section>
 
-         <hr/>    
+             <hr/>    
 
-     </article> 
-
-     {# ******************** #}
+         </article> 
 
          {{ form_widget(form) }}
  
-         <button class="btn col-12 btn-dark btn-lg px-4">
-             {{ button_label|default('Sauvegarder') }}
-         </button>
+             <button class="btn col-12 btn-dark btn-lg px-4">
+                 {{ button_label|default('Sauvegarder') }}
+             </button>
  
      {{ form_end(form) }}
  

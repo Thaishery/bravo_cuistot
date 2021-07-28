@@ -2,14 +2,12 @@
      
      {{ form_start(form) }}
 
-     <article class="flex-container3">
-
-         <hr/>
-         
-         {# ********** NOM ********** #}
-
+         <article class="flex-container3">
+    
+             <hr/>
+    
              <section>
-
+    
                  {# *** LABEL *** #}
                  {{ form_label(form.name) }}
              
@@ -17,18 +15,16 @@
                  {{ form_widget(form.name) }}
              
              </section>
-
-         <hr/>    
-
-     </article> 
-
-     {# ******************** #}
+    
+             <hr/>    
+    
+         </article> 
 
          {{ form_widget(form) }}
         
-         <button class="btn col-12 btn-dark btn-lg px-4">
-             {{ button_label|default('Sauvegarder') }}
-         </button>
+             <button class="btn col-12 btn-dark btn-lg px-4">
+                 {{ button_label|default('Sauvegarder') }}
+             </button>
     
      {{ form_end(form) }}
      

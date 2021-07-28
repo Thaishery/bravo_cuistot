@@ -16,23 +16,19 @@
 
              <div class="py-5 text-center col-12">
 
-                 {# *********************************************** #}
-     
                  <section>
 
                      <h1> Type de cuissons </h1>
                    
-                         <hr/>
+                     <hr/>
 
-                             <p> 
-                                 <em> Informations sur le type de cuisson ! </em> 👾
-                             </p>
+                         <p> 
+                             <em> Informations sur le type de cuisson ! </em> 👾
+                         </p>
 
-                         <hr/>
+                     <hr/>
 
                  </section>
-      
-                 {# *********************************************** #}
 
                  <article>
 
@@ -54,33 +50,27 @@
 
                      </table>
 
-                     </article>  
+                 </article>  
 
-                     {# *********************************************** #}      
-                   
-                     <hr/>
+                 <hr/>
 
-                     <article class="btn-group-vertical col-12">
+                 <article class="btn-group-vertical col-12">
 
-                         <a href="{{ path('administration_cuisson_edit', {'id': cuisson.id}) }}"  type="submit" class="btn btn-dark col-12 btn-lg px-4 gap-3">
-                             Modifier
-                         </a>
+                     <a href="{{ path('administration_cuisson_edit', {'id': cuisson.id}) }}"  type="submit" class="btn btn-dark col-12 btn-lg px-4 gap-3">
+                         Modifier
+                     </a>
 
-                         <a href="{{ path('administration_cuisson_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">
-                             Retour à la liste 
-                         </a>      
-                        
-                     </article>
+                     <a href="{{ path('administration_cuisson_index') }}" type="submit" class="btn btn-success col-12 btn-lg px-4 gap-3">
+                         Retour à la liste 
+                     </a>      
+                    
+                 </article>
 
-                     <hr/> 
+                 <hr/> 
 
-                     <article class="col-12"> 
-
-                         {{ include('administration_cuisson/_delete_form.html.twig') }}
- 
-                     </article>
-
-                     {# *********************************************** #}
+                 <article class="col-12"> 
+                     {{ include('administration_cuisson/_delete_form.html.twig') }}
+                 </article>
 
              </div>
 

@@ -16,19 +16,17 @@
 
              <div class="py-5 text-center col-12">
 
-                 {# *********************************************** #}
-
                  <section>
     
                      <h1> Gestion des commentaires </h1>
 
-                         <hr/>
+                     <hr/>
          
-                             <p> 
-                                 <em> Consulter la liste des commentaires de votre site et effectuer leurs modération. </em> ✏️
-                             </p>
+                         <p> 
+                             <em> Consulter la liste des commentaires de votre site et effectuer leurs modération. </em> ✏️
+                         </p>
 
-                         <hr/>
+                     <hr/>
 
                  </section>  
 
@@ -37,27 +35,27 @@
                  <h6> <kbd> Barre de recherche par filtre en cours d'intégration: Work In Progress ⚠️ </kbd> </h6>
                  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Entrer un mot clé pour effectuer une recherche rapide...">
                 
-                     <article>
+                 <article>
 
-                         <table id="myTable" class="table table-dark table-hover">
+                     <table id="myTable" class="table table-dark table-hover">
 
-                             <thead>
+                         <thead>
 
-                                 <tr class="header">
-                                     <th> Id </th>
-                                     <th> Contenu </th>
-                                     <th> Date de création </th>
-                                     <th> Date d'édition </th>
-                                     <th> Actions </th>
-                                 </tr>
+                             <tr class="header">
+                                 <th> Id </th>
+                                 <th> Contenu </th>
+                                 <th> Date de création </th>
+                                 <th> Date d'édition </th>
+                                 <th> Actions </th>
+                             </tr>
 
-                             </thead>
+                         </thead>
 
-                             {# ! todo: La fonction " Barre de recherche ne fonctionne pas encore. #}
-                             {# ! Je voudrais intégrer une barre de recherche > qui appplique un filtre sur nos champs #}
-                             {# !  Table filtre > Source: https://www.w3schools.com/howto/howto_js_filter_table.asp #}
+                         {# ! todo: La fonction " Barre de recherche ne fonctionne pas encore. #}
+                         {# ! Je voudrais intégrer une barre de recherche > qui appplique un filtre sur nos champs #}
+                         {# !  Table filtre > Source: https://www.w3schools.com/howto/howto_js_filter_table.asp #}
 
-                             <script>
+                         <script>
 
                                  function myFunction() {
 
@@ -92,9 +90,9 @@
 
                                  }
 
-                             </script>
+                         </script>
 
-                             <tbody>
+                         <tbody>
 
                              {% for commentaire in commentaires %}
 
@@ -122,37 +120,33 @@
 
                                  </tr>
 
-                                 {% else %}
+                             {% else %}
 
-                                     <tr>
-                                         <td colspan="5"> Aucun élément ne correspond à votre recherche </td>
-                                     </tr>
+                                 <tr>
+                                     <td colspan="5"> Aucun élément ne correspond à votre recherche </td>
+                                 </tr>
 
-                                 {% endfor %}
+                             {% endfor %}
 
-                             </tbody>
+                         </tbody>
 
-                         </table>  
-                       
-                         {# *********************************************** #}
+                     </table>  
 
-                         <hr/>
+                     <hr/>
 
-                         <section class="btn-group-vertical col-12 ">
+                     <section class="btn-group-vertical col-12 ">
 
-                             <a href="{{ path('administration_comentaires_new') }}" class="btn btn-dark col-12 btn-lg px-4 gap-3">
-                                 Créer un nouveau commentaire
-                             </a>
+                         <a href="{{ path('administration_comentaires_new') }}" class="btn btn-dark col-12 btn-lg px-4 gap-3">
+                             Créer un nouveau commentaire
+                         </a>
 
-                             <a href="{{ path('interface_administration') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">
-                                 Retour à l'interface d'administration
-                             </a>    
+                         <a href="{{ path('interface_administration') }}" class="btn btn-success col-12 btn-lg px-4 gap-3">
+                             Retour à l'interface d'administration
+                         </a>    
 
-                         </section>    
+                     </section>    
 
-                         {# *********************************************** #}
-    
-                     </article>
+                 </article>
 
              </div>
 
