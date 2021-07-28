@@ -277,7 +277,7 @@
 
                          {# <hr/>  #}
 
-                         <h2> Pour {{recette.NbPersonnes}} Convives </h2>
+                         <h2> <button id="buttonMinusConvives">-</button>Pour <span id="nombreDeConvives">{{recette.NbPersonnes}}</span> Convives<button id="buttonPlusConvives">+</button></h2>
                             
                      </div>
 
@@ -298,7 +298,7 @@
                                  
                                          <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
                                              {{ingredients.IngredientsId.name}} : 
-                                             {{ingredients.Quantite}} 
+                                             <span class="ingredientsQuantite">{{ingredients.Quantite}}</span> 
                                              {{ingredients.UnitemesureId.name}}
                                 
                                  </p> 
@@ -627,7 +627,7 @@
          {# *** *** *** **** *** *** #}
 
          <script type="text/javascript" src="{{asset('js/modalCommentaireButton.js')}}"></script> 
-         
+         <script type="text/javascript" src="{{asset('js/gerernombreconvives.js')}}"></script>
          {# {{ include('recette/_delete_form.html.twig') }} #}
 
      {% endblock %}
