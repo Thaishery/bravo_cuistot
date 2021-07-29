@@ -1,3 +1,5 @@
+ console.log('Hello world!');
+
 //on défini un timeout pour s'assuré que les iframes soit bien load avant de lancer le script. 
 setTimeout(() => {
     //on récupére la liste des iframe. 

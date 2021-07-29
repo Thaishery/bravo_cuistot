@@ -102,10 +102,10 @@
                                  <p> 
                                  Temps de préparation: 
                                      <legend title="Temps de préparation"> 
+
                                          <span id="emojiRecette"> ⏰ </span>
-                                      
-                                     
-                                     {{recette.TempsPreparation}} minutes. 
+                                       
+                                         {{recette.TempsPreparation}} minutes. 
                                     </legend>
                                 </p>
 
@@ -357,42 +357,54 @@
 
                                  <article class="modal-body">
 
-                                     <div class="col-12 row">
+                                     <div class="container col-12 row">
 
-                                         {% if listeEtapes %}
+                                         <div class="col-1">
+                                             <button id="flechesDirectionnellesGauche"> &#xf137; </button>
+                                         </div>
 
-                                             {# ? Partie: Numéro de l'étape #}
-                                             <div class="col-1">
-                                                 <h3> {{listeEtapes.0.isNumber}} / {{nombreEtapes}} </h3>
-                                             </div>
+                                             <div class="col-10 container row">
 
-                                             {# ? Partie: Nom de l'étape #}
-                                             <div class="col-11">
-                                                 <h3> {{listeEtapes.0.name|capitalize }} </h3>
-                                             </div>
+                                                 {% if listeEtapes %}
 
-                                             {# ? Partie: Image de l'étape #}
-                                             {% if listeEtapes.0.image %}
-
-                                                 <div class ="col-6">
-                                                     <img src="{{asset('/uploads/etapes/'~ listeEtapes.0.image)}}" alt="image de l'étape" style="max-width:100%"/>
-                                                 </div>
-
-                                                 <div class="col-6">
-                                                     {{listeEtapes.0.description|capitalize }}
-                                                 </div>
-
-                                                 {% else %}
-
-                                                     <div class="col-12">
-                                                         {{listeEtapes.0.description|capitalize }}
+                                                     {# ? Partie: Numéro de l'étape #}
+                                                     <div class="col-6">
+                                                         <h3> {{listeEtapes.0.isNumber}} / {{nombreEtapes}} </h3>
                                                      </div>
 
-                                                 </div>
+                                                     {# ? Partie: Nom de l'étape #}
+                                                     <div class="col-6">
+                                                         <h3> {{listeEtapes.0.name|capitalize }} </h3>
+                                                     </div>
 
-                                             {% endif %}
+                                                     {# ? Partie: Image de l'étape #}
+                                                     {% if listeEtapes.0.image %}
 
-                                         {% endif %}
+                                                         <div class ="col-6">
+                                                             <img src="{{asset('/uploads/etapes/'~ listeEtapes.0.image)}}" alt="image de l'étape" style="max-width:100%"/>
+                                                         </div>
+
+                                                         <div class="col-6">
+                                                             {{listeEtapes.0.description|capitalize }}
+                                                         </div>
+
+                                                         {% else %}
+
+                                                             <div class="col-12">
+                                                                 {{listeEtapes.0.description|capitalize }}
+                                                             </div>
+
+                                                         </div>
+
+                                                     {% endif %}
+
+                                                 {% endif %}
+
+                                             </div>
+
+                                         <div class="col-1">
+                                             <button id="flechesDirectionnellesDroite"> &#xf138; </button>
+                                         </div>
 
                                      </div>
  
@@ -410,115 +422,65 @@
 
                  </main>
 
-                 {# ? MODAL > SlideShow #}
-           
-                 {# créer une variable
-                 - au moment ou la personne clic sur le bouton
-                 mettre un evnt listener
-                 au moment ou la personne clic 
-                 créer / modifier l'inner html 
-                 soit ajouter un modal  #}
-
-                 {# <div class="login-box modal fade" id="Modal_{{commentaire.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> #}
-                 {# {# <div class="login-box modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> #}
-
-                     {# <div class="modal-dialog modal-dialog-centered" style="width:900px;max-width:1200px!important">
-                
-                         <div class="modal-content ">  #}
-
-                             {# ************************* #}
-
-                             {# ? Partie: Titre #}
-
-                              {# <section class="modal-header ">
-
-                                 <h5 class="modal-title" id="exampleModalLabel">
-                                     La recette étapes-par-étapes !
-                                 </h5>
-                               
-                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                   
-                             </section>  #}
-
-                             {# ************************* #}
-
-                             {# ? Partie: SlideShow #}
-
-                             {# <article class="modal-body">      
-
-                                 <form id="formSlideShow">
-
-                                     <input class="inputSlideShow" type="radio" name="SlideShowBravoCuistot" autofocus value="Etape1" id="Etape1" />
-                                     <input class="inputSlideShow" type="radio" name="SlideShowBravoCuistot" value="Etape2" id="Etape2" />
-                                     <input class="inputSlideShow" type="radio" name="SlideShowBravoCuistot" value="Etape3" id="Etape3" />
-                                     <input class="inputSlideShow" type="radio" name="SlideShowBravoCuistot" value="Etape4" id="Etape4" />
-                                    
-                                     <label class="labelSlideShow" for="Etape1"> &#9827; Etape n°1 </label>
-                                     <label class="labelSlideShow" for="Etape2"> &#9829; Etape n°2 </label>
-                                     <label class="labelSlideShow" for="Etape3"> &#9824; Etape n°3 </label>
-                                     <label class="labelSlideShow" for="Etape4"> &#9830; Etape n°4 </label>
-                                  
-                                  	 <div class="flechesDirectionnelles"> Utiliser les flèches directionnelles pour naviguer </div>
-                                  
-                                 </form>
-                                                                  
-                             </article> #}
-
-                             {# ************************* #}
-                                       
-                          {# </div>
-
-                     </div>
-
-                 </div>  #}
-
                  <hr/>      
 
                  {# ? Partie: Contenu de Slideshow #}
-
                  {% for etapes in listeEtapes %}
 
-                     <div class="col-12 row">
-
-                         {# ************************* #}
+                     <div class="row col-12">
 
                          {# ? Partie: Numéro de l'étape #}
-                     
-                         <div class="col-1">
+                         <div class="numeroEtapes col-1">
 
-                             <h3> {{etapes.isNumber}} / {{nombreEtapes}} </h3>
+                             <h3> 
+
+                                 <span class="etapesNumbers {{etapes.isNumber}}">
+                                     {{etapes.isNumber}} 
+                                 </span> / {{nombreEtapes}}
+
+                             </h3>
 
                          </div>
-
-                         {# ************************* #}
 
                          {# ? Partie: Nom de l'étape #}
-
                          <div class="col-11">
 
-                             <h3> {{etapes.name|capitalize }} </h3>
+                             <h3>
 
+                                 <span class="etapeName {{etapes.isNumber}}"> 
+                                     {{etapes.name|capitalize }} 
+                                 </span>
+
+                             </h3>
+                      
                          </div>
 
-                         {# ************************* #}
-
                          {# ? Partie: Image de l'étape #}
-
                          {% if etapes.image %}
 
                              <div class ="col-6">
-                                 <img src="{{asset('/uploads/etapes/'~ etapes.image)}}" alt="image de l'étape" style="max-width:100%"/>
+
+                                 <span class="etapeImage {{etapes.isNumber}}">
+                                     <img src="{{asset('/uploads/etapes/'~ etapes.image)}}" alt="image de l'étape" style="max-width:100%"/>
+                                 </span>
+
                              </div>
 
                              <div class="col-6">
-                                 {{etapes.description|capitalize }}
+
+                                 <span class="etapeDescription {{etapes.isNumber}} hasImage">
+                                     {{etapes.description|capitalize }}
+                                 </span>
+
                              </div>
 
-                             {% else %}
+                         {% else %}
 
-                                 <div class="col-12">
+                             <div class="col-12">
+
+                                 <span class="etapeDescription {{etapes.isNumber}} noImage">
                                      {{etapes.description|capitalize }}
-                                 </div>
+                                 </span>
 
                              </div>
 
@@ -526,7 +488,7 @@
 
                      </div>
 
-                 {% endfor %}     
+                 {% endfor %}  
 
                  {# ************************* #}
 
@@ -764,8 +726,12 @@
          </main>     
 
          {# *** *** *** **** *** *** #}
-
+         {# ? Script JS: SlideShow #}
+         <script type="text/javascript" src="{{asset('js/slideShow.js')}}"></script> 
+        
          <script type="text/javascript" src="{{asset('js/modalCommentaireButton.js')}}"></script> 
+         
+         
          
          {# {{ include('recette/_delete_form.html.twig') }} #}
 

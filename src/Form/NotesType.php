@@ -18,7 +18,7 @@ class NotesType extends AbstractType
             ->add('note', NumberType::class,[
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Veuillez entrer un nom.'
+                        'message' => 'Ajouter une note.'
                     ]),
                     //1er caractére est dif de 0 (marche aussi avec 00 car symfony considére 00 comme 0) : 
                     new Assert\Regex([
