@@ -441,12 +441,11 @@
 
                              {# ************************* #}
 
-                             {# ! todo: j'ai zjouter l'avatar à la partie commentaire mais je ne suis pas sur ca fonctionne. a corriger #}
+                             {# ! todo: j'ai ajouter l'avatar à la partie commentaire mais je ne suis pas sur ca fonctionne. a corriger #}
 
                              <div class="d-flex text-muted pt-3">                          
 
-                                 {# {% if user.0.avatar %} #}
-                                 {% if user.avatar %}
+                                 {% if commentaire.userId.avatar %}
 
                                      <figure>
                                          <img id="cardAvatar" class="card-img-top" alt="Image de l'avatar de l'utilisateur" src="{{ asset('uploads/avatar/' ~ commentaire.userId.avatar) }}"/>
