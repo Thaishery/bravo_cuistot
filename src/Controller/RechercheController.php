@@ -22,7 +22,7 @@ class RechercheController extends AbstractController {
          $form = $this -> createForm(RechercheType::class);
          $form -> handleRequest($request);
 
-         $touteslesrecettes = $recetteRepository -> findAll();
+        //  $touteslesrecettes = $recetteRepository -> findAll();
 
          if ($form->isSubmitted() && $form->isValid()) {
 
